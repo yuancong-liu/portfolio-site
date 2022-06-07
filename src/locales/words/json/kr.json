@@ -1,5 +1,8 @@
 {
   "loading.text": "로딩...",
   "index.text": "상단 화면...",
-  "notfound": "해당 화면을 찾을 수 없음..."
+  "notfound": "해당 화면을 찾을 수 없음...",
+  "button.profile": "나에 대해",
+  "button.portfolio": "포트폴리오",
+  "button.blog": "블로그"
 }

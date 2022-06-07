@@ -6,7 +6,7 @@ function LoadingPage() {
 
   return (
     <>
-      <p>{t('loading.text')}</p>  
+      <p>{ t('loading.text') }</p>  
     </>
   )
 }

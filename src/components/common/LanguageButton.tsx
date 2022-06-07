@@ -14,7 +14,7 @@ function LanguageButton(languageButtonProps: LanguageButtonProps) {
       aria-pressed={languageButtonProps.isPressed}
       onClick={() => languageButtonProps.setLanguage(languageButtonProps.sortKey)}
     >
-      <span>{languageButtonProps.name}</span>
+      <span>{ languageButtonProps.name }</span>
     </button>
   )
 }

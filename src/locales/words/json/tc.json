@@ -1,5 +1,8 @@
 {
   "loading.text": "加載中...",
   "index.text": "首頁...",
-  "notfound": "沒有目標頁面..."
+  "notfound": "沒有目標頁面...",
+  "button.profile": "關於我",
+  "button.portfolio": "作品集",
+  "button.blog": "博客"
 }

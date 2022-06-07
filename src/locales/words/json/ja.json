@@ -1,5 +1,8 @@
 {
   "loading.text": "ローディング...",
   "index.text": "インデックス...",
-  "notfound": "該当画面見つからなかった..."
+  "notfound": "該当画面見つからなかった...",
+  "button.profile": "私について",
+  "button.portfolio": "ポートフォリオ",
+  "button.blog": "ブログ"
 }

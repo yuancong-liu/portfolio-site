@@ -1,12 +1,14 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next'
+// import { useTranslation } from 'react-i18next'
+import TopButtonGroup from '../../common/TopButtonGroup';
 
 function IndexPage() {
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
 
   return (
     <>
-      <p>{t('index.text')}</p>
+      <h1>LIU<br />YUANCONG</h1>
+      <TopButtonGroup />
     </>
   )
 }
