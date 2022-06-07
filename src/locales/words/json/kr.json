@@ -1,4 +1,5 @@
 {
-  "loading.text": "Loading...",
-  "index.text": "Index..."
+  "loading.text": "로딩...",
+  "index.text": "상단 화면...",
+  "notfound": "해당 화면을 찾을 수 없음..."
 }
