@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface LanguageButtonProps {
-  key: string
+  sortKey: string
   name: string
   isPressed: boolean
   setLanguage: (key: string) => void
@@ -12,7 +12,7 @@ function LanguageButton(languageButtonProps: LanguageButtonProps) {
     <button
       type="button"
       aria-pressed={languageButtonProps.isPressed}
-      onClick={() => languageButtonProps.setLanguage(languageButtonProps.key)}
+      onClick={() => languageButtonProps.setLanguage(languageButtonProps.sortKey)}
     >
       <span>{languageButtonProps.name}</span>
     </button>
