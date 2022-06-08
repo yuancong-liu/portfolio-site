@@ -5,17 +5,28 @@ export interface LanguageButtonProps {
   name: string
   isPressed: boolean
   setLanguage: (key: string) => void
+  setIsShowLangButton: (newValue: boolean) => void;
 }
 
 function LanguageButton(languageButtonProps: LanguageButtonProps) {
+
+  function handleClick() {
+    languageButtonProps.setLanguage(languageButtonProps.sortKey)
+    languageButtonProps.setIsShowLangButton(false)
+  }
+
   return (
-    <button
-      type="button"
-      aria-pressed={languageButtonProps.isPressed}
-      onClick={() => languageButtonProps.setLanguage(languageButtonProps.sortKey)}
-    >
-      <span>{ languageButtonProps.name }</span>
-    </button>
+    <>
+      { !languageButtonProps.isPressed ? 
+        <button
+          type="button"
+          aria-pressed={languageButtonProps.isPressed}
+          onClick={() => handleClick()}
+        >
+          <span>{ languageButtonProps.name }</span>
+        </button> : <></>
+      }
+    </>
   )
 }
 

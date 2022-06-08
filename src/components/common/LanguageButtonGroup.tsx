@@ -5,6 +5,7 @@ import LanguageButton from './LanguageButton';
 export interface LanguageButtonGroupProps {
   language: string
   setLanguage: (value: string) => void
+  setIsShowLangButton: (value: boolean) => void
 }
 
 function LanguageButtonGroup(languageButtonGroupProps: LanguageButtonGroupProps) {
@@ -15,6 +16,7 @@ function LanguageButtonGroup(languageButtonGroupProps: LanguageButtonGroupProps)
       name={lang.value}
       isPressed={lang.key === languageButtonGroupProps.language}
       setLanguage={languageButtonGroupProps.setLanguage}
+      setIsShowLangButton={languageButtonGroupProps.setIsShowLangButton}
     />
   )
 

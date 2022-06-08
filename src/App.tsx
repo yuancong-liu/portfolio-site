@@ -9,10 +9,12 @@ import LoadingPage from './components/pages/loading/LoadingPage';
 import LanguageButtonGroup from './components/common/LanguageButtonGroup';
 import i18n from './locales/init';
 import NotFound from "./components/pages/notFound/NotFound";
+import WakeLanguage from "./components/common/WakeLanguage";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [language, setLanguage] = useState('en')
+  const [isShowLangButton, setIsShowLangButton] = useState(false)
   
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 3000);
@@ -34,10 +36,17 @@ function App() {
         </Routes>
       </Router>
       
-      <LanguageButtonGroup 
-        language={language}
-        setLanguage={setLanguage}
+      <WakeLanguage 
+        currentLanguage={language}
+        setIsShowLangButton={setIsShowLangButton}
       />
+      { isShowLangButton ? 
+        <LanguageButtonGroup
+          language={language}
+          setLanguage={setLanguage}
+          setIsShowLangButton={setIsShowLangButton}
+        /> : <></>
+      }
     </>
   );
 }
