@@ -6,18 +6,19 @@ import {
 import React, { useEffect, useState } from 'react';
 import IndexPage from './components/pages/index/IndexPage';
 import LoadingPage from './components/pages/loading/LoadingPage';
-import LanguageButtonGroup from './components/common/LanguageButtonGroup';
 import i18n from './locales/init';
 import NotFound from "./components/pages/notFound/NotFound";
-import WakeLanguage from "./components/common/WakeLanguage";
+import Language from "./components/common/Language";
+import styled from "styled-components";
+import fontsLoader from "./interface/fontsLoader";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [language, setLanguage] = useState('en')
-  const [isShowLangButton, setIsShowLangButton] = useState(false)
   
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 3000);
+    fontsLoader(document)
+    setTimeout(() => setIsLoading(false), 3000)
   }, [])
 
   useEffect(() => {
@@ -25,7 +26,7 @@ function App() {
   }, [language])
 
   return (
-    <>
+    <AppWrapper className={language}>
       <Router>
         <Routes>
           <Route path='/' element={ isLoading ? <LoadingPage /> : <IndexPage />} />
@@ -36,19 +37,35 @@ function App() {
         </Routes>
       </Router>
       
-      <WakeLanguage 
+      <Language 
         currentLanguage={language}
-        setIsShowLangButton={setIsShowLangButton}
+        setLanguage={setLanguage}
       />
-      { isShowLangButton ? 
-        <LanguageButtonGroup
-          language={language}
-          setLanguage={setLanguage}
-          setIsShowLangButton={setIsShowLangButton}
-        /> : <></>
-      }
-    </>
+    </AppWrapper>
   );
 }
 
 export default App;
+
+const AppWrapper = styled.div`
+
+  &.en {
+    font-family: 'Fira Code';
+    font-weight: 400;
+  }
+
+  &.sc, &.tc {
+    font-family: source-han-sans-simplified-c;
+    font-weight: 400;
+  }
+
+  &.ja {
+    font-family: iroha-21popura-stdn;
+    font-weight: 400;
+  }
+
+  &.kr {
+    font-family: omnigothic;
+    font-weight: 300;
+  }
+`
