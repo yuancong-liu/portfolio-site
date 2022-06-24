@@ -44,8 +44,8 @@ const Button = styled.button`
   &::after {
     content: "";
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 1.7em;
+    left: 1.15em;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -60,26 +60,5 @@ const Button = styled.button`
   &:hover::after {
     opacity: 1;
     transform: scale(1);
-  }
-
-
-  &.en {
-    font-family: 'Fira Code';
-    font-style: normal;
-  }
-
-  &.sc, &.tc {
-    font-family: source-han-sans-simplified-c;
-    font-style: normal;
-  }
-
-  &.ja {
-    font-family: kinuta-reiwa-kana;
-    font-style: normal;
-  }
-
-  &.kr {
-    font-family: omnigothic;
-    font-weight: 300;
   }
 `

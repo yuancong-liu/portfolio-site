@@ -65,25 +65,4 @@ const Button = styled.button<{ notShowCircle: boolean }>`
     transition: all 0.2s ease-out;
     z-index: -10;
   }
-
-  &.en {
-    font-family: 'Fira Code';
-    font-style: normal;
-  }
-
-  &.sc, &.tc {
-    font-family: source-han-sans-simplified-c;
-    font-style: normal;
-  }
-
-  &.ja {
-    font-family: kinuta-reiwa-kana, iroha-21popura-stdn;
-    font-style: normal;
-  }
-
-  &.kr {
-    font-family: omnigothic;
-    font-style: normal;
-    font-weight: 300;
-  }
 `

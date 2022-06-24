@@ -48,24 +48,4 @@ function App() {
 export default App;
 
 const AppWrapper = styled.div`
-
-  &.en {
-    font-family: 'Fira Code';
-    font-weight: 400;
-  }
-
-  &.sc, &.tc {
-    font-family: source-han-sans-simplified-c;
-    font-weight: 400;
-  }
-
-  &.ja {
-    font-family: iroha-21popura-stdn;
-    font-weight: 400;
-  }
-
-  &.kr {
-    font-family: omnigothic;
-    font-weight: 300;
-  }
 `

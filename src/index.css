@@ -17,10 +17,31 @@ body {
 ::before,
 ::after {
   box-sizing: inherit;
+  line-height: inherit;
 }
 
 :root * {
   margin: 0;
+}
+
+.en {
+  font-family: 'Fira Code';
+  font-style: normal;
+}
+
+.sc, .tc {
+  font-family: source-han-sans-simplified-c;
+  font-style: normal;
+}
+
+.ja {
+  font-family: kinuta-reiwa-kana;
+  font-style: normal;
+}
+
+.kr {
+  font-family: omnigothic;
+  font-weight: 300;
 }
 
 code {
