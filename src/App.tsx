@@ -37,10 +37,12 @@ function App() {
         </Routes>
       </Router>
       
-      <Language 
-        currentLanguage={language}
-        setLanguage={setLanguage}
-      />
+      <LanguageWrapper>
+        <Language 
+          currentLanguage={language}
+          setLanguage={setLanguage}
+        />
+      </LanguageWrapper>
     </AppWrapper>
   );
 }
@@ -48,4 +50,10 @@ function App() {
 export default App;
 
 const AppWrapper = styled.div`
+`
+
+const LanguageWrapper = styled.div`
+  position: absolute;
+  bottom: 10em;
+  z-index: 100;
 `

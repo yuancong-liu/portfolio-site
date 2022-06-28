@@ -23,4 +23,8 @@ const List = styled.ul`
 const Item = styled.li`
   list-style-type: none;
   font-size: 3.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
 `

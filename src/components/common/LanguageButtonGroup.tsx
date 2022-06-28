@@ -34,23 +34,23 @@ export default LanguageButtonGroup
 const Wrapper = styled.div<{ isShow: boolean }>`
   visibility: ${props => props.isShow ? 'visible' : 'hidden' };
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
-  > button {
+  > * {
     opacity: ${props => props.isShow ? '1' : '0' };
     transform: ${props => props.isShow ? 'translateX(0)' : 'translateX(-2em)'};
     transition: all 0.1s ease-out;
   }
 
-  > button:nth-child(2) {
+  > *:nth-child(2) {
     transition-delay: 0.05s;
   }
 
-  > button:nth-child(3) {
+  > *:nth-child(3) {
     transition-delay: 0.1s;
   }
 
-  > button:nth-child(4) {
+  > *:nth-child(4) {
     transition-delay: 0.15s;
   }
 `

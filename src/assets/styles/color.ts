@@ -7,4 +7,10 @@ export const shiningColor = {
   yellow3: '#F2CB05'
 }
 
+export const shadow = {
+  default: 'rgba(238, 217, 109, 0.41)',
+}
+
 export type ShiningColor = typeof shiningColor[keyof typeof shiningColor]
+
+export type Shadow = typeof shadow[keyof typeof shadow]

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { shadow, shiningColor } from '../../assets/styles/color';
 
 export interface LanguageButtonProps {
   sortKey: string
@@ -19,20 +20,54 @@ function LanguageButton(props: LanguageButtonProps) {
   return (
     <>
       { !props.isPressed ? 
-        <Button
-          className={props.sortKey}
-          type="button"
-          aria-pressed={props.isPressed}
-          onClick={() => handleClick()}
-        >
-          <span>{ props.name }</span>
-        </Button> : <></>
+        <ButtonWrapper>
+          <Button
+            className={props.sortKey}
+            type="button"
+            aria-pressed={props.isPressed}
+            onClick={() => handleClick()}
+          >
+            <span>{ props.name }</span>
+          </Button>
+        </ButtonWrapper> : <></>
       }
     </>
   )
 }
 
 export default LanguageButton
+
+const ButtonWrapper = styled.div`
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2.7em;
+    left: 1.6em;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: ${shiningColor.yellow1};
+    box-shadow: 0 3px 6px ${shadow.default};
+    opacity: 0;
+    transform: scale(1.3);
+    transition: all 0.2s ease-out;
+    z-index: -10;
+
+    @media (max-width: 786px) {
+      top: 1.5em;
+      left: 0.8em;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+`
 
 const Button = styled.button`
   padding: .1em .5em;
@@ -41,24 +76,19 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 2.5rem;
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 1.7em;
-    left: 1.15em;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #F2E205;
-    box-shadow: 0 3px 6px rgba(238, 217, 109, 0.41);
-    opacity: 0;
-    transform: scale(1.3);
-    transition: all 0.2s ease-out;
-    z-index: -10;
+  &.kr {
+    transform: translateY(0.3rem);
   }
 
-  &:hover::after {
-    opacity: 1;
-    transform: scale(1);
+  &.ja {
+    transform: translateY(0.1rem);
+  }
+
+  &.en {
+    transform: translateY(0.2rem);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.375rem;
   }
 `
