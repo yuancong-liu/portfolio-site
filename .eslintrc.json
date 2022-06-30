@@ -27,10 +27,11 @@
         "jsx-quotes": ["warn", "prefer-double"],
         "indent": [
             "error", 
-            "tab", 
-            { "VariableDeclarator": "first" }, 
-            { "MemberExpression": 1 },
-            { "ImportDeclaration": 1 }
+            2, 
+            { "VariableDeclarator": "first",
+							"MemberExpression": 1,
+							"ImportDeclaration": 1
+						} 
         ]
     }
 }
