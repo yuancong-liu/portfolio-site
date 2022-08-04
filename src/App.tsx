@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
+import { MongoClient } from "mongodb";
 import IndexPage from './components/pages/index/IndexPage';
 import LoadingPage from './components/pages/loading/LoadingPage';
 import i18n from './locales/init';
@@ -29,11 +30,11 @@ function App() {
     <AppWrapper className={language}>
       <Router>
         <Routes>
-          <Route path='/' element={ isLoading ? <LoadingPage /> : <IndexPage />} />
-          <Route path='/profile' element={ <IndexPage /> } />
-          <Route path='/portfolio' element={ <IndexPage /> } />
-          <Route path='/blog' element={ <IndexPage /> } />
-          <Route path='*' element={ <NotFound /> } />
+          <Route path="/" element={ isLoading ? <LoadingPage /> : <IndexPage />} />
+          <Route path="/profile" element={ <IndexPage /> } />
+          <Route path="/portfolio" element={ <IndexPage /> } />
+          <Route path="/blog" element={ <IndexPage /> } />
+          <Route path="*" element={ <NotFound /> } />
         </Routes>
       </Router>
       
