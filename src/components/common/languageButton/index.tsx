@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { shadow, shiningColor } from '../../assets/styles/color';
+import { shadow, shiningColor } from '../../../assets/styles/color';
 
 export interface LanguageButtonProps {
   sortKey: string

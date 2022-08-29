@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { languages } from '../../interface/interfaces';
-import LanguageButton from './LanguageButton';
+import { languages } from '../../../interface/interfaces';
+import LanguageButton from '../languageButton';
 
 export interface LanguageButtonGroupProps {
   language: string
