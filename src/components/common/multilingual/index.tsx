@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { languages } from '../../interface/interfaces';
-import LanguageButtonGroup from './LanguageButtonGroup';
+import { languages } from '~/interface/interfaces';
+import LanguageButtonGroup from '../languageButtonGroup';
 import { useState } from 'react';
-import { shiningColor } from '../../assets/styles';
-import { shadow } from '../../assets/styles/color';
+import { shiningColor } from '~/assets/styles';
+import { shadow } from '~/assets/styles/color';
 
 export interface LanguageProps {
   currentLanguage: string;
@@ -23,7 +23,7 @@ function Language(props: LanguageProps) {
           className={props.currentLanguage}
           onClick={() => setIsShowLangButton(true)}
         >
-          { languages.find(language => language.key === props.currentLanguage)!.value }
+          { languages.find(language => language.key === props.currentLanguage)?.value }
         </Button>
       </ButtonWrapper>
       <LanguageButtonGroup
