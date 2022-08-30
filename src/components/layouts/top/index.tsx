@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Language from "~/components/common/multilingual";
+import { Language } from "~/components/common/languages/multilingual";
 import i18n from "~/locales/init";
 
 export type Props = {

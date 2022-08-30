@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
+    "jsx": "preserve",
     "strict": true,
     "baseUrl": ".",
     "paths": {

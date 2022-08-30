@@ -1,0 +1,23 @@
+.index-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 5fr 4fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-rows: 5fr 4fr;
+  }
+}
+
+.button-wrapper {
+  @media (min-width: 768px) {
+    grid-column: 2 / 3;
+  }
+
+  @media (max-width: 768px) {
+    grid-row: 2 / 3;
+  }
+}
