@@ -19,6 +19,9 @@ const Home: NextPage = () => {
               <TopButtonGroup />
             </div>
           </div>
+          <div className={styles['index-background']}>
+            <div className={styles['blend']} />
+          </div>
         </main>
       </LayoutTop>
   )

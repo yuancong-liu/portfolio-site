@@ -21,3 +21,24 @@
     grid-row: 2 / 3;
   }
 }
+
+
+.index-background {
+  position: absolute;
+  top: 0;
+  z-index: -100;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/images/overlook-carpet.png');
+  background-size: 10vw;
+
+  > .blend {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 40px;
+    z-index: -50;
+    background-color: black;
+    mix-blend-mode: screen;
+  }
+}
