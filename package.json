@@ -7,7 +7,6 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "firebase deploy --only hosting",
     "lintjs": "run-s lintjs:eslint \"lintjs:prettier --check\"",
     "lintjs:fix": "run-s \"lintjs:eslint --fix\" \"lintjs:prettier --write\"",
     "lintjs:eslint": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore --ignore-path .eslintignore .",
