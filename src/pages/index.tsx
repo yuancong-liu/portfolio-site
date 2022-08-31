@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from './index.module.scss';
-import { TopButtonGroup } from '~/components/common/topButtonGroup';
+import { TopWelcome } from '~/components/pages/top/topWelcome';
 import { LayoutTop } from '~/components/layouts/top';
+import { TopLinks } from '~/components/pages/top/topLinks';
 
 const Home: NextPage = () => {
 
@@ -15,8 +16,14 @@ const Home: NextPage = () => {
         </Head>
         <main>
           <div className={styles['index-container']}>
-            <div className={styles['button-wrapper']}>
-              <TopButtonGroup />
+            <div className={styles['top']}>
+              <TopLinks position="top" />
+            </div>
+            <div className={styles['welcome-wrapper']}>
+              <TopWelcome />
+            </div>
+            <div className={styles['bottom']}>
+              <TopLinks position="bottom" />
             </div>
           </div>
         </main>

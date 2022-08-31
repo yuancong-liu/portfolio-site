@@ -4,7 +4,7 @@ import type { NextPage } from 'next'
  * Gallery page
  * 作品集画面
  * 
- * /component/pages/gallery　配下にページコンポーネントを作成
+ * /component/pages/the-gallery　配下にページコンポーネントを作成
  * 
  */
 const GalleryPage: NextPage = () => {
