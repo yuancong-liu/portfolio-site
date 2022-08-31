@@ -8,16 +8,30 @@
   }
 
   @media (max-width: 768px) {
-    grid-template-rows: 5fr 4fr;
+    grid-template-rows: 3fr 6fr 3fr;
+    grid-template-columns: 6fr 7fr;
+  }
+
+  > .top {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    align-items: center;
+  } 
+
+  > .bottom {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
   }
 }
 
-.button-wrapper {
+.welcome-wrapper {
   @media (min-width: 768px) {
     grid-column: 2 / 3;
   }
 
   @media (max-width: 768px) {
     grid-row: 2 / 3;
+    grid-column: 1 / 3;
   }
 }

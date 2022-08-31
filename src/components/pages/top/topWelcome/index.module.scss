@@ -1,0 +1,23 @@
+@use '~/styles/utils.scss';
+
+.top-welcome {
+  padding: 20px;
+
+  > .text {
+    font-size: 3rem;
+
+    @media (min-width: 768px) {
+      font-size: 5rem;
+    }
+  }
+
+  > .rectangle {
+    position: absolute;
+    z-index: -100;
+    right: 0;
+    bottom: 240px;
+    width: 262px;
+    height: 300px;
+    background-color: utils.$shining-yellow-1;
+  }
+}
