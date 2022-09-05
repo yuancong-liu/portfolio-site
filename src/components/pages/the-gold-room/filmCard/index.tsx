@@ -1,4 +1,5 @@
 import { Film } from "~/types/Films";
+import styles from './index.module.scss';
 import Image from "next/image";
 
 type Props = {
@@ -7,20 +8,21 @@ type Props = {
 
 export const FilmCard: React.FC<Props> = (props: Props) => {
   return (
-    <div>
-      <Image
-        src={props.film.posterPath}
-        alt={props.film.title}
-        width={300}
-        height={450}
-      />
-      <div>
-        <h3>{props.film.title}</h3>
-        <span> / {props.film.originalTitle}</span>
+    <div className={styles['card-wrapper']}>
+      <div className={styles['poster-wrapper']}>
+        <Image
+          src={props.film.posterPath}
+          alt={props.film.title}
+          layout="fill"
+        />
       </div>
-      <p>{props.film.releaseDate}</p>
-      <p>{props.film.productionCountries}</p>
-      <p>{props.film.overview}</p>
+      <div className={styles['basic-info']}>
+        <h3 className={styles['title']}>{props.film.title}</h3>
+        {props.film.originalTitle !== props.film.title ? <p className={styles['original']}> / {props.film.originalTitle}</p> : null}
+        <p className={styles['release']}>{props.film.releaseDate}</p>
+        <p className={styles['countries']}>{props.film.productionCountries}</p>
+      </div>
+      <p className={styles['overview-text']}>{props.film.overview}</p>
     </div>  
   )
 }

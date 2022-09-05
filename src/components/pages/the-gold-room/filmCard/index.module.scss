@@ -1,0 +1,25 @@
+.card-wrapper {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.poster-wrapper {
+  flex-shrink: 0;
+  position: relative;
+  width: 100px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.basic-info {
+  width: calc(100vw - 160px);
+  margin-left: 20px;
+}
+
+.overview-text {
+  margin-top: 10px;
+}
