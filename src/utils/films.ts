@@ -14,7 +14,7 @@ import { Film } from "~/types/Films";
 export const getFilms = async () => {
   const films: Film[] = [];
   await Promise.all(FilmConstants.topTenFilmIds.map(async (id) => {
-    const filmRes = await fetch(`${FilmConstants.TMDB_API_BASE_URL}${id}?api_key=7c1960f09f8990909fa5fffb0f89043e`);
+    const filmRes = await fetch(`${FilmConstants.TMDB_API_BASE_URL}${id}?api_key=${process.env.API_KEY}`);
     const filmJson = await filmRes.json();
     films.push(filterFilmInfo(filmJson));
   }));
