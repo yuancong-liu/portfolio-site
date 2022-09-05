@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <Head>
           <title>YUANCONG</title>
           <meta name="description" content="Hi, I'm YUANCONG" />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.png" />
         </Head>
         <main>
           <div className={styles['index-container']}>
