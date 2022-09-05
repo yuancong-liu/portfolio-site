@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 import classNames from 'classnames';
-import { languages } from '~/interface/languages';
+import { languages } from '~/interfaces/languages';
 import { LanguageButtonGroup } from '../languageButtonGroup';
 import { useState } from 'react';
 

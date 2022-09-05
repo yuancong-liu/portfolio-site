@@ -1,8 +1,13 @@
 {
-  "loading.text": "Loading...",
-  "index.text": "Index...",
-  "notfound": "Not found...",
-  "button.profile": "Profile",
-  "button.portfolio": "Portfolio",
-  "button.blog": "Blog"
+  "resume.bachelor.name": "University of Electronic Science and Technology of China",
+  "resume.bachelor.major": "Software Engineering",
+  "resume.bachelor.degree": "Bachelor",
+  "resume.summer.name": "National University of Singapore",
+  "resume.summer.major": "Human Computer Interaction",
+  "resume.summer.degree": "Summer Exchange",
+  "resume.master.name": "University of Glasgow",
+  "resume.master.major": "Computing Science",
+  "resume.master.degree": "Master",
+  "resume.lab.name": "teamLab Inc.",
+  "resume.lab.major": "Frontend Engineer"
 }

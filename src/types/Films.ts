@@ -1,3 +1,7 @@
+/**
+ * @file 映画情報取得関連のtypes
+ */
+
 export type Film = {
   
   /**

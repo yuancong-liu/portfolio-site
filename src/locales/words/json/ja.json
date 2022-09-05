@@ -1,8 +1,13 @@
 {
-  "loading.text": "ローディング...",
-  "index.text": "インデックス...",
-  "notfound": "該当画面見つからなかった...",
-  "button.profile": "私について",
-  "button.portfolio": "ポートフォリオ",
-  "button.blog": "ブログ"
+  "resume.bachelor.name": "電子科技大学",
+  "resume.bachelor.major": "ソフトウェア工学",
+  "resume.bachelor.degree": "学士",
+  "resume.summer.name": "シンガポール国立大学",
+  "resume.summer.major": "ヒューマンコンピュータインタラクション",
+  "resume.summer.degree": "交換留学",
+  "resume.master.name": "グラスゴー大学",
+  "resume.master.major": "情報工学",
+  "resume.master.degree": "修士", 
+  "resume.lab.name": "チームラボ株式会社",
+  "resume.lab.major": "フロントエンドエンジニア"
 }

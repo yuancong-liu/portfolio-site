@@ -1,8 +1,13 @@
 {
-  "loading.text": "로딩...",
-  "index.text": "상단 화면...",
-  "notfound": "해당 화면을 찾을 수 없음...",
-  "button.profile": "나에 대해",
-  "button.portfolio": "포트폴리오",
-  "button.blog": "블로그"
+  "resume.bachelor.name": "전자과기대학",
+  "resume.bachelor.major": "소프트웨어 공학",
+  "resume.bachelor.degree": "학사",
+  "resume.summer.name": "싱가포르 국립 대학",
+  "resume.summer.major": "인간 컴퓨터 상호 작용",
+  "resume.summer.degree": "교환유학",
+  "resume.master.name": "글래스고 대학",
+  "resume.master.major": "정보공학",
+  "resume.master.degree": "석사", 
+  "resume.lab.name": "팀 랩 주식회사",
+  "resume.lab.major": "프런트 엔드 엔지니어"
 }
