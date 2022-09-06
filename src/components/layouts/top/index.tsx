@@ -14,7 +14,7 @@ export const LayoutTop: React.FC<Props> = ({ children }) => {
   }, [language])
 
   return (
-    <div>
+    <div className={language}>
       <Language
         currentLanguage={language}
         setLanguage={setLanguage}

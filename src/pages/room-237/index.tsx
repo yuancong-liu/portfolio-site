@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { LayoutRoom237 } from '~/components/layouts/room-237';
 import { Experience } from '~/types/Resume';
 import { ExperienceCard } from '~/components/pages/room-237/experienceCard';
+import { UNSPLASH_IMAGE_PATH } from '~/constants/resume';
 
 const experiences = [
   {
@@ -24,6 +25,7 @@ const experiences = [
     name: "resume.master.name",
     department: "resume.master.major",
     degree: "resume.master.degree",
+    imagePath: `${UNSPLASH_IMAGE_PATH}photo-1623075838713-24d8993464d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80`
   } as Experience,
   {
     startYear: 2022,
