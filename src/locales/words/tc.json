@@ -1,0 +1,26 @@
+{
+  "lobby":{
+    "welcome": "歡迎光臨<br />全景飯店"
+  },
+  "resume": {
+    "bachelor": {
+      "name": "電子科技大學",
+      "major": "軟體工程",
+      "degree": "學士"
+    },
+    "summer": {
+      "name": "新加坡國立大學",
+      "major": "人機交互",
+      "degree": "交換留學"
+    },
+    "master": {
+      "name": "格拉斯哥大學",
+      "major": "計算科學",
+      "degree": "碩士"
+    },
+    "lab": {
+      "name": "teamLab Inc.", 
+      "major": "前端工程師" 
+    }
+  }
+}

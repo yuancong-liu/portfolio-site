@@ -7,10 +7,10 @@ export type Props = {
 }
 
 export const LayoutTop: React.FC<Props> = ({ children }) => {
-  const [language, setLanguage] = useState('en')
+  const [language, setLanguage] = useState('en');
 
   useEffect(() => {
-    i18n.changeLanguage(language)
+    i18n.changeLanguage(language);
   }, [language])
 
   return (
