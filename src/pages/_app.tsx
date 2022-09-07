@@ -1,9 +1,10 @@
 import '~/styles/globals.css'
-import fontsLoader from "~/interface/fontsLoader";
+import fontsLoader from "~/interfaces/fontsLoader";
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   useEffect(() => {
     fontsLoader(document)
   }, [])

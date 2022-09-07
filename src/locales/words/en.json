@@ -1,0 +1,26 @@
+{
+  "lobby":{
+    "welcome": "Welcome to <br />Overlook<br />Hotel"
+  },
+  "resume": {
+    "bachelor": {
+      "name": "University of Electronic Science and Technology of China",
+      "major": "Software Engineering",
+      "degree": "Bachelor"
+    },
+    "summer": {
+      "name": "National University of Singapore",
+      "major": "Human Computer Interaction",
+      "degree": "Summer Exchange"
+    },
+    "master": {
+      "name": "University of Glasgow",
+      "major": "Computing Science",
+      "degree": "Master"
+    },
+    "lab": { 
+      "name": "teamLab Inc.", 
+      "major": "Frontend Engineer" 
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "lobby":{
+    "welcome": "오버룩 호텔에<br />오신 것을<br />환영합니다"
+  },
+  "resume": {
+    "bachelor": {
+      "name": "전자과기대학",
+      "major": "소프트웨어 공학",
+      "degree": "학사"
+    },
+    "summer": {
+      "name": "싱가포르 국립 대학",
+      "major": "인간 컴퓨터 상호 작용",
+      "degree": "교환유학"
+    },
+    "master": {
+      "name": "글래스고 대학",
+      "major": "정보공학",
+      "degree": "석사"
+    },
+    "lab": {
+      "name": "팀 랩 주식회사", 
+      "major": "프런트 엔드 엔지니어" 
+    }
+  }
+}

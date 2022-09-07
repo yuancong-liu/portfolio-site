@@ -6,11 +6,11 @@ export type Props = {
   children?: React.ReactNode;
 }
 
-export const LayoutTop: React.FC<Props> = ({ children }) => {
-  const [language, setLanguage] = useState('en');
+export const LayoutRoom237: React.FC<Props> = ({ children }) => {
+  const [language, setLanguage] = useState('en')
 
   useEffect(() => {
-    i18n.changeLanguage(language);
+    i18n.changeLanguage(language)
   }, [language])
 
   return (

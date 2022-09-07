@@ -1,0 +1,26 @@
+{
+  "lobby":{
+    "welcome": "欢迎光临<br />遥望酒店"
+  },
+  "resume": {
+    "bachelor": {
+      "name": "电子科技大学",
+      "major": "软件工程",
+      "degree": "学士"
+    },
+    "summer": {
+      "name": "新加坡国立大学",
+      "major": "人机交互",
+      "degree": "交换留学"
+    },
+    "master": { 
+      "name": "格拉斯哥大学", 
+      "major": "计算科学", 
+      "degree": "硕士" 
+    },
+    "lab":{
+      "name": "teamLab Inc.",
+      "major": "前端工程师"
+    }
+  }
+}
