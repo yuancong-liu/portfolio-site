@@ -11,13 +11,30 @@
     }
   }
 
+  > .pattern {
+    display: none;
+    z-index: -50;
+    background-image: url('../../../../assets/images/overlook-carpet.png');
+    background-size: 150px;
+  }
+
+  > .rectangle {
+    z-index: -100;
+    background-color: utils.$shining-yellow-1;
+  }
+
+  > .pattern,
   > .rectangle {
     position: absolute;
-    z-index: -100;
     right: 0;
     bottom: 240px;
     width: 262px;
     height: 300px;
-    background-color: utils.$shining-yellow-1;
+
+    @media (min-width: 768px) {
+      right: calc(20% - 100px);
+      width: 600px;
+      height: 400px;
+    }
   }
 }
