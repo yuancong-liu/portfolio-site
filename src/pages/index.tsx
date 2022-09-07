@@ -26,9 +26,6 @@ const Home: NextPage = () => {
               <TopLinks position="bottom" />
             </div>
           </div>
-          <div className={styles['index-background']}>
-            <div className={styles['blend']} />
-          </div>
         </main>
       </LayoutTop>
   )
