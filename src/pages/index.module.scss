@@ -1,14 +1,13 @@
+@use '~/styles/utils.scss';
+
 .index-container {
   width: 100vw;
   height: 100vh;
   display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 4fr 1fr;
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 1fr 4fr 1fr;
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: utils.$sp-width) {
     grid-template-rows: 3fr 6fr 3fr;
     grid-template-columns: 6fr 7fr;
   }
@@ -27,11 +26,9 @@
 }
 
 .welcome-wrapper {
-  @media (min-width: 768px) {
-    grid-column: 2 / 3;
-  }
+  grid-column: 2 / 3;
 
-  @media (max-width: 768px) {
+  @media (max-width: utils.$sp-width) {
     grid-row: 2 / 3;
     grid-column: 1 / 3;
   }

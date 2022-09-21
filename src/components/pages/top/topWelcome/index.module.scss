@@ -6,7 +6,7 @@
   > .text {
     font-size: 3rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: utils.$sp-width) {
       font-size: 5rem;
     }
   }
@@ -31,7 +31,7 @@
     width: 262px;
     height: 300px;
 
-    @media (min-width: 768px) {
+    @media (min-width: utils.$sp-width) {
       right: calc(20% - 100px);
       width: 600px;
       height: 400px;

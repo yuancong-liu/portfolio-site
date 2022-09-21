@@ -1,0 +1,13 @@
+@use '~/styles/utils.scss';
+
+.link-group {
+  display: flex;
+
+  @media screen and (min-width: utils.$sp-width) {
+    justify-content: space-between;
+  }
+
+  @media screen and (max-width: utils.$sp-width) {
+    flex-direction: column;
+  }
+}
