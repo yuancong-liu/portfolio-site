@@ -3,6 +3,7 @@ import { LayoutRoom237 } from '~/components/layouts/room-237';
 import { Experience } from '~/types/Resume';
 import { ExperienceCard } from '~/components/pages/room-237/experienceCard';
 import { UNSPLASH_IMAGE_PATH } from '~/constants/resume';
+import styles from './index.module.scss';
 
 const experiences = [
   {
@@ -11,6 +12,7 @@ const experiences = [
     name: "resume.bachelor.name",
     department: "resume.bachelor.major",
     degree: "resume.bachelor.degree",
+    url: "https://en.uestc.edu.cn/",
   } as Experience,
   {
     startYear: 2016,
@@ -18,6 +20,8 @@ const experiences = [
     name: "resume.summer.name",
     department: "resume.summer.major",
     degree: "resume.summer.degree",
+    imagePath: `${UNSPLASH_IMAGE_PATH}photo-1615743361511-f046bb122b8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80`,
+    url: "https://www.nus.edu.sg/",
   } as Experience,
   {
     startYear: 2021,
@@ -25,12 +29,15 @@ const experiences = [
     name: "resume.master.name",
     department: "resume.master.major",
     degree: "resume.master.degree",
-    imagePath: `${UNSPLASH_IMAGE_PATH}photo-1623075838713-24d8993464d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80`
+    imagePath: `${UNSPLASH_IMAGE_PATH}photo-1623075838713-24d8993464d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80`,
+    url: "https://www.gla.ac.uk/",
   } as Experience,
   {
     startYear: 2022,
     name: "resume.lab.name",
     department: "resume.lab.major",
+    imagePath: `${UNSPLASH_IMAGE_PATH}photo-1578351709033-367c8046f6be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80`,
+    url: "https://www.team-lab.com/",
   } as Experience
 ]
 
@@ -52,7 +59,12 @@ const Room237Page: NextPage = () => {
   return (
     <LayoutRoom237>
       <main>
-        { experienceCardDisplay() }
+        <div className={styles['content-wrapper']}>
+          <div className={styles['space']}></div>
+          <div className={styles['cards']}>
+            { experienceCardDisplay() }
+          </div>
+        </div>
       </main>
     </LayoutRoom237>
   )

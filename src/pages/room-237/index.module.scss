@@ -1,0 +1,19 @@
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  > .space {
+    width: 30%;
+  }
+
+  > .cards {
+    width: 70%;
+    height: 100%;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+  }
+}
