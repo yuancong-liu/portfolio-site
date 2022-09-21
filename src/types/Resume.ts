@@ -38,4 +38,9 @@ export type Experience = {
    * 画像のURL
    */
   imagePath?: string;
+
+  /**
+   * URL
+   */
+  url?: string;
 }
