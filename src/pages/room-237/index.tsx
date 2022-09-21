@@ -12,6 +12,7 @@ const experiences = [
     name: "resume.bachelor.name",
     department: "resume.bachelor.major",
     degree: "resume.bachelor.degree",
+    imagePath: `${UNSPLASH_IMAGE_PATH}photo-1593007187880-0d2dee3c90e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
     url: "https://en.uestc.edu.cn/",
   } as Experience,
   {
@@ -59,11 +60,9 @@ const Room237Page: NextPage = () => {
   return (
     <LayoutRoom237>
       <main>
+        <h1 className={styles['back-button']}>hello</h1>
         <div className={styles['content-wrapper']}>
-          <div className={styles['space']}></div>
-          <div className={styles['cards']}>
-            { experienceCardDisplay() }
-          </div>
+          { experienceCardDisplay() }
         </div>
       </main>
     </LayoutRoom237>
