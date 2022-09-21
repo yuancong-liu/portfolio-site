@@ -2,7 +2,6 @@ import { Experience } from "~/types/Resume";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import styles from "./index.module.scss";
-import Link from "next/link";
 
 type Props = {
   experience: Experience;
