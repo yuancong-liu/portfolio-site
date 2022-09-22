@@ -4,6 +4,7 @@ import { Experience } from '~/types/Resume';
 import { ExperienceCard } from '~/components/pages/room-237/experienceCard';
 import { UNSPLASH_IMAGE_PATH } from '~/constants/resume';
 import styles from './index.module.scss';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const experiences = [
   {
@@ -68,5 +69,11 @@ const Room237Page: NextPage = () => {
     </LayoutRoom237>
   )
 }
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...await serverSideTranslations(locale, ['common']),
+  },
+})
 
 export default Room237Page;
