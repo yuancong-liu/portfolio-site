@@ -1,5 +1,5 @@
 import { Experience } from "~/types/Resume";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import styles from "./index.module.scss";
 
@@ -9,7 +9,7 @@ type Props = {
 
 export const ExperienceCard: React.FC<Props> = (props: Props) => {
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <div className={styles['card-wrapper']}>

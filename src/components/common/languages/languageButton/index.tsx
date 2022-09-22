@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 import classNames from 'classnames';
+import router from 'next/router';
 
 type Props = {
   sortKey: string
@@ -13,8 +14,10 @@ type Props = {
 export const LanguageButton: React.FC<Props> = (props: Props) => {
 
   function handleClick() {
-    props.setLanguage(props.sortKey)
-    props.setIsShowLangButton(false)
+    const { pathname, asPath, query } = router;
+    props.setLanguage(props.sortKey);
+    props.setIsShowLangButton(false);
+    router.push({ pathname, query }, asPath, { locale: props.sortKey });
   }
 
   return (

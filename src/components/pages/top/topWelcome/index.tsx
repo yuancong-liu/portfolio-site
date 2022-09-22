@@ -1,12 +1,12 @@
 import React, { MouseEvent } from "react";
 import styles from './index.module.scss';
 import Typed from 'react-typed';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import classNames from "classnames";
 
 export const TopWelcome: React.FC = () => {
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   const handleCursorMove = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
