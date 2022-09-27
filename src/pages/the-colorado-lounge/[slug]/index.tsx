@@ -40,10 +40,10 @@ export const getStaticProps = async ({ params }: { params: { slug: string } }) =
 
   return {
     props: {
-      post: {
+      post: JSON.parse(JSON.stringify({
         ...post,
         content,
-      },
+      })),
     },
   };
 };

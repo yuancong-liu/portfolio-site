@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { Post } from '~/types/Posts';
 import { getAllPosts } from '~/utils/posts';
+import styles from './index.module.scss';
 
 // type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -13,7 +14,7 @@ import { getAllPosts } from '~/utils/posts';
  */
 const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({ allPosts }) => {
   return (
-    <main>
+    <main className={styles['content-wrapper']}>
       <h1>The Colorado Lounge</h1>
       <div>
         {allPosts.map((post: Post) => (
@@ -30,7 +31,9 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({ allPosts }) => 
 export const getStaticProps = async () => {
   const allPosts = getAllPosts(['slug', 'title', 'date', 'tags']);
   return {
-    props: { allPosts },
+    props: { 
+      allPosts: JSON.parse(JSON.stringify(allPosts))
+    },
   };
 };
 
