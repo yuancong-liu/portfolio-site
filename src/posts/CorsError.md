@@ -1,0 +1,37 @@
+---
+title: Note | 關於本機IP訪問出現CORS跨域錯誤的問題
+date: 2022-04-25 23:13:00
+tags:
+- Programming
+- Chinese
+- Front-end
+---
+
+## 問題
+在開發環境下運行nuxt.js應用的時候，終端提示從`http://[本機IP地址]:4000/`訪問，但是執行到需要axios的組件時，console卻提示CORS錯誤：
+```
+Access to XMLHttpRequest at 'http://localhost:4000/[目標url]' from origin 'http://[本機IP地址]:4000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+
+之後將本機IP地址替換為`127.0.0.1`，問題照樣存在，直至換到`http://localhost:4000/`問題才總算解決。
+
+## CORS跨域錯誤
+跨域錯誤是瀏覽器的同源策略引起的（並不是目標服務器的問題），指的是瀏覽器不能執行其他網站的腳本。
+同源是指，域名、協議、端口均相同，三個只要有一個不同，就是跨域。
+非跨域的情況：`http://www.sample.com`和`http://www.sample.com/destination`（協議`http`，域名（包括子域名），端口是相同的）
+
+## 三種訪問方法的區別
+|      | localhost  | 127.0.0.1 | 本機IP         |
+|------|------------|-----------|----------------|
+| 網路 | 不聯網     | 不聯網    | 聯網           |
+| 傳輸 | 不使用網卡 | 使用網卡  | 使用網卡       |
+| 訪問 | 本機訪問   | 本機訪問  | 本機和外部訪問 |
+
+`localhost`只到達傳輸層，不會解析成IP（到達TCP/IP）；
+`127.0.0.1`到達網絡層，是IP，但不是網路IP，所以無法解析成MAC地址，以及從外部訪問。
+
+## 解決
+從錯誤信息可以看到，服務器的地址是`http://localhost:4000/`，和本機IP和`127.0.0.1`是不同源的，在開發環境下，如果沒有其他配置的話，會出現跨域錯誤。
+<br>
+
+-全文完-
