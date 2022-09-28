@@ -18,9 +18,9 @@ export const LayoutTop: React.FC<Props> = ({ children }) => {
         setLanguage={setLanguage}
       />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        initial={{ opacity: 0, scale: 2, x: 0 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        exit={{ opacity: 0, scale: 1, x: 1000 }}
       >
         {children}
       </motion.div>

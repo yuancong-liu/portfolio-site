@@ -1,8 +1,10 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { LayoutPost } from "~/components/layouts/posts";
 import FourOhFourPage from "~/pages/404";
 import { Post } from "~/types/Posts";
 import { getAllPosts, getPostBySlug, markdownToHtml } from "~/utils/posts";
+import styles from "./index.module.scss";
 
 const Post: NextPage<{ post: Post }> = ({ post }) => {
 
@@ -13,10 +15,12 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   }
 
   return (
-    <main>
-      <h1>{post.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
-    </main>
+    <LayoutPost>
+      <main className={styles['main-wrapper']}>
+        <h1>{post.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: post.content }} className={styles['content-wrapper']} />
+      </main>
+    </LayoutPost>
   );
 }
 

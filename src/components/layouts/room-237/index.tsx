@@ -18,8 +18,8 @@ export const LayoutRoom237: React.FC<Props> = ({ children }) => {
         setLanguage={setLanguage}
       />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, x: 1000 }}
+        animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0 }}
       >
         {children}
