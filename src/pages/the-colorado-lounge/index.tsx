@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
 import { Post } from '~/types/Posts';
 import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
@@ -11,18 +12,26 @@ import styles from './index.module.scss';
  *
  */
 const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({ allPosts }) => {
+
+  const getDateString = (date: string) => {
+    const dateObj = new Date(date);
+    return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${dateObj.getDate() - 1}`;
+  }
+  
   return (
-    <main className={styles['content-wrapper']}>
-      <h1>The Colorado Lounge</h1>
-      <div>
-        {allPosts.map((post: Post) => (
-          <a key={post.slug} href={"the-colorado-lounge/" + post.slug}>
-            <h2>{post.title}</h2>
-            <p>{post.date}</p>
-          </a>
-        ))}
-      </div>
-    </main>
+    <LayoutBlog>
+      <main className={styles['content-wrapper']}>
+        <h1>The Colorado Lounge</h1>
+        <div>
+          {allPosts.map((post: Post) => (
+            <a key={post.slug} href={"the-colorado-lounge/" + post.slug}>
+              <h2>{post.title}</h2>
+              <p>{getDateString(post.date)}</p>
+            </a>
+          ))}
+        </div>
+      </main>
+    </LayoutBlog>
   );
 };
 

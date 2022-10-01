@@ -1,9 +1,17 @@
 .main-wrapper {
   overflow-x: hidden;
-  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tag-group {
+  display: flex;
+  gap: 10px;
 }
 
 .content-wrapper {
+  margin-top: 20px;
+
   pre {
     background-color: #f6f8fa;
     border-radius: 3px;
