@@ -40,7 +40,7 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   );
 }
 
-export const getStaticPaths = async ({ locales }) => {
+export const getStaticPaths = async ({ locales }: { locales: Array<any> } ) => {
   const posts = getAllPosts(['slug']);
   return {
     paths: posts.flatMap((post: Post) => {
