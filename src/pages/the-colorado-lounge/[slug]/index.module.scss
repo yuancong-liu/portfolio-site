@@ -1,0 +1,22 @@
+.main-wrapper {
+  overflow-x: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tag-group {
+  display: flex;
+  gap: 10px;
+}
+
+.content-wrapper {
+  margin-top: 20px;
+
+  pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    font-size: 85%;
+    margin: 0;
+  }
+}

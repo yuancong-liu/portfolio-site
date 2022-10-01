@@ -34,7 +34,6 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
     if (field === 'content') {
       posts[field] = content;
     }
-
     if (data[field]) {
       posts[field] = data[field];
     }

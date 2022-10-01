@@ -3,6 +3,7 @@ import fontsLoader from "~/interfaces/fontsLoader";
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { appWithTranslation } from 'next-i18next';
+import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -10,7 +11,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     fontsLoader(document)
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <Component {...pageProps} />
+    </AnimatePresence>
+  );
 }
 
 export default appWithTranslation(MyApp)
