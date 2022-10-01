@@ -19,7 +19,8 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
     return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${dateObj.getDate() - 1}`;
   }
 
-  const getTagList = (tags: string[]) => {
+  const getTagList = (tags: string[] | string) => {
+    if (typeof tags === "string") return;
     return tags.map((tag: string) => (
       <span key={tag} className={styles['tag']}>{tag}</span>
     ));
