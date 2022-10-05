@@ -29,8 +29,8 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   return (
     <LayoutPost>
       <main className={styles['main-wrapper']}>
-        <h1>{post.title}</h1>
-        <p>{getDateString(post.date)}</p>
+        <h1 className={styles['title']}>{post.title}</h1>
+        <p className={styles['date']}>{getDateString(post.date)}</p>
         <div className={styles['tag-group']}>
           {getTagList(post.tags)}
         </div>

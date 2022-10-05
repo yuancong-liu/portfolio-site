@@ -178,12 +178,14 @@ Classifier 'KNN' has Acc=0.634 P=0.991 R=0.634 F1_w=0.768 F1_m=0.171
 ```
 
 As the results show, the classifier `LogisticRegression` with `One-hot vectorization` had the highest accuracy and the highest f1 scores under the weighted average and macro average. The generally low f1 scores may be due to the uneven distribution of the sample, and the unweighted mean may be heavily influenced by the distribution of the sample.
+
 With respect to F1 (macro averaged), `LogisticRegression` with `One-hot vectorization` scored the highest, and below is the bar chart graph with the F1 score for each class. This result also confirms the above assumption.
 
 
 ## Q2
 In this task you will improve the effectiveness of the `LogisticRegression` with `TF-IDF` vectorisation from Q1.
 1. **Parameter tuning** - Tune the parameters for both the vectoriser and classifier on the validation set (or using CV-fold validation on the train).
+
 Your search does **not** need to be exhaustive. Changing all parameters at once is expensive and slow (a full sweep is exponential in the number of parameters). Consider selecting the best parameters sequentially. The resulting tuned model should improve over the baseline TF-IDF model. Report the results in a table with the accuracy, macro-averaged precision, recall, and F1 on the **test data**. Discuss the parameters and values you tried, what helped and what did not and *explain why* this may be the case.
 	* Classifier - **Regularisation** C value (typical values might be powers of 10 (from $10^{-3}$ to $10^5$)
 	* Vectoriser - Parameters: `sublinear_tf` and `max_features` (vocabulary size) (in a range None to 50k)
@@ -268,6 +270,7 @@ It can be seen that the above sentence is a text unrelated to the content of the
 
 ## Q3
 In this task your goal is to add **two features** to (try to) improve *sentiment polarity* classification performance obtained in Q2.
+
 You must implement and describe two new classifier features and add them to the tuned model from Q2. Examples include adding other properties of the posts (or threads), leveraging embedding-based features, different vectorisation approaches, etc. Train the combined model and report accuracy, macro-averaged precision, recall, and F1 on the test data. Include a well-labeled confusion matrix. Discuss the result in reference to Q2 and what helped (or didn’t) and why you think so.
 
 ### Propose features
@@ -359,6 +362,7 @@ Classifier 'LR tf-idf' has Acc=0.790 P=0.780 R=0.790 F1_w=0.790 F1_m=0.600
 ```
 
 We can see that with the addition of a single feature, `sentiment.subjectivity` has the best effect on the model's effectiveness, raising the f1 score of the model's macro average from 0.541 to 0.6.
+
 Therefore, if two features are to be added, `majority_type` and `subjectivity` are probably the best combination of the features listed in the table above.
 
 5. Add two features
