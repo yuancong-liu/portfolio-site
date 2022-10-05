@@ -21,6 +21,7 @@ Access to XMLHttpRequest at 'http://localhost:4000/[目標url]' from origin 'htt
 非跨域的情況：`http://www.sample.com`和`http://www.sample.com/destination`（協議`http`，域名（包括子域名），端口是相同的）
 
 ## 三種訪問方法的區別
+
 |      | localhost  | 127.0.0.1 | 本機IP         |
 |------|------------|-----------|----------------|
 | 網路 | 不聯網     | 不聯網    | 聯網           |
@@ -28,10 +29,12 @@ Access to XMLHttpRequest at 'http://localhost:4000/[目標url]' from origin 'htt
 | 訪問 | 本機訪問   | 本機訪問  | 本機和外部訪問 |
 
 `localhost`只到達傳輸層，不會解析成IP（到達TCP/IP）；
+
 `127.0.0.1`到達網絡層，是IP，但不是網路IP，所以無法解析成MAC地址，以及從外部訪問。
 
 ## 解決
 從錯誤信息可以看到，服務器的地址是`http://localhost:4000/`，和本機IP和`127.0.0.1`是不同源的，在開發環境下，如果沒有其他配置的話，會出現跨域錯誤。
+
 <br>
 
 -全文完-
