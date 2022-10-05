@@ -1,5 +1,5 @@
 ---
-title: Note | Spring Boot Message 配置問題
+title: Note | Spring Boot Message配置問題
 date: 2022-02-16 16:53:41
 tags: 
 - Chinese
