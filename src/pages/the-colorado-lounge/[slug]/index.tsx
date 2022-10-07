@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { LayoutPost } from "~/components/layouts/posts";
 import FourOhFourPage from "~/pages/404";
 import { Post } from "~/types/Posts";
@@ -11,22 +10,6 @@ import styles from "./index.module.scss";
 const Post: NextPage<{ post: Post }> = ({ post }) => {
 
   const router = useRouter();
-  
-  useEffect(() => {
-    switch (post.tags[0]) {
-      case "Chinese":
-        document.documentElement.lang = "zh-Hant"
-        return;
-      case "English":
-        document.documentElement.lang = "en"
-        return;
-      case "Japanese":
-        document.documentElement.lang = "ja"
-        return;
-      default:
-        return;
-    }
-  }, [post.tags]);
 
   if (router.isFallback && !post?.slug) {
     return <FourOhFourPage />
@@ -48,7 +31,7 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   return (
     <LayoutPost>
       <Head>
-        <title>{post.title} | The Colorador Lounge</title>
+        <title>{post.title}</title>
       </Head>
       <main className={styles['main-wrapper']}>
         {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
@@ -63,18 +46,30 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   );
 }
 
-export const getStaticPaths = async ({ locales }: { locales: Array<any> } ) => {
-  const posts = getAllPosts(['slug']);
+export const getStaticPaths = async () => {
+  const posts = getAllPosts(['slug', 'tags']);
+
+  const getLocale = (languageTag: string) => {
+    switch (languageTag) {
+      case "Chinese":
+        return "zh-Hant";
+      case "English":
+        return "en";
+      case "Japanese":
+        return "ja";
+      default:
+        return "en";
+    }
+  }
+
   return {
     paths: posts.flatMap((post: Post) => {
-      return locales.map((locale: string) => {
         return {
           params: {
             slug: post.slug,
           },
-          locale: locale,
+          locale: getLocale(post.tags[0]),
         };
-      });
     }),
     fallback: false,
   };

@@ -8,11 +8,11 @@ export const languages = [
     value: 'あ'
   },
   {
-    key: 'sc',
+    key: 'zh-Hans',
     value: '简'
   },
   {
-    key: 'tc',
+    key: 'zh-Hant',
     value: '繁'
   },
   {
