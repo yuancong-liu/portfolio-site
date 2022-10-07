@@ -4,7 +4,9 @@
     "stylelint-config-recess-order",
     "stylelint-rscss/config"
   ],
-  "plugins": ["stylelint-scss"],
+  "plugins": [
+    "stylelint-scss"
+  ],
   "rules": {
     "string-quotes": "single",
     "no-empty-source": true,
