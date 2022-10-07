@@ -29,6 +29,7 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   return (
     <LayoutPost>
       <main className={styles['main-wrapper']}>
+        {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
         <h1 className={styles['title']}><span className={styles['before']}>/*</span>{post.title}<span className={styles['after']}>*/</span></h1>
         <p className={styles['date']}>{getDateString(post.date)}</p>
         <div className={styles['tag-group']}>
