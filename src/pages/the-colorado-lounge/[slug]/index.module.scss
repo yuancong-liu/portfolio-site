@@ -10,8 +10,8 @@
     padding: 30px 30px 30px 20px;
   }
 
-  > .title::before,
-  > .title::after {
+  > .title > .before,
+  > .title > .after {
     position: absolute;
     display: block;
     line-height: 1;
@@ -20,14 +20,12 @@
     color: utils.$shining-yellow-2;
   }
 
-  > .title::before {
-    content: '/*';
+  > .title > .before {
     top: -10px;
     left: -5px;
   }
 
-  > .title::after {
-    content: '*/';
+  > .title > .after {
     bottom: -10px;
     right: 0;
   }
