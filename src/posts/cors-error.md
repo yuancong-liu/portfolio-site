@@ -2,8 +2,8 @@
 title: Note | 關於本機IP訪問出現CORS跨域錯誤的問題
 date: 2022-04-25 23:13:00
 tags:
-- Programming
 - Chinese
+- Programming
 - Front-end
 ---
 
@@ -35,6 +35,6 @@ Access to XMLHttpRequest at 'http://localhost:4000/[目標url]' from origin 'htt
 ## 解決
 從錯誤信息可以看到，服務器的地址是`http://localhost:4000/`，和本機IP和`127.0.0.1`是不同源的，在開發環境下，如果沒有其他配置的話，會出現跨域錯誤。
 
-<br>
+
 
 -全文完-

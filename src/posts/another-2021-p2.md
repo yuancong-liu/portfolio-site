@@ -1,5 +1,5 @@
 ---
-title: 譯 | Another 2001 中文 <#02>
+title: Translation | Another 2001 中文 <#02>
 date: 2021-08-24 15:40:50
 tags:
 - Chinese

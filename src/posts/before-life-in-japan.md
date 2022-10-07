@@ -1,5 +1,5 @@
 ---
-title: 文 | 講一講日本考學和求職的心路歷程
+title: Writing | 講一講日本考學和求職的心路歷程
 date: 2022-03-05 14:39:57
 tags:
 - Chinese
@@ -96,7 +96,7 @@ tags:
 *share house的合照*
 
 
-<br>
+
 
 可能更新但是現在先
 
