@@ -12,9 +12,9 @@ tags:
 * **Tuning I**
 * **Tuning II**
 * Part I ………Y.H.
-	* [Introduction](https://www.yuan-cong.com/the-colorado-lounge/Another2021p2/)
-	* [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/Another2021p3/)
-	* [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/Another2021p4/)
+	* [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
+	* [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p3/)
+	* [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
 	* Chapter 3: April III
 	* Chapter 4: April IV
 	* Chapter 5: April V

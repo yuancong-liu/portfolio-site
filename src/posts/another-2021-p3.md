@@ -9,12 +9,12 @@ tags:
 <a data-flickr-embed="true" href="https://www.flickr.com/photos/193508450@N06/51416609359/in/dateposted-public/" title="Another2001"><img src="https://live.staticflickr.com/65535/51416609359_e6908d330f_b.jpg" width="682" alt="Another2001"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
 ### 目录（更新中）
-* [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/Another2021p1/)
-* [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/Another2021p1/)
+* [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
+* [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
 * Part I ………Y.H.
-	* [Introduction](https://www.yuan-cong.com/the-colorado-lounge/Another2021p2/)
+	* [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
 	* **Chapter 1: April I**
-	* [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/Another2021p4/)
+	* [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
 	* Chapter 3: April III
 	* Chapter 4: April IV
 	* Chapter 5: April V
