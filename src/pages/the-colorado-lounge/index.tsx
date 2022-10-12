@@ -12,38 +12,46 @@ import styles from './index.module.scss';
  * /component/pages/the-colorado-lounge　配下にページコンポーネントを作成
  *
  */
-const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({ allPosts }) => {
-
+const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
+  allPosts,
+}) => {
   const getDateString = (date: string) => {
     const dateObj = new Date(date);
-    return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${dateObj.getDate() - 1}`;
-  }
+    return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${
+      dateObj.getDate() - 1
+    }`;
+  };
 
   const getLocale = (languageTag: string) => {
     switch (languageTag) {
-      case "Chinese":
-        return "zh-Hant";
-      case "English":
-        return "en";
-      case "Japanese":
-        return "ja";
+      case 'Chinese':
+        return 'zh-Hant';
+      case 'English':
+        return 'en';
+      case 'Japanese':
+        return 'ja';
       default:
-        return "en";
+        return 'en';
     }
-  }
-  
+  };
+
   return (
     <LayoutBlog>
       <main className={styles['content-wrapper']}>
-        <h1>The Colorado Lounge</h1>
-        <div>
+        <h1 className={styles['title']}>The Colorado Lounge</h1>
+        <div className={styles['posts']}>
           {allPosts.map((post: Post) => (
-            <Link key={post.slug} href={"the-colorado-lounge/" + post.slug} locale={getLocale(post.tags[0])}>
-              <a>
-                <h2>{post.title}</h2>
-                <p>{getDateString(post.date)}</p>
-              </a>
-            </Link>
+            <div className={styles['post-card']} key={post.slug}>
+              <Link
+                href={'the-colorado-lounge/' + post.slug}
+                locale={getLocale(post.tags[0])}
+              >
+                <a>
+                  <h2 className={styles['title']}>{post.title}</h2>
+                  <p className={styles['date']}>{getDateString(post.date)}</p>
+                </a>
+              </Link>
+            </div>
           ))}
         </div>
       </main>
@@ -54,8 +62,8 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({ allPosts }) => 
 export const getStaticProps = async () => {
   const allPosts = getAllPosts(['slug', 'title', 'date', 'tags']);
   return {
-    props: { 
-      allPosts: JSON.parse(JSON.stringify(allPosts))
+    props: {
+      allPosts: JSON.parse(JSON.stringify(allPosts)),
     },
   };
 };
