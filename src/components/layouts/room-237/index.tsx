@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
 import { Language } from "~/components/common/languages/multilingual";
@@ -17,13 +16,7 @@ export const LayoutRoom237: React.FC<Props> = ({ children }) => {
         currentLanguage={language}
         setLanguage={setLanguage}
       />
-      <motion.div
-        initial={{ opacity: 0, x: 1000 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0 }}
-      >
-        {children}
-      </motion.div>
+      {children}
     </div>
   );
 }
