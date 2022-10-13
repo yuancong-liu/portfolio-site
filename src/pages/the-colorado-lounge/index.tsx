@@ -4,6 +4,7 @@ import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
 import { Post } from '~/types/Posts';
 import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
+import classNames from 'classnames';
 
 /**
  * The Colorado Lounge page
@@ -35,13 +36,22 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
     }
   };
 
+  const shouldShowNewTag = (date: string) => {
+    const dateObj = new Date(date);
+    const now = new Date();
+    const diff = now.getTime() - dateObj.getTime();
+    const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+    console.log(diffDays);
+    return diffDays <= 30;
+  };
+
   return (
     <LayoutBlog>
       <main className={styles['content-wrapper']}>
         <h1 className={styles['title']}>The Colorado Lounge</h1>
         <div className={styles['posts']}>
           {allPosts.map((post: Post) => (
-            <div className={styles['post-card']} key={post.slug}>
+            <div className={classNames(styles['post-card'], {[styles['-new']]: shouldShowNewTag(post.date)})} key={post.slug}>
               <Link
                 href={'the-colorado-lounge/' + post.slug}
                 locale={getLocale(post.tags[0])}

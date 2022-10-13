@@ -13,6 +13,10 @@
     width: 100%;
     flex-wrap: wrap;
     gap: 1rem 0;
+
+    @media screen and (max-width: 768px) {
+      gap: 0;
+    }
   }
 }
 
@@ -20,9 +24,10 @@
   position: relative;
   z-index: 0;
   width: calc(50% - 1rem);
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   flex-basis: 50%;
   background-color: white;
+  contain: paint;
 
   @media screen and (min-width: 768px) {
     border: 1px solid white;
@@ -42,10 +47,28 @@
     width: 100%;
     flex-basis: 100%;
     border-top: 1px solid black;
-    box-shadow: inset -5px 0 0 0 utils.$shining-yellow-2;
   }
 
-  > .title {
-    font-size: 1.5rem;
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem
+  }
+
+  .date {
+    color: white;
+    width: fit-content;
+    background-color: utils.$shining-yellow-3;
+    padding: 0 0.5rem;
+  }
+
+  &.-new::after {
+    position: absolute;
+    bottom: -80px;
+    left: -40px;
+    transform: rotate(45deg);
+    content: '🍟';
+    font-size: 6rem;
+    z-index: -10;
+    opacity: 0.5;
   }
 }
