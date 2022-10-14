@@ -41,7 +41,6 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
     const now = new Date();
     const diff = now.getTime() - dateObj.getTime();
     const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
-    console.log(diffDays);
     return diffDays <= 30;
   };
 

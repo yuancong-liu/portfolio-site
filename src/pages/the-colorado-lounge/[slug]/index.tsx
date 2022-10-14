@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -7,7 +8,7 @@ import { Post } from "~/types/Posts";
 import { getAllPosts, getPostBySlug, markdownToHtml } from "~/utils/posts";
 import styles from "./index.module.scss";
 
-const Post: NextPage<{ post: Post }> = ({ post }) => {
+const Post: NextPage<{ post: Post, locale: string }> = ({ post, locale }) => {
 
   const router = useRouter();
 
@@ -40,7 +41,7 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
         <div className={styles['tag-group']}>
           {getTagList(post.tags)}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} className={styles['content-wrapper']} />
+        <div dangerouslySetInnerHTML={{ __html: post.content }} className={classNames(styles['content-wrapper'], locale)} />
       </main>
     </LayoutPost>
   );
@@ -75,7 +76,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }: { params: { slug: string } }) => {
+export const getStaticProps = async ({ params, locale }: { params: { slug: string }, locale: string }) => {
   const post = getPostBySlug(params.slug, ["title", "date", "slug", "content", "tags"]);
   const content = await markdownToHtml(post.content || "");
 
@@ -85,6 +86,7 @@ export const getStaticProps = async ({ params }: { params: { slug: string } }) =
         ...post,
         content,
       })),
+      locale: locale
     },
   };
 };
