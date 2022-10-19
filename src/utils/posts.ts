@@ -1,9 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as matter from 'gray-matter';
 import { Post } from '~/types/Posts';
 import { remark } from 'remark';
 import html from 'remark-html';
+import gfm from 'remark-gfm';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -12,7 +13,7 @@ const postsDirectory = path.join(process.cwd(), 'src/posts');
  */
 export const getPostSlugs = () => {
   const allPosts = fs.readdirSync(postsDirectory);
-  return allPosts.map((post) => post.replace(/\.md$/, ''));
+  return allPosts.map((post: string) => post.replace(/\.md$/, ''));
 };
 
 /**
@@ -49,9 +50,9 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
 export const getAllPosts = (fields: string[] = []) => {
   const slugs = getPostSlugs();
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
+    .map((slug: string) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
 
@@ -61,6 +62,6 @@ export const getAllPosts = (fields: string[] = []) => {
  * @returns HTML
  */
 export const markdownToHtml = async (markdown: string) => {
-  const result = await remark().use(html).process(markdown);
+  const result = await remark().use(html).use(gfm).process(markdown);
   return result.toString();
 }

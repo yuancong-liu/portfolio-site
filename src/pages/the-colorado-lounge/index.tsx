@@ -4,7 +4,7 @@ import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
 import { Post } from '~/types/Posts';
 import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
-import classNames from 'classnames';
+import * as classNames from 'classnames';
 
 /**
  * The Colorado Lounge page

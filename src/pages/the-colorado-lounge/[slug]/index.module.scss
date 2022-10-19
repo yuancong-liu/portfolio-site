@@ -147,4 +147,17 @@
   a:hover::after {
     background-color: utils.$shining-yellow-2;
   }
+
+  table {
+    width: 100%;
+  }
+
+  th {
+    padding: 0 10px;
+    border-bottom: utils.$shining-yellow-2 2px solid;
+  }
+
+  td {
+    padding: 0 10px;
+  }
 }
