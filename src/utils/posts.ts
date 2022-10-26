@@ -2,9 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Post } from '~/types/Posts';
-import { remark } from 'remark';
-import html from 'remark-html';
-import gfm from 'remark-gfm';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
+import remarkGfm from 'remark-gfm';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -62,6 +65,12 @@ export const getAllPosts = (fields: string[] = []) => {
  * @returns HTML
  */
 export const markdownToHtml = async (markdown: string) => {
-  const result = await remark().use(html).use(gfm).process(markdown);
+  const result = await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeStringify)
+    .use(remarkGfm)
+    .process(markdown);
   return result.toString();
 }

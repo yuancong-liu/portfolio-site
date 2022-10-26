@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { appWithTranslation } from 'next-i18next';
 import { AnimatePresence } from 'framer-motion';
+import 'highlight.js/styles/default.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
 

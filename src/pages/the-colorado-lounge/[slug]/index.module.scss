@@ -99,12 +99,17 @@
 
   pre {
     background-color: #f6f8fa;
-    border-radius: 3px;
     padding: 1.5em 1.5em;
+    border-radius: 3px;
     font-size: 85%;
     font-family: 'Courier New', Courier, monospace;
     margin: 10px 0;
     overflow-x: auto;
+  }
+
+  pre > code {
+    background-color: #f6f8fa;
+    padding: 0;
   }
 
   blockquote {

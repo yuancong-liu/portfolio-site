@@ -68,7 +68,7 @@ create database `todo`;
 ```
 
 在新建的Spring Boot項目的/resource目錄下的application.properties中添加以下：
-```properties
+```
 spring.datasource.url=jdbc:mysql://localhost:3306/todo
 spring.datasource.username=root
 spring.datasource.password=
