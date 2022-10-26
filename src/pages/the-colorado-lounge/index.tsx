@@ -5,6 +5,7 @@ import { Post } from '~/types/Posts';
 import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
 import classNames from 'classnames';
+import { generateRssFeed } from '~/utils/feed';
 
 /**
  * The Colorado Lounge page
@@ -67,6 +68,8 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
 };
 
 export const getStaticProps = async () => {
+  generateRssFeed();
+
   const allPosts = getAllPosts(['slug', 'title', 'date', 'tags']);
   return {
     props: {
