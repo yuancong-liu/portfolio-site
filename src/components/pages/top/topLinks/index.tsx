@@ -22,7 +22,7 @@ export const TopLinks: React.FC<Props> = (props: Props) => {
     return links[props.position].map((link: { text: string, link: string }, index: number) => {
       return (
         <p key={index} className={styles['link']}>
-          <Link href={link.link}><a>{link.text}</a></Link>
+          <Link href={link.link}>{link.text}</Link>
         </p>
       )
     })

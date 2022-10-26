@@ -4,7 +4,7 @@ import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
 import { Post } from '~/types/Posts';
 import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 /**
  * The Colorado Lounge page
@@ -55,10 +55,8 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
                 href={'the-colorado-lounge/' + post.slug}
                 locale={getLocale(post.tags[0])}
               >
-                <a>
-                  <h2 className={styles['title']}>{post.title}</h2>
-                  <p className={styles['date']}>{getDateString(post.date)}</p>
-                </a>
+                <h2 className={styles['title']}>{post.title}</h2>
+                <p className={styles['date']}>{getDateString(post.date)}</p>
               </Link>
             </div>
           ))}

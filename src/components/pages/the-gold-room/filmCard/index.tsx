@@ -13,7 +13,8 @@ export const FilmCard: React.FC<Props> = (props: Props) => {
         <Image
           src={props.film.posterPath}
           alt={props.film.title}
-          layout="fill"
+          width={100}
+          height={150}
         />
       </div>
       <div className={styles['basic-info']}>

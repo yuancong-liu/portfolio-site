@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as matter from 'gray-matter';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 import { Post } from '~/types/Posts';
 import { remark } from 'remark';
 import html from 'remark-html';

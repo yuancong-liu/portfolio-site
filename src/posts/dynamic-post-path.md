@@ -41,10 +41,8 @@ const fullPath = path.join(postsDirectory, `${realSlug}.md`);
 // the-colorador-lounge/[slug].tsx
 allPosts.map((post: Post) => (
   <Link key={post.slug} href={"the-colorado-lounge/" + post.slug} locale={getLocale(post.tags[0])}>
-    <a>
-      <h2>{post.title}</h2>
-      <p>{getDateString(post.date)}</p>
-    </a>
+    <h2>{post.title}</h2>
+    <p>{getDateString(post.date)}</p>
   </Link>
 ));
 ```
