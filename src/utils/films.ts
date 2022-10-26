@@ -18,6 +18,11 @@ export const getFilms = async () => {
     const filmJson = await filmRes.json();
     films.push(filterFilmInfo(filmJson));
   }));
+
+  films.sort((a, b) => {
+    return FilmConstants.topTenFilmIds.indexOf(a.id) - FilmConstants.topTenFilmIds.indexOf(b.id);
+  });
+
   return films;
 }
 
@@ -29,6 +34,7 @@ export const getFilms = async () => {
  */
 export const filterFilmInfo = (film: any) => {
   return {
+    id: film['id'],
     title: film['title'],
     originalTitle: film['original_title'],
     genres: getGenreString(film['genres']),

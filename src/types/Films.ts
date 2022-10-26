@@ -3,7 +3,12 @@
  */
 
 export type Film = {
-  
+
+  /**
+   * 映画id
+   */
+  id: number;
+
   /**
    * 映画タイトル
    */
