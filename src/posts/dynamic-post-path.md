@@ -150,5 +150,6 @@ allPosts.map((post: Post) => (
 ---
 
 ### 參考
+
 * Next.js官方教程：[Dynamic Path](https://nextjs.org/learn/basics/dynamic-routes)
 * Next.js官方文檔：[Internationalized Routing](https://nextjs.org/docs/advanced-features/i18n-routing)
