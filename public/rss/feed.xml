@@ -4,10 +4,18 @@
         <title>The Colorado Lounge</title>
         <link>https://www.yuan-cong.com/the-Colorado-lounge</link>
         <description>YUANCONG.L's blog</description>
-        <lastBuildDate>Wed, 26 Oct 2022 07:59:15 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 31 Oct 2022 02:47:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Next.js using Feed for Node.js</generator>
         <copyright>All rights reserved 2022, YUANCONG.L</copyright>
+        <item>
+            <title><![CDATA[Note | 為這個博客添加RSS Feed]]></title>
+            <link>https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed</link>
+            <guid>https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed</guid>
+            <pubDate>Wed, 26 Oct 2022 18:23:14 GMT</pubDate>
+            <description><![CDATA[Note | 為這個博客添加RSS Feed]]></description>
+            <content:encoded><![CDATA[Note | 為這個博客添加RSS Feed]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Note | 為這個博客的每個頁面設置動態連結]]></title>
             <link>https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/dynamic-post-path</link>

@@ -10,6 +10,14 @@
     },
     "items": [
         {
+            "id": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed",
+            "content_html": "Note | 為這個博客添加RSS Feed",
+            "url": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed",
+            "title": "Note | 為這個博客添加RSS Feed",
+            "summary": "Note | 為這個博客添加RSS Feed",
+            "date_modified": "2022-10-26T18:23:14.000Z"
+        },
+        {
             "id": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/dynamic-post-path",
             "content_html": "Note | 為這個博客的每個頁面設置動態連結",
             "url": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/dynamic-post-path",

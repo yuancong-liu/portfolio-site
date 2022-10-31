@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.yuan-cong.com</id>
     <title>The Colorado Lounge</title>
-    <updated>2022-10-26T07:59:15.814Z</updated>
+    <updated>2022-10-31T02:47:20.160Z</updated>
     <generator>Next.js using Feed for Node.js</generator>
     <author>
         <name>YUANCONG.L</name>
@@ -13,6 +13,14 @@
     <link rel="self" href="https://www.yuan-cong.com/the-colorado-lounge/atom.xml"/>
     <subtitle>YUANCONG.L's blog</subtitle>
     <rights>All rights reserved 2022, YUANCONG.L</rights>
+    <entry>
+        <title type="html"><![CDATA[Note | 為這個博客添加RSS Feed]]></title>
+        <id>https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed</id>
+        <link href="https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed"/>
+        <updated>2022-10-26T18:23:14.000Z</updated>
+        <summary type="html"><![CDATA[Note | 為這個博客添加RSS Feed]]></summary>
+        <content type="html"><![CDATA[Note | 為這個博客添加RSS Feed]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Note | 為這個博客的每個頁面設置動態連結]]></title>
         <id>https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/dynamic-post-path</id>
