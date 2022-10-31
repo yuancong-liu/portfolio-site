@@ -10,6 +10,14 @@
     },
     "items": [
         {
+            "id": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/graphql-api-frontend",
+            "content_html": "Note | Vue中連接AppSync的GraphQL API",
+            "url": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/graphql-api-frontend",
+            "title": "Note | Vue中連接AppSync的GraphQL API",
+            "summary": "Note | Vue中連接AppSync的GraphQL API",
+            "date_modified": "2022-10-30T01:59:38.000Z"
+        },
+        {
             "id": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed",
             "content_html": "Note | 為這個博客添加RSS Feed",
             "url": "https://www.yuan-cong.com/zh-Hant/the-colorado-lounge/rss-feed",
