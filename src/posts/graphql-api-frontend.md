@@ -23,8 +23,8 @@ type Query {
 }
 ```
 
-```typescript
-// Query
+```graphql
+# Query
 query {
   hello
 }
@@ -53,7 +53,8 @@ type Query {
 }
 ```
 
-```typescript
+```graphql
+# Query
 query {
   me {
     id
@@ -63,6 +64,7 @@ query {
 ```
 
 ```json
+// Response
 {
   "data": {
     "me": {
@@ -137,6 +139,39 @@ query {
 
 對於響應狀態碼，RESTful和GraphQL也有很大區別，RESTful API返回各式各樣的狀態碼，但是GraphQL無論是成功的請求或是失敗的請求都返回`200`，錯誤內容則體現在響應體中。
 
+API請求方式上，RESTful和GraphQL有以下區別：
+
+| 請求方式 | RESTful    | GraphQL  |
+|----------|------------|----------|
+| 數據取得     | GET     | Query   |
+| 數據插入     | POST     | Mutation   |
+| 數據更新     | PUT/PATCH/DELETE | Mutation |
+| 數據監視/訂閱     | -   | **Subscription** |
+
+### 訂閱（Subscription）
+
+Query和Mutation很好理解，GraphQL比RESTful多出一個數據監視功能，也就是Subscription。介紹GraphQL的Subscription之前，先看看實時API分為哪些種類：
+1. **Polling**。客戶端定期發送請求來獲得新數據，這樣的操作很不靈活，很不適合更新不定時，頻率不固定的數據；
+2. **Event based subscription**。客戶端（可以是多個）進行數據操作的時候通知服務端，服務端接到數據操作之後，以此為觸發點，通知所有的客戶端。這樣的方法需要提前定義通知客戶端的方法；
+3. **Live query**。客戶端發送請求，響應數據有變化的時候，服務端將新的數據推送給客戶端。和訂閱的主要區別在於，數據本身是實時的，不存在基於事件的概念。
+
+GraphQL的訂閱API是基於事件驅動的，具體來講就是基於Mutation。任何一個客戶端通過Mutation修改了數據，就會觸發數據推送。
+
+以以下訂閱的Schema為例：
+
+```graphql
+type Subscription {
+  subscribeUserStatus(userId: String!): UserStatus
+    (mutations: ["updateUserStatus", "updateUserOrders"])
+}
+```
+
+這是一個叫做`subscribeUserStatus`的訂閱類型，其返回類型是其他地方定義的`UserStatus`對象。這個訂閱的觸發器有兩個，分別是`updateUserStatus`和`updateUserOrders`兩個mutation方法。也就是，只要任意客戶端通過這兩個mutation修改了數據，`subscribeUserStatus`就會將新的數據推送給所有客戶端。
+
+## AppSync相關
+
+
+
 
 
 ---
@@ -144,3 +179,6 @@ query {
 
 * [GraphQL 入門： 簡介 X 範例 X 優缺點](https://ithelp.ithome.com.tw/articles/10200678)
 * [GraphQLとRESTの比較](https://hasura.io/learn/ja/graphql/intro-graphql/graphql-vs-rest/)
+* [Subscribe to data](https://docs.amplify.aws/lib/graphqlapi/subscribe-data/q/platform/js/)
+* [GraphQLにおけるSubscription処理について(実装例: Amplify + AppSync)](https://qiita.com/yoshii0110/items/3d9ec03215537646b65c)
+* [AWS AppSync](https://aws.amazon.com/cn/appsync/)
