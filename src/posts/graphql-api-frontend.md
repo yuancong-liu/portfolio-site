@@ -1,5 +1,5 @@
 ---
-title: Note | Vue中連接AppSync的GraphQL API
+title: Note | 前端項目中AWS AppSync的GraphQL API連結
 date: 2022-10-30 01:59:38
 tags:
 - Chinese
@@ -168,10 +168,66 @@ type Subscription {
 
 這是一個叫做`subscribeUserStatus`的訂閱類型，其返回類型是其他地方定義的`UserStatus`對象。這個訂閱的觸發器有兩個，分別是`updateUserStatus`和`updateUserOrders`兩個mutation方法。也就是，只要任意客戶端通過這兩個mutation修改了數據，`subscribeUserStatus`就會將新的數據推送給所有客戶端。
 
-## AppSync相關
+## AWS AppSync相關
 
+本文不涉及後端開發，所以AppSync就簡單介紹一下。
 
+> AWS AppSync 是一項無服務器（Serverless）GraphQL和Pub/Sub API服務，可簡化現代化 Web 和移動應用程序的構建過程。AWS AppSync GraphQL API通過提供一个終端節點来安全地查詢或更新来自多个數據庫、微服務和API的數據，从而簡化應用程序開發。
 
+也就是說，AWS AppSync提供僅僅一個終端節點（Endpoint），讓客戶端可以通過這一個終端節點訪問多個數據庫、API和其他的後端系統的數據。
+
+## 實裝的故事
+
+從這裡開始講講實際項目中的API連結以及我踩的各種各樣的坑。
+
+先介紹一下項目背景。
+
+這個項目是在公司自己做的CMS package上擴張而成的一個內容管理系統，基本開發是php（這一趴與我無關），各種各樣的組件開發是用Vue，項目中有兩個完全用Vue開發的頁面，其中一個用於內容展示（RESTful API），我開發的這一個類似於銀行的叫號管理系統，工作人員可以切換窗口，切換業務類型查看，並且可以進行叫號或者跳過等操作，最重要的是這個系統允許多個工作人員同時操作，為了保持整理券信息的一致性，需要使用實時API來獲得整理券信息的更新。後端的朋友在這裡用了AWS AppSync來開發部署GraphQL API，其中各種各樣的信息訂閱就用到其Subscription API。
+
+* Vue.js: 3.2 (Global API)
+* Node.js: 14.20 (Security support ends by April 2023)
+
+### 用Apollo怎麼失敗了？
+
+[Apollo](https://www.apollographql.com/docs/)是一個類似於AppSync的開發平台，可以用於開發部署GraphQL的API。Apollo也提供各種各樣的前端庫來方便客戶端開發，谷歌上搜GraphQL API連結幾乎都是用他家庫做的項目和教程，所以我也開始著手用Apollo的官方Vue庫來開發。
+
+#### 至少還順利的Query和Mutation實現
+
+由於Query和Mutation與Subscription的原理不同，其請求幾乎可以理解為和RESTful API一樣，所以不同的host也不能搞出花樣來。這裡貼一個簡單的Query的例子：
+
+```javascript
+const apolloClient = new ApolloClient({
+  uri: 'https://rtapi.example.endpoint/graphql',
+  headers: {
+    'X-Api-Key': 'some_api-key',
+  },
+  cache: new InMemoryCache(),
+});
+
+provideApolloClient(apolloClient);
+
+const { onResult } = useQuery(gql`
+    query listData ($someInput: String!) {
+        listData (someInput: $someInput) {
+            result {
+                property1
+                property2
+                property3
+                property4
+            }
+            statusCode
+        }
+    }
+`, {
+    someInput: someInput.value,
+});
+
+onResult((result) => {
+    dataToDisplay.value = result.data.listData.result;
+});
+```
+
+基本實現方法是首先定義一個`ApolloClient`並且用`provideApolloClient`將其投入使用，再用`useQuery`方法進行數據請求。其中`useQuery`的返回值不僅有`onResult`，還有`isLoading: Boolean`用於判定數據是否已經到位，`subscribeToMore`用於後續的數據訂閱。
 
 
 ---
@@ -182,3 +238,4 @@ type Subscription {
 * [Subscribe to data](https://docs.amplify.aws/lib/graphqlapi/subscribe-data/q/platform/js/)
 * [GraphQLにおけるSubscription処理について(実装例: Amplify + AppSync)](https://qiita.com/yoshii0110/items/3d9ec03215537646b65c)
 * [AWS AppSync](https://aws.amazon.com/cn/appsync/)
+* [失敗から学ぶAppSyncのSubscriptionとかApolloとかPostmanとか](https://thilog.com/failure-appsync-apollo-subscription/)
