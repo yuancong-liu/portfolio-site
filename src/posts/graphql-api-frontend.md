@@ -199,7 +199,7 @@ type Subscription {
 const apolloClient = new ApolloClient({
   uri: 'https://rtapi.example.endpoint/graphql',
   headers: {
-    'X-Api-Key': 'some_api-key',
+    'X-Api-Key': 'some_api_key',
   },
   cache: new InMemoryCache(),
 });
