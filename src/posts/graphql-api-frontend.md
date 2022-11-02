@@ -229,6 +229,155 @@ onResult((result) => {
 
 基本實現方法是首先定義一個`ApolloClient`並且用`provideApolloClient`將其投入使用，再用`useQuery`方法進行數據請求。其中`useQuery`的返回值不僅有`onResult`，還有`isLoading: Boolean`用於判定數據是否已經到位，`subscribeToMore`用於後續的數據訂閱。
 
+其中用到一個叫做`graphql-tag`的庫來進行query字符串的預處理（`gql`方法），它將把它包起來的GraphQL查詢字符串解析為標準GraphQL AST用於發送請求。
+
+#### Subscription怎麼就搞不動了？
+
+先說結論，失敗的原因是因為AppSync接收Subscription請求的形式和Apollo發送的請求形式不吻合。
+
+**AppSync接受**的請求形式：
+
+```json
+{
+  "id": id,
+  "type": "start",
+  "payload": {
+    "data": {
+      "query": query,
+      "variables": { variable: variable },
+    },
+    "extensions": {
+      authorization: {
+        host: endpoint,
+        "x-api-key": apikey,
+      }
+    },
+  }
+}
+```
+
+**Apollo發送**的請求形式：
+
+```json
+{
+  "id": subscriptionId,
+  "type": "start",
+  "payload": {
+    "variables": {},
+    "extensions": {},
+    "operationName": subscriptionName,
+    "query": query
+  }
+}
+```
+
+AppSync接受的请求形式中，本该直接出现`query`的地方多了一层`data`，结果就导致了`UnsupportedOperation`错误的发生：
+
+```json
+{
+  "type": "error",
+  "id": "",
+  "payload": {
+    "errors": [{
+      "errorType": "UnsupportedOperation",
+      "message": "unknown not supported through the realtime channel"
+    }]
+  }
+}
+```
+
+除此之外，AppSync還會返回`start_ack`信息，而這不在Apollo所使用的WebSocket方法的生命週期里，所以可以說兩者几乎是完全不適配。並且，向GraphQL端點發送請求時，需要在端點的字符串後自行處理加上轉換成`base64`的頭部（包括`header`和`payload`）。由於`gql`是自動生成，並沒有找到可以自定義請求體結構的方法，所以這條路以失敗告終。
+
+### 用Amplify來實現
+
+其實最開始就應該用Amplify的，腸子都悔青了⋯⋯用Apollo來實現的感覺就像買了iPhone卻強行要用華為手錶一樣。但是很恐怖的是，網上關於只用Amplify庫而不在AWS上部署Amplify應用程序的文章太少，導致我大走彎路。
+
+先講講是怎麼成功的。
+
+#### Schema的自動取得等
+
+首先按照AppSync Console的教程，先把GraphQL的Schema全部拉取下來。
+
+```shell
+npm install -g @aws-amplify/cli
+amplify init
+amplify add codegen --apiId some_api_id
+amplify codegen
+```
+
+讓我直接暈死的點就在這裡，根據步驟會生成一大堆文件，甚至還會直接告訴你需要部署一個Amplify App在AWS。由於生成的大部分文件都在`.gitignore`裡，當下我就陷入思考：這麼多本地文件，部署的時候該怎麼辦？？
+
+其實到此為止，我們其實只需要用到Amplify cli幫忙取得的Schema文件，也就是`./src/graphql`中的文件，除此之外，還有一個叫做`aws-exports.js`的文件，當API KEY之類的過期或更新的時候，`amplify codegen`會重新幫我們生成這些文件。
+
+`.gitignore`裡面被添加的那些本地配置文件通通都可以刪除，那些都是需要部署Amplify APP才需要用到的文件。
+
+為了讓全局都可以使用這個GraphQL端點，首先在`app.js`裡進行配置：
+
+```javascript
+import Amplify from 'aws-amplify';
+
+Amplify.configure({
+    aws_appsync_graphqlEndpoint: some_graphql_endpoint,
+    aws_appsync_authenticationType: 'API_KEY',
+    aws_appsync_apiKey: some_appsync_api_key,
+});
+```
+
+各大教程裡面都是這樣寫：`Amplify.configure(aws_exports);`，但如果我需要在部署的時候再多生成一個`aws_exports.js`文件，那需要很多額外設置，所以`aws_appsync_graphqlEndpoint`和`aws_appsync_apiKey`就交給環境變量來解決了。
+
+#### API請求
+
+設置結束之後，我們就可以在組件裡進行API請求了。比起Apollo，由於我們有自動生成的Schema文件（其實Apollo也可以使用提前定義的Schema，但是實在是太多我又很懶，所以沒弄），所以實現起來非常快。
+
+首先，編寫這樣的方法：
+
+```javascript
+import { API, graphqlOperation } from 'aws-amplify';
+import { listUserData } from '@/../src/graphql/queries';
+
+const fetchUserData = async () => {
+  await API.graphql(
+    graphqlOperation(
+      listUserData,
+      {
+        userId: userId.value,
+      }
+    )
+  ).then((res) => {
+    userData.value = res.data.listUserData.result.sort((a, b) => {
+      return a.userId - b.userId;
+    });
+  });
+};
+```
+
+其中，像一般的promise一樣，用`then()`來指定有相應之後的操作。同理，mutation也用類似的方法實現：
+
+```javascript
+import { updateUserStatus } from '@/../src/graphql/mutations';
+
+const mutateTicket = async () => {
+  await API.graphql(
+    graphqlOperation(
+      updateTicketStatus,
+      {
+        input: {
+          userId: userId.value,
+          groupId: groupId,
+          userStatus: userStatus,
+        },
+      }
+    )
+  ).then(() => {
+    console.log("user status updated!")
+  }).catch(() => {
+      console.log("user status update failed!")
+  });
+};
+```
+
+
+
 
 ---
 ### 參考
@@ -239,3 +388,4 @@ onResult((result) => {
 * [GraphQLにおけるSubscription処理について(実装例: Amplify + AppSync)](https://qiita.com/yoshii0110/items/3d9ec03215537646b65c)
 * [AWS AppSync](https://aws.amazon.com/cn/appsync/)
 * [失敗から学ぶAppSyncのSubscriptionとかApolloとかPostmanとか](https://thilog.com/failure-appsync-apollo-subscription/)
+* [API (GraphQL) - Subscribe to data - JavaScript - AWS Amplify Docs](https://docs.amplify.aws/lib/graphqlapi/subscribe-data/q/platform/js/)
