@@ -74,7 +74,7 @@
 
   h2 {
     position: relative;
-    margin: 20px 0 10px 0;
+    margin: 25px 0 15px 0;
 
     &::after {
       position: absolute;
@@ -90,7 +90,19 @@
   }
 
   h3 {
-    margin: 15px 0 10px 0;
+    position: relative;
+    margin: 20px 0 10px 0;
+
+    &::after {
+      position: absolute;
+      left: -10px;
+      content: '';
+      width: 15px;
+      height: 15px;
+      z-index: -100;
+      background-color: utils.$shining-yellow-2;
+      border-radius: 100px;
+    }
   }
 
   p {
