@@ -16,7 +16,7 @@ export const languages = [
     value: '繁'
   },
   {
-    key: 'kr',
+    key: 'ko',
     value: '한'
   }
 ]

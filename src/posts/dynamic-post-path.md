@@ -54,7 +54,7 @@ allPosts.map((post: Post) => (
 ```javascript
 // next-i18next.config.js
 defaultLocale: 'en',
-locales: ['en', 'ja', 'kr', 'zh-Hans', 'zh-Hant'],
+locales: ['en', 'ja', 'ko', 'zh-Hans', 'zh-Hant'],
 ```
 按照這樣的配置，除了默認語言不會體現在url中之外，其他語言都會以`/zh-Hant/the-colorador-lounge`的方式體現在url中。
 
@@ -95,7 +95,7 @@ paths: posts.flatMap((post: Post) => {
 /the-colorado-lounge/dynamic-post-path
 /zh-Hant/the-colorado-lounge/dynamic-post-path
 /zh-Hans/the-colorado-lounge/dynamic-post-path
-/kr/the-colorado-lounge/dynamic-post-path
+/ko/the-colorado-lounge/dynamic-post-path
 /ja/the-colorado-lounge/dynamic-post-path
 ```
 
