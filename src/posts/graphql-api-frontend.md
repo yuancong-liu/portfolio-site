@@ -317,9 +317,9 @@ amplify codegen
 import Amplify from 'aws-amplify';
 
 Amplify.configure({
-    aws_appsync_graphqlEndpoint: some_graphql_endpoint,
+    aws_appsync_graphqlEndpoint: process.env.GRAPHQL_ENDPOINT || '',
     aws_appsync_authenticationType: 'API_KEY',
-    aws_appsync_apiKey: some_appsync_api_key,
+    aws_appsync_apiKey: process.env.APPSYNC_API_KEY || '',
 });
 ```
 
@@ -340,7 +340,7 @@ const fetchUserData = async () => {
     graphqlOperation(
       listUserData,
       {
-        userId: userId.value,
+        userGroupId: userGroupId.value,
       }
     )
   ).then((res) => {
@@ -351,12 +351,12 @@ const fetchUserData = async () => {
 };
 ```
 
-其中，像一般的promise一樣，用`then()`來指定有相應之後的操作。同理，mutation也用類似的方法實現：
+其中，像一般的promise一樣，用`then()`來指定有響應之後的操作。同理，mutation也用類似的方法實現：
 
 ```javascript
 import { updateUserStatus } from '@/../src/graphql/mutations';
 
-const mutateTicket = async () => {
+const mutateUserData = async () => {
   await API.graphql(
     graphqlOperation(
       updateTicketStatus,
@@ -371,21 +371,156 @@ const mutateTicket = async () => {
   ).then(() => {
     console.log("user status updated!")
   }).catch(() => {
-      console.log("user status update failed!")
+    console.log("user status update failed!")
   });
 };
 ```
 
+subscribe的實現方法也類似，不過需要加上`subscribe()`處理：
 
+```javascript
+import { subscribeUserData } from '@/../src/graphql/subscriptions';
 
+const subscribeToUserData = async () => {
+  await API.graphql(
+    graphqlOperation(
+      subscribeUserData,
+      {
+        userGroupId: userGroupId.value,
+      }
+    )
+  ).subscribe({
+    next: (res) => {
+      if (!res.value.data.subscribeUserData) return;
+      const changedUser = res.value.data.subscribeUserData.result;
+      const changedUserIndex = users.value?.findIndex((user) => user.userId === changedUser.userId);
+      if (changedUserIndex === -1) {
+        users.value.push(changedUser);
+        users.value.sort((a, b) => a.userId - b.userId);
+      } else {
+        users.value[changedUserIndex] = changedUser;
+      }
+    },
+    error: () => {
+      console.log("error occurred!")
+    },
+  });
+};
+```
+
+在`subscribe()`方法中，`next`用於定義正常獲得更新數據之後的操作，`error`用於定義異常的處理。在上面的例子中，數據更新時只返回一個用戶的數據，所以在`next`的定義中找到有更新的用戶，並用新數據替換舊數據。
+
+最後，為了讓數據獲取和訂閱的方法在插入組件樹的時候運行，把上面的`fetchUserData()`和`subscribeToUserData()`放進`onMounted()`中：
+
+```javascript
+onMounted(async () => {
+  await fetchUserData();
+  await subscribeToUserData();
+});
+```
+
+這樣一來，數據獲取和訂閱就完成了。
+
+#### 實時監測WebSocket的連結狀況
+
+按照項目需求，當網絡出現狀況，WebSocket的網絡連結狀況處於pending的時候，需要顯示網絡故障的文字。可是，網絡故障時，本身就不會返回新數據，所以不能在`subscribe()`的`error`中定義行為。
+
+這裡可以用到Amplify的`Hub.listen()`來實時監聽api的連結情況。
+
+```javascript
+import { Hub } from 'aws-amplify';
+import { CONNECTION_STATE_CHANGE, ConnectionState } from '@aws-amplify/pubsub';
+
+Hub.listen('api', async (data) => {
+  if (data.payload.event === CONNECTION_STATE_CHANGE) {
+    if (data.payload.data.connectionState === ConnectionState.ConnectedPendingNetwork) {
+      shouldDisplayConnectionError.value = true;
+    } else {
+      shouldDisplayConnectionError.value = false;
+      await fetchUserData();
+    }
+  }
+});
+```
+
+在Hub監聽api的過程中，有各種各樣的事件數據返回，其中要提取的就是`CONNECTION_STATE_CHANGE`即網絡連結狀態改變事件，當事件發生時，事件本身作為觸發器觸發狀態的改變。
+
+`ConnectionState`有以下狀態，可以結合實際需求和情境用於判定等。
+
+```markdown
+* Connected - Connected and working with no issues.
+* ConnectedPendingDisconnect - The connection has no active subscriptions and is disconnecting.
+* ConnectedPendingKeepAlive - The connection is open, but has missed expected keep alive messages.
+* ConnectedPendingNetwork - The connection is open, but the network connection has been disrupted. When the network recovers, the connection will continue serving traffic.
+* Connecting - Attempting to connect.
+* ConnectionDisrupted - The connection is disrupted and the network is available.
+* ConnectionDisruptedPendingNetwork - The connection is disrupted and the network connection is unavailable.
+* Disconnected - Connection has no active subscriptions and is disconnecting.
+```
+
+### おまけ - 突然不用API KEY，要用LAMBDA TOKEN來認證？？知道這個消息的我的心路歷程
+
+當我開開心心提出review請求的時候，突然被後端告知
+
+> 我們不用`API KEY`而是用`LAMBDA TOKEN`來認證。
+> 具體做法是用戶登錄之後會生成token（存儲在cookies中），而這個token就是用於認證的`LAMBDA TOKEN`。
+
+我打開`Amplify.configure()`的文檔，卻發現我可以把`aws_appsync_authenticationType`改成`AWS_LAMBDA`，卻沒有一個欄位讓我放下token值。
+
+這時候救我命的是突然浮窗出現的`graphqlOperation()`的文檔，其方法簽名如下：
+
+```typescript
+export declare const graphqlOperation: (query: any, variables?: {}, authToken?: string, userAgentSuffix?: string) => {
+  query: any;
+  variables: {};
+  authToken: string;
+  userAgentSuffix: string;
+};
+```
+
+雖然要在訪問API的地方一個一個設置，但是在`variable`之後是可以直接加上`authToken`的。
+
+由於API訪問分布在各個組件中，所以在每一個組件中取得一次cookies顯然不現實。我的做法是在app.js（`Amplify.configure()`的附近）從cookies中獲取一次token，再將其作為全局變量注入各個組件。
+
+```javascript
+import { useCookies } from 'vue3-cookies';
+
+const { cookies } = useCookies();
+const accessToken = cookies.get('access_token');
+app.provide('accessToken', accessToken);
+```
+
+需要注意的是，在vue的全局API中如果用這樣的語句`app.config.globalProperties.foo = 'bar';`設置全局變量，在組件中是獲取不到的，需要用到`inject()`來注入。
+
+在組件中取用的時候如下：
+```javascript
+import { inject } from 'vue';
+const accessToken = inject('accessToken');
+```
+
+最後把獲取到的token放在`graphqlOperation()`的第三個參數就大功告成了！
+
+```javascript
+// ...
+await API.graphql(
+  graphqlOperation(
+    listUserData,
+    {
+      userGroupId: userGroupId.value,
+    },
+    accessToken
+  )
+).then((res) => {
+// ...
+```
 
 ---
 ### 參考
 
 * [GraphQL 入門： 簡介 X 範例 X 優缺點](https://ithelp.ithome.com.tw/articles/10200678)
 * [GraphQLとRESTの比較](https://hasura.io/learn/ja/graphql/intro-graphql/graphql-vs-rest/)
-* [Subscribe to data](https://docs.amplify.aws/lib/graphqlapi/subscribe-data/q/platform/js/)
 * [GraphQLにおけるSubscription処理について(実装例: Amplify + AppSync)](https://qiita.com/yoshii0110/items/3d9ec03215537646b65c)
 * [AWS AppSync](https://aws.amazon.com/cn/appsync/)
 * [失敗から学ぶAppSyncのSubscriptionとかApolloとかPostmanとか](https://thilog.com/failure-appsync-apollo-subscription/)
 * [API (GraphQL) - Subscribe to data - JavaScript - AWS Amplify Docs](https://docs.amplify.aws/lib/graphqlapi/subscribe-data/q/platform/js/)
+* [API (GraphQL) - Configure authorization modes - JavaScript - AWS Amplify Docs](https://docs.amplify.aws/lib/graphqlapi/authz/q/platform/js/)
