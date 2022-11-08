@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { FilmCard } from '~/components/pages/the-gold-room/filmCard';
 import { Film } from '~/types/Films';
 import { getFilms } from '~/utils/films';
+import styles from './index.module.scss';
 
 /**
  * The Gold Room page
@@ -15,17 +16,19 @@ const TheGoldRoomPage: NextPage<{ films: Film[] }> = ({ films }) => {
   function topTenFilmsDisplay() {
     return films.map((film: Film, index: number) => {
       return (
-        <FilmCard key={index} film={film} />
+        <FilmCard 
+          key={index} 
+          film={film} 
+          rank={index + 1}  
+        />
       )
     });
   }
 
   return (
-    <main>
-      <h1>Welcome to the Gold Room!</h1>
-      <h2>My top 10 films</h2>
-      { topTenFilmsDisplay() }
-    </main>
+    <div className={styles['content-wrapper']}>
+      <div className={styles['cards-view']}>{ topTenFilmsDisplay() }</div>
+    </div>
   )
 }
 

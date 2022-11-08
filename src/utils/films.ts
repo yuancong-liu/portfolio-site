@@ -69,9 +69,7 @@ export const getGenreString = (genres: { id: number, name: string }[] ) => {
 export const convertFilmReleaseDate = (releaseDate: string) => {
   const date = releaseDate.split("-");
   const year = date[0];
-  const month = months[date[1] as keyof typeof months];
-  const day = date[2];
-  return `${day} ${month} ${year}`;
+  return `${year}`;
 }
 
 /**

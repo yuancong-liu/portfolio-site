@@ -1,25 +1,67 @@
+@use '~/styles/utils.scss';
+
 .card-wrapper {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex: 1 0 100vw;
+  height: 100vh;
+  color: white;
+  scroll-snap-align: start;
+
+  > .contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20px) saturate(1.5) brightness(0.5);
+
+    @media screen and (min-width: utils.$sp-width) {
+      padding: 40px;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 20px;
+    }
+  }
+}
+
+.film-rank {
+  position: absolute;
+  top: 250px;
+  left: -20px;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 10rem;
+  letter-spacing: -0.1em;
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
+  color: rgba(0, 0, 0, 0);
+
+  @media screen and (min-width: utils.$sp-width) {
+    top: -60px;
+    left: -40px;
+    font-size: 20rem;
+  }
 }
 
 .poster-wrapper {
   flex-shrink: 0;
-  position: relative;
-  width: 100px;
-  height: 150px;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  height: 300px;
   overflow: hidden;
+
+  @media screen and (max-width: utils.$sp-width) {
+    margin: 0 auto;
+  }
 }
 
 .basic-info {
-  width: calc(100vw - 160px);
-  margin-left: 20px;
-}
 
-.overview-text {
-  margin-top: 10px;
+  > .overview {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
 }
