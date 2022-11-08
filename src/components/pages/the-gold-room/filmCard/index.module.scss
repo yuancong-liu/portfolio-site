@@ -1,6 +1,7 @@
 @use '~/styles/utils.scss';
 
 .card-wrapper {
+  position: relative;
   flex: 1 0 100vw;
   height: 100vh;
   color: white;
