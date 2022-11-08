@@ -12,6 +12,10 @@
   background-repeat: no-repeat !important;
   background-size: cover !important;
 
+  @media screen and (max-width: utils.$sp-width) {
+    background-attachment: scroll !important;
+  }
+
   > .contents {
     display: flex;
     flex-direction: column;
