@@ -4,8 +4,13 @@
   position: relative;
   flex: 1 0 100vw;
   height: 100vh;
+  height: 100dvh;
   color: white;
   scroll-snap-align: start;
+  background-attachment: fixed !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 
   > .contents {
     display: flex;

@@ -13,10 +13,6 @@ export const FilmCard: React.FC<Props> = (props: Props) => {
       className={styles['card-wrapper']}
       style={{
         background: `url(${props.film.posterPath})`,
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
       }}
     >
       <div className={styles['contents']}>
