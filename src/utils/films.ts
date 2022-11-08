@@ -3,9 +3,7 @@
  */
 
 import * as FilmConstants from "~/constants/films";
-import { months } from "~/constants/date";
 import { Film } from "~/types/Films";
-
 
 /**
  * top 10 映画情報を取得する
