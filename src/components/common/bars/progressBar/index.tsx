@@ -3,15 +3,11 @@ import styles from './index.module.scss';
 
 export const ProgressBar: React.FC = () => {
   const { scrollYProgress } = useScroll();
-  const x = useSpring(scrollYProgress, {
-    stiffness: 400,
-    damping: 90,
-    restDelta: 0.001,
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
   });
 
-  return (
-    <>
-      <motion.div className={styles['progress-bar']} style={{ x }} />
-    </>
-  );
+  return <motion.div className={styles['progress-bar']} style={{ scaleX }} />;
 };
