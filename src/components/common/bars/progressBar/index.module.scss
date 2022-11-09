@@ -1,0 +1,11 @@
+@use '~/styles/utils.scss';
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: utils.$shining-yellow-1;
+  transform-origin: 0%;
+}
