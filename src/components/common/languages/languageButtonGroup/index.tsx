@@ -11,20 +11,25 @@ type Props = {
   setIsShowLangButton: (value: boolean) => void
 }
 
-export const LanguageButtonGroup: React.FC<Props> = (props: Props) => {
+export const LanguageButtonGroup: React.FC<Props> = ({
+  language,
+  isShow,
+  setLanguage,
+  setIsShowLangButton,
+}) => {
   const languageList = languages.map(lang =>
     <LanguageButton
       key={lang.key}
       sortKey={lang.key}
       name={lang.value}
-      isPressed={lang.key === props.language}
-      setLanguage={props.setLanguage}
-      setIsShowLangButton={props.setIsShowLangButton}
+      isPressed={lang.key === language}
+      setLanguage={setLanguage}
+      setIsShowLangButton={setIsShowLangButton}
     />
   )
 
   return (
-    <div className={classNames({ [styles['-hidden']]:!props.isShow }, styles['group-wrapper'])}>
+    <div className={classNames({ [styles['-hidden']]:!isShow }, styles['group-wrapper'])}>
       {languageList}
     </div>
   )
