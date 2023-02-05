@@ -7,32 +7,33 @@ type Props = {
   experience: Experience;
 }
 
-export const ExperienceCard: React.FC<Props> = (props: Props) => {
-
+export const ExperienceCard: React.FC<Props> = ({
+  experience,
+}) => {
   const { t } = useTranslation('common');
 
   return (
     <div className={styles['card-wrapper']}>
-      <h2>{props.experience.startYear}</h2>
-      { props.experience.imagePath ?
+      <h2>{experience.startYear}</h2>
+      { experience.imagePath ?
       <div>
         <Image
-          src={props.experience.imagePath}
-          alt={props.experience.name}
+          src={experience.imagePath}
+          alt={experience.name}
           width={300}
           height={200}
         />
       </div>
       : null }
-      { props.experience.url ?
+      { experience.url ?
         <a 
-          href={props.experience.url} 
+          href={experience.url} 
           target="_blank"
           rel="noopener noreferrer"
-        >{t(props.experience.name)}</a>
-      : <p>{t(props.experience.name)}</p> }
-      <p>{t(props.experience.department)}</p>
-      {props.experience.degree ? <p>{t(props.experience.degree)}</p> : null}
+        >{t(experience.name)}</a>
+      : <p>{t(experience.name)}</p> }
+      <p>{t(experience.department)}</p>
+      {experience.degree ? <p>{t(experience.degree)}</p> : null}
     </div>
   )
 }

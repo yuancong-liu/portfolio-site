@@ -16,10 +16,11 @@ const links = {
   ]
 }
 
-export const TopLinks: React.FC<Props> = (props: Props) => {
-
-  function linkDisplay() {
-    return links[props.position].map((link: { text: string, link: string }, index: number) => {
+export const TopLinks: React.FC<Props> = ({
+  position,
+}) => {
+  const linkDisplay = () => {
+    return links[position].map((link: { text: string, link: string }, index: number) => {
       return (
         <p key={index} className={styles['link']}>
           <Link href={link.link}>{link.text}</Link>
