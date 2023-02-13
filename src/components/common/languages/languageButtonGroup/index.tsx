@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './index.module.scss';
+import classNames from 'classnames';
 import { languages } from '~/interfaces/languages';
 import { LanguageButton } from '../languageButton';
-import classNames from 'classnames';
+import styles from './index.module.scss';
 
 type Props = {
   language: string
