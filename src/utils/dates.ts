@@ -1,4 +1,8 @@
 /**
+ * @file 日時関連のUtils
+ */
+
+/**
  * 日付けを文字列に変換する
  * @param date 
  * @returns 

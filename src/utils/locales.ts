@@ -1,4 +1,8 @@
 /**
+ * @file ローカライゼーション関連のUtils
+ */
+
+/**
  * タグから、言語タグを取得する
  * @param languageTag 
  * @returns 

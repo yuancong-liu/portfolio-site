@@ -1,13 +1,17 @@
+/**
+ * @file 記事取得関連のUtils
+ */
+
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Post } from '~/types/Posts';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
+import { Post } from '~/types/Posts';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
