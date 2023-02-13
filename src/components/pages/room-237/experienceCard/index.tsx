@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from "next-i18next";
-import Image from "next/image";
+import { ImageWithLoading } from '~/components/common/image/imageWithLoading';
 import { Experience } from "~/types/Resume";
 import styles from "./index.module.scss";
 
@@ -17,12 +17,10 @@ export const ExperienceCard: FC<Props> = ({
     <div className={styles['card-wrapper']}>
       <h2>{experience.startYear}</h2>
       { experience.imagePath ?
-      <div>
-        <Image
+      <div className={styles['image']}>
+        <ImageWithLoading
           src={experience.imagePath}
           alt={experience.name}
-          width={300}
-          height={200}
         />
       </div>
       : null }
