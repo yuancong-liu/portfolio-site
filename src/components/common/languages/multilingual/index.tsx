@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { languages } from '~/interfaces/languages';
@@ -11,7 +11,7 @@ type Props = {
   setLanguage: (language: string) => void;
 }
 
-export const Language: React.FC<Props> = ({
+export const Language: FC<Props> = ({
   currentLanguage,
   setLanguage,
 }) => {

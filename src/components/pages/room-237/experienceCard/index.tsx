@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { Experience } from "~/types/Resume";
@@ -7,7 +8,7 @@ type Props = {
   experience: Experience;
 }
 
-export const ExperienceCard: React.FC<Props> = ({
+export const ExperienceCard: FC<Props> = ({
   experience,
 }) => {
   const { t } = useTranslation('common');

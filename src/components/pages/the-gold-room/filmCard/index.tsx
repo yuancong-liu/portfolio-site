@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import Image from 'next/image';
 import { Film } from '~/types/Films';
 import styles from './index.module.scss';
@@ -7,7 +8,7 @@ type Props = {
   rank: number;
 };
 
-export const FilmCard: React.FC<Props> = ({
+export const FilmCard: FC<Props> = ({
   film,
   rank,
 }) => {
