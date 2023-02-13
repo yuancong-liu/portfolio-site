@@ -1,8 +1,10 @@
+import { FC } from 'react';
+
 export type Props = {
   children?: React.ReactNode;
 }
 
-export const LayoutBlog: React.FC<Props> = ({ children }) => {
+export const LayoutBlog: FC<Props> = ({ children }) => {
 
   return (
     <div>

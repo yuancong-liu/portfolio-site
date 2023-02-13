@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import Link from "next/link";
 import styles from './index.module.scss';
 
@@ -16,7 +17,7 @@ const links = {
   ]
 }
 
-export const TopLinks: React.FC<Props> = ({
+export const TopLinks: FC<Props> = ({
   position,
 }) => {
   const linkDisplay = () => {

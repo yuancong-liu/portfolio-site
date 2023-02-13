@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 import { languages } from '~/interfaces/languages';
 import { LanguageButton } from '../languageButton';
@@ -11,7 +11,7 @@ type Props = {
   setIsShowLangButton: (value: boolean) => void
 }
 
-export const LanguageButtonGroup: React.FC<Props> = ({
+export const LanguageButtonGroup: FC<Props> = ({
   language,
   isShow,
   setLanguage,

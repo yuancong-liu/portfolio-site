@@ -1,10 +1,10 @@
-import React, { MouseEvent } from "react";
+import { FC, MouseEvent } from "react";
 import Typed from 'react-typed';
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import styles from './index.module.scss';
 
-export const TopWelcome: React.FC = () => {
+export const TopWelcome: FC = () => {
 
   const { t } = useTranslation('common');
 

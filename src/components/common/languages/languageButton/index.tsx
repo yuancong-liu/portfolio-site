@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 import router from 'next/router';
 import styles from './index.module.scss';
@@ -11,7 +11,7 @@ type Props = {
   setIsShowLangButton: (newValue: boolean) => void;
 }
 
-export const LanguageButton: React.FC<Props> = ({
+export const LanguageButton: FC<Props> = ({
   sortKey,
   name,
   isPressed,
