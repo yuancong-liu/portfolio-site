@@ -6,15 +6,11 @@ import styles from './index.module.scss';
 type Props = {
   src: string;
   alt?: string;
-  width: number;
-  height: number;
 };
 
 export const ImageWithLoading: FC<Props> = ({
   src,
   alt = '',
-  width,
-  height,
 }) => {
   const [loading, setLoading] = useState(true);
 
@@ -24,13 +20,16 @@ export const ImageWithLoading: FC<Props> = ({
         [styles['-loading']]: loading,
       })}
     >
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        onLoadingComplete={() => setLoading(false)}
-      />
+      <div className={styles['image']}>
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          style={{ objectFit: 'cover' }}
+          loading="lazy"
+          onLoadingComplete={() => setLoading(false)}
+        />
+      </div>
     </div>
   );
 };
