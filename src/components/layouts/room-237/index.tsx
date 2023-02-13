@@ -1,5 +1,5 @@
-import { useTranslation } from "next-i18next";
 import { useState } from "react";
+import { useTranslation } from "next-i18next";
 import { Language } from "~/components/common/languages/multilingual";
 
 export type Props = {

@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './index.module.scss';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { languages } from '~/interfaces/languages';
 import { LanguageButtonGroup } from '../languageButtonGroup';
-import { useState } from 'react';
+import styles from './index.module.scss';
 
 
 type Props = {

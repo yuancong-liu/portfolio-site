@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './index.module.scss';
 import classNames from 'classnames';
 import router from 'next/router';
+import styles from './index.module.scss';
 
 type Props = {
   sortKey: string
