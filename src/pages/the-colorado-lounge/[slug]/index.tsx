@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { ProgressBar } from "~/components/common/bars/progressBar";
 import { LayoutPost } from '~/components/layouts/posts';
 import FourOhFourPage from '~/pages/404';
 import { Post } from '~/types/Posts';
@@ -32,6 +33,7 @@ const Post: NextPage<{ post: Post; locale: string }> = ({ post, locale }) => {
         <title>{post.title}</title>
       </Head>
       <main className={styles['main-wrapper']}>
+        <ProgressBar />
         <h1 className={styles['title']}>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span className={styles['before']}>/*</span>
