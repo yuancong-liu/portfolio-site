@@ -1,4 +1,11 @@
 .card-wrapper {
   height: 100vh;
   scroll-snap-align: start;
+
+  > .image {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+  }
 }

@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
-import styles from './index.module.scss';
-import { TopWelcome } from '~/components/pages/top/topWelcome';
 import { LayoutTop } from '~/components/layouts/top';
 import { TopLinks } from '~/components/pages/top/topLinks';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { TopWelcome } from '~/components/pages/top/topWelcome';
+import styles from './index.module.scss';
 
 const Home: NextPage = () => {
 

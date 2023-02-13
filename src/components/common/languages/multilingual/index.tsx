@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from './index.module.scss';
+import { FC } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { languages } from '~/interfaces/languages';
 import { LanguageButtonGroup } from '../languageButtonGroup';
-import { useState } from 'react';
+import styles from './index.module.scss';
 
 
 type Props = {
@@ -11,7 +11,10 @@ type Props = {
   setLanguage: (language: string) => void;
 }
 
-export const Language: React.FC<Props> = (props: Props) => {
+export const Language: FC<Props> = ({
+  currentLanguage,
+  setLanguage,
+}) => {
 
   const [isShowLangButton, setIsShowLangButton] = useState(false)
 
@@ -20,15 +23,15 @@ export const Language: React.FC<Props> = (props: Props) => {
       <div className={classNames({ [styles['-no-circle']]:isShowLangButton }, styles['button-wrapper'])}>
         <button
           type="button"
-          className={classNames(props.currentLanguage, styles[props.currentLanguage], styles['button'])}
+          className={classNames(currentLanguage, styles[currentLanguage], styles['button'])}
           onClick={() => setIsShowLangButton(!isShowLangButton)}
         >
-          { languages.find(language => language.key === props.currentLanguage)?.value }
+          { languages.find(language => language.key === currentLanguage)?.value }
         </button>
       </div>
       <LanguageButtonGroup
-        language={props.currentLanguage}
-        setLanguage={props.setLanguage}
+        language={currentLanguage}
+        setLanguage={setLanguage}
         setIsShowLangButton={setIsShowLangButton}
         isShow={isShowLangButton}
       />

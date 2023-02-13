@@ -1,6 +1,10 @@
+/**
+ * @file Feed 関連のUtils
+ */
+
 import fs from 'fs';
-import { getAllPosts } from "./posts";
 import { Feed } from "feed";
+import { getAllPosts } from "./posts";
 
 export const generateRssFeed = () => {
   const posts = getAllPosts(['slug', 'title', 'date', 'tags']);

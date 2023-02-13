@@ -6,7 +6,29 @@
   "parserOptions": { "ecmaVersion": 8 },
   "extends": ["next/core-web-vitals", "prettier"],
   "rules": {
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin", // 組み込みモジュール
+          "external", // yarn add したパッケージ
+          "internal", // 自作モジュール
+          "parent", // 親階層のファイル
+          "sibling", // 同階層のファイル
+          "index" // 同階層の index ファイル
+        ],
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "pathGroups": [
+          {
+            "pattern": "react**",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"]
+      }
+    ]
   },
   "overrides": [
     {
