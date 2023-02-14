@@ -1,5 +1,6 @@
 import { FC, useMemo } from 'react';
 import { useState } from 'react';
+import OnOutsideClick from 'react-outclick';
 import classNames from 'classnames';
 import router from 'next/router';
 import { languages } from '~/interfaces/languages';
@@ -43,36 +44,38 @@ export const Languages: FC<Props> = ({ currentLanguage, setLanguage }) => {
   }, [currentLanguage, setLanguage]);
 
   return (
-    <div className={styles['overall-wrapper']}>
-      <div
-        className={classNames(
-          { [styles['-no-circle']]: showButtonGroup },
-          styles['button-wrapper']
-        )}
-      >
-        <button
-          type="button"
+    <OnOutsideClick onOutsideClick={() => setShowButtonGroup(false)}>
+      <div className={styles['overall-wrapper']}>
+        <div
           className={classNames(
-            currentLanguage,
-            styles[currentLanguage],
-            styles['button']
+            { [styles['-no-circle']]: showButtonGroup },
+            styles['button-wrapper']
           )}
-          onClick={() => setShowButtonGroup(!showButtonGroup)}
         >
-          {
-            languages.find((language) => language.key === currentLanguage)
-              ?.value
-          }
-        </button>
+          <button
+            type="button"
+            className={classNames(
+              currentLanguage,
+              styles[currentLanguage],
+              styles['button']
+            )}
+            onClick={() => setShowButtonGroup(!showButtonGroup)}
+          >
+            {
+              languages.find((language) => language.key === currentLanguage)
+                ?.value
+            }
+          </button>
+        </div>
+        <div
+          className={classNames(
+            { [styles['-hidden']]: !showButtonGroup },
+            styles['button-group']
+          )}
+        >
+          {buttonList}
+        </div>
       </div>
-      <div
-        className={classNames(
-          { [styles['-hidden']]: !showButtonGroup },
-          styles['button-group']
-        )}
-      >
-        {buttonList}
-      </div>
-    </div>
+    </OnOutsideClick>
   );
 };

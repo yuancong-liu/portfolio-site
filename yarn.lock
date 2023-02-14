@@ -524,6 +524,11 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/react-click-outside-hook@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-click-outside-hook/-/react-click-outside-hook-1.0.0.tgz#43956db7de065644bc9a6235ac30f938d6b80509"
+  integrity sha512-xzO0hC9DhQn5ZkroOmrb183x0Vn4JEJ/2k9/vptNcJx0Kxr+vZryvIul9xlFz711STIBjCVABj8P9hPHazVUaQ==
+
 "@types/react-dom@18.0.6":
   version "18.0.6"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.6.tgz"
@@ -3373,6 +3378,11 @@ react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-outclick@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-outclick/-/react-outclick-0.0.4.tgz#54a6ea12bcedebe0c793672337fc032e29381f1f"
+  integrity sha512-OL5s4sGWvC6ZwqfzsXfpn2axMyURe7cKX0qlCPHrun3O/x5dOTf7ATIyNuhB9LbK11m3yMFrjIGPx+oRb12Ijw==
 
 react-typed@^1.2.0:
   version "1.2.0"
