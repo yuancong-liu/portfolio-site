@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode='wait'>
       <Component {...pageProps} />
     </AnimatePresence>
   );

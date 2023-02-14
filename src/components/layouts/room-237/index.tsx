@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { Language } from "~/components/common/languages/multilingual";
+import { Languages } from "~/components/common/languages";
 
 export type Props = {
   children?: React.ReactNode;
@@ -12,7 +12,7 @@ export const LayoutRoom237: FC<Props> = ({ children }) => {
 
   return (
     <div className={language}>
-      <Language
+      <Languages
         currentLanguage={language}
         setLanguage={setLanguage}
       />
