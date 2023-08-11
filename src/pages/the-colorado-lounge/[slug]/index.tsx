@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { LayoutPost } from "~/components/layouts/posts";
-import FourOhFourPage from "~/pages/404";
+import FourOhFourPage from "~/components/pages/404";
 import { Post } from "~/types/Posts";
 import { getAllPosts, getPostBySlug, markdownToHtml } from "~/utils/posts";
 import styles from "./index.module.scss";
