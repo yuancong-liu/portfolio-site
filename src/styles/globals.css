@@ -1,10 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap");
+
 body {
   margin: 0;
-  font-family: courier-prime, monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  line-height: 1.6;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 16px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,29 +24,8 @@ body {
   margin: 0;
 }
 
-.en {
-  font-family: courier-prime, monospace;
-  font-style: normal;
-}
-
-.zh-Hans, .zh-Hant {
-  font-family: source-han-sans-simplified-c;
-  font-style: normal;
-}
-
-.ja {
-  font-family: kinuta-reiwa-kana;
-  font-style: normal;
-}
-
-.ko {
-  font-family: omnigothic;
-  font-weight: 300;
-}
-
 code {
-  font-family: 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fira Code', monospace;
 }
 
 a {
