@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styles from './index.module.scss';
 import { LayoutTop } from '~/components/layouts/top';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
