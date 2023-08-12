@@ -1,0 +1,51 @@
+@use 'src/styles/mixins' as *;
+
+.nav-bar {
+  position: fixed;
+  right: 0;
+  height: 100%;
+  font-size: 36px;
+  font-weight: 600;
+  writing-mode: vertical-rl;
+
+  @include pc() {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  @include sp() {
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    writing-mode: horizontal-tb;
+    background: unset;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 85px);
+      right: -85px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+.nav-items {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 64px 16px 128px;
+  padding: 0;
+  list-style-type: none;
+  z-index: 100;
+
+  @include sp() {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 12px 0 0;
+  }
+}
