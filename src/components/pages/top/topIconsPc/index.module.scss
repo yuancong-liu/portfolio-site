@@ -1,0 +1,26 @@
+.overall-wrapper {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.icons-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 65px;
+}
+
+.c-mark:hover {
+  animation: c-mark 5s linear infinite;
+}
+
+@keyframes c-mark {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

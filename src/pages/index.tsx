@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { LayoutTop } from '~/components/layouts/top';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { TopIconsPc } from '~/components/pages/top/topIconsPc';
 
 const Home: NextPage = () => {
   return (
@@ -9,7 +10,9 @@ const Home: NextPage = () => {
       <Head>
         <title>ㅇㅇㅊ</title>
       </Head>
-      <main>工事中</main>
+      <main>
+        <TopIconsPc />
+      </main>
     </LayoutTop>
   );
 };
