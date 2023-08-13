@@ -35,10 +35,6 @@
   > .list > .item {
     position: relative;
 
-    > button {
-      font: inherit;
-    }
-
     &::before {
       content: '';
       position: absolute;
