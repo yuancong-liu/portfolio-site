@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { TopIconsPc } from '~/components/pages/top/TopIconsPc';
+// import { TopIconsPc } from '~/components/pages/top/TopIconsPc';
+// import { TopIconsSp } from '~/components/pages/top/TopIconsSp';
 import { useDeviceDetect } from '~/hooks';
-import { TopIconsSp } from '~/components/pages/top/TopIconsSp';
 import { NavBar } from '~/components/common/NavBar';
 
 const Home: NextPage = () => {
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <title>ㅇㅇㅊ</title>
       </Head>
       <NavBar />
-      <main>{isPc ? <TopIconsPc /> : <TopIconsSp />}</main>
+      {/* <main>{isPc ? <TopIconsPc /> : <TopIconsSp />}</main> */}
     </>
   );
 };
