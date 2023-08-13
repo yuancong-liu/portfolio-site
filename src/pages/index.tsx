@@ -1,15 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-// import { TopIconsPc } from '~/components/pages/top/TopIconsPc';
-import { TopIconsSp } from '~/components/pages/top/TopIconsSp';
-// import { useDeviceDetect } from '~/hooks';
+import { IconsPc } from '~/components/pages/top/IconsPc';
+import { IconsSp } from '~/components/pages/top/IconsSp';
+import { useDeviceDetect } from '~/hooks';
 import { NavBar } from '~/components/common/NavBar';
 
 const Home: NextPage = () => {
-  // const isPc = useDeviceDetect();
-  // if (typeof isPc === 'undefined') return <></>;
-  // const isPc = true;
+  const isPc = useDeviceDetect();
+  if (typeof isPc === 'undefined') return <></>;
 
   return (
     <>
@@ -17,7 +16,7 @@ const Home: NextPage = () => {
         <title>ㅇㅇㅊ</title>
       </Head>
       <NavBar />
-      <main><TopIconsSp /></main>
+      <main>{isPc ? <IconsPc /> : <IconsSp />}</main>
     </>
   );
 };
