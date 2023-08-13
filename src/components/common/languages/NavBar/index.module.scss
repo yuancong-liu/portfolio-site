@@ -36,14 +36,15 @@
 
 .nav-items {
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
+  align-items: center;
   margin: 64px 16px 128px;
   padding: 0;
   list-style-type: none;
   z-index: 100;
-
+  
   @include sp() {
+    align-items: flex-end;
     flex-direction: column;
     gap: 10px;
     margin: 0 12px 0 0;

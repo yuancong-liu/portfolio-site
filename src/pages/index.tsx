@@ -2,9 +2,9 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { LayoutTop } from '~/components/layouts/top';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { TopIconsPc } from '~/components/pages/top/topIconsPc';
+import { TopIconsPc } from '~/components/pages/top/TopIconsPc';
 import { useDeviceDetect } from '~/hooks';
-import { TopIconsSp } from '~/components/pages/top/topIconsSp';
+import { TopIconsSp } from '~/components/pages/top/TopIconsSp';
 import { NavBar } from '~/components/common/languages/NavBar';
 
 const Home: NextPage = () => {

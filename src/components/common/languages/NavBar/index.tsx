@@ -1,3 +1,4 @@
+import { Internationality } from "../../Internationality";
 import styles from "./index.module.scss";
 
 export const NavBar = () => {
@@ -8,6 +9,7 @@ export const NavBar = () => {
         <li>PORTFOLIO</li>
         <li>BLOG</li>
         <li>...AND</li>
+        <Internationality />
       </ul>
     </nav>
   );

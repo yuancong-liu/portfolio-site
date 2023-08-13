@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.module.scss';
-import { languages } from '~/interfaces/languages';
+import { LANGUAGES } from '~/interfaces/languages';
 import { LanguageButton } from '../languageButton';
 import classNames from 'classnames';
 
@@ -17,7 +17,7 @@ export const LanguageButtonGroup: React.FC<Props> = ({
   setLanguage,
   setIsShowLangButton,
 }) => {
-  const languageList = languages.map(lang =>
+  const languageList = LANGUAGES.map(lang =>
     <LanguageButton
       key={lang.key}
       sortKey={lang.key}

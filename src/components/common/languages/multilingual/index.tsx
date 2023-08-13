@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 import classNames from 'classnames';
-import { languages } from '~/interfaces/languages';
+import { LANGUAGES } from '~/interfaces/languages';
 import { LanguageButtonGroup } from '../languageButtonGroup';
 import { useState } from 'react';
 
@@ -26,7 +26,7 @@ export const Language: React.FC<Props> = ({
           className={classNames(currentLanguage, styles[currentLanguage], styles['button'])}
           onClick={() => setIsShowLangButton(!isShowLangButton)}
         >
-          { languages.find(language => language.key === currentLanguage)?.value }
+          { LANGUAGES.find(language => language.key === currentLanguage)?.value }
         </button>
       </div>
       <LanguageButtonGroup

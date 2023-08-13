@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap");
 
+:root {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'IBM Plex Sans', sans-serif;
@@ -9,19 +13,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  box-sizing: border-box;
-}
-
 *,
 ::before,
 ::after {
   box-sizing: inherit;
+  margin: 0;
   line-height: inherit;
 }
 
-:root * {
-  margin: 0;
+button {
+  background: none;
+  border: none;
 }
 
 code {
