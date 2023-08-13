@@ -3,12 +3,13 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { TopIconsPc } from '~/components/pages/top/TopIconsPc';
 import { TopIconsSp } from '~/components/pages/top/TopIconsSp';
-import { useDeviceDetect } from '~/hooks';
+// import { useDeviceDetect } from '~/hooks';
 import { NavBar } from '~/components/common/NavBar';
 
 const Home: NextPage = () => {
-  const isPc = useDeviceDetect();
-  if (typeof isPc === 'undefined') return <></>;
+  // const isPc = useDeviceDetect();
+  // if (typeof isPc === 'undefined') return <></>;
+  const isPc = true;
 
   return (
     <>
