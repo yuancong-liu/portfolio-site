@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { TopIconsPc } from '~/components/pages/top/TopIconsPc';
-import { TopIconsSp } from '~/components/pages/top/TopIconsSp';
+import { TopIconPc } from '~/components/pages/top/TopIconsPc';
+import { TopIconSp } from '~/components/pages/top/TopIconSp';
 import { useDeviceDetect } from '~/hooks';
 import { NavBar } from '~/components/common/NavBar';
 
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <title>ㅇㅇㅊ</title>
       </Head>
       <NavBar />
-      <main>{isPc ? <TopIconsPc /> : <TopIconsSp />}</main>
+      <main>{isPc ? <TopIconPc /> : <TopIconSp />}</main>
     </>
   );
 };
