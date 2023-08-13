@@ -5,7 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { TopIconsPc } from '~/components/pages/top/TopIconsPc';
 import { useDeviceDetect } from '~/hooks';
 import { TopIconsSp } from '~/components/pages/top/TopIconsSp';
-import { NavBar } from '~/components/common/languages/NavBar';
+import { NavBar } from '~/components/common/NavBar';
 
 const Home: NextPage = () => {
   const isPc = useDeviceDetect();
