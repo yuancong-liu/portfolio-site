@@ -3418,11 +3418,6 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.6.tgz"
   integrity sha512-0sQoMh9s0BYsm+12Huy/rkKxVu4R1+r96YX5cG44rHV0pQ6iC3Q+mkoMFaGWObMFYQxCVT+ssG1ksneA2MI9KQ==
 
-flatten@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/flatten/-/flatten-1.0.3.tgz"
-  integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
-
 foreground-child@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/foreground-child/-/foreground-child-3.1.1.tgz#1d173e776d75d2772fed08efe4a0de1ea1b12d0d"
@@ -3933,11 +3928,6 @@ indent-string@^4.0.0:
   resolved "https://registry.npmjs.org/indent-string/-/indent-string-4.0.0.tgz"
   integrity sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==
 
-indexes-of@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/indexes-of/-/indexes-of-1.0.1.tgz"
-  integrity sha512-bup+4tap3Hympa+JBJUG7XuOsdNQ6fxt0MHyXMKuLBKn0OqsTfvUxkUrroEX1+B2VsSHvCjiIcZVxRtYa4nllA==
-
 inflight@^1.0.4:
   version "1.0.6"
   resolved "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz"
@@ -4369,7 +4359,7 @@ lodash.truncate@^4.4.2:
   resolved "https://registry.npmjs.org/lodash.truncate/-/lodash.truncate-4.4.2.tgz"
   integrity sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==
 
-lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21:
+lodash@^4.17.15, lodash@^4.17.19:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -5460,7 +5450,7 @@ postcss-media-query-parser@^0.2.3:
   resolved "https://registry.npmjs.org/postcss-media-query-parser/-/postcss-media-query-parser-0.2.3.tgz"
   integrity sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==
 
-postcss-resolve-nested-selector@0.1.1, postcss-resolve-nested-selector@^0.1.1:
+postcss-resolve-nested-selector@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/postcss-resolve-nested-selector/-/postcss-resolve-nested-selector-0.1.1.tgz"
   integrity sha512-HvExULSwLqHLgUy1rl3ANIqCsvMS0WHss2UOsXhXnQaZ9VCc2oBvIpXrl00IUFT5ZDITME0o6oiXeiHr2SAIfw==
@@ -5470,16 +5460,12 @@ postcss-safe-parser@^6.0.0:
   resolved "https://registry.npmjs.org/postcss-safe-parser/-/postcss-safe-parser-6.0.0.tgz"
   integrity sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==
 
-postcss-selector-parser@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-2.2.1.tgz"
-  integrity sha512-LRzWH77wkR+qOzxFn4ZRSE0qza0b0jOqvmISZU5ZoxeMZyz1JXBCffApXbi+IqByMl3A/mM1kN+iHSIJzeVooQ==
-  dependencies:
-    flatten "^1.0.2"
-    indexes-of "^1.0.1"
-    uniq "^1.0.1"
+postcss-scss@^4.0.2:
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-4.0.9.tgz#a03c773cd4c9623cb04ce142a52afcec74806685"
+  integrity sha512-AjKOeiwAitL/MXxQW2DliT28EKukvvbEWx3LBmJIRN8KfBGZbRTxNYW0kSqi1COiTZ57nZ9NW06S6ux//N1c9A==
 
-postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.6:
+postcss-selector-parser@^6.0.10:
   version "6.0.10"
   resolved "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz"
   integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
@@ -5487,7 +5473,7 @@ postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.6:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
-postcss-selector-parser@^6.0.13:
+postcss-selector-parser@^6.0.11, postcss-selector-parser@^6.0.13:
   version "6.0.13"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.13.tgz#d05d8d76b1e8e173257ef9d60b706a8e5e99bf1b"
   integrity sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ==
@@ -5500,7 +5486,7 @@ postcss-sorting@^7.0.1:
   resolved "https://registry.npmjs.org/postcss-sorting/-/postcss-sorting-7.0.1.tgz"
   integrity sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==
 
-postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
+postcss-value-parser@^4.2.0:
   version "4.2.0"
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
@@ -6232,6 +6218,11 @@ styled-jsx@5.1.0:
   dependencies:
     client-only "0.0.1"
 
+stylelint-config-prettier@^9.0.3:
+  version "9.0.5"
+  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-9.0.5.tgz#9f78bbf31c7307ca2df2dd60f42c7014ee9da56e"
+  integrity sha512-U44lELgLZhbAD/xy/vncZ2Pq8sh2TnpiPvo38Ifg9+zeioR+LAkHu0i6YORIOxFafZoVg0xqQwex6e6F25S5XA==
+
 stylelint-config-recess-order@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/stylelint-config-recess-order/-/stylelint-config-recess-order-3.0.0.tgz"
@@ -6244,14 +6235,23 @@ stylelint-config-recommended@^9.0.0:
   resolved "https://registry.npmjs.org/stylelint-config-recommended/-/stylelint-config-recommended-9.0.0.tgz"
   integrity sha512-9YQSrJq4NvvRuTbzDsWX3rrFOzOlYBmZP+o513BJN/yfEmGSr0AxdvrWs0P/ilSpVV/wisamAHu5XSk8Rcf4CQ==
 
-stylelint-config-standard@^27.0.0:
-  version "27.0.0"
-  resolved "https://registry.npmjs.org/stylelint-config-standard/-/stylelint-config-standard-27.0.0.tgz"
-  integrity sha512-J+wxyODWQCW2kgdhVzj51a4cFcJkglkMQrjPU/1Jo8w2oKSKK5ZRqHvDDWxEmjYWIYbMhhIMS5dOgVpGUMIACw==
+stylelint-config-sass-guidelines@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/stylelint-config-sass-guidelines/-/stylelint-config-sass-guidelines-9.0.1.tgz#3114ce780f2085ba9ea5da2b7d97a1e85e968fa7"
+  integrity sha512-N06PsVsrgKijQ3YT5hqKA7x3NUkgELTRI1cbWMqcYiCGG6MjzvNk6Cb5YYA1PrvrksBV76BvY9P9bAswojVMqA==
+  dependencies:
+    postcss-scss "^4.0.2"
+    stylelint-order "^5.0.0"
+    stylelint-scss "^4.0.0"
+
+stylelint-config-standard@^28.0.0:
+  version "28.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-28.0.0.tgz#7e1926c232631a8445eafee7b186d276d42d7b15"
+  integrity sha512-q/StuowDdDmFCravzGHAwgS9pjX0bdOQUEBBDIkIWsQuYGgYz/xsO8CM6eepmIQ1fc5bKdDVimlJZ6MoOUcJ5Q==
   dependencies:
     stylelint-config-recommended "^9.0.0"
 
-stylelint-order@5.x:
+stylelint-order@5.x, stylelint-order@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/stylelint-order/-/stylelint-order-5.0.0.tgz"
   integrity sha512-OWQ7pmicXufDw5BlRqzdz3fkGKJPgLyDwD1rFY3AIEfIH/LQY38Vu/85v8/up0I+VPiuGRwbc2Hg3zLAsJaiyw==
@@ -6259,24 +6259,23 @@ stylelint-order@5.x:
     postcss "^8.3.11"
     postcss-sorting "^7.0.1"
 
-stylelint-rscss@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/stylelint-rscss/-/stylelint-rscss-0.4.0.tgz"
-  integrity sha512-JMmORFkoi543AvHRZlrerflUFmegv5h9l3Fw0DUkkGrCaeyCY5rMVODrQQWS5iARSY42BWfjPd3WCalgVm2ecg==
+stylelint-scss@^4.0.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-4.7.0.tgz#f986bf8c5a4b93eae2b67d3a3562eef822657908"
+  integrity sha512-TSUgIeS0H3jqDZnby1UO1Qv3poi1N8wUYIJY6D1tuUq2MN3lwp/rITVo0wD+1SWTmRm0tNmGO0b7nKInnqF6Hg==
   dependencies:
-    postcss-resolve-nested-selector "0.1.1"
-    postcss-selector-parser "2.2.1"
-
-stylelint-scss@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/stylelint-scss/-/stylelint-scss-4.3.0.tgz"
-  integrity sha512-GvSaKCA3tipzZHoz+nNO7S02ZqOsdBzMiCx9poSmLlb3tdJlGddEX/8QzCOD8O7GQan9bjsvLMsO5xiw6IhhIQ==
-  dependencies:
-    lodash "^4.17.21"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
-    postcss-selector-parser "^6.0.6"
-    postcss-value-parser "^4.1.0"
+    postcss-selector-parser "^6.0.11"
+    postcss-value-parser "^4.2.0"
+
+stylelint-value-no-unknown-custom-properties@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-value-no-unknown-custom-properties/-/stylelint-value-no-unknown-custom-properties-4.0.0.tgz#9255e3b09e4da3d88244d4cf03042feb5bb1f4a3"
+  integrity sha512-FTi/EHipLplFl9O2zNCH5PMerBxxuPPYFHiVRX8wcMg+Y/hebsGa/hzjMN6Xq7MsvtFl7RoiQV+kykC5ous5Rg==
+  dependencies:
+    postcss-value-parser "^4.2.0"
+    resolve "^1.22.0"
 
 stylelint@^14.10.0:
   version "14.10.0"
@@ -6602,11 +6601,6 @@ unified@^10.0.0, unified@^10.1.2:
     is-plain-obj "^4.0.0"
     trough "^2.0.0"
     vfile "^5.0.0"
-
-uniq@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/uniq/-/uniq-1.0.1.tgz"
-  integrity sha512-Gw+zz50YNKPDKXs+9d+aKAjVwpjNwqzvNpLigIruT4HA9lMZNdMqs9x07kKHB/L9WRzqp4+DlTU5s4wG2esdoA==
 
 unist-builder@^3.0.0:
   version "3.0.0"

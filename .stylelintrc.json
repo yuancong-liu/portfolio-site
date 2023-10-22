@@ -19,6 +19,6 @@
     "scss/at-rule-no-unknown": true,
     "scss/dollar-variable-pattern": "^foo",
     "scss/selector-no-redundant-nesting-selector": true,
-    "max-nesting-depth": null,
+    "max-nesting-depth": 3
   }
 }
