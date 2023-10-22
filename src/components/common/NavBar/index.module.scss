@@ -7,6 +7,7 @@
   font-size: 36px;
   font-weight: 600;
   writing-mode: vertical-rl;
+  z-index: 100;
 
   @include pc() {
     background: rgba(255, 255, 255, 0.2);
@@ -21,12 +22,13 @@
     background: unset;
 
     &::after {
-      content: '';
       position: absolute;
       top: calc(50% - 85px);
       right: -85px;
+      z-index: 50;
       width: 170px;
       height: 170px;
+      content: '';
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
@@ -35,13 +37,13 @@
 }
 
 .nav-items {
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 64px 16px 128px;
   padding: 0;
   list-style-type: none;
-  z-index: 100;
   
   @include sp() {
     align-items: flex-end;

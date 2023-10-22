@@ -9,8 +9,10 @@ export const NavBar = () => {
         <li>PORTFOLIO</li>
         <li>BLOG</li>
         <li>...AND</li>
+        <li>
+          <Internationality />
+        </li>
       </ul>
-      <Internationality />
     </nav>
   );
 };
