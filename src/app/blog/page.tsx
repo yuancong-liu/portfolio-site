@@ -58,10 +58,7 @@ const TheColoradoLoungePage = () => {
               })}
               key={post.slug}
             >
-              <Link
-                href={post.slug}
-                locale={getLocale(post.tags[0])}
-              >
+              <Link href={post.slug} locale={getLocale(post.tags[0])}>
                 <h2 className={styles['title']}>{post.title}</h2>
                 <p className={styles['date']}>{getDateString(post.date)}</p>
               </Link>

@@ -7,6 +7,7 @@ import { NavBar } from '~/components/common/NavBar';
 
 export const Home = () => {
   const { isPc } = useDeviceDetect();
+  if (window === undefined) return null;
 
   return (
     <>

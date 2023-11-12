@@ -1,5 +1,5 @@
 import { Experience } from '~/types/Resume';
-import { ExperienceCard } from '~/components/pages/room-237/experienceCard';
+import { ExperienceCard } from '~/components/pages/about-me/experienceCard';
 import { UNSPLASH_IMAGE_PATH } from '~/constants/resume';
 import styles from './index.module.scss';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -48,12 +48,12 @@ const experiences = [
  * /component/pages/room-237　配下にページコンポーネントを作成
  *
  */
-const Room237Page = () => {
+const AboutMePage = () => {
   const experienceCardDisplay = () => {
     return experiences.map((experience, index) => {
       return <ExperienceCard experience={experience} key={index} />;
     });
-  }
+  };
 
   return (
     <main>
@@ -69,4 +69,4 @@ const Room237Page = () => {
 //   },
 // });
 
-export default Room237Page;
+export default AboutMePage;
