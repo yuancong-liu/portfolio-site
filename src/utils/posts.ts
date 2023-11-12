@@ -32,22 +32,22 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const posts: Post = {};
+  const post: Post = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === 'slug') {
-      posts[field] = realSlug;
+      post[field] = realSlug;
     }
     if (field === 'content') {
-      posts[field] = content;
+      post[field] = content;
     }
     if (data[field]) {
-      posts[field] = data[field];
+      post[field] = data[field];
     }
   });
 
-  return posts;
+  return post;
 };
 
 /**
@@ -61,7 +61,7 @@ export const getAllPosts = (fields: string[] = []) => {
     // sort posts by date in descending order
     .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1));
   return posts;
-}
+};
 
 /**
  * Markdown を解析して HTML にして返す
@@ -77,4 +77,4 @@ export const markdownToHtml = async (markdown: string) => {
     .use(remarkGfm)
     .process(markdown);
   return result.toString();
-}
+};

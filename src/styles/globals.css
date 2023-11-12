@@ -1,52 +1,34 @@
-body {
-  margin: 0;
-  font-family: courier-prime, monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  line-height: 1.6;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap");
 
 :root {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 10px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *,
 ::before,
 ::after {
   box-sizing: inherit;
+  margin: 0;
   line-height: inherit;
 }
 
-:root * {
-  margin: 0;
-}
-
-.en {
-  font-family: courier-prime, monospace;
-  font-style: normal;
-}
-
-.zh-Hans, .zh-Hant {
-  font-family: source-han-sans-simplified-c;
-  font-style: normal;
-}
-
-.ja {
-  font-family: kinuta-reiwa-kana;
-  font-style: normal;
-}
-
-.ko {
-  font-family: omnigothic;
-  font-weight: 300;
+button {
+  font: inherit;
+  background: none;
+  border: none;
 }
 
 code {
-  font-family: 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fira Code', monospace;
 }
 
 a {

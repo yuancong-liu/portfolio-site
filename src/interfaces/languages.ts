@@ -1,22 +1,29 @@
-export const languages = [
+export type LANGUAGE_KEYS = 'en' | 'ja' | 'zh-Hans' | 'zh-Hant' | 'ko';
+
+type Language = {
+  key: LANGUAGE_KEYS;
+  value: string;
+};
+
+export const LANGUAGES: Language[] = [
   {
     key: 'en',
-    value: 'en'
+    value: 'Eng',
   },
   {
     key: 'ja',
-    value: 'あ'
+    value: 'Jpn',
   },
   {
     key: 'zh-Hans',
-    value: '简'
+    value: 'Chs',
   },
   {
     key: 'zh-Hant',
-    value: '繁'
+    value: 'Cht',
   },
   {
     key: 'ko',
-    value: '한'
-  }
-]
+    value: 'Kor',
+  },
+];

@@ -2,13 +2,8 @@ import { FC } from 'react';
 
 export type Props = {
   children?: React.ReactNode;
-}
+};
 
-export const LayoutBlog: FC<Props> = ({ children }) => {
-
-  return (
-    <div>
-      {children}
-    </div>
-  );
-}
+export const LayoutBlog = ({ children }: Props) => {
+  return <div>{children}</div>;
+};

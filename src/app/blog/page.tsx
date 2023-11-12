@@ -1,13 +1,12 @@
-import classNames from 'classnames';
-import type { NextPage } from 'next';
 import Link from 'next/link';
 import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
 import { Post } from '~/types/Posts';
-import { getDateString } from '~/utils/dates';
 import { generateRssFeed } from '~/utils/feed';
-import { getLocale } from '~/utils/locales';
 import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
+import classNames from 'classnames';
+
+// const BASE_URL = 'blog/';
 
 /**
  * The Colorado Lounge page
@@ -16,9 +15,29 @@ import styles from './index.module.scss';
  * /component/pages/the-colorado-lounge　配下にページコンポーネントを作成
  *
  */
-const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
-  allPosts,
-}) => {
+const TheColoradoLoungePage = () => {
+  const { allPosts } = getPosts();
+
+  const getDateString = (date: string) => {
+    const dateObj = new Date(date);
+    return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${
+      dateObj.getDate() - 1
+    }`;
+  };
+
+  const getLocale = (languageTag: string) => {
+    switch (languageTag) {
+      case 'Chinese':
+        return 'zh-Hant';
+      case 'English':
+        return 'en';
+      case 'Japanese':
+        return 'ja';
+      default:
+        return 'en';
+    }
+  };
+
   const shouldShowNewTag = (date: string) => {
     const dateObj = new Date(date);
     const now = new Date();
@@ -39,10 +58,7 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
               })}
               key={post.slug}
             >
-              <Link
-                href={'the-colorado-lounge/' + post.slug}
-                locale={getLocale(post.tags[0])}
-              >
+              <Link href={post.slug} locale={getLocale(post.tags[0])}>
                 <h2 className={styles['title']}>{post.title}</h2>
                 <p className={styles['date']}>{getDateString(post.date)}</p>
               </Link>
@@ -54,14 +70,12 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
   );
 };
 
-export const getStaticProps = async () => {
+const getPosts = () => {
   generateRssFeed();
 
   const allPosts = getAllPosts(['slug', 'title', 'date', 'tags']);
   return {
-    props: {
-      allPosts: JSON.parse(JSON.stringify(allPosts)),
-    },
+    allPosts: JSON.parse(JSON.stringify(allPosts)),
   };
 };
 

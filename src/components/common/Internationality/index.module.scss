@@ -1,0 +1,55 @@
+@use 'src/styles/mixins' as *;
+
+.overall-wrapper {
+  position: relative;
+}
+
+.internationality-button {
+  background: none;
+  border: none;
+}
+
+.globe-icon {
+  @include pc() {
+    transform: scale(1.5);
+    transform-origin: center;
+  }
+}
+
+.language-dropdown {
+  position: absolute;
+  bottom: -100%;
+  right: 200%;
+  padding: 40px;
+  writing-mode: horizontal-tb;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 200;
+
+  > .list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    font-size: 0.8em;
+  }
+
+  > .list > .item {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.5em;
+      left: -1em;
+      width: 0.4em;
+      height: 0.4em;
+      background-color: transparent;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+      background-color: black;
+    }
+  }
+}

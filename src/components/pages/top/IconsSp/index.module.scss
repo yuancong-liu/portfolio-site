@@ -1,0 +1,33 @@
+.overall-wrapper {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.icons-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 26px;
+}
+
+.c-mark {
+  animation: rotate 3s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.c-mark:hover {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

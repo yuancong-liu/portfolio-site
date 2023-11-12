@@ -15,20 +15,20 @@ export const topTenFilmIds = [
   9552, // The Exorcist
   149, // アキラ
   78, // Blade Runner
-  399055 // The Shape of Water
+  399055, // The Shape of Water
 ];
 
 /**
  * 映画ポスターのBASE URL
  */
-export const POSTER_PATH = "https://image.tmdb.org/t/p/w500";
+export const POSTER_PATH = 'https://image.tmdb.org/t/p/w500';
 
 /**
  * 映画のIMDBのBASE URL
  */
-export const IMDB_BASE_URL = "https://www.imdb.com/title/";
+export const IMDB_BASE_URL = 'https://www.imdb.com/title/';
 
 /**
  * TMDB APIのBASE URL
  */
-export const TMDB_API_BASE_URL = "https://api.themoviedb.org/3/movie/"
+export const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3/movie/';
