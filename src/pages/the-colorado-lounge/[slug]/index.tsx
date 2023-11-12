@@ -4,12 +4,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ProgressBar } from "~/components/common/bars/progressBar";
 import { LayoutPost } from '~/components/layouts/posts';
-import FourOhFourPage from '~/pages/404';
 import { Post } from '~/types/Posts';
 import { getDateString } from '~/utils/dates';
 import { getLocale } from '~/utils/locales';
 import { getAllPosts, getPostBySlug, markdownToHtml } from '~/utils/posts';
 import styles from './index.module.scss';
+import FourOhFourPage from '~/pages/404';
 
 const Post: NextPage<{ post: Post; locale: string }> = ({ post, locale }) => {
   const router = useRouter();

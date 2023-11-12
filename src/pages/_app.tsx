@@ -1,8 +1,8 @@
 import '~/styles/globals.css'
 import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion';
-import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app'
+import { appWithTranslation } from 'next-i18next';
 import fontsLoader from "~/interfaces/fontsLoader";
 import 'highlight.js/styles/default.css'
 

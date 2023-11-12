@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { LayoutTop } from '~/components/layouts/top';
 import { TopLinks } from '~/components/pages/top/topLinks';
 import { TopWelcome } from '~/components/pages/top/topWelcome';

@@ -1,11 +1,11 @@
 import classNames from 'classnames';
+import { Metadata } from 'next';
 import Head from 'next/head';
+import sanitize from 'sanitize-html';
 import { LayoutPost } from '~/components/layouts/posts';
 import FourOhFourPage from '~/components/pages/404';
 import { getAllPosts, getPostBySlug, markdownToHtml } from '~/utils/posts';
 import styles from './index.module.scss';
-import sanitize from 'sanitize-html';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'ㅇㅇㅊ',

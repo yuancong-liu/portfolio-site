@@ -1,7 +1,7 @@
+import { useMemo } from 'react';
+import Image from 'next/image';
 import { Film } from '~/types/Films';
 import styles from './index.module.scss';
-import Image from 'next/image';
-import { useMemo } from 'react';
 
 type Props = {
   film: Film;

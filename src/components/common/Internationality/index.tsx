@@ -1,7 +1,7 @@
-import Globe from '~/assets/icons/globe.svg';
-import styles from './index.module.scss';
-import { LANGUAGES } from '~/interfaces/languages';
 import router from 'next/router';
+import Globe from '~/assets/icons/globe.svg';
+import { LANGUAGES } from '~/interfaces/languages';
+import styles from './index.module.scss';
 
 export const Internationality = () => {
   const handleLanguageChange = (language: string) => {
