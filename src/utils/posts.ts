@@ -28,22 +28,22 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const posts: Post = {};
+  const post: Post = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === 'slug') {
-      posts[field] = realSlug;
+      post[field] = realSlug;
     }
     if (field === 'content') {
-      posts[field] = content;
+      post[field] = content;
     }
     if (data[field]) {
-      posts[field] = data[field];
+      post[field] = data[field];
     }
   });
 
-  return posts;
+  return post;
 };
 
 /**

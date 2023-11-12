@@ -1,5 +1,4 @@
 'use client';
-// import type { Metadata } from 'next';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { IconsPc } from '~/components/pages/top/IconsPc';
 import { IconsSp } from '~/components/pages/top/IconsSp';

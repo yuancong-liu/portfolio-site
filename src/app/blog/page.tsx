@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Link from 'next/link';
 import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
 import { Post } from '~/types/Posts';
@@ -7,7 +6,7 @@ import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
 import classNames from 'classnames';
 
-const BASE_URL = 'blog/';
+// const BASE_URL = 'blog/';
 
 /**
  * The Colorado Lounge page
@@ -16,9 +15,9 @@ const BASE_URL = 'blog/';
  * /component/pages/the-colorado-lounge　配下にページコンポーネントを作成
  *
  */
-const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
-  allPosts,
-}) => {
+const TheColoradoLoungePage = () => {
+  const { allPosts } = getPosts();
+
   const getDateString = (date: string) => {
     const dateObj = new Date(date);
     return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${
@@ -60,7 +59,7 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
               key={post.slug}
             >
               <Link
-                href={BASE_URL + post.slug}
+                href={post.slug}
                 locale={getLocale(post.tags[0])}
               >
                 <h2 className={styles['title']}>{post.title}</h2>
@@ -74,14 +73,12 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
   );
 };
 
-export const getStaticProps = async () => {
+export const getPosts = () => {
   generateRssFeed();
 
   const allPosts = getAllPosts(['slug', 'title', 'date', 'tags']);
   return {
-    props: {
-      allPosts: JSON.parse(JSON.stringify(allPosts)),
-    },
+    allPosts: JSON.parse(JSON.stringify(allPosts)),
   };
 };
 
