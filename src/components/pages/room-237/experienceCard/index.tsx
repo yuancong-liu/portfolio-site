@@ -13,7 +13,7 @@ export const ExperienceCard = ({ experience }: Props) => {
   return (
     <div className={styles['card-wrapper']}>
       <h2>{experience.startYear}</h2>
-      {experience.imagePath ? (
+      {experience.imagePath && (
         <div>
           <Image
             src={experience.imagePath}
@@ -22,7 +22,7 @@ export const ExperienceCard = ({ experience }: Props) => {
             height={200}
           />
         </div>
-      ) : null}
+      )}
       {experience.url ? (
         <a href={experience.url} target="_blank" rel="noopener noreferrer">
           {experience.name}
@@ -31,7 +31,7 @@ export const ExperienceCard = ({ experience }: Props) => {
         <p>{experience.name}</p>
       )}
       <p>{experience.department}</p>
-      {experience.degree ? <p>{experience.degree}</p> : null}
+      {experience.degree && <p>{experience.degree}</p>}
     </div>
   );
 };

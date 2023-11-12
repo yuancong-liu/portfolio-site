@@ -3,10 +3,6 @@ import { Film } from '~/types/Films';
 import { getFilms } from '~/utils/films';
 import styles from './index.module.scss';
 
-type Props = {
-  films: Film[];
-};
-
 /**
  * The Gold Room page
  * ホビー画面
@@ -14,8 +10,10 @@ type Props = {
  * /component/pages/the-gold-room　配下にページコンポーネントを作成
  *
  */
-const TheGoldRoomPage = ({ films }: Props) => {
-  function topTenFilmsDisplay() {
+const TheGoldRoomPage = async () => {
+  const films = await getFilms();
+
+  const topTenFilmsDisplay = () => {
     return films.map((film: Film, index: number) => {
       return <FilmCard key={index} film={film} rank={index + 1} />;
     });
@@ -27,10 +25,5 @@ const TheGoldRoomPage = ({ films }: Props) => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  const films: Film[] = await getFilms();
-  return { props: { films } };
-}
 
 export default TheGoldRoomPage;
