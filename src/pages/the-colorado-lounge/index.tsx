@@ -51,7 +51,12 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
         <h1 className={styles['title']}>The Colorado Lounge</h1>
         <div className={styles['posts']}>
           {allPosts.map((post: Post) => (
-            <div className={classNames(styles['post-card'], {[styles['-new']]: shouldShowNewTag(post.date)})} key={post.slug}>
+            <div
+              className={classNames(styles['post-card'], {
+                [styles['-new']]: shouldShowNewTag(post.date),
+              })}
+              key={post.slug}
+            >
               <Link
                 href={'the-colorado-lounge/' + post.slug}
                 locale={getLocale(post.tags[0])}

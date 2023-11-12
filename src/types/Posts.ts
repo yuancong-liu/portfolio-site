@@ -23,4 +23,4 @@ export type Post = {
   //  */
   // date: string;
   [key: string]: string;
-}
+};

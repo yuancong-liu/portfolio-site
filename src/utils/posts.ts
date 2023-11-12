@@ -57,7 +57,7 @@ export const getAllPosts = (fields: string[] = []) => {
     // sort posts by date in descending order
     .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1));
   return posts;
-}
+};
 
 /**
  * Markdown を解析して HTML にして返す
@@ -73,4 +73,4 @@ export const markdownToHtml = async (markdown: string) => {
     .use(remarkGfm)
     .process(markdown);
   return result.toString();
-}
+};

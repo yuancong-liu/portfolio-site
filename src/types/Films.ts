@@ -3,7 +3,6 @@
  */
 
 export type Film = {
-
   /**
    * 映画id
    */
@@ -47,5 +46,5 @@ export type Film = {
   /**
    * IMDBのURL
    */
-  imdbUrl: string; 
-}
+  imdbUrl: string;
+};

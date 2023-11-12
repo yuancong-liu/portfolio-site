@@ -3,7 +3,6 @@
  */
 
 export type Experience = {
-
   /**
    * 開始年
    */
@@ -43,4 +42,4 @@ export type Experience = {
    * URL
    */
   url?: string;
-}
+};
