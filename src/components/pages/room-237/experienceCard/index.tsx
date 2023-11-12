@@ -7,7 +7,7 @@ type Props = {
   experience: Experience;
 };
 
-export const ExperienceCard: React.FC<Props> = ({ experience }) => {
+export const ExperienceCard = ({ experience }: Props) => {
   const { t } = useTranslation('common');
 
   return (

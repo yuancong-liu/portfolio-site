@@ -2,6 +2,6 @@ export type Props = {
   children?: React.ReactNode;
 };
 
-export const LayoutBlog: React.FC<Props> = ({ children }) => {
+export const LayoutBlog = ({ children }: Props) => {
   return <div>{children}</div>;
 };

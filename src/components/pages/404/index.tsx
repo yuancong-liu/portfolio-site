@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Link from 'next/link';
 
 /**
@@ -6,7 +5,7 @@ import Link from 'next/link';
  * 404画面
  *
  */
-const FourOhFourPage: NextPage = () => {
+const FourOhFourPage = () => {
   return (
     <main>
       <p>Room not found!</p>

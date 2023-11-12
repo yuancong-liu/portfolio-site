@@ -7,7 +7,7 @@ type Props = {
   rank: number;
 };
 
-export const FilmCard: React.FC<Props> = ({ film, rank }) => {
+export const FilmCard = ({ film, rank }: Props) => {
   return (
     <div
       className={styles['card-wrapper']}

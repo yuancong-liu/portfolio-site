@@ -2,10 +2,12 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
 import { Post } from '~/types/Posts';
+import { generateRssFeed } from '~/utils/feed';
 import { getAllPosts } from '~/utils/posts';
 import styles from './index.module.scss';
 import classNames from 'classnames';
-import { generateRssFeed } from '~/utils/feed';
+
+const BASE_URL = 'blog/';
 
 /**
  * The Colorado Lounge page
@@ -58,7 +60,7 @@ const TheColoradoLoungePage: NextPage<{ allPosts: Post[] }> = ({
               key={post.slug}
             >
               <Link
-                href={'the-colorado-lounge/' + post.slug}
+                href={BASE_URL + post.slug}
                 locale={getLocale(post.tags[0])}
               >
                 <h2 className={styles['title']}>{post.title}</h2>

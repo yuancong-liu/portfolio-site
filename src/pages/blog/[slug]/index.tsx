@@ -7,6 +7,7 @@ import FourOhFourPage from '~/components/pages/404';
 import { Post } from '~/types/Posts';
 import { getAllPosts, getPostBySlug, markdownToHtml } from '~/utils/posts';
 import styles from './index.module.scss';
+import sanitize from 'sanitize-html';
 
 const Post: NextPage<{ post: Post; locale: string }> = ({ post, locale }) => {
   const router = useRouter();
@@ -31,13 +32,14 @@ const Post: NextPage<{ post: Post; locale: string }> = ({ post, locale }) => {
     ));
   };
 
+  const sanitizedHtml = sanitize(post.content);
+
   return (
     <LayoutPost>
       <Head>
         <title>{post.title}</title>
       </Head>
       <main className={styles['main-wrapper']}>
-        {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
         <h1 className={styles['title']}>
           <span className={styles['before']}>/*</span>
           {post.title}
@@ -46,7 +48,7 @@ const Post: NextPage<{ post: Post; locale: string }> = ({ post, locale }) => {
         <p className={styles['date']}>{getDateString(post.date)}</p>
         <div className={styles['tag-group']}>{getTagList(post.tags)}</div>
         <div
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
           className={classNames(styles['content-wrapper'], locale)}
         />
       </main>
