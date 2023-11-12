@@ -1,4 +1,3 @@
-'use client';
 import { useMediaQuery } from 'react-responsive';
 
 const BREAKPOINT = 768;

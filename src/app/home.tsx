@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 // import type { Metadata } from 'next';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { IconsPc } from '~/components/pages/top/IconsPc';
@@ -8,7 +8,6 @@ import { NavBar } from '~/components/common/NavBar';
 
 export const Home = () => {
   const { isPc } = useDeviceDetect();
-  if (!window) return <></>;
 
   return (
     <>
