@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react';
+'use client';
+import { useMediaQuery } from 'react-responsive';
 
 const BREAKPOINT = 768;
 
 export const useDeviceDetect = () => {
-  const [isPc, setIsPc] = useState<boolean | undefined>(undefined);
 
-  const handleResize = () =>
-    setIsPc(window.matchMedia(`(min-width: ${BREAKPOINT}px)`).matches);
+  const isPc = useMediaQuery({
+    query: `(min-width: ${BREAKPOINT}px)`,
+  });
 
-  useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return isPc;
+  return { isPc };
 };

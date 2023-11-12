@@ -1,8 +1,8 @@
-import { NextPage, NextPageContext } from 'next';
+import { NextPageContext } from 'next';
 import FourOhFourPage from '~/components/pages/404';
 
 /** カスタマイズエラーページ */
-const ErrorPage: NextPage = () => {
+const ErrorPage = () => {
   return <FourOhFourPage />;
 };
 

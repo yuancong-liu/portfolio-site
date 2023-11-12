@@ -2,7 +2,7 @@
 const { i18n } = require('./next-i18next.config');
 
 const nextConfig = {
-  i18n,
+  // i18n,
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
@@ -12,12 +12,7 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-        },
-      ],
+      use: ['@svgr/webpack'],
     });
 
     return config;

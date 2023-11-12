@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { LayoutPost } from '~/components/layouts/posts';
@@ -9,7 +8,17 @@ import { getAllPosts, getPostBySlug, markdownToHtml } from '~/utils/posts';
 import styles from './index.module.scss';
 import sanitize from 'sanitize-html';
 
-const Post: NextPage<{ post: Post; locale: string }> = ({ post, locale }) => {
+// export const metadata: Metadata = {
+//   title: 'ㅇㅇㅊ',
+//   description: 'ㅇㅇㅊ',
+// };
+
+type Props = {
+  post: Post;
+  locale: string;
+};
+
+const Post = ({ post, locale }: Props) => {
   const router = useRouter();
 
   if (router.isFallback && !post?.slug) {
@@ -33,6 +42,8 @@ const Post: NextPage<{ post: Post; locale: string }> = ({ post, locale }) => {
   };
 
   const sanitizedHtml = sanitize(post.content);
+
+  // metadata.title = post.title;
 
   return (
     <LayoutPost>
