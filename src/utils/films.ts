@@ -18,7 +18,7 @@ export const getFilms = async () => {
       );
       const filmJson = await filmRes.json();
       films.push(filterFilmInfo(filmJson));
-    })
+    }),
   );
 
   films.sort((a, b) => {
@@ -85,7 +85,7 @@ export const convertFilmReleaseDate = (releaseDate: string) => {
  * @returns production countries string
  */
 export const getProductionCountries = (
-  productionCountries: { iso_3166_1: string; name: string }[]
+  productionCountries: { iso_3166_1: string; name: string }[],
 ) => {
   const countries = productionCountries
     .map((country) => {

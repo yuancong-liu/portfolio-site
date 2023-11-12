@@ -73,7 +73,7 @@ const TheColoradoLoungePage = () => {
   );
 };
 
-export const getPosts = () => {
+const getPosts = () => {
   generateRssFeed();
 
   const allPosts = getAllPosts(['slug', 'title', 'date', 'tags']);

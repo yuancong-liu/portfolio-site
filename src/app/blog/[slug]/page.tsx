@@ -76,7 +76,7 @@ export const generateStaticParams = () => {
   return params;
 };
 
-export const getPost = async ({ slug }: { slug: string }) => {
+const getPost = async ({ slug }: { slug: string }) => {
   const post = getPostBySlug(slug, [
     'title',
     'date',
