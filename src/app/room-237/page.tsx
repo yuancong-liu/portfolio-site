@@ -1,9 +1,8 @@
-import type { NextPage } from 'next';
 import { Experience } from '~/types/Resume';
 import { ExperienceCard } from '~/components/pages/room-237/experienceCard';
 import { UNSPLASH_IMAGE_PATH } from '~/constants/resume';
 import styles from './index.module.scss';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const experiences = [
   {
@@ -49,8 +48,8 @@ const experiences = [
  * /component/pages/room-237　配下にページコンポーネントを作成
  *
  */
-const Room237Page: NextPage = () => {
-  function experienceCardDisplay() {
+const Room237Page = () => {
+  const experienceCardDisplay = () => {
     return experiences.map((experience, index) => {
       return <ExperienceCard experience={experience} key={index} />;
     });
@@ -64,10 +63,10 @@ const Room237Page: NextPage = () => {
   );
 };
 
-export const getStaticProps = async ({ locale }: { locale: string }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ['common'])),
-  },
-});
+// export const getStaticProps = async ({ locale }: { locale: string }) => ({
+//   props: {
+//     ...(await serverSideTranslations(locale, ['common'])),
+//   },
+// });
 
 export default Room237Page;

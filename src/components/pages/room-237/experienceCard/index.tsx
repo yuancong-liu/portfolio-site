@@ -1,5 +1,5 @@
 import { Experience } from '~/types/Resume';
-import { useTranslation } from 'next-i18next';
+// import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import styles from './index.module.scss';
 
@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const ExperienceCard = ({ experience }: Props) => {
-  const { t } = useTranslation('common');
+  // const { t } = useTranslation('common');
 
   return (
     <div className={styles['card-wrapper']}>
@@ -25,13 +25,13 @@ export const ExperienceCard = ({ experience }: Props) => {
       ) : null}
       {experience.url ? (
         <a href={experience.url} target="_blank" rel="noopener noreferrer">
-          {t(experience.name)}
+          {experience.name}
         </a>
       ) : (
-        <p>{t(experience.name)}</p>
+        <p>{experience.name}</p>
       )}
-      <p>{t(experience.department)}</p>
-      {experience.degree ? <p>{t(experience.degree)}</p> : null}
+      <p>{experience.department}</p>
+      {experience.degree ? <p>{experience.degree}</p> : null}
     </div>
   );
 };

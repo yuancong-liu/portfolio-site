@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import Head from 'next/head';
 import { LayoutPost } from '~/components/layouts/posts';
 import FourOhFourPage from '~/components/pages/404';
-import { Post } from '~/types/Posts';
 import { getAllPosts, getPostBySlug, markdownToHtml } from '~/utils/posts';
 import styles from './index.module.scss';
 import sanitize from 'sanitize-html';
