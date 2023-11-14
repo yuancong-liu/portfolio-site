@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { LayoutBlog } from '~/components/layouts/the-colorado-lounge';
+import { LayoutBlog } from '~/components/layouts/blog';
 import { Post } from '~/types/Posts';
 import { generateRssFeed } from '~/utils/feed';
 import { getAllPosts } from '~/utils/posts';
