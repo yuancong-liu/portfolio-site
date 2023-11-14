@@ -33,7 +33,7 @@ jobs:
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if (git diff --shortstat | grep '[0-9]'); then \
             git add .; \
-            git commit -m "fix: 👕 Fixed auto-fixable ESLint errors by github-actions"; \
+            git commit -m "👕 Fixed auto-fixable ESLint errors by github-actions"; \
             git push origin HEAD:${GITHUB_REF}; \
           fi
         env:
