@@ -13,15 +13,25 @@
     "lintjs:prettier": "prettier --ignore-path .gitignore --ignore-path .eslintignore --loglevel warn \"**/*.{js,jsx,ts,tsx}\"",
     "lintcss": "stylelint 'src/**/*.scss'",
     "lintcss:fix": "stylelint --fix 'src/**/*.scss'",
-    "markuplint": "markuplint \"./src/**/*.{jsx,tsx}\""
+    "markuplint": "markuplint \"./src/**/*.{jsx,tsx}\"",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install",
+    "format": "pretty-quick --pattern \"**/*.{ts,tsx,js,jsx,json,yml,md,html}\""
+  },
+  "lint-staged": {
+    "**/*.{css,scss}": [
+      "yarn lint:style"
+    ]
   },
   "dependencies": {
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.4",
     "gray-matter": "^4.0.3",
     "i18next": "^23.7.3",
+    "lint-staged": "^15.1.0",
     "next": "^14.0.2",
     "next-i18next": "^15.0.0",
+    "pretty-quick": "^3.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.4.0",
