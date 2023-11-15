@@ -16,31 +16,31 @@ export const generateRssFeed = () => {
     link: process.env.NEXT_PUBLIC_SITE_URL,
   };
 
-  const getLocale = (languageTag: string) => {
-    switch (languageTag) {
-      case 'Chinese':
-        return 'zh-Hant';
-      case 'English':
-        return 'en';
-      case 'Japanese':
-        return 'ja';
-      default:
-        return 'en';
-    }
-  };
+  // const getLocale = (languageTag: string) => {
+  //   switch (languageTag) {
+  //     case 'Chinese':
+  //       return 'zh-Hant';
+  //     case 'English':
+  //       return 'en';
+  //     case 'Japanese':
+  //       return 'ja';
+  //     default:
+  //       return 'en';
+  //   }
+  // };
 
   const feed = new Feed({
     title: 'The Colorado Lounge',
     id: siteUrl,
-    link: `${siteUrl}/the-Colorado-lounge`,
+    link: `${siteUrl}/blog`,
     description: "YUANCONG.L's blog",
     copyright: `All rights reserved ${date.getFullYear()}, YUANCONG.L`,
     updated: date,
     generator: 'Next.js using Feed for Node.js',
     feedLinks: {
-      rss2: `${siteUrl}/the-colorado-lounge/rss.xml`,
-      json: `${siteUrl}/the-colorado-lounge/feed.json`,
-      atom: `${siteUrl}/the-colorado-lounge/atom.xml`,
+      rss2: `${siteUrl}/blog/rss.xml`,
+      json: `${siteUrl}/blog/feed.json`,
+      atom: `${siteUrl}/blog/atom.xml`,
     },
     author,
   });
@@ -48,12 +48,8 @@ export const generateRssFeed = () => {
   posts.forEach((post) => {
     feed.addItem({
       title: post.title,
-      id: `${siteUrl}/${getLocale(post.tags[0])}/the-colorado-lounge/${
-        post.slug
-      }`,
-      link: `${siteUrl}/${getLocale(post.tags[0])}/the-colorado-lounge/${
-        post.slug
-      }`,
+      id: `${siteUrl}/blog/${post.slug}`,
+      link: `${siteUrl}/blog/${post.slug}`,
       description: post.title,
       content: post.title,
       date: new Date(post.date),
