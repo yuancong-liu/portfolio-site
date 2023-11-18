@@ -49,14 +49,14 @@ const PostPage = async ({ params }: Props) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <main className={styles['main-wrapper']}>
+      <header className={styles['header']}>
         <div className={styles['tag-group']}>{getTagList(post.tags)}</div>
         <h1 className={styles['title']}>
-          {/* <span className={styles['before']}></span> */}
           {post.title}
-          {/* <span className={styles['after']}></span> */}
         </h1>
         <p className={styles['date']}>{getDateString(post.date)}</p>
+      </header>
+      <main className={styles['main-wrapper']}>
         <div
           dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
           className={classNames(styles['content-wrapper'])}

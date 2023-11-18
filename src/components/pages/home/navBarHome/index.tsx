@@ -1,7 +1,8 @@
+// import { Internationality } from '../Internationality';
 import Link from 'next/link';
 import styles from './index.module.scss';
 
-export const NavBar = () => {
+export const NavBarHome = () => {
   return (
     <nav className={styles['nav-bar']}>
       <ul className={styles['nav-items']}>
@@ -15,6 +16,10 @@ export const NavBar = () => {
         <li>
           <Link href="/and">...AND</Link>
         </li>
+        {/* TODO: i18n */}
+        {/* <li>
+          <Internationality />
+        </li> */}
       </ul>
     </nav>
   );

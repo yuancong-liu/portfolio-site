@@ -1,18 +1,18 @@
 'use client';
 import dynamic from 'next/dynamic';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NavBar } from '~/components/common/NavBar';
+import { NavBarHome } from '~/components/pages/home/navBarHome';
 import { useDeviceDetect } from '~/hooks';
 
 const IconsPc = dynamic(
-  () => import('~/components/pages/top/IconsPc').then((mod) => mod.IconsPc),
+  () => import('~/components/pages/home/IconsPc').then((mod) => mod.IconsPc),
   {
     ssr: false,
   },
 );
 
 const IconsSp = dynamic(
-  () => import('~/components/pages/top/IconsSp').then((mod) => mod.IconsSp),
+  () => import('~/components/pages/home/IconsSp').then((mod) => mod.IconsSp),
   {
     ssr: false,
   },
@@ -23,7 +23,7 @@ export const Home = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBarHome />
       <main>{isPc ? <IconsPc /> : <IconsSp />}</main>
     </>
   );
