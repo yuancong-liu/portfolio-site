@@ -1,8 +1,8 @@
 ---
 title: Writing | 加入
 date: 2020-10-16 15:04:50
+language: 中文
 tags:
-- Chinese
 - Work
 ---
 

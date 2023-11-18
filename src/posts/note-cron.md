@@ -1,8 +1,8 @@
 ---
 title: Note | cron表達式
 date: 2022-02-26 17:22:11
+language: 中文
 tags: 
-- Chinese
 - Programming
 - Spring Boot
 - Java

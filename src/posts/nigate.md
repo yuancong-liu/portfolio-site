@@ -1,8 +1,8 @@
 ---
 title: Writing | 苦手なものを好きなものに変える方法
 date: 2020-01-12 17:42:22
+language: 日本語
 tags:
-- Japanese
 - Work
 ---
 

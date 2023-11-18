@@ -1,8 +1,8 @@
 ---
 title: Writing | リフレーム
 date: 2020-01-12 17:45:26
+language: 日本語
 tags:
-- Japanese
 - Work
 ---
 

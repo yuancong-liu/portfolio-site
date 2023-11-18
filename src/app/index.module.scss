@@ -1,11 +1,11 @@
 @use '~/styles/utils.scss';
 
 .index-container {
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr 4fr 1fr;
 
   @media (max-width: utils.$sp-width) {
     grid-template-rows: 3fr 6fr 3fr;
@@ -14,14 +14,14 @@
 
   > .top {
     display: grid;
-    grid-column: 2 / 3;
     grid-row: 1 / 2;
+    grid-column: 2 / 3;
     align-items: center;
   } 
 
   > .bottom {
-    grid-column: 2 / 3;
     grid-row: 3 / 4;
+    grid-column: 2 / 3;
   }
 }
 

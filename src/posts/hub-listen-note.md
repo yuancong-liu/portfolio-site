@@ -1,8 +1,8 @@
 ---
 title: Note | Hub.listen不要亂用事件
 date: 2023-02-13 01:59:38
+language: 中文
 tags:
-- Chinese
 - Front-end
 - Programming
 - Vue

@@ -1,8 +1,8 @@
 ---
 title: Note | 為這個博客添加RSS Feed
 date: 2022-10-26 18:23:14
+language: 中文
 tags:
-- Chinese
 - Programming
 - Front-end
 - Next.js

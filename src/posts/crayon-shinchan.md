@@ -1,8 +1,8 @@
 ---
 title: Translation | 首先記住這些吧！《蠟筆小新》系列入門專欄
 date: 2020-05-24 03:38:02
+language: 中文
 tags:
-- Chinese
 - Translation
 ---
 

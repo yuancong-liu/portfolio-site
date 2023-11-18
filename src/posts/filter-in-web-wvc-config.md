@@ -1,8 +1,8 @@
 ---
 title: Note | 在WebMvcConfiguration介面中配置過濾器（Filter）
 date: 2022-03-05 20:57:50
+language: 中文
 tags:
-- Chinese
 - Programming
 - Java
 - Spring Boot

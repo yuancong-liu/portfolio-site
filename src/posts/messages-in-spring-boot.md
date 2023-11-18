@@ -1,8 +1,8 @@
 ---
 title: Note | Spring Boot Message配置問題
 date: 2022-02-16 16:53:41
+language: 中文
 tags: 
-- Chinese
 - Programming
 - Java
 - Spring Boot

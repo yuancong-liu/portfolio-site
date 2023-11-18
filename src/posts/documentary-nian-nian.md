@@ -1,10 +1,8 @@
 ---
 title: Work | Documentary "Nian' Nian" (念念)
 date: 2018-09-01 15:48:07
+language: 中文
 tags:
-- Chinese
-- English
-- Japanese
 - Work
 ---
 

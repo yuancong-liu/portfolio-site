@@ -1,8 +1,8 @@
 ---
 title: Note | Text-as-Data Coursework Report
 date: 2021-08-25 23:12:50
+language: English
 tags:
-- English
 - Work
 - Programming
 - Machine Learning

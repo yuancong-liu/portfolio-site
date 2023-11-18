@@ -1,8 +1,8 @@
 ---
 title: Translation | Another 2001 中文 <#01>
 date: 2021-08-24 01:04:50
+language: 中文
 tags:
-- Chinese
 - Translation
 ---
 

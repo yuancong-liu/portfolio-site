@@ -1,8 +1,8 @@
 ---
 title: Note | 關於本機IP訪問出現CORS跨域錯誤的問題
 date: 2022-04-25 23:13:00
+language: 中文
 tags:
-- Chinese
 - Programming
 - Front-end
 ---

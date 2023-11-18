@@ -1,8 +1,8 @@
 ---
 title: Note | 為這個博客的每個頁面設置動態連結
 date: 2022-10-12 18:24:50
+language: 中文
 tags:
-- Chinese
 - Programming
 - Next.js
 - i18n

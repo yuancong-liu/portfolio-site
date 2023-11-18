@@ -1,8 +1,8 @@
 ---
 title: Note | 遊戲化實戰
 date: 2020-05-24 16:42:20
+language: 中文
 tags:
-- Chinese
 - Note
 ---
 

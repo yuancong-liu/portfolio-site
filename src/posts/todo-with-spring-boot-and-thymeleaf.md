@@ -1,8 +1,8 @@
 ---
 title: Note | 用Spring Boot和Thymeleaf製作Todo系統 <#1>
 date: 2022-02-16 17:23:14
+language: 中文
 tags:
-- Chinese
 - Programming
 - Spring Boot
 - Thymeleaf

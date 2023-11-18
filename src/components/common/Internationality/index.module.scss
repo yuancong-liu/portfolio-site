@@ -18,31 +18,31 @@
 
 .language-dropdown {
   position: absolute;
-  bottom: -100%;
   right: 200%;
-  padding: 40px;
-  writing-mode: horizontal-tb;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  bottom: -100%;
   z-index: 200;
+  padding: 40px;
+  background: rgb(255 255 255 / 20%);
+  backdrop-filter: blur(10px);
+  writing-mode: horizontal-tb;
 
   > .list {
     display: flex;
     flex-direction: column;
-    list-style-type: none;
     font-size: 0.8em;
+    list-style-type: none;
   }
 
   > .list > .item {
     position: relative;
 
     &::before {
-      content: '';
       position: absolute;
       top: 0.5em;
       left: -1em;
       width: 0.4em;
       height: 0.4em;
+      content: '';
       background-color: transparent;
       border-radius: 50%;
       transition: all 0.3s ease-in-out;

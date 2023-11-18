@@ -1,8 +1,8 @@
 ---
 title: Note | 前端項目中AWS AppSync的GraphQL API連結
 date: 2022-10-30 01:59:38
+language: 中文
 tags:
-- Chinese
 - Front-end
 - Programming
 - Vue

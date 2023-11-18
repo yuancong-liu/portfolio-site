@@ -1,8 +1,8 @@
 ---
 title: Note | Spring Boot插入外部CSS樣式表
 date: 2022-03-09 01:59:38
+language: 中文
 tags:
-- Chinese
 - Front-end
 - Back-end
 - Spring Boot

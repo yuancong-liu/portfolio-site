@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap');
 
 :root {
   box-sizing: border-box;
@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: Jost, sans-serif;
   font-size: 10px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -19,12 +19,13 @@ body {
   box-sizing: inherit;
   margin: 0;
   line-height: inherit;
+  border: 1px solid #ffc0cb;
 }
 
 button {
   font: inherit;
   background: none;
-  border: none;
+  border: 0;
 }
 
 code {

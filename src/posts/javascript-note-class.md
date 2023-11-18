@@ -1,8 +1,8 @@
 ---
 title: Note | Javascript Note (Class)
 date: 2021-09-18 23:04:50
+language: English
 tags:
-- English
 - Programming
 - Javascript
 - Front-end
