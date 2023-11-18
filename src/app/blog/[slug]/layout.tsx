@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const PostLayout = ({ children }: Props) => {
+export default function PostLayout({ children }: Props) {
   return (
     <>
       <NavBar />
@@ -13,4 +13,3 @@ const PostLayout = ({ children }: Props) => {
   );
 };
 
-export default PostLayout;
