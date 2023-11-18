@@ -2,6 +2,7 @@
 @use 'src/styles/mixins' as *;
 
 .header {
+  overflow: visible;
   position: relative;
   max-width: 700px;
   margin: 30px auto;
@@ -19,24 +20,25 @@
   &::before,
   &::after {
     position: absolute;
+    font-family: monospace;
     z-index: -100;
     display: block;
-    font-size: 10rem;
+    font-size: 8rem;
     font-weight: 600;
     line-height: 1;
     color: utils.$shining-yellow-2;
   }
 
   &::before {
-    content: '/*';
+    content: '<h1>';
     top: -5px;
-    left: -5px;
+    left: -30px;
   }
 
   &::after {
-    content: '*/';
-    right: 0;
-    bottom: -10px;
+    content: '</h1>';
+    right: -30px;
+    bottom: 10px;
   }
 
   > .date {
@@ -48,7 +50,8 @@
 
 .main-wrapper {
   max-width: 700px;
-  margin: 30px auto;
+  margin: 30px auto 80px;
+  padding: 0 20px;
   overflow-x: hidden;
   font-size: 1.4rem;
 }
@@ -88,7 +91,7 @@
 }
 
 .content-wrapper {
-  margin: 20px;
+  margin: 20px 0;
 
   h2 {
     position: relative;
