@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './index.module.scss';
 
-export const NavBar = () => {
+export const NavBarCommon = () => {
   return (
     <nav className={styles['nav-bar']}>
       <ul className={styles['nav-items']}>

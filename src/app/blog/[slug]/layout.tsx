@@ -1,4 +1,4 @@
-// import { NavBar } from "~/components/common/navBar";
+import { NavBarCommon } from "~/components/common/navBarCommon";
 
 type Props = {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ type Props = {
 export default function PostLayout({ children }: Props) {
   return (
     <>
-      {/* <NavBar /> */}
+      <NavBarCommon />
       {children}
     </>
   );
