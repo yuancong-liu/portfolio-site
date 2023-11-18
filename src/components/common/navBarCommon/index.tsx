@@ -1,10 +1,14 @@
 import Link from 'next/link';
+import LogoNav from '~/assets/icons/logo-nav.svg';
 import styles from './index.module.scss';
 
 export const NavBarCommon = () => {
   return (
     <nav className={styles['nav-bar']}>
       <ul className={styles['nav-items']}>
+        <li className={styles['icons']}>
+          <LogoNav />
+        </li>
         <li>
           <Link href="/about-me">ABOUT ME</Link>
         </li>

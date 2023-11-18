@@ -1,7 +1,7 @@
 @use 'src/styles/mixins' as *;
 
 .nav-bar {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   width: 100%;
@@ -47,5 +47,13 @@
 
   @include sp() {
     max-width: 300px;
+  }
+}
+
+.icons {
+  height: 30px;
+
+  @include sp() {
+    display: none;
   }
 }

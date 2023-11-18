@@ -1,6 +1,25 @@
 @use '~/styles/utils.scss';
 @use 'src/styles/mixins' as *;
 
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 10px;
+  margin: 0 30px;
+  
+  > .tag {
+    position: relative;
+    font-size: 1.4rem;
+  }
+
+  > .tag::before {
+    margin-right: 3px;
+    font-weight: 600;
+    color: utils.$shining-yellow-3;
+    content: '#';
+  }
+}
+
 .header {
   overflow: visible;
   position: relative;
@@ -44,7 +63,7 @@
   > .date {
     margin: 5px 30px;
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -53,26 +72,8 @@
   margin: 30px auto 80px;
   padding: 0 30px;
   overflow-x: hidden;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
-
-.tag-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 10px;
-  margin: 0 30px;
-  
-  > .tag {
-    position: relative;
-    font-size: 1.4rem;
-  }
-
-  > .tag::before {
-    margin-right: 3px;
-    font-weight: 600;
-    color: utils.$shining-yellow-3;
-    content: '#';
-  }
 
   // > .tag::after {
   //   position: absolute;
@@ -88,7 +89,6 @@
   // > .tag:hover::after {
   //   background-color: utils.$shining-yellow-2;
   // }
-}
 
 .content-wrapper {
   margin: 20px 0;
