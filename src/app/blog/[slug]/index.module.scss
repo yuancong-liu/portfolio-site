@@ -8,7 +8,7 @@
   margin: 30px auto;
 
   > .title {
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 6rem;
     line-height: 1.2;
 
@@ -42,7 +42,7 @@
   }
 
   > .date {
-    margin: 5px 20px;
+    margin: 5px 30px;
     font-weight: 600;
     font-size: 1.4rem;
   }
@@ -51,7 +51,7 @@
 .main-wrapper {
   max-width: 700px;
   margin: 30px auto 80px;
-  padding: 0 20px;
+  padding: 0 30px;
   overflow-x: hidden;
   font-size: 1.4rem;
 }
@@ -60,7 +60,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0 10px;
-  margin: 0 20px;
+  margin: 0 30px;
   
   > .tag {
     position: relative;
