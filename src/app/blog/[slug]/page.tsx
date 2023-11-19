@@ -10,6 +10,11 @@ import styles from './index.module.scss';
 export const metadata: Metadata = {
   title: 'ㅇㅇㅊ',
   description: 'ㅇㅇㅊ',
+  openGraph: {
+    title: 'ㅇㅇㅊ',
+    description: 'ㅇㅇㅊ',
+    type: 'website',
+  },
 };
 
 type Props = {
@@ -20,6 +25,20 @@ const PostPage = async ({ params }: Props) => {
   if (!params.slug) return <FourOhFourPage />;
 
   const { post } = await getPost({ slug: params.slug });
+
+  metadata.openGraph = {
+    title: post.title,
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}${post.slug}`,
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image/`,
+        width: 1200,
+        height: 630,
+        alt: post.title,
+      },
+    ],
+  };
 
   const getDateString = (date: string) => {
     const dateObj = new Date(date);
