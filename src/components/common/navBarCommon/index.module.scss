@@ -15,7 +15,6 @@
   }
 
   @include sp() {
-    position: fixed;
     top: unset;
     bottom: 0;
     font-size: 12px;
