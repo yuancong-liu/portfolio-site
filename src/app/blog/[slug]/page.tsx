@@ -8,8 +8,7 @@ import { getAllPosts, getPostBySlug, markdownToHtml } from '~/utils/posts';
 import styles from './index.module.scss';
 
 export const metadata: Metadata = {
-  title: 'ㅇㅇㅊ',
-  description: 'ㅇㅇㅊ',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
 };
 
 type Props = {
@@ -24,7 +23,7 @@ const PostPage = async ({ params }: Props) => {
   metadata.openGraph = {
     title: post.title,
     type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}${post.slug}`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug}`,
   };
 
   const getDateString = (date: string) => {
@@ -57,9 +56,7 @@ const PostPage = async ({ params }: Props) => {
       </Head>
       <header className={styles['header']}>
         <div className={styles['tag-group']}>{getTagList(post.tags)}</div>
-        <h1 className={styles['title']}>
-          {post.title}
-        </h1>
+        <h1 className={styles['title']}>{post.title}</h1>
         <p className={styles['date']}>{getDateString(post.date)}</p>
       </header>
       <main className={styles['main-wrapper']}>
