@@ -10,7 +10,7 @@ import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
-import { Post } from '~/types/Posts';
+import { Post, Tag } from '~/types/Posts';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -60,6 +60,26 @@ export const getAllPosts = (fields: string[] = []) => {
     // sort posts by date in descending order
     .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1));
   return posts;
+};
+
+/**
+ * Get all tags
+ * @returns Tag[]
+ */
+export const getAllTags = (): Tag[] => {
+  const posts = getAllPosts(['tags']);
+  const tags = posts.map((post) => post.tags).flat();
+
+  const uniqueTags = [...new Set(tags)];
+  return uniqueTags.map((tag) => ({
+    tag,
+    param: tag.toLowerCase().replace('.', '-'),
+  }));
+};
+
+export const getPostsByTag = (tag: string) => {
+  const posts = getAllPosts(['slug', 'title', 'tags', 'date', 'language']);
+  return posts.filter((post) => post.tags.includes(tag));
 };
 
 /**

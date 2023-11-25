@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function PostLayout({ children }: Props) {
+export default function BlogLayout({ children }: Props) {
   return (
     <div className={styles['page-wrapper']}>
       <NavBarCommon />

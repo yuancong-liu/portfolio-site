@@ -1,0 +1,75 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.post-card {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  width: calc(50% - 1rem);
+  padding: 1rem;
+  background-color: white;
+  contain: paint;
+
+  @include pc() {
+    border: 1px solid white;
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 0%);
+    transition: all 0.3s ease-in-out;
+    transform: translate(0, 0);
+
+    &:hover {
+      z-index: 100;
+      border: 1px solid black;
+      box-shadow: -10px 10px 0 0 utils.$shining-yellow-3;
+      transform: translate(10px, -10px);
+    }
+  }
+
+  .titleArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+
+    .languageTag {
+      margin: 0.3rem 0;
+      padding: 0 0.5rem;
+      font-size: 1.2rem;
+      color: white;
+      white-space: nowrap;
+      background-color: utils.$shining-yellow-3;
+    }
+    
+    .title {
+      width: 100%;
+      font-size: 1.6rem;
+    }
+  }
+  
+  
+  @include sp() {
+    flex-basis: 100%;
+    width: 100%;
+    border-top: 1px solid black;
+  }
+
+  .date {
+    font-size: 1.4rem;
+  }
+
+  &.-new::after {
+    position: absolute;
+    bottom: -80px;
+    left: -40px;
+    z-index: -10;
+    font-size: 6rem;
+    content: '🍟';
+    opacity: 0.5;
+    transform: rotate(45deg);
+  }
+}

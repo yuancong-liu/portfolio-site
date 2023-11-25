@@ -7,7 +7,9 @@ export const NavBarCommon = () => {
     <nav className={styles['nav-bar']}>
       <ul className={styles['nav-items']}>
         <li className={styles['icons']}>
-          <LogoNav />
+          <Link href="/">
+            <LogoNav />
+          </Link>
         </li>
         <li>
           <Link href="/about-me">ABOUT ME</Link>
