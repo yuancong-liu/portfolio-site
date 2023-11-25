@@ -6,7 +6,7 @@
 
 .internationality-button {
   background: none;
-  border: none;
+  border: 0;
 }
 
 .globe-icon {
@@ -49,7 +49,7 @@
     }
 
     &:hover::before {
-      background-color: black;
+      background-color: #000;
     }
   }
 }

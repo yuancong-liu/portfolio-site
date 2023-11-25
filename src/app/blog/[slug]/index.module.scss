@@ -21,10 +21,10 @@
 }
 
 .header {
-  overflow: visible;
   position: relative;
   max-width: 700px;
   margin: 30px auto;
+  overflow: visible;
 
   > .title {
     padding: 10px 30px;
@@ -39,9 +39,9 @@
   &::before,
   &::after {
     position: absolute;
-    font-family: monospace;
     z-index: -100;
     display: block;
+    font-family: monospace;
     font-size: 8rem;
     font-weight: 600;
     line-height: 1;
@@ -49,28 +49,28 @@
   }
 
   &::before {
-    content: '<h1>';
     top: -5px;
     left: -30px;
+    content: '<h1>';
   }
 
   &::after {
-    content: '</h1>';
     right: -30px;
     bottom: 10px;
+    content: '</h1>';
   }
 
   > .date {
     margin: 5px 30px;
-    font-weight: 600;
     font-size: 1.6rem;
+    font-weight: 600;
   }
 }
 
 .main-wrapper {
   max-width: 700px;
-  margin: 30px auto 80px;
   padding: 0 30px;
+  margin: 30px auto 80px;
   overflow-x: hidden;
   font-size: 1.6rem;
 }

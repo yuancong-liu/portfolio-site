@@ -12,9 +12,9 @@
     &::before,
     &::after {
       position: absolute;
-      font-family: monospace;
       z-index: -100;
       display: block;
+      font-family: monospace;
       font-size: 8rem;
       font-weight: 600;
       line-height: 1;
@@ -22,15 +22,15 @@
     }
 
     &::before {
-      content: '<h1>';
       top: -5px;
       left: -30px;
+      content: '<h1>';
     }
 
     &::after {
-      content: '</h1>';
       right: -30px;
       bottom: 10px;
+      content: '</h1>';
     }
   }
 }
@@ -44,9 +44,9 @@
 
 .tag-instance {
   position: relative;
-  list-style-type: none;
   font-size: 1.8rem;
   font-weight: 600;
+  list-style-type: none;
 
   &::before {
     margin-right: 3px;

@@ -1,18 +1,17 @@
 @use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
 
 .back-button {
   position: fixed;
+  bottom: 5%;
   z-index: 500;
   width: 100%;
   text-align: center;
-  
-  @media screen and (min-width: utils.$sp-width) {
-    top: 50%;
-    width: 30vw;  
-  }
 
-  @media screen and (max-width: utils.$sp-width) {
-    bottom: 5%;
+  @include pc() {
+    top: 50%;
+    bottom: unset;
+    width: 30vw;
   }
 }
 
@@ -23,7 +22,7 @@
   overflow: auto;
   scroll-snap-type: y mandatory;
 
-  @media screen and (max-width: utils.$sp-width) {
+  @include sp() {
     width: 100%;
     margin-left: 0;
   }

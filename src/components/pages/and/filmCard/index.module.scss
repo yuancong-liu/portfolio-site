@@ -1,18 +1,19 @@
 @use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
 
 .card-wrapper {
   position: relative;
   flex: 1 0 100vw;
   height: 100vh;
   height: 100dvh;
-  color: white;
+  color: #fff;
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
   background-position: center center !important;
   background-size: cover !important;
   scroll-snap-align: start;
 
-  @media screen and (max-width: utils.$sp-width) {
+  @include sp() {
     background-attachment: scroll !important;
   }
 
@@ -25,7 +26,7 @@
     padding: 20px;
     backdrop-filter: blur(20px) saturate(1.5) brightness(0.5);
 
-    @media screen and (min-width: utils.$sp-width) {
+    @include pc() {
       flex-direction: row;
       gap: 20px;
       align-items: flex-end;
@@ -43,10 +44,11 @@
   font-weight: 600;
   line-height: 1;
   color: rgb(0 0 0 / 0%);
-  -webkit-text-stroke: 2px white;
-  text-stroke: 2px white;
+  -webkit-text-stroke: 2px #fff;
+  /* stylelint-disable-next-line property-no-unknown */
+  text-stroke: 2px #fff;
 
-  @media screen and (min-width: utils.$sp-width) {
+  @include pc() {
     top: -60px;
     left: -40px;
     font-size: 20rem;
@@ -62,7 +64,7 @@
   border-radius: 20px;
   box-shadow: 0 0 20px rgb(0 0 0 / 50%);
 
-  @media screen and (max-width: utils.$sp-width) {
+  @include sp() {
     margin: 0 auto;
   }
 }

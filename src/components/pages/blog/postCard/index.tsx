@@ -33,17 +33,17 @@ export const PostCard = ({ post }: Props) => {
   return (
     <Link
       className={classNames(styles['post-card'], {
-        [styles['-new']]: shouldShowNewTag(post.date),
+        [styles['new']]: shouldShowNewTag(post.date),
       })}
       href={`/blog/${post.slug}`}
       locale={getLocale(post.language)}
     >
-      <div className={styles['titleArea']}>
+      <div className={styles['title-area']}>
         <h2 className={styles['title']}>
           {post.title}
         </h2>
           {post.language !== 'English' && (
-            <span className={styles['languageTag']}>{post.language}</span>
+            <span className={styles['language-tag']}>{post.language}</span>
           )}
       </div>
       <p className={styles['date']}>{getDateString(post.date)}</p>

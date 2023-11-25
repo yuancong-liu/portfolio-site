@@ -17,7 +17,7 @@ export const ImageWithLoading: FC<Props> = ({
   return (
     <div
       className={classNames(styles['image-wrapper'], {
-        [styles['-loading']]: loading,
+        [styles['loading']]: loading,
       })}
     >
       <div className={styles['image']}>

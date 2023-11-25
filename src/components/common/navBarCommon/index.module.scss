@@ -5,8 +5,8 @@
   top: 0;
   z-index: 100;
   width: 100%;
-  font-size: 20px;
   padding: 10px 0;
+  font-size: 20px;
   font-weight: 600;
 
   @include pc() {
@@ -36,12 +36,12 @@
 }
 
 .nav-items {
-  max-width: 700px;
-  justify-content: space-between;
-  margin: 0 auto;
   z-index: 100;
-  padding: 0;
   display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  padding: 0;
+  margin: 0 auto;
   list-style: none;
 
   @include sp() {
