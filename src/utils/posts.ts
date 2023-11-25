@@ -73,7 +73,8 @@ export const getAllTags = (): Tag[] => {
   const uniqueTags = [...new Set(tags)];
   return uniqueTags.map((tag) => ({
     tag,
-    param: tag.toLowerCase().replace('.', '-'),
+    // TODO: replace this with regex
+    param: tag.toLowerCase().replace('.', '-').replace(' ', '-')
   }));
 };
 
