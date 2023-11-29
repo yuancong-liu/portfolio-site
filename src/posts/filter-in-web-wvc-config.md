@@ -79,4 +79,3 @@ FilterRegistrationBean<LoggingFilter> loggingFilterRegistration() {
 2. 幾個過濾器可以通過`filterRegistrationBean.setOrder(/*number*/)`來設定過濾器的發動順序，數字越小越優先，同時可以用`Ordered.HIGHEST_PRECEDENCE`和`Ordered.LOWEST_PRECEDENCE`來設置為最優先和最不優先（實質就是Integer可取範圍的最小值和最大值）。
 <br>
 
--全文完-

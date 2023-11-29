@@ -1,10 +1,13 @@
 import classNames from 'classnames';
 import { Metadata } from 'next';
-import Head from 'next/head';
 import sanitize from 'sanitize-html';
-import { LayoutPost } from '~/components/layouts/posts';
 import FourOhFourPage from '~/components/pages/404';
-import { getAllPosts, getPostBySlug, markdownToHtml } from '~/utils/posts';
+import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
+import {
+  getAllPosts,
+  getPostBySlug,
+  markdownToHtml,
+} from '~/utils/posts';
 import styles from './index.module.scss';
 
 export const metadata: Metadata = {
@@ -19,6 +22,8 @@ const PostPage = async ({ params }: Props) => {
   if (!params.slug) return <FourOhFourPage />;
 
   const { post } = await getPost({ slug: params.slug });
+
+  metadata.title = post.title;
 
   metadata.openGraph = {
     title: post.title,
@@ -50,10 +55,7 @@ const PostPage = async ({ params }: Props) => {
   if (!post.title) return <></>;
 
   return (
-    <LayoutPost>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
+    <>
       <header className={styles['header']}>
         <div className={styles['tag-group']}>{getTagList(post.tags)}</div>
         <h1 className={styles['title']}>{post.title}</h1>
@@ -64,8 +66,11 @@ const PostPage = async ({ params }: Props) => {
           dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
           className={classNames(styles['content-wrapper'])}
         />
+        <div className={styles['adjacent-posts']}>
+          <AdjacentPosts slug={post.slug} />
+        </div>
       </main>
-    </LayoutPost>
+    </>
   );
 };
 

@@ -50,16 +50,35 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
 };
 
 /**
- * すべての記事について、指定したフィールドの値を取得して返す
- * @param fields 取得するフィールド
+ * get all posts data with specified fields
+ * @param fields fields to get
  */
 export const getAllPosts = (fields: string[] = []) => {
   const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug: string) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1));
-  return posts;
+  return (
+    slugs
+      .map((slug: string) => getPostBySlug(slug, fields))
+      // sort posts by date in descending order
+      .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1))
+  );
+};
+
+/**
+ * get previous and next post of current post
+ * @param slug
+ * @returns
+ */
+export const getAdjacentPosts = (slug: string) => {
+  const posts = getAllPosts(['slug', 'title', 'date']);
+  const currentPostIndex = posts.findIndex((post) => post.slug === slug);
+
+  const prevPost = posts[currentPostIndex + 1];
+  const nextPost = posts[currentPostIndex - 1];
+
+  return {
+    prevPost,
+    nextPost,
+  };
 };
 
 /**
@@ -73,7 +92,7 @@ export const getAllTags = (): Tag[] => {
   const uniqueTags = [...new Set(tags)];
   return uniqueTags.map((tag) => ({
     tag,
-    param: tag.toLowerCase().replace(/[.\s]/, '-')
+    param: tag.toLowerCase().replace(/[.\s]/, '-'),
   }));
 };
 

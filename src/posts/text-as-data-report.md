@@ -407,4 +407,3 @@ Classifier 'LR tf-idf' has Acc=0.790 P=0.780 R=0.790 F1_w=0.790 F1_m=0.600
 Comparing the two results shows that the combination of added features has improved all the metrics of the model. Also, there is a slight improvement on the aforementioned poor prediction of a minority labels caused by the uneven sample distribution. Specifically, the proportion improved in scores predicting labels *very positive* and *very negative* labels is greater than that in scores of label neutral.
 
 
--End-
