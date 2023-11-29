@@ -82,6 +82,14 @@ export const getAdjacentPosts = (slug: string) => {
 };
 
 /**
+ * Convert tag string to param-like string
+ * @param tag
+ * @returns string can be used as a param
+ */
+export const convertTagToParam = (tag: string) =>
+  tag.toLowerCase().replace(/[.\s]/, '-');
+
+/**
  * Get all tags
  * @returns Tag[]
  */
@@ -92,10 +100,15 @@ export const getAllTags = (): Tag[] => {
   const uniqueTags = [...new Set(tags)];
   return uniqueTags.map((tag) => ({
     tag,
-    param: tag.toLowerCase().replace(/[.\s]/, '-'),
+    param: convertTagToParam(tag),
   }));
 };
 
+/**
+ * Get posts that of some particular tag
+ * @param tag
+ * @returns Post[]
+ */
 export const getPostsByTag = (tag: string) => {
   const posts = getAllPosts(['slug', 'title', 'tags', 'date', 'language']);
   return posts.filter((post) => post.tags.includes(tag));

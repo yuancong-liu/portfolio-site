@@ -37,15 +37,16 @@
 
 .nav-items {
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  place-items: center;
   max-width: 700px;
   padding: 0;
   margin: 0 auto;
   list-style: none;
 
   @include sp() {
-    max-width: 300px;
+    max-width: 350px;
   }
 }
 
@@ -53,6 +54,14 @@
   height: 30px;
 
   @include sp() {
+    display: none;
+  }
+}
+
+.c-mark-nav {
+  height: 32px;
+
+  @include pc() {
     display: none;
   }
 }

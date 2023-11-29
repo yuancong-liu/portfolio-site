@@ -4,11 +4,13 @@ import sanitize from 'sanitize-html';
 import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import {
+  convertTagToParam,
   getAllPosts,
   getPostBySlug,
   markdownToHtml,
 } from '~/utils/posts';
 import styles from './index.module.scss';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
@@ -42,9 +44,9 @@ const PostPage = async ({ params }: Props) => {
     if (!tags) return null;
     if (typeof tags === 'string') return;
     return tags.map((tag: string) => (
-      <span key={tag} className={styles['tag']}>
+      <Link key={tag} href={`/blog/tags/${convertTagToParam(tag)}`} className={styles['tag']}>
         {tag}
-      </span>
+      </Link>
     ));
   };
 
