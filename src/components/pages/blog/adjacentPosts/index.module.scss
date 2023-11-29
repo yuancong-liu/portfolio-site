@@ -1,12 +1,17 @@
+@use '~/styles/mixins' as *;
+
 .cards-wrapper {
   display: flex;
-  flex-wrap: wrap;
   gap: 40px;
   justify-content: space-between;
+
+  @include sp() {
+    flex-direction: column;
+  }
 }
 
 .link-wrapper {
-  max-width: 300px;
+  width: 100%;
   white-space: pre-line;
 
   &.prev {
