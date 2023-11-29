@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import sanitize from 'sanitize-html';
 import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
@@ -10,7 +11,6 @@ import {
   markdownToHtml,
 } from '~/utils/posts';
 import styles from './index.module.scss';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
