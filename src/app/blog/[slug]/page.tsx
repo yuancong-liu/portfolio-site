@@ -10,6 +10,7 @@ import {
   getAllPosts,
   getPostBySlug,
   markdownToHtml,
+  sanitizeConfig,
 } from '~/utils/posts';
 import styles from './index.module.scss';
 
@@ -55,9 +56,7 @@ const PostPage = async ({ params }: Props) => {
     ));
   };
 
-  const sanitizedHtml = sanitize(post.content, {
-    allowedAttributes: { '*': ['class'] },
-  });
+  const sanitizedHtml = sanitize(post.content, sanitizeConfig);
 
   metadata.title = post.title;
 

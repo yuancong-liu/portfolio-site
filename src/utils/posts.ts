@@ -5,12 +5,14 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
 import { Post, Tag } from '~/types/Posts';
+import sanitizeHtml from 'sanitize-html';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -122,11 +124,20 @@ export const getPostsByTag = (tag: string) => {
 export const markdownToHtml = async (markdown: string) => {
   const result = await unified()
     .use(remarkParse)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .use(remarkGfm)
     .process(markdown);
 
   return result.toString();
+};
+
+/**
+ *
+ */
+export const sanitizeConfig = {
+  allowedAttributes: { '*': ['class', 'src'], iframe: ['title', 'allow'] },
+  allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe']),
 };
