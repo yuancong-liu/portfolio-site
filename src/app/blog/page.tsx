@@ -13,7 +13,7 @@ import styles from './index.module.scss';
  * /component/pages/the-colorado-lounge　配下にページコンポーネントを作成
  *
  */
-const TheColoradoLoungePage = () => {
+const BlogPage = () => {
   const { allPosts } = getPosts();
 
   return (
@@ -37,4 +37,4 @@ const getPosts = () => {
   };
 };
 
-export default TheColoradoLoungePage;
+export default BlogPage;

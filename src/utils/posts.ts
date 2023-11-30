@@ -6,7 +6,9 @@ import path from 'path';
 import matter from 'gray-matter';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
+import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -125,6 +127,11 @@ export const markdownToHtml = async (markdown: string) => {
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeSlug)
+    .use(rehypeToc, {
+      headings: ['h2', 'h3'],
+      cssClasses: { toc: 'toc-wrapper' },
+    })
     .use(rehypeRaw)
     .use(rehypeHighlight)
     .use(rehypeStringify)
@@ -138,6 +145,10 @@ export const markdownToHtml = async (markdown: string) => {
  * Configuration for sanitize-html
  */
 export const sanitizeConfig = {
-  allowedAttributes: { '*': ['class', 'src'], iframe: ['title', 'allow'] },
+  allowedAttributes: {
+    '*': ['class', 'src', 'id'],
+    iframe: ['title', 'allow'],
+    a: ['href', 'target'],
+  },
   allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe']),
 };
