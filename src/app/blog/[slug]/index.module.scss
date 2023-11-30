@@ -242,8 +242,10 @@
     }
   }
 
-  iframe {
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  iframe[src*='youtube.com'] {
     width: 100%;
     aspect-ratio: 16 / 9;
+    border: 0;
   }
 }
