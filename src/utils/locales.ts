@@ -4,8 +4,8 @@
 
 /**
  * タグから、言語タグを取得する
- * @param languageTag 
- * @returns 
+ * @param languageTag
+ * @returns
  */
 export const getLocale = (languageTag: string) => {
   switch (languageTag) {

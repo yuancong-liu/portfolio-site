@@ -39,12 +39,10 @@ export const PostCard = ({ post }: Props) => {
       locale={getLocale(post.language)}
     >
       <div className={styles['title-area']}>
-        <h2 className={styles['title']}>
-          {post.title}
-        </h2>
-          {post.language !== 'English' && (
-            <span className={styles['language-tag']}>{post.language}</span>
-          )}
+        <h2 className={styles['title']}>{post.title}</h2>
+        {post.language !== 'English' && (
+          <span className={styles['language-tag']}>{post.language}</span>
+        )}
       </div>
       <p className={styles['date']}>{getDateString(post.date)}</p>
     </Link>

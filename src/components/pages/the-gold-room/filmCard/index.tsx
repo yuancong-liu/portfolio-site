@@ -8,10 +8,7 @@ type Props = {
   rank: number;
 };
 
-export const FilmCard: FC<Props> = ({
-  film,
-  rank,
-}) => {
+export const FilmCard: FC<Props> = ({ film, rank }) => {
   return (
     <div
       className={styles['card-wrapper']}
@@ -22,10 +19,7 @@ export const FilmCard: FC<Props> = ({
       <div className={styles['contents']}>
         <h1 className={styles['film-rank']}>#{rank}</h1>
         <div className={styles['poster-wrapper']}>
-          <ImageWithLoading
-            src={film.posterPath}
-            alt={film.title}
-          />
+          <ImageWithLoading src={film.posterPath} alt={film.title} />
         </div>
         <div className={styles['basic-info']}>
           <h3 className={styles['title']}>{film.title}</h3>

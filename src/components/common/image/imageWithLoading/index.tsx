@@ -8,10 +8,7 @@ type Props = {
   alt?: string;
 };
 
-export const ImageWithLoading: FC<Props> = ({
-  src,
-  alt = '',
-}) => {
+export const ImageWithLoading: FC<Props> = ({ src, alt = '' }) => {
   const [loading, setLoading] = useState(true);
 
   return (
