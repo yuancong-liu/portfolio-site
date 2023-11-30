@@ -10,9 +10,9 @@ import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
+import sanitizeHtml from 'sanitize-html';
 import { unified } from 'unified';
 import { Post, Tag } from '~/types/Posts';
-import sanitizeHtml from 'sanitize-html';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -135,7 +135,7 @@ export const markdownToHtml = async (markdown: string) => {
 };
 
 /**
- *
+ * Configuration for sanitize-html
  */
 export const sanitizeConfig = {
   allowedAttributes: { '*': ['class', 'src'], iframe: ['title', 'allow'] },
