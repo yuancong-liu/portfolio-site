@@ -1,5 +1,4 @@
 import '~/styles/globals.css';
-import 'highlight.js/styles/default.css';
 
 type Props = {
   children: React.ReactNode;

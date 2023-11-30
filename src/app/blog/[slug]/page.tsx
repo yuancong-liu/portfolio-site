@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import sanitize from 'sanitize-html';
+import 'highlight.js/styles/color-brewer.css';
 import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import {
@@ -44,13 +45,19 @@ const PostPage = async ({ params }: Props) => {
     if (!tags) return null;
     if (typeof tags === 'string') return;
     return tags.map((tag: string) => (
-      <Link key={tag} href={`/blog/tags/${convertTagToParam(tag)}`} className={styles['tag']}>
+      <Link
+        key={tag}
+        href={`/blog/tags/${convertTagToParam(tag)}`}
+        className={styles['tag']}
+      >
         {tag}
       </Link>
     ));
   };
 
-  const sanitizedHtml = sanitize(post.content);
+  const sanitizedHtml = sanitize(post.content, {
+    allowedAttributes: { '*': ['class'] },
+  });
 
   metadata.title = post.title;
 

@@ -127,5 +127,6 @@ export const markdownToHtml = async (markdown: string) => {
     .use(rehypeStringify)
     .use(remarkGfm)
     .process(markdown);
+
   return result.toString();
 };
