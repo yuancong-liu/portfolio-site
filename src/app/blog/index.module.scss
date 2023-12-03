@@ -6,19 +6,20 @@
 
   > .title {
     position: relative;
+    z-index: 100;
     padding: 4rem 1rem;
     font-size: 8rem;
 
     &::before,
     &::after {
       position: absolute;
-      z-index: -100;
+      z-index: -1;
       display: block;
       font-family: monospace;
       font-size: 8rem;
       font-weight: 600;
       line-height: 1;
-      color: utils.$shining-yellow-2;
+      color: utils.$color-pink;
     }
 
     &::before {

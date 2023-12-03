@@ -1,3 +1,4 @@
+@use '~/styles/utils.scss';
 @use 'src/styles/mixins' as *;
 
 .overall-wrapper {
@@ -22,7 +23,7 @@
   bottom: -100%;
   z-index: 200;
   padding: 40px;
-  background: rgb(255 255 255 / 20%);
+  background: utils.$color-navy-bd;
   backdrop-filter: blur(10px);
   writing-mode: horizontal-tb;
 

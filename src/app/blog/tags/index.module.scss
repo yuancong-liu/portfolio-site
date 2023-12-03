@@ -6,19 +6,20 @@
 
   > .title {
     position: relative;
+    z-index: 100;
     padding: 4rem 1rem;
     font-size: 8rem;
 
     &::before,
     &::after {
       position: absolute;
-      z-index: -100;
+      z-index: -1;
       display: block;
       font-family: monospace;
       font-size: 8rem;
       font-weight: 600;
       line-height: 1;
-      color: utils.$shining-yellow-2;
+      color: utils.$color-pink;
     }
 
     &::before {
@@ -39,7 +40,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0 10px;
-  padding: 0;
+  padding: 0 30px;
 }
 
 .tag-instance {
@@ -50,7 +51,7 @@
 
   &::before {
     margin-right: 3px;
-    color: utils.$shining-yellow-3;
+    color: utils.$color-pink;
     content: '#';
   }
 
@@ -66,7 +67,6 @@
   }
 
   &:hover::after {
-    background-color: utils.$shining-yellow-2;
+    background-color: utils.$color-pink-light;
   }
-
 }

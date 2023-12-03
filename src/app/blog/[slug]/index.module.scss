@@ -15,7 +15,7 @@
   > .tag::before {
     margin-right: 3px;
     font-weight: 600;
-    color: utils.$shining-yellow-3;
+    color: utils.$color-pink;
     content: '#';
   }
 
@@ -31,7 +31,7 @@
   }
 
   > .tag:hover::after {
-    background-color: utils.$shining-yellow-2;
+    background-color: utils.$color-pink;
   }
 }
 
@@ -42,6 +42,8 @@
   overflow: visible;
 
   > .title {
+    position: relative;
+    z-index: 100;
     padding: 10px 30px;
     font-size: 6rem;
     line-height: 1.2;
@@ -54,13 +56,13 @@
   &::before,
   &::after {
     position: absolute;
-    z-index: -100;
+    // z-index: -100;
     display: block;
     font-family: monospace;
     font-size: 8rem;
     font-weight: 600;
     line-height: 1;
-    color: utils.$shining-yellow-2;
+    color: utils.$color-pink;
   }
 
   &::before {
@@ -103,7 +105,7 @@
       left: -20px;
       z-index: -100;
       font-family: monospace;
-      color: utils.$shining-yellow-2;
+      color: utils.$color-pink;
       content: '<h2>';
     }
   }
@@ -118,7 +120,7 @@
       left: -20px;
       z-index: -100;
       font-family: monospace;
-      color: utils.$shining-yellow-2;
+      color: utils.$color-pink;
       content: '<h3>';
     }
   }
@@ -133,7 +135,7 @@
       left: -20px;
       z-index: -100;
       font-family: monospace;
-      color: utils.$shining-yellow-2;
+      color: utils.$color-pink;
       content: '<h4>';
     }
   }
@@ -145,27 +147,28 @@
       margin: 15px 0;
     }
   }
+  
+  code {
+    padding: 0;
+    margin-inline: 5px;
+    background-color: utils.$color-navy-light;
+  }
 
   pre {
     padding: 10px;
     margin: 10px 0;
     overflow-x: auto;
     font-size: 85%;
-    background-color: #f6f8fa;
+    background-color: utils.$color-navy-light;
     border-radius: 3px;
-  }
-
-  code {
-    padding: 0;
-    background-color: #f6f8fa;
   }
 
   blockquote {
     padding: 0 20px;
     margin: 20px;
     font-style: italic;
-    color: #555;
-    border-left: 5px solid utils.$shining-yellow-2;
+    color: utils.$color-pink-light;
+    border-left: 5px solid utils.$color-pink;
   }
 
   hr {
@@ -174,7 +177,7 @@
     height: 6px;
     margin: 50px auto;
     overflow: visible;
-    background-color: utils.$shining-yellow-2;
+    background-color: utils.$color-pink;
     border: 0;
     border-radius: 50%;
 
@@ -185,7 +188,7 @@
       width: 30px;
       height: 2px;
       content: '';
-      background-color: utils.$shining-yellow-2;
+      background-color: utils.$color-pink;
     }
 
     &::before {
@@ -224,7 +227,7 @@
   // }
 
   // a:hover::after {
-  //   background-color: utils.$shining-yellow-2;
+  //   background-color: utils.$color-pink;
   // }
 
   table {
@@ -233,7 +236,7 @@
 
   th {
     padding: 0 10px;
-    border-bottom: utils.$shining-yellow-2 2px solid;
+    border-bottom: utils.$color-pink 2px solid;
   }
 
   td {
@@ -247,7 +250,7 @@
       list-style-type: disclosure-closed;
 
       &::marker {
-        color: utils.$shining-yellow-2;
+        color: utils.$color-pink;
       }
     }
   }
@@ -262,10 +265,11 @@
   // FIXME: figure out why class name selector is not working
   nav {
     position: relative;
+    z-index: 100;
     margin: 20px 10px 60px;
     overflow: visible;
     font-size: 1.4rem;
-    color: #555;
+    color: utils.$color-pink-light;
 
     * {
       padding: 0 5px;
@@ -285,7 +289,8 @@
     font-size: 10rem;
     font-weight: 600;
     line-height: 1;
-    color: utils.$shining-yellow-2;
+    color: utils.$color-pink;
     content: 'Contents';
+    opacity: 0.5;
   }
 }

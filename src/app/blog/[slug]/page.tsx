@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import sanitize from 'sanitize-html';
-import 'highlight.js/styles/color-brewer.css';
+import 'highlight.js/styles/github-dark-dimmed.min.css';
 import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import {
