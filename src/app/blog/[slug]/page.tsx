@@ -13,6 +13,7 @@ import {
   sanitizeConfig,
 } from '~/utils/posts';
 import styles from './index.module.scss';
+import { PostContent } from '~/components/pages/blog/postContent';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
@@ -27,6 +28,7 @@ const PostPage = async ({ params }: Props) => {
 
   const { post } = await getPost({ slug: params.slug });
 
+  if (!post.title) return <></>;
   metadata.title = post.title;
 
   metadata.openGraph = {
@@ -58,10 +60,6 @@ const PostPage = async ({ params }: Props) => {
 
   const sanitizedHtml = sanitize(post.content, sanitizeConfig);
 
-  metadata.title = post.title;
-
-  if (!post.title) return <></>;
-
   return (
     <>
       <header className={styles['header']}>
@@ -70,10 +68,7 @@ const PostPage = async ({ params }: Props) => {
         <p className={styles['date']}>{getDateString(post.date)}</p>
       </header>
       <main className={styles['main-wrapper']}>
-        <div
-          dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
-          className={classNames(styles['content-wrapper'])}
-        />
+        <PostContent content={sanitizedHtml} />
         <div className={styles['adjacent-posts']}>
           <AdjacentPosts slug={post.slug} />
         </div>
