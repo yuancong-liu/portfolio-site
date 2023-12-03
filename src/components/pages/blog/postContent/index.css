@@ -1,0 +1,32 @@
+.toc-wrapper {
+  position: relative;
+  z-index: 100;
+  margin: 20px 10px 60px;
+  font-size: 1.4rem;
+  color: #fdf0f0;
+
+  &:not(:has(.toc-item)) {
+    display: none;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -40px;
+    z-index: -1;
+    font-family: monospace;
+    font-size: 10rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #f1b4bb;
+    content: 'Contents';
+    opacity: 0.5;
+  }
+}
+
+.toc-item {
+  list-style-type: none;
+}
+
+.toc-level {
+  padding: 0 10px;
+}

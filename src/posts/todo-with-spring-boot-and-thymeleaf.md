@@ -36,6 +36,7 @@ tags:
 - I/O > Validation
 
 生成的項目結構如下所示：
+<!--rehype:data-language=markdown-->
 ```markdown
 ├── HELP.md
 ├── README.md
@@ -62,13 +63,15 @@ tags:
 ```
 
 打開終端機，輸入以下指令來創建新數據庫：
+<!--rehype:data-language=shell-->
 ```shell
 mysql -uroot
 create database `todo`;
 ```
 
 在新建的Spring Boot項目的/resource目錄下的application.properties中添加以下：
-```
+<!--rehype:data-language=properties-->
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/todo
 spring.datasource.username=root
 spring.datasource.password=
@@ -77,6 +80,7 @@ spring.datasource.initialization-mode=always
 
 ## 數據庫方面
 ### 創建數據庫表
+<!--rehype:data-language=sql-->
 ```sql
 create table if not exists `todo` (
     `id` bigint(20) unsigned not null auto_increment comment 'id',
@@ -95,6 +99,7 @@ create table if not exists `todo` (
 ### 實體類
 為了和數據庫中的實體一一對應，需要創建實體類。
 在`src/main/java/com/xxx/xxx/todo/entity`目錄下創建`Todo.java`類：
+<!--rehype:data-language=java-->
 ```java
 @Data
 @Entity
@@ -117,6 +122,7 @@ public class Todo {
 
 ### 倉庫接口
 在`src/main/java/com/xxx/xxx/todo/repository`目錄下創建`TodoRepository.java`接口類：
+<!--rehype:data-language=java-->
 ```java
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Long> {}
@@ -124,6 +130,7 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {}
 
 ### 服務類
 在`src/main/java/com/xxx/xxx/todo/service`目錄下創建`TodoService.java`類：
+<!--rehype:data-language=java-->
 ```java
 @Service
 @Transactional
@@ -142,6 +149,7 @@ public class TodoService {
 ### 控制器類
 首先先實現在首頁顯示所有的todo條目的機能。
 在`src/main/java/com/xxx/xxx/todo/controller`目錄下創建`TodoController.java`類：
+<!--rehype:data-language=java-->
 ```java
 @Controller
 @RequiredArgsConstructor
@@ -161,6 +169,7 @@ public class TodoController {
 ### 畫面顯示
 為了把控制器添加到模型裡的attribute顯示在畫面上，在HTML方面需要用Thymeleaf讀取。
 首先在`/src/main/resources/templates`目錄下添加`index.html`文件，在`<body></body>`中添加以下：
+<!--rehype:data-language=html-->
 ```html
 <table>
   <tr>

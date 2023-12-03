@@ -16,6 +16,8 @@ tags:
 在註解中有很多種寫法來實現定期執行，但是固定時間（例如每一天的固定時間點）執行似乎（？）只能用cron表達式來實現。
 
 ## cron表達式格式
+
+<!--rehype:data-language=java-->
 ```java
 @Scheduled(cron = "* * * * * *")
 public void method() {}
@@ -48,6 +50,8 @@ public void method() {}
 值範圍：1970-2099，不合法的值將導致`SchedulerException`異常。
 
 ## 例子
+
+<!--rehype:data-language=java-->
 ```java
 “30 * * * * ?” //每30秒觸發任務 
 “30 10 * * * ?” //每小時的10分30秒觸發任務 

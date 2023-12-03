@@ -18,7 +18,8 @@ tags:
 ## 頁面的動態生成
 
 在官方文檔中，文件目錄和連結是一致的，所以
-```javascript
+<!--rehype:data-language=typescript-->
+```typescript
 // posts/[id].js
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -32,11 +33,13 @@ export async function getStaticPaths() {
 
 但是在這個網站中，和教程一樣，我把markdown文檔保存在`src/posts`中，但我的博客目錄是`the-colorador-lounge/`，所以不能和教程一樣，獲取整個路徑直接加在href裡，而需要先取得post的slug，並重新裝進其他字符串裡。
 
+<!--rehype:data-language=typescript-->
 ```typescript
 const realSlug = slug.replace(/\.md$/, '');
 const fullPath = path.join(postsDirectory, `${realSlug}.md`);
 ```
 
+<!--rehype:data-language=typescript-->
 ```typescript
 // the-colorador-lounge/[slug].tsx
 allPosts.map((post: Post) => (
@@ -51,7 +54,8 @@ allPosts.map((post: Post) => (
 
 在前面的開發中，我用i18n實現了多語言支援，i18n-next不同於i18n-react，當前語言會體現在當前頁面的url中。例如，在以下配置的情況下：
 
-```javascript
+<!--rehype:data-language=typescript-->
+```typescript
 // next-i18next.config.js
 defaultLocale: 'en',
 locales: ['en', 'ja', 'ko', 'zh-Hans', 'zh-Hant'],
@@ -66,6 +70,7 @@ locales: ['en', 'ja', 'ko', 'zh-Hans', 'zh-Hant'],
 
 參考官方文檔後發現，下面這樣的代碼只能為默認語言生成連結：
 
+<!--rehype:data-language=typescript-->
 ```typescript
 paths: posts.flatMap((post: Post) => {
   return {
@@ -76,6 +81,7 @@ paths: posts.flatMap((post: Post) => {
 
 解決方法是加上`locale`參數。但為了確保從每一個語言的博客首頁進入博文都能顯示正確的頁面，我首先嘗試了不僅map所有的slug，還map所有的語言，代碼變成了這樣：
 
+<!--rehype:data-language=typescript-->
 ```typescript
 paths: posts.flatMap((post: Post) => {
   return locales.map((locale: string) => {
@@ -91,7 +97,8 @@ paths: posts.flatMap((post: Post) => {
 
 這樣next.js將會為每一篇博文每一種語言都生成連結，但是問題在於，要為五種語言生成頁面，負荷突然變成了五倍。而且以下連結都是一模一樣的內容：
 
-```
+<!--rehype:data-language=plain-->
+```plain
 /the-colorado-lounge/dynamic-post-path
 /zh-Hant/the-colorado-lounge/dynamic-post-path
 /zh-Hans/the-colorado-lounge/dynamic-post-path
@@ -107,6 +114,7 @@ paths: posts.flatMap((post: Post) => {
 
 好在markdown寫博客都有tags，雖然很隨便，但是我決定用tags的第一個元素來判定當前博文的語言。
 
+<!--rehype:data-language=typescript-->
 ```typescript
 // get the language of posts
 const getLocale = (languageTag: string) => {
@@ -134,6 +142,7 @@ paths: posts.flatMap((post: Post) => {
 ```
 
 在博客主頁中，用同樣的方法指定博文的連結：
+<!--rehype:data-language=typescript-->
 ```typescript
 allPosts.map((post: Post) => (
   <Link key={post.slug} href={"the-colorado-lounge/" + post.slug} locale={getLocale(post.tags[0])}>

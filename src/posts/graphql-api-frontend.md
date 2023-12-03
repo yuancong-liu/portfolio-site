@@ -16,6 +16,7 @@ GraphQL是一種為API設計的數據查詢或修改的語言，使client端能�
 
 GraphQL API提供一個Schema，client只需要屬於符合Schema的Query，就可以獲得所需的數據。如下例：
 
+<!--rehype:data-language=typescript-->
 ```typescript
 // Schema
 type Query {
@@ -23,6 +24,7 @@ type Query {
 }
 ```
 
+<!--rehype:data-language=graphql-->
 ```graphql
 # Query
 query {
@@ -30,6 +32,7 @@ query {
 }
 ```
 
+<!--rehype:data-language=json-->
 ```json
 // Response
 {
@@ -41,6 +44,7 @@ query {
 
 如果是更複雜的結構：
 
+<!--rehype:data-language=typescript-->
 ```typescript
 // Schema
 type User {
@@ -53,6 +57,7 @@ type Query {
 }
 ```
 
+<!--rehype:data-language=graphql-->
 ```graphql
 # Query
 query {
@@ -63,6 +68,7 @@ query {
 }
 ```
 
+<!--rehype:data-language=json-->
 ```json
 // Response
 {
@@ -87,12 +93,14 @@ query {
 
 在典型的RESTful API場景中，請求和響應如下所示：
 
+<!--rehype:data-language=typescript-->
 ```typescript
 // requests
 GET /api/user?id=1
 GET /api/address?user_id=1
 ```
 
+<!--rehype:data-language=json-->
 ```json
 // responses
 {
@@ -107,6 +115,7 @@ GET /api/address?user_id=1
 
 如上面的示例代碼所示，上述請求和響應在GraphQL的情境下一般如下所示：
 
+<!--rehype:data-language=typescript-->
 ```typescript
 // request
 POST /graphql
@@ -122,6 +131,7 @@ query {
 }
 ```
 
+<!--rehype:data-language=json-->
 ```json
 {
   "user": {
@@ -159,6 +169,7 @@ GraphQL的訂閱API是基於事件驅動的，具體來講就是基於Mutation�
 
 以以下訂閱的Schema為例：
 
+<!--rehype:data-language=graphql-->
 ```graphql
 type Subscription {
   subscribeUserStatus(userId: String!): UserStatus
@@ -195,6 +206,7 @@ type Subscription {
 
 由於Query和Mutation與Subscription的原理不同，其請求幾乎可以理解為和RESTful API一樣，所以不同的host也不能搞出花樣來。這裡貼一個簡單的Query的例子：
 
+<!--rehype:data-language=javascript-->
 ```javascript
 const apolloClient = new ApolloClient({
   uri: 'https://rtapi.example.endpoint/graphql',
@@ -237,6 +249,7 @@ onResult((result) => {
 
 **AppSync接受**的請求形式：
 
+<!--rehype:data-language=json-->
 ```json
 {
   "id": id,
@@ -258,6 +271,7 @@ onResult((result) => {
 
 **Apollo發送**的請求形式：
 
+<!--rehype:data-language=json-->
 ```json
 {
   "id": subscriptionId,
@@ -273,6 +287,7 @@ onResult((result) => {
 
 AppSync接受的请求形式中，本该直接出现`query`的地方多了一层`data`，结果就导致了`UnsupportedOperation`错误的发生：
 
+<!--rehype:data-language=json-->
 ```json
 {
   "type": "error",
@@ -298,6 +313,7 @@ AppSync接受的请求形式中，本该直接出现`query`的地方多了一层
 
 首先按照AppSync Console的教程，先把GraphQL的Schema全部拉取下來。
 
+<!--rehype:data-language=shell-->
 ```shell
 npm install -g @aws-amplify/cli
 amplify init
@@ -313,6 +329,7 @@ amplify codegen
 
 為了讓全局都可以使用這個GraphQL端點，首先在`app.js`裡進行配置：
 
+<!--rehype:data-language=javascript-->
 ```javascript
 import Amplify from 'aws-amplify';
 
@@ -331,6 +348,7 @@ Amplify.configure({
 
 首先，編寫這樣的方法：
 
+<!--rehype:data-language=javascript-->
 ```javascript
 import { API, graphqlOperation } from 'aws-amplify';
 import { listUserData } from '@/../src/graphql/queries';
@@ -353,6 +371,7 @@ const fetchUserData = async () => {
 
 其中，像一般的promise一樣，用`then()`來指定有響應之後的操作。同理，mutation也用類似的方法實現：
 
+<!--rehype:data-language=javascript-->
 ```javascript
 import { updateUserStatus } from '@/../src/graphql/mutations';
 
@@ -378,6 +397,7 @@ const mutateUserData = async () => {
 
 subscribe的實現方法也類似，不過需要加上`subscribe()`處理：
 
+<!--rehype:data-language=javascript-->
 ```javascript
 import { subscribeUserData } from '@/../src/graphql/subscriptions';
 
@@ -412,6 +432,7 @@ const subscribeToUserData = async () => {
 
 最後，為了讓數據獲取和訂閱的方法在插入組件樹的時候運行，把上面的`fetchUserData()`和`subscribeToUserData()`放進`onMounted()`中：
 
+<!--rehype:data-language=javascript-->
 ```javascript
 onMounted(async () => {
   await fetchUserData();
@@ -427,6 +448,7 @@ onMounted(async () => {
 
 這裡可以用到Amplify的`Hub.listen()`來實時監聽api的連結情況。
 
+<!--rehype:data-language=javascript-->
 ```javascript
 import { Hub } from 'aws-amplify';
 import { CONNECTION_STATE_CHANGE, ConnectionState } from '@aws-amplify/pubsub';
@@ -447,6 +469,7 @@ Hub.listen('api', async (data) => {
 
 `ConnectionState`有以下狀態，可以結合實際需求和情境用於判定等。
 
+<!--rehype:data-language=markdown-->
 ```markdown
 * Connected - Connected and working with no issues.
 * ConnectedPendingDisconnect - The connection has no active subscriptions and is disconnecting.
@@ -469,6 +492,7 @@ Hub.listen('api', async (data) => {
 
 這時候救我命的是突然浮窗出現的`graphqlOperation()`的文檔，其方法簽名如下：
 
+<!--rehype:data-language=typescript-->
 ```typescript
 export declare const graphqlOperation: (query: any, variables?: {}, authToken?: string, userAgentSuffix?: string) => {
   query: any;
@@ -482,6 +506,7 @@ export declare const graphqlOperation: (query: any, variables?: {}, authToken?: 
 
 由於API訪問分布在各個組件中，所以在每一個組件中取得一次cookies顯然不現實。我的做法是在app.js（`Amplify.configure()`的附近）從cookies中獲取一次token，再將其作為全局變量注入各個組件。
 
+<!--rehype:data-language=javascript-->
 ```javascript
 import { useCookies } from 'vue3-cookies';
 
@@ -493,6 +518,8 @@ app.provide('accessToken', accessToken);
 需要注意的是，在vue的全局API中如果用這樣的語句`app.config.globalProperties.foo = 'bar';`設置全局變量，在組件中是獲取不到的，需要用到`inject()`來注入。
 
 在組件中取用的時候如下：
+
+<!--rehype:data-language=javascript-->
 ```javascript
 import { inject } from 'vue';
 const accessToken = inject('accessToken');
@@ -500,6 +527,7 @@ const accessToken = inject('accessToken');
 
 最後把獲取到的token放在`graphqlOperation()`的第三個參數就大功告成了！
 
+<!--rehype:data-language=javascript-->
 ```javascript
 // ...
 await API.graphql(

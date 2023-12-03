@@ -4,6 +4,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import rehypeAttrs from 'rehype-attr';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
@@ -133,6 +134,7 @@ export const markdownToHtml = async (markdown: string) => {
       cssClasses: { toc: 'toc-wrapper' },
     })
     .use(rehypeRaw)
+    .use(rehypeAttrs, { properties: 'attr' })
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .use(remarkGfm)
@@ -146,7 +148,7 @@ export const markdownToHtml = async (markdown: string) => {
  */
 export const sanitizeConfig = {
   allowedAttributes: {
-    '*': ['class', 'src', 'id'],
+    '*': ['class', 'src', 'id', 'data-language'],
     iframe: ['title', 'allow'],
     a: ['href', 'target'],
   },

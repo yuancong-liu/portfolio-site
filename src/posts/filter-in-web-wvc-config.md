@@ -14,6 +14,7 @@ tags:
 課題中用到兩個過濾器，一個是用於輸出日誌到文本文件的`LoggingFilter`，另一個是用於檢查請求中是否有合規的Bearer Token的`TokenFilter`。
 
 簡單寫一下兩個過濾器的定義：
+<!--rehype:data-language=java-->
 ```java
 //TokenFilter.java
 @Component
@@ -28,6 +29,7 @@ public class TokenFilter extends OncePerRequestFilter {
 }
 ```
 
+<!--rehype:data-language=java-->
 ```java
 //LoggingFilter.java
 @Component
@@ -38,6 +40,7 @@ public class LoggingFilter extends OncePerRequestFilter {
 ```
 
 在之前，路徑匹配是直接定義在`doFilterInternal()`方法中的：
+<!--rehype:data-language=java-->
 ```java
 if (httpServletRequest.getRequestURI().equals(/*requested url */)) {/*...*/}
 ```
@@ -47,6 +50,7 @@ if (httpServletRequest.getRequestURI().equals(/*requested url */)) {/*...*/}
 ## 解決
 
 用Lombok的`@RequiredArgsConstructor`註解在`WebMvcConfiguration`類中直接聲明兩個過濾器：
+<!--rehype:data-language=java-->
 ```java
 //WebMvcConfig.java
 @Configuration
@@ -60,6 +64,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 這樣在註冊過濾器的時候就不再需要用構造函數來創建實例了。
 
 之後註冊新的過濾器（有兩個過濾器，所以需要寫兩個方法，這裡只展示一個）。
+<!--rehype:data-language=java-->
 ```java
 //WebMvcConfig.java
 @Bean

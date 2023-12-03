@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import classNames from 'classnames';
 import { usePostProcessing } from '~/hooks/libs/usePostProcessing';
 import styles from './index.module.scss';
+import './index.css';
 
 type Props = {
   content: string;

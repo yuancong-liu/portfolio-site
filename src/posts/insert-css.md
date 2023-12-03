@@ -15,6 +15,7 @@ tags:
 在課題中，要求在引用Bootstrap之外引入外部樣式表來定義錯誤信息的文字樣式。
 
 我嘗試了以下兩種方法：
+<!--rehype:data-language=html-->
 ```html
 <!-- method 1 -->
 <link href="/css/stylesheet.css" rel="stylesheet">
@@ -25,6 +26,7 @@ tags:
 
 但是奇怪的是，兩種方法都行不通，當初我以為是引入的Bootstrap把我自己的樣式表覆蓋了，於是我按照網路上的說法，在Bootstrap引用之後才引用自己的樣式表。
 
+<!--rehype:data-language=html-->
 ```html
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="/css/stylesheet.css" rel="stylesheet">
@@ -38,6 +40,7 @@ tags:
 
 Spring Boot項目的文件路徑如下：
 
+<!--rehype:data-language=markdown-->
 ```markdown
 └── resources
     ├── static

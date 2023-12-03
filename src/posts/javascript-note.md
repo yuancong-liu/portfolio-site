@@ -9,6 +9,8 @@ tags:
 ---
 
 ## New variable
+
+<!--rehype:data-language=javascript-->
 ```javascript
 var myName = "LYC";
 let ourName = "some name";
@@ -16,6 +18,8 @@ const pi = 3.14; // not changeable
 ```
 
 ## Function
+
+<!--rehype:data-language=javascript-->
 ```javascript
 function myFunction(times) {
     for (let i = 0; i < times; i++) {
@@ -25,6 +29,8 @@ function myFunction(times) {
 ```
 
 ## List operations
+
+<!--rehype:data-language=javascript-->
 ```javascript
 myArray = [1, 2, 3];
 myArray.push([4, 5, 6]);
@@ -34,6 +40,8 @@ myArray.pop();
 ```
 
 ## Scopes
+
+<!--rehype:data-language=javascript-->
 ```javascript
 var global = 10; // this is a global variable
 
@@ -45,6 +53,8 @@ func1();
 ```
 
 ## `==` and `===`
+
+<!--rehype:data-language=javascript-->
 ```javascript
 let two = 3 == '3'; // true
 let three = 3 === '3'; // false
@@ -53,6 +63,8 @@ let notThree = 3 !== '3'; // true
 ```
 
 ## `Switch` statement
+
+<!--rehype:data-language=javascript-->
 ```javascript
 function caseInSwitch(val) {
     var ans = ‘’;
@@ -78,6 +90,8 @@ function caseInSwitch(val) {
 ```
 
 ## Objects → hash table
+
+<!--rehype:data-language=javascript-->
 ```javascript
 var ourDog = {
     “name”: “Camper”,
@@ -109,6 +123,8 @@ delete myDog.tails; // return “undefined”
 ```
 
 ## `do while` and `while`
+
+<!--rehype:data-language=javascript-->
 ```javascript
 function twoLoops() {
     do {
@@ -122,6 +138,8 @@ function twoLoops() {
 ```
 
 ## Anonymous function → arrow function
+
+<!--rehype:data-language=javascript-->
 ```javascript
 const magic = () => new Date();
 const myConcat = (arr1, arr2) => arr1.concat(arr2)
@@ -138,6 +156,8 @@ const sum = (function() {
 ```
 
 ## Make copy of an array
+
+<!--rehype:data-language=javascript-->
 ```javascript
 const arr1 = [‘JAN’, ‘FEB’, ‘MAR’];
 let arr2;
@@ -148,6 +168,8 @@ let arr2;
 ```
 
 ## Assign from objects
+
+<!--rehype:data-language=javascript-->
 ```javascript
 var voxel = {x: 3, y: 4, z: 5};
 const {x: a, y: b, z: c} = voxel; // a = 3, b = 4, c = 5
@@ -178,6 +200,8 @@ const half = (function () {
 ```
 
 ## Template literals
+
+<!--rehype:data-language=javascript-->
 ```javascript
 const person = {
     name: “Zodiac Hasbro”,
@@ -197,11 +221,15 @@ class SpaceShuttle {
 ```
 
 ## Create an object
+
+<!--rehype:data-language=javascript-->
 ```javascript
 const createPerson = (name, age, gender) => ( { name, age, gender});
 ```
 
 ## Class
+
+<!--rehype:data-language=javascript-->
 ```javascript
 class SpaceShuttle {
     constructor(targetPlanet) {

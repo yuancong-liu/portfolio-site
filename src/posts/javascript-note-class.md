@@ -9,6 +9,8 @@ tags:
 ---
 
 ## Basic
+
+<!--rehype:data-language=javascript-->
 ```javascript
 class Rectangle {
     // Setup
@@ -59,6 +61,8 @@ class Rectangle {
 ```
 
 ## Parent and child class
+
+<!--rehype:data-language=javascript-->
 ```javascript
 class Person {
     constructor(_name, _age) {
@@ -87,6 +91,8 @@ class Programmer extends Person {
 ```
 
 ## Polymorphism
+
+<!--rehype:data-language=javascript-->
 ```javascript
 class Animal {
     constructor(name) {

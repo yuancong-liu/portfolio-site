@@ -13,6 +13,7 @@ tags:
 `aws-amplify` 自己有提供一個 API 監聽方法，直接監視 websocket 的連結狀況。
 最開始的實現如下，預期效果：websocket 變為 pending 時顯示對話框，重新連結成功時關閉對話框並重新取得數據。
 
+<!--rehype:data-language=javascript-->
 ```javascript
 import { Hub } from 'aws-amplify';
 import { CONNECTION_STATE_CHANGE, ConnectionState } from '@aws-amplify/pubsub';
@@ -38,6 +39,7 @@ Hub.listen('api', async (data) => {
 
 解決這個問題，還是只有回歸到最原始的 eventListener 身上來。。
 
+<!--rehype:data-language=javascript-->
 ```javascript
 window.addEventListener('offline', () => {
 	openToast('net-error');
