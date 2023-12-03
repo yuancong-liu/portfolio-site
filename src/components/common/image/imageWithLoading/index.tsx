@@ -1,4 +1,5 @@
-import { FC, useState } from 'react';
+'use client';
+import { useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import styles from './index.module.scss';
@@ -8,7 +9,7 @@ type Props = {
   alt?: string;
 };
 
-export const ImageWithLoading: FC<Props> = ({ src, alt = '' }) => {
+export const ImageWithLoading = ({ src, alt = '' }: Props) => {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -17,16 +18,14 @@ export const ImageWithLoading: FC<Props> = ({ src, alt = '' }) => {
         [styles['loading']]: loading,
       })}
     >
-      <div className={styles['image']}>
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          style={{ objectFit: 'cover' }}
-          loading="lazy"
-          onLoadingComplete={() => setLoading(false)}
-        />
-      </div>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        style={{ objectFit: 'cover' }}
+        loading="lazy"
+        onLoadingComplete={() => setLoading(false)}
+      />
     </div>
   );
 };

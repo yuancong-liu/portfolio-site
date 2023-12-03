@@ -11,7 +11,7 @@ export type Experience = {
   /**
    * 終了年
    */
-  endYear?: number;
+  endYear?: number | string;
 
   /**
    * 学校/会社名

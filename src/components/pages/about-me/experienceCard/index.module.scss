@@ -1,11 +1,76 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
 .card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   height: 100vh;
   scroll-snap-align: start;
+  padding-top: 80px;
+  font-size: 2rem;
+  
+  @include sp() {
+    padding-top: 40px;
+  }
 
   > .image {
     position: relative;
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
+  }
+
+  > .year {
+    margin: 0 20px;
+    font-size: 8rem;
+    font-weight: 600;
+    color: utils.$color-pink;
+  }
+  
+  > .name {
+    position: relative;
+    z-index: 10;
+    margin: 0 20px;
+    font-size: 4rem;
+    font-weight: 600;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: utils.$color-pink;
+      text-decoration: underline;
+    }
+  }
+  
+  > .details {
+    position: relative;
+    z-index: 10;
+    margin: 0 20px;
+  }
+
+  > .border {
+    position: absolute;
+    top: 14rem;
+    left: 23rem;
+    width: calc(95% - 26rem);
+    height: calc(60% + 26rem);
+    max-height: 60%;
+    border-top: 2px solid utils.$color-pink;
+    border-right: 2px solid utils.$color-pink;
+
+    @include sp() {
+      top: 10rem;
+    }
+  }
+
+  > .end-year {
+    position: absolute;
+    top: calc(60% + 16rem);
+    right: 0;
+
+    @include sp() {
+      top: calc(60% + 10rem);
+    }
   }
 }
