@@ -1,10 +1,10 @@
-import classNames from 'classnames';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import sanitize from 'sanitize-html';
 import 'highlight.js/styles/github-dark-dimmed.min.css';
 import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
+import { PostContent } from '~/components/pages/blog/postContent';
 import {
   convertTagToParam,
   getAllPosts,
@@ -13,7 +13,6 @@ import {
   sanitizeConfig,
 } from '~/utils/posts';
 import styles from './index.module.scss';
-import { PostContent } from '~/components/pages/blog/postContent';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
