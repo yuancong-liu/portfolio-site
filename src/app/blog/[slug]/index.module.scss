@@ -205,23 +205,27 @@
 
   a {
     position: relative;
-    text-decoration: none;
+    text-decoration: underline;
+
+    &:hover {
+      font-weight: 600;
+    }
   }
 
-  a::after {
-    position: absolute;
-    bottom: 10%;
-    left: 0;
-    z-index: -100;
-    display: block;
-    width: 100%;
-    height: 40%;
-    content: '';
-  }
+  // a::after {
+  //   position: absolute;
+  //   bottom: 10%;
+  //   left: 0;
+  //   z-index: -100;
+  //   display: block;
+  //   width: 100%;
+  //   height: 40%;
+  //   content: '';
+  // }
 
-  a:hover::after {
-    background-color: utils.$shining-yellow-2;
-  }
+  // a:hover::after {
+  //   background-color: utils.$shining-yellow-2;
+  // }
 
   table {
     width: 100%;
@@ -257,11 +261,31 @@
 
   // FIXME: figure out why class name selector is not working
   nav {
-    margin: 20px 0;
+    position: relative;
+    margin: 20px 10px 60px;
+    overflow: visible;
+    font-size: 1.4rem;
+    color: #555;
 
     * {
+      padding: 0 5px;
       list-style-type: none;
     }
+
+    &:not(:has(ol > li)) {
+      display: none;
+    }
+  }
+
+  nav::after {
+    position: absolute;
+    bottom: -40px;
+    z-index: -1;
+    font-family: monospace;
+    font-size: 10rem;
+    font-weight: 600;
+    line-height: 1;
+    color: utils.$shining-yellow-2;
+    content: 'Contents';
   }
 }
-
