@@ -1,23 +1,18 @@
-.side-bar {
+.toc-wrapper {
+  display: flex;
   flex-shrink: 0;
   width: 200px;
-
-  @media (width <= 768px) {
-    display: none;
-  }
-
-  &:not(:has(.toc-item)) {
-    display: none;
-  }
-}
-
-.toc-wrapper {
-  height: 100%;
+  height: auto;
   margin: 20px 10px 60px;
   font-size: 1.4rem;
   color: #fdf0f0;
 
+  
   @media (width <= 768px) {
+    display: none;
+  }
+  
+  &:not(:has(.toc-item)) {
     display: none;
   }
 }
@@ -85,6 +80,7 @@
   position: sticky;
   top: 100px;
   z-index: 1;
+  height: fit-content;
 
   &::after {
     position: absolute;
