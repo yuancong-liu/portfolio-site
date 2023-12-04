@@ -22,7 +22,7 @@ export default async function Image({ params }: Props) {
       <div
         style={{
           fontSize: 80,
-          background: 'white',
+          background: '#132043',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -32,7 +32,7 @@ export default async function Image({ params }: Props) {
         }}
       >
         <CMark />
-        <p style={{ fontWeight: 600 }}>{title || 'No title'}</p>
+        <p style={{ fontWeight: 600, color: 'white' }}>{title || 'No title'}</p>
       </div>
     ),
     {
