@@ -4,6 +4,8 @@
 .content-wrapper {
   display: flex;
   flex-direction: row-reverse;
+  gap: 20px;
+  align-items: stretch;
   margin: 20px 0 60px;
   transition: all 0.2s ease-in;
 
@@ -145,11 +147,10 @@
 
   a {
     position: relative;
-    text-decoration: underline;
-
+    
     &:hover {
-      font-weight: 600;
       color: utils.$color-pink;
+      text-decoration: underline;
     }
   }
 

@@ -11,6 +11,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import rehypeToc from 'rehype-toc';
+import rehypeWrap from 'rehype-wrap';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -138,6 +139,7 @@ export const markdownToHtml = async (markdown: string) => {
       headings: ['h2', 'h3'],
       cssClasses: { toc: 'toc-wrapper' },
     })
+    .use(rehypeWrap, { selector: '.toc-wrapper', wrapper: 'aside.side-bar' })
     .use(rehypeStringify)
     .use(remarkGfm)
     .process(markdown);

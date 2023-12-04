@@ -5,7 +5,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0 10px;
-  margin: 0 30px;
+  max-width: 800px;
+  padding: 0 30px;
+  margin: 0 auto;
 
   > .tag {
     position: relative;
@@ -37,48 +39,50 @@
 
 .header {
   position: relative;
-  max-width: 700px;
-  margin: 30px auto;
-  overflow: visible;
+  overflow-x: hidden;
 
   > .title {
     position: relative;
     z-index: 100;
+    max-width: 800px;
     padding: 10px 30px;
+    margin: 30px auto;
     font-size: 6rem;
     line-height: 1.2;
 
     @include sp() {
       font-size: 4.5rem;
     }
-  }
 
-  &::before,
-  &::after {
-    position: absolute;
-    // z-index: -100;
-    display: block;
-    font-family: monospace;
-    font-size: 8rem;
-    font-weight: 600;
-    line-height: 1;
-    color: utils.$color-pink;
-  }
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      font-family: monospace;
+      font-size: 8rem;
+      font-weight: 600;
+      line-height: 1;
+      color: utils.$color-pink;
+    }
 
-  &::before {
-    top: -5px;
-    left: -30px;
-    content: '<h1>';
-  }
+    &::before {
+      top: -30px;
+      left: -30px;
+      content: '<h1>';
+    }
 
-  &::after {
-    right: -30px;
-    bottom: 10px;
-    content: '</h1>';
+    &::after {
+      right: -20px;
+      bottom: -10px;
+      content: '</h1>';
+    }
   }
 
   > .date {
-    margin: 5px 30px;
+    max-width: 800px;
+    padding: 0 30px;
+    margin: 5px auto;
     font-size: 1.6rem;
     font-weight: 600;
   }
@@ -88,6 +92,6 @@
   max-width: 800px;
   padding: 0 30px;
   margin: 30px auto 120px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   font-size: 1.6rem;
 }
