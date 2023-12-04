@@ -21,7 +21,8 @@ export default async function Image({ params }: Props) {
     (
       <div
         style={{
-          fontSize: 80,
+          position: 'relative',
+          fontSize: 60,
           background: '#132043',
           width: '100%',
           height: '100%',
@@ -29,10 +30,23 @@ export default async function Image({ params }: Props) {
           alignItems: 'center',
           justifyContent: 'center',
           gap: 80,
+          padding: 80,
         }}
       >
         <CMark />
         <p style={{ fontWeight: 600, color: 'white' }}>{title || 'No title'}</p>
+        <p
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 80,
+            color: '#f1b4bb',
+            fontSize: 24,
+            letterSpacing: 10,
+          }}
+        >
+          YUANCONG.SPACE
+        </p>
       </div>
     ),
     {
