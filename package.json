@@ -19,6 +19,7 @@
     "format": "pretty-quick --pattern \"**/*.{ts,tsx,js,jsx,json,yml,md,html}\""
   },
   "dependencies": {
+    "@hbsnow/rehype-sectionize": "^1.0.7",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.4",
     "gray-matter": "^4.0.3",

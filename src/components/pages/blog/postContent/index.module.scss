@@ -2,6 +2,8 @@
 @use '~/styles/mixins' as *;
 
 .content-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
   margin: 20px 0 60px;
   transition: all 0.2s ease-in;
 
@@ -72,9 +74,8 @@
   }
 
   pre {
-    // padding: 10px;
+    display: grid;
     margin: 10px 0;
-    overflow-x: auto;
     font-size: 85%;
     background-color: utils.$color-navy-light;
     border-radius: 3px;
@@ -88,13 +89,13 @@
         left: 0;
         z-index: 100;
         display: block;
-        height: 20px;
+        height: 30px;
         text-align: end;
+        content: attr(data-language);
         background-color: linear-gradient(
           utils.$color-navy-light,
           utils.$color-navy
         );
-        content: attr(data-language);
       }
     }
   }

@@ -3,6 +3,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import rehypeSectionize from '@hbsnow/rehype-sectionize';
 import matter from 'gray-matter';
 import rehypeAttrs from 'rehype-attr';
 import rehypeHighlight from 'rehype-highlight';
@@ -129,13 +130,14 @@ export const markdownToHtml = async (markdown: string) => {
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
+    .use(rehypeRaw)
+    .use(rehypeAttrs, { properties: 'attr' })
+    .use(rehypeSectionize, { enableRootSection: true })
+    .use(rehypeHighlight)
     .use(rehypeToc, {
       headings: ['h2', 'h3'],
       cssClasses: { toc: 'toc-wrapper' },
     })
-    .use(rehypeRaw)
-    .use(rehypeAttrs, { properties: 'attr' })
-    .use(rehypeHighlight)
     .use(rehypeStringify)
     .use(remarkGfm)
     .process(markdown);
