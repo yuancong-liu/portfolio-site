@@ -19,7 +19,7 @@
 
 .toc-item {
   position: relative;
-  padding-right: 16px;
+  /* padding-right: 16px; */
   margin-top: 5px;
   list-style-type: none;
 }
@@ -61,13 +61,13 @@
 }
 
 .toc-item-h2::after {
-  right: 0;
+  right: -20px;
   background-color: #f1b4bb;
   border-radius: 50%;
 }
 
 .toc-item-h3::after {
-  right: -16px;
+  right: -20px;
   border: 1px solid #f1b4bb;
   border-radius: 50%;
 }
@@ -98,5 +98,6 @@
 
 .heading {
   flex-shrink: 1;
+  width: 100%;
   scroll-behavior: smooth;
 }
