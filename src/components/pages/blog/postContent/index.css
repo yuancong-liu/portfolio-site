@@ -3,15 +3,14 @@
   flex-shrink: 0;
   width: 200px;
   height: auto;
-  margin: 20px 10px 60px;
+  margin: 10px 10px 60px;
   font-size: 1.4rem;
   color: #fdf0f0;
 
-  
   @media (width <= 768px) {
     display: none;
   }
-  
+
   &:not(:has(.toc-item)) {
     display: none;
   }
@@ -19,7 +18,6 @@
 
 .toc-item {
   position: relative;
-  /* padding-right: 16px; */
   margin-top: 5px;
   list-style-type: none;
 }
