@@ -1,6 +1,7 @@
 'use client';
 import { useMemo, useRef } from 'react';
 import classNames from 'classnames';
+import { useOnHashChange } from '~/hooks/libs/useOnHashChange';
 import styles from './index.module.scss';
 import './index.css';
 
@@ -11,19 +12,21 @@ type Props = {
 export const PostContent = ({ content }: Props) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // TODO: think about how to use this
-  // usePostProcessing({ content: contentRef });
-
   // FIXME: looks strange to me
   const toggleToc = () => {
     const toc = contentRef.current?.querySelectorAll('.toc-wrapper');
-    console.log(toc);
     if (toc) {
       toc.forEach((item) => {
         item.classList.toggle('show');
       });
     }
   };
+
+  useOnHashChange({callback: toggleToc});
+
+  // TODO: think about how to use this
+  // usePostProcessing({ content: contentRef });
+
 
   const contentMemo = useMemo(
     () => (
@@ -39,7 +42,7 @@ export const PostContent = ({ content }: Props) => {
   return (
     <>
       <button className={styles['toc-button']} onClick={toggleToc}>
-        目次
+        TOC
       </button>
       {contentMemo}
     </>
