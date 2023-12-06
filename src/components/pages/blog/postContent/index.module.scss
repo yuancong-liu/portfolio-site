@@ -68,7 +68,7 @@
       margin: 15px 0;
     }
   }
-  
+
   code {
     padding: 0;
     margin-inline: 5px;
@@ -147,7 +147,7 @@
 
   a {
     position: relative;
-    
+
     &:hover {
       color: utils.$color-pink;
       text-decoration: underline;
@@ -184,5 +184,15 @@
     width: 100%;
     aspect-ratio: 16 / 9;
     border: 0;
+  }
+}
+
+.toc-button {
+  position: sticky;
+  top: 0;
+  color: #fff;
+
+  @include pc() {
+    display: none;
   }
 }

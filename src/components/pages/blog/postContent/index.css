@@ -9,6 +9,10 @@
 
   @media (width <= 768px) {
     display: none;
+
+    &.show {
+      display: flex;
+    }
   }
 
   &:not(:has(.toc-item)) {

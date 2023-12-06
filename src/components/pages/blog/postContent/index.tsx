@@ -1,7 +1,6 @@
 'use client';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import classNames from 'classnames';
-import { usePostProcessing } from '~/hooks/libs/usePostProcessing';
 import styles from './index.module.scss';
 import './index.css';
 
@@ -11,17 +10,38 @@ type Props = {
 
 export const PostContent = ({ content }: Props) => {
   const contentRef = useRef<HTMLDivElement>(null);
-  // const [processing, setProcessing] = useState(true);
 
-  usePostProcessing({ content: contentRef });
+  // TODO: think about how to use this
+  // usePostProcessing({ content: contentRef });
+
+  // FIXME: looks strange to me
+  const toggleToc = () => {
+    const toc = contentRef.current?.querySelectorAll('.toc-wrapper');
+    console.log(toc);
+    if (toc) {
+      toc.forEach((item) => {
+        item.classList.toggle('show');
+      });
+    }
+  };
+
+  const contentMemo = useMemo(
+    () => (
+      <div
+        ref={contentRef}
+        dangerouslySetInnerHTML={{ __html: content }}
+        className={classNames(styles['content-wrapper'], {})}
+      />
+    ),
+    [content],
+  );
 
   return (
-    <div
-      ref={contentRef}
-      dangerouslySetInnerHTML={{ __html: content }}
-      className={classNames(styles['content-wrapper'], {
-        // [styles['processing']]: processing,
-      })}
-    />
+    <>
+      <button className={styles['toc-button']} onClick={toggleToc}>
+        目次
+      </button>
+      {contentMemo}
+    </>
   );
 };
