@@ -17,6 +17,7 @@
   @include sp() {
     flex-direction: column;
     gap: 0;
+    margin-top: 0;
   }
 
   h2 {
@@ -192,15 +193,25 @@
   }
 }
 
-.toc-button {
+.toc-back-wrapper {
   position: sticky;
   top: 0;
   z-index: 200;
-  padding: 0;
-  font-weight: 600;
-  color: utils.$color-pink;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 10px 30px;
+  margin: 0 -30px; // this is disgusting 😢
+  background: utils.$color-navy-bd;
+  backdrop-filter: blur(10px);
 
   @include pc() {
     display: none;
   }
+}
+
+.toc-button {
+  padding: 0;
+  font-weight: 600;
+  color: utils.$color-pink;
+
 }

@@ -41,9 +41,11 @@ export const PostContent = ({ content }: Props) => {
 
   return (
     <>
-      <button className={styles['toc-button']} onClick={toggleToc}>
-        TOC
-      </button>
+      <div className={styles['toc-back-wrapper']}>
+        <button className={styles['toc-button']} onClick={toggleToc}>
+          On this page
+        </button>
+      </div>
       {contentMemo}
     </>
   );
