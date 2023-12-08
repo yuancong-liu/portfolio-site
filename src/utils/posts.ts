@@ -138,7 +138,6 @@ export const markdownToHtml = async (markdown: string) => {
       headings: ['h2', 'h3'],
       cssClasses: { toc: 'toc-wrapper' },
     })
-    // .use(rehypeWrap, { selector: '.toc-wrapper', wrapper: 'aside.side-bar' })
     .use(rehypeStringify)
     .use(remarkGfm)
     .process(markdown);

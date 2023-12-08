@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 import sanitize from 'sanitize-html';
 import 'highlight.js/styles/github-dark-dimmed.min.css';
@@ -16,6 +17,7 @@ import styles from './index.module.scss';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
+  robots: 'all',
 };
 
 type Props = {
@@ -61,6 +63,12 @@ const PostPage = async ({ params }: Props) => {
 
   return (
     <>
+      <Head>
+        <link
+          rel="canonical"
+          href={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug}`}
+        />
+      </Head>
       <header className={styles['header']}>
         <div className={styles['tag-group']}>{getTagList(post.tags)}</div>
         <h1 className={styles['title']}>{post.title}</h1>

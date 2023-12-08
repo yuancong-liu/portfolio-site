@@ -14,6 +14,12 @@
     transform: translateY(50px);
   }
 
+  @include sp() {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0;
+  }
+
   h2 {
     position: relative;
     z-index: 100;
@@ -68,7 +74,7 @@
       margin: 15px 0;
     }
   }
-  
+
   code {
     padding: 0;
     margin-inline: 5px;
@@ -147,7 +153,7 @@
 
   a {
     position: relative;
-    
+
     &:hover {
       color: utils.$color-pink;
       text-decoration: underline;
@@ -185,4 +191,27 @@
     aspect-ratio: 16 / 9;
     border: 0;
   }
+}
+
+.toc-back-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 10px 30px;
+  margin: 0 -30px; // this is disgusting 😢
+  background: utils.$color-navy-bd;
+  backdrop-filter: blur(10px);
+
+  @include pc() {
+    display: none;
+  }
+}
+
+.toc-button {
+  padding: 0;
+  font-weight: 600;
+  color: utils.$color-pink;
+
 }
