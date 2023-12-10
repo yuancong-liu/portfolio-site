@@ -6,7 +6,7 @@ tags:
 - Translation
 ---
 
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/193508450@N06/51320785154/in/dateposted-public/" title="shinchan"><img src="https://live.staticflickr.com/65535/51320785154_2a2c5ebb0b_b.jpg" width="724" alt="shinchan"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Shinchan Kettle Vol.52](/images/shinchan-kettle.jpg)
 *ケトル Vol. 53 April 2020*
 
 

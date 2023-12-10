@@ -1,5 +1,5 @@
 /**
- * @file 記事取得関連のUtils
+ * @file utils related to posts processing (server side)
  */
 import fs from 'fs';
 import path from 'path';
@@ -32,27 +32,30 @@ export const getPostSlugs = () => {
  * 指定したフィールド名から、記事のフィールドの値を取得する
  */
 export const getPostBySlug = (slug: string, fields: string[] = []) => {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = path.join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-
   const post: Post = {};
 
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      post[field] = realSlug;
-    }
-    if (field === 'content') {
-      post[field] = content;
-    }
-    if (data[field]) {
-      post[field] = data[field];
-    }
-  });
+  // NOTE: to exclude directories
+  try {
+    const realSlug = slug.replace(/\.md$/, '');
+    const fullPath = path.join(postsDirectory, `${realSlug}.md`);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
 
-  return post;
+    // Ensure only the minimal needed data is exposed
+    fields.forEach((field) => {
+      if (field === 'slug') {
+        post[field] = realSlug;
+      }
+      if (field === 'content') {
+        post[field] = content;
+      }
+      if (data[field]) {
+        post[field] = data[field];
+      }
+    });
+  } finally {
+    return post;
+  }
 };
 
 /**
@@ -64,7 +67,9 @@ export const getAllPosts = (fields: string[] = []) => {
   return (
     slugs
       .map((slug: string) => getPostBySlug(slug, fields))
-      // sort posts by date in descending order
+      // NOTE: to exclude directories
+      .filter((post) => !!post?.slug)
+      // NOTE: sort posts by date in descending order
       .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1))
   );
 };
@@ -153,6 +158,7 @@ export const sanitizeConfig = {
     '*': ['class', 'src', 'id', 'data-language'],
     iframe: ['title', 'allow'],
     a: ['href', 'target'],
+    img: ['src', 'alt']
   },
-  allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe']),
+  allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
 };

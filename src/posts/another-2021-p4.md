@@ -6,7 +6,7 @@ tags:
 - Translation
 ---
 
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/193508450@N06/51416609359/in/dateposted-public/" title="Another2001"><img src="https://live.staticflickr.com/65535/51416609359_e6908d330f_b.jpg" width="682" alt="Another2001"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Another 2001](/images/another-2001-cover.jpg)
 
 ### 目录（更新中）
 * [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)

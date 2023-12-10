@@ -73,6 +73,11 @@
     @include sp() {
       margin: 15px 0;
     }
+
+    &:has(img) {
+      display: grid;
+      place-items: center;
+    }
   }
 
   code {
@@ -185,6 +190,12 @@
     }
   }
 
+  img {
+    max-width: 100%;
+    max-height: 500px;
+    margin: 0 auto;
+  }
+
   /* stylelint-disable-next-line selector-no-qualifying-type */
   iframe[src*='youtube.com'] {
     width: 100%;
@@ -213,5 +224,4 @@
   padding: 0;
   font-weight: 600;
   color: utils.$color-pink;
-
 }

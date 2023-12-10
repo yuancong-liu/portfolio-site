@@ -6,6 +6,8 @@ tags:
 - Note
 ---
 
+![Actionable Gamification - Yu-Kai Chou](/images/actionable-gamification.jpg)
+
 游戏元素是手段，不是目的，游戏只是为了让玩家产生核心驱动力。
 *是一套专注于动机的设计系统。*
 
