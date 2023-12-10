@@ -7,6 +7,7 @@ tags:
 ---
 
 ![Another 2001](/images/another-2001-cover.jpg)
+*Another 2001 - 綾辻行人*
 
 ### 目录（更新中）
 * **Tuning I**

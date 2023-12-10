@@ -75,8 +75,28 @@
     }
 
     &:has(img) {
+      position: relative;
+      z-index: 1;
       display: grid;
       place-items: center;
+      margin-bottom: 60px;
+
+      &::before {
+        position: absolute;
+        bottom: -50px;
+        left: calc(50% - 150px);
+        z-index: -1;
+        width: 300px;
+        height: 300px;
+        content: '';
+        background-color: utils.$color-navy-light;
+        border-radius: 50%;
+        opacity: 0.5;
+      }
+
+      > img {
+        margin-bottom: 10px;
+      }
     }
   }
 
