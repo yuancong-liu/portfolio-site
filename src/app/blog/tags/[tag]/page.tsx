@@ -1,4 +1,5 @@
 import FourOhFourPage from '~/components/pages/404';
+import { PageHeader } from '~/components/pages/blog/pageHeader';
 import { PostCard } from '~/components/pages/blog/postCard';
 import { getAllTags, getPostsByTag } from '~/utils/posts';
 import styles from './index.module.scss';
@@ -13,14 +14,16 @@ const TagPage = ({ params }: Props) => {
   const posts = getPostsByTag(realTag.tag);
 
   return (
-    <main className={styles['content-wrapper']}>
-      <h1 className={styles['title']}>{realTag.tag}</h1>
-      <div className={styles['posts']}>
-        {posts.map((post) => {
-          return <PostCard key={post.slug} post={post} />;
-        })}
-      </div>
-    </main>
+    <>
+      <PageHeader>{realTag.tag}</PageHeader>
+      <main className={styles['content-wrapper']}>
+        <div className={styles['posts']}>
+          {posts.map((post) => {
+            return <PostCard key={post.slug} post={post} />;
+          })}
+        </div>
+      </main>
+    </>
   );
 };
 

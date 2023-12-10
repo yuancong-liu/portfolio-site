@@ -1,0 +1,45 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.header-wrapper {
+  position: relative;
+  overflow-x: hidden;
+
+  > .title {
+    position: relative;
+    z-index: 100;
+    max-width: 700px;
+    padding: 10px 30px;
+    margin: 30px auto;
+    font-size: 8rem;
+    line-height: 1.2;
+
+    @include sp() {
+      font-size: 4.5rem;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      font-family: monospace;
+      font-size: 8rem;
+      font-weight: 600;
+      line-height: 1;
+      color: utils.$color-pink;
+    }
+
+    &::before {
+      top: -30px;
+      left: -30px;
+      content: '<h1>';
+    }
+
+    &::after {
+      right: -20px;
+      bottom: -10px;
+      content: '</h1>';
+    }
+  }
+}

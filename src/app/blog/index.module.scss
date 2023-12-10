@@ -1,39 +1,9 @@
 @use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
 
 .content-wrapper {
   max-width: 700px;
   margin: 0 auto 80px;
-
-  > .title {
-    position: relative;
-    z-index: 100;
-    padding: 4rem 1rem;
-    font-size: 8rem;
-
-    &::before,
-    &::after {
-      position: absolute;
-      z-index: -1;
-      display: block;
-      font-family: monospace;
-      font-size: 8rem;
-      font-weight: 600;
-      line-height: 1;
-      color: utils.$color-pink;
-    }
-
-    &::before {
-      top: -5px;
-      left: -30px;
-      content: '<h1>';
-    }
-
-    &::after {
-      right: -30px;
-      bottom: 10px;
-      content: '</h1>';
-    }
-  }
 
   > .posts {
     display: flex;
@@ -41,7 +11,7 @@
     gap: 1rem 0;
     width: 100%;
 
-    @media screen and (width <= 768px) {
+    @include sp() {
       gap: 0;
     }
   }

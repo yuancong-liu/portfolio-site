@@ -1,3 +1,4 @@
+import { PageHeader } from '~/components/pages/blog/pageHeader';
 import { PostCard } from '~/components/pages/blog/postCard';
 import { Post } from '~/types/Posts';
 import { generateRssFeed } from '~/utils/feed';
@@ -17,14 +18,16 @@ const BlogPage = () => {
   const { allPosts } = getPosts();
 
   return (
-    <main className={styles['content-wrapper']}>
-      <h1 className={styles['title']}>Blog</h1>
-      <div className={styles['posts']}>
-        {allPosts.map((post: Post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
-      </div>
-    </main>
+    <>
+      <PageHeader>Blog</PageHeader>
+      <main className={styles['content-wrapper']}>
+        <div className={styles['posts']}>
+          {allPosts.map((post: Post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </main>
+    </>
   );
 };
 
