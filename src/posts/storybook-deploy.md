@@ -1,0 +1,76 @@
+---
+title: Note | I published Storybook on GitHub Pages with GitHub Actions using a custom domain
+date: 2023-12-10 18:23:14
+language: English
+tags:
+- Programming
+- Front-end
+- Storybook
+---
+
+Recently, I have been trying to develop an individual CMS-like front-end project. The first thing that occurred to me was that I could finally do something with Storybook! Therefore, counterintuitively, I decided to follow with deployment after basic configurations and a simple common button component implementation.
+
+First, I did this because I love the idea of a local project being deployed over the Internet so everyone could access it. Secondly, managing UI with Storybook is still like marching into the unknown to me, so building and deploying after even minor modifications can keep it easy to debug.
+
+## Automatically build and publish storybook to GitHub Pages with GitHub Actions
+
+Since Storybook is a static web application, it can be built and published with very few steps to almost any web host, including S3, firebase and GitHub Pages.
+
+To deploy Storybook on GitHub Pages, a community-built [Deploy Storybook to GitHub Pages](https://github.com/bitovi/github-actions-storybook-to-github-pages) Action would do most of the work. All we will have to do is to write a workflow file and include it inside.
+
+Here is my `deploy-storybook.yml` slightly modified from [the sample](https://storybook.js.org/docs/sharing/publish-storybook#github-pages) published on the official documentation of Storybook.
+
+<!--rehype:data-language=yaml-->
+```yml
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - 'main' # branch you want to deploy from
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x' # node version you want to use
+
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.1
+        with:
+          install_command: yarn install
+          build_command: yarn storybook build # storybook build script defined in your package.json
+          path: storybook-static
+          checkout: false
+```
+
+Following the steps specified on the action’s GitHub repo page, one more thing we need to do is to go to project `Settings > Pages` and set `Build and deployment > Source` to `GitHub Actions`, and no further steps are needed.
+
+## Configure my custom domain to bind with GitHub Pages
+
+Basically, follow the instructions on [this page](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site), and you are good to go. Nevertheless, some steps could be tricky.
+
+Like any instructions you have been given during any deployment with custom domains, you will have to switch between the hosting side and the domain provider to configure the records they ask you to.
+For a GitHub Pages publishment, you must verify your domain outside the project you are deploying and under your `Personal Settings > Pages`. After this, you can set your custom domain to serve the page - at least, I was told so.
+
+Things did not go that well, as the dazzling red toasts had been warning me that the DNS check had been failing over and over. I have had to look over the limited information GitHub gave me within these merely four pages. Finally, I tracked down this sample record that should be configured on the domain provider side.
+
+| Scenario  | DNS record type | DNS record name          | DNS record value(s)                                |
+|-----------|-----------------|--------------------------|----------------------------------------------------|
+| Subdomain | `CNAME`         | `SUBDOMAIN.example.com.` | `USENAME.github.io` or<br>`ORGANIZATION.github.io` |
+
+I added a record like the above to my DNS record, and the DNS check succeeded immediately. However, I am still unsure if the checking failure and the additional record are related (I suppose so, though, as we are required to add a `CNAME` record every time while configuring subdomains).
+
+## Last
+
+I have successfully deployed the project’s Storybook on GitHub Pages, which can also be accessed via my custom domain.
+
+You can check it [here](https://aas-storybook.yuancong.space/), and more Storybook features will be implemented later (probably), and hopefully, I will writer more journals about them!
