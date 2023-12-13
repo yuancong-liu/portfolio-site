@@ -1,0 +1,188 @@
+---
+title: Note | I finally used algorithms at work - an episode of solving a front-end problem with DFS
+date: 2022-10-13 18:24:50
+language: English
+tags:
+- Programming
+- Next.js
+- Algorithms
+- Front-end
+---
+
+I am not writing this essay because it is a big deal. Instead, I just needed to do something to save this moment of thrill, so I wrote this journal.
+
+## The odd table specifications
+In this CMS-like project, we have a common table component to display various structured data. With cells merging horizontally and vertically in unpredictable forms, the table is designed to be responsive - yes, on cell phone screens, every row of the table is supposed to display as a card; thus, the whole table on a laptop is transforming into a list of cards and inside which are classic key-value pairs.
+
+Throughout the development, the worst part was not manipulating properties like ￼`colSpan`￼ and ￼`rowSpan`￼ or even trying to make them common functionalities but making a multi-hierarchy-header table to make its appearance as a card list. Each of them should contain the complete information of the original header hierarchy perfectly using indents (which are strictly limited to at most two levels - said our client, of course). What the heck should I do to deconstruct and reconstruct these row data?
+
+## Table implementation went fine
+
+Firstly, I want to talk about the table implementation. We looked through many React.js table libraries and chose [rc-table](https://table-react-component.vercel.app/) for its rich functionalities and readable documentation. Some contents are even in Chinese, maybe by accident, but it is convenient for me (I’m working at a Japanese company and surrounded by Japanese people, though).
+
+Following its definition of table header format, we defined our header structure like the below:
+
+<!--rehype:data-language=typescript-->
+```ts
+const tableColumns: ColumnsType<SecondTableRecordType> = [
+  {
+    title: '',
+    dataIndex: 'productType',
+    key: 'productType',
+    rowSpan: 2,
+    rowScope: 'row',
+  },
+  {
+    title: 'Mars',
+    dataIndex: 'mars',
+    key: 'mars',
+    children: [
+      { title: 'Produced', dataIndex: 'producedMars', key: 'producedMars' },
+      { title: 'Sold', dataIndex: 'soldMars', key: 'soldMars' },
+    ],
+  },
+  {
+    title: 'Venus',
+    dataIndex: 'venus',
+    key: 'venus',
+    children: [
+      { title: 'Produced', dataIndex: 'producedVenus', key: 'producedVenus' },
+      { title: 'Sold', dataIndex: 'soldVenus', key: 'soldVenus' },
+    ],
+  },
+];
+
+```
+*A sample from the documentation*
+
+When we pass the data, we need to reform it as an array of objects like the code below:
+
+<!--rehype:data-language=typescript-->
+```ts
+const tableData: SecondTableRecordType[] = [
+  {
+    productType: 'Teddy Bears',
+    producedMars: '50,000',
+    soldMars: '30,000',
+    producedVenus: '100,000',
+    soldVenus: '80,000',
+    key: '1',
+  },
+  {
+    productType: 'Board Games',
+    producedMars: '10,000',
+    soldMars: '5,000',
+    producedVenus: '12,000',
+    soldVenus: '9,000',
+    key: '2',
+  },
+];
+
+```
+*Also a sample from the documentation*
+
+Ta-da! A perfect table greatly matching our needs made its debut in our project.
+
+As the key-value pair comes out of Object nature, we thought we could apply the same methodology - to map the `dataIndex` to insert a title field - to the card component, but it turned out to be tricky.
+
+## Using DFS had never occurred to me
+
+As a newcomer to front-end development, a so-called common sense had been growing in me that algorithm-related implementations could hardly be seen since I have never seen either done complicated data processing in any project I have ever been in. The primary and standard flow is when we encounter data structures that must be reconstructed before being shown, we should require the back-end engineer to reconsider the response structure. As this flow got shaped in me, I gradually accepted the thought that algorithms should never be used to process data in a good project - if they are, then shame on back-end developers as they do not design clear and usable APIs.
+
+The situation was we could not count on back-end engineers to develop 2 APIs for the table and the card list, and also, we did not have that budget as every time users messed around with the browser window widths, another API request was sent. So, this was a must-do!
+
+First, I tried the JS `map` function, and it disappointed me as it could reach the children nodes of the columns object. Then I tried the `flatMap` function, and it reached every node, however deep it was, but once the array got flattened, it could never be restored to the original shape, which was essential because we hoped to insert indents for the children nodes.
+
+When I drew the node tree down to a piece of paper, DFS occurred to me.
+
+### What is DFS anyway?
+
+I do not want to explain in my own words, so the below is from Wikipedia.
+
+> **Depth-first search** (**DFS**) is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before backtracking. Extra memory, usually a stack, is needed to keep track of the nodes discovered so far along a specified branch, which helps in backtracking the graph.
+
+Compared to its sibling, BFS (breadth-first search), to put it simply, DFS means once the code meets a node with children, it goes deeper for the children. Meanwhile, BFS means when the code encounters a node with children, it saves the node for later processing and goes for the node next to the previous one.
+
+![DFS and BFS](/images/dfs-and-bfs.webp)
+*DFS and BFS*
+
+### What is the code like in typescript?
+
+The rc-table library defined the header column type as below.
+
+<!--rehype:data-language=typescript-->
+```ts
+type HeaderColumn = {
+  title: string;
+  dataIndex?: string;
+  children?: HeaderColumn[];
+};
+// header should be like HeaderColumn[]
+```
+
+The first thing I did was to define the node type. Simply adding a `data`property for the data assignment would do.
+
+<!--rehype:data-language=typescript-->
+```ts
+type Data = {
+  title: string;
+  data?: string;
+  dataIndex?: string;
+  children?: Data[];
+};
+```
+
+Following the basic ideas of DFS and the nature of the type definition, the logic should go like this - when a node has a `dataIndex`, we search for the value to assign to `data`, or otherwise, it must have `children`, then we go deeper.
+
+The prototype of the code should be like the one below.
+
+<!--rehype:data-language=typescript-->
+```ts
+const processedData = data.map((row) => {
+  const processNode = (node: Data) => {
+    if (node.children) node.children.map((child) => processNode(child));
+    if (node.dataIndex) {
+      node.data = row[node.dataIndex as string];
+    }
+
+    return node;
+  };
+  return (columns as HeaderColumn[]).map((field) => processNode(field as Data));
+});
+```
+When I wrote down this code and checked the display, I found that data was perfectly assigned to each field. I once thought I had succeeded and was like, “What a wonderful life!”. However, when I looked carefully at the exact value of each data assigned, I found out that all cards in the list displayed the same data from the last row of the table.
+
+The next day, words like “reference” and “copy” occurred to me. I realised that the cards kept showing the same data because every time a new row was passed to the `processNode` method, the old row got overwritten as we kept passing the exact reference of the `columns`!
+
+So, cloning the columns and the nodes first got my problem solved.
+
+<!--rehype:data-language=typescript-->
+```ts
+const processedData = useMemo(
+  () =>
+    data.map((row) => {
+      const clonedColumns = [...columns];
+      const processNode = (node: Data): Data => {
+        const clonedNode = { ...node };
+        if (clonedNode.children)
+          clonedNode.children = clonedNode.children.map((child) =>
+            processNode(child)
+          );
+
+        if (clonedNode.dataIndex) {
+          clonedNode.data = row[clonedNode.dataIndex as string];
+        }
+
+        return clonedNode;
+      };
+      return clonedColumns.map((field) => processNode(field as Data));
+    }),
+  [columns, data]
+);
+
+```
+Of course, we did not want our data to get reprocessed repeatedly simply because some unimportant state changed, so we wrapped the method with `useMemo()`(Sorry, I should have mentioned that this was a Next.js project).
+
+## At last
+
+Actually, this might be my first practice with algorithms, although I have done them thousands of times back at school (I am exaggerating). It opened my eyes to something I was sure that probably not gonna happen in my life - using algorithms in my work. Seems I need more learning…
