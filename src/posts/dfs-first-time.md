@@ -1,6 +1,6 @@
 ---
 title: Note | I finally used algorithms at work - an episode of solving a front-end problem with DFS
-date: 2022-10-13 18:24:50
+date: 2023-12-13 18:24:50
 language: English
 tags:
 - Programming
