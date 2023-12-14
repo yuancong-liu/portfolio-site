@@ -37,13 +37,13 @@ export const generateRssFeed = async () => {
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
-      description: post.title,
-      content: await markdownToHtml(post.content),
+      description: await markdownToHtml(post.content),
       date: new Date(post.date),
     });
   });
 
   Promise.all(postPromise).then(() => {
+    console.log(feed.rss2());
     fs.mkdirSync('./public/rss', { recursive: true });
     fs.writeFileSync('./public/rss/feed.xml', feed.rss2());
     fs.writeFileSync('./public/rss/atom.xml', feed.atom1());
