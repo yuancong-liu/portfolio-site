@@ -61,8 +61,6 @@ const sanitizeConfig = {
     a: ['href', 'target'],
     img: ['src', 'alt'],
   },
-  allowedTags: sanitizeHtml.defaults.allowedTags
-    .splice(sanitizeHtml.defaults.allowedTags.indexOf('nav'), 1)
-    .concat(['iframe', 'img']),
+  allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
   disallowedTagsMode: 'discard',
 } as IOptions;
