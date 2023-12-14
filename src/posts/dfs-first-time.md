@@ -104,7 +104,7 @@ I do not want to explain in my own words, so the below is from Wikipedia.
 Compared to its sibling, BFS (breadth-first search), to put it simply, DFS means once the code meets a node with children, it goes deeper for the children. Meanwhile, BFS means when the code encounters a node with children, it saves the node for later processing and goes for the node next to the previous one.
 
 ![DFS and BFS](/images/dfs-and-bfs.webp)
-*DFS and BFS*
+*DFS and BFS graph I borrowed from [Vaidehi Joshi's blog](https://medium.com/basecs/breaking-down-breadth-first-search-cebe696709d9)*
 
 ### What is the code like in typescript?
 
