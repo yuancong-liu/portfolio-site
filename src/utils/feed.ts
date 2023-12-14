@@ -4,6 +4,7 @@
 
 import fs from 'fs';
 import { Feed } from 'feed';
+import sanitizeHtml, { IOptions } from 'sanitize-html';
 import { getAllPosts, markdownToHtml } from './posts';
 
 export const generateRssFeed = async () => {
@@ -37,16 +38,31 @@ export const generateRssFeed = async () => {
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
-      description: await markdownToHtml(post.content),
+      description: sanitizeHtml(
+        await markdownToHtml(post.content),
+        sanitizeConfig,
+      ),
       date: new Date(post.date),
     });
   });
 
   Promise.all(postPromise).then(() => {
-    console.log(feed.rss2());
     fs.mkdirSync('./public/rss', { recursive: true });
     fs.writeFileSync('./public/rss/feed.xml', feed.rss2());
     fs.writeFileSync('./public/rss/atom.xml', feed.atom1());
     fs.writeFileSync('./public/rss/feed.json', feed.json1());
   });
 };
+
+const sanitizeConfig = {
+  allowedAttributes: {
+    '*': ['src', 'id'],
+    iframe: ['title', 'allow'],
+    a: ['href', 'target'],
+    img: ['src', 'alt'],
+  },
+  allowedTags: sanitizeHtml.defaults.allowedTags
+    .splice(sanitizeHtml.defaults.allowedTags.indexOf('nav'), 1)
+    .concat(['iframe', 'img']),
+  disallowedTagsMode: 'discard',
+} as IOptions;
