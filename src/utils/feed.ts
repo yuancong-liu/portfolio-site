@@ -4,9 +4,9 @@
 
 import fs from 'fs';
 import { Feed } from 'feed';
-import { getAllPosts } from './posts';
+import { getAllPosts, markdownToHtml } from './posts';
 
-export const generateRssFeed = () => {
+export const generateRssFeed = async () => {
   const posts = getAllPosts(['slug', 'title', 'date', 'tags', 'content']);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const date = new Date();
@@ -15,19 +15,6 @@ export const generateRssFeed = () => {
     email: 'yuanc129.liu@yahoo.com',
     link: process.env.NEXT_PUBLIC_SITE_URL,
   };
-
-  // const getLocale = (languageTag: string) => {
-  //   switch (languageTag) {
-  //     case 'Chinese':
-  //       return 'zh-Hant';
-  //     case 'English':
-  //       return 'en';
-  //     case 'Japanese':
-  //       return 'ja';
-  //     default:
-  //       return 'en';
-  //   }
-  // };
 
   const feed = new Feed({
     title: "YUANCONG.L's Blog",
@@ -45,19 +32,21 @@ export const generateRssFeed = () => {
     author,
   });
 
-  posts.forEach((post) => {
+  const postPromise = posts.map(async (post) => {
     feed.addItem({
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
       description: post.title,
-      content: post.title,
+      content: await markdownToHtml(post.content),
       date: new Date(post.date),
     });
   });
 
-  fs.mkdirSync('./public/rss', { recursive: true });
-  fs.writeFileSync('./public/rss/feed.xml', feed.rss2());
-  fs.writeFileSync('./public/rss/atom.xml', feed.atom1());
-  fs.writeFileSync('./public/rss/feed.json', feed.json1());
+  Promise.all(postPromise).then(() => {
+    fs.mkdirSync('./public/rss', { recursive: true });
+    fs.writeFileSync('./public/rss/feed.xml', feed.rss2());
+    fs.writeFileSync('./public/rss/atom.xml', feed.atom1());
+    fs.writeFileSync('./public/rss/feed.json', feed.json1());
+  });
 };
