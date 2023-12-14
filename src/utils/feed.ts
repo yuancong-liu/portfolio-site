@@ -51,7 +51,7 @@ export const generateRssFeed = () => {
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
       description: post.title,
-      content: post.content,
+      content: post.title,
       date: new Date(post.date),
     });
   });
