@@ -30,10 +30,10 @@ export const generateRssFeed = () => {
   // };
 
   const feed = new Feed({
-    title: 'The Colorado Lounge',
+    title: "YUANCONG.L's Blog",
     id: siteUrl,
     link: `${siteUrl}/blog`,
-    description: "YUANCONG.L's blog",
+    description: "YUANCONG.L's Blog",
     copyright: `All rights reserved ${date.getFullYear()}, YUANCONG.L`,
     updated: date,
     generator: 'Next.js using Feed for Node.js',
