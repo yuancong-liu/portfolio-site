@@ -2,6 +2,7 @@
 import { useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import { useOnHashChange } from '~/hooks/libs/useOnHashChange';
+import 'highlight.js/styles/github-dark-dimmed.min.css';
 import styles from './index.module.scss';
 import './index.css';
 

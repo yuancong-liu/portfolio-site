@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import sanitize from 'sanitize-html';
-import 'highlight.js/styles/github-dark-dimmed.min.css';
 import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import { PostContent } from '~/components/pages/blog/postContent';

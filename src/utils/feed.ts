@@ -7,7 +7,7 @@ import { Feed } from 'feed';
 import { getAllPosts } from './posts';
 
 export const generateRssFeed = () => {
-  const posts = getAllPosts(['slug', 'title', 'date', 'tags']);
+  const posts = getAllPosts(['slug', 'title', 'date', 'tags', 'content']);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const date = new Date();
   const author = {
@@ -51,7 +51,7 @@ export const generateRssFeed = () => {
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
       description: post.title,
-      content: post.title,
+      content: post.content,
       date: new Date(post.date),
     });
   });

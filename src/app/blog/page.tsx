@@ -9,10 +9,6 @@ import styles from './index.module.scss';
 
 /**
  * Blog page
- * ブログ画面
- *
- * /component/pages/the-colorado-lounge　配下にページコンポーネントを作成
- *
  */
 const BlogPage = () => {
   const { allPosts } = getPosts();
