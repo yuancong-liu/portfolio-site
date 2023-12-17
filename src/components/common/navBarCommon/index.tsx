@@ -15,7 +15,9 @@ export const NavBarCommon = () => {
         <li>
           <Link href="/blog">BLOG</Link>
         </li>
-        <li>PORTFOLIO</li>
+        <li>
+          <Link href="/portfolio">PORTFOLIO</Link>
+        </li>
         <li className={styles['c-mark-nav']}>
           <Link href="/">
             <CMarkNav />

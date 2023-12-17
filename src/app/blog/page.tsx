@@ -18,8 +18,8 @@ const BlogPage = () => {
       <PageHeader>Blog</PageHeader>
       <main className={styles['content-wrapper']}>
         <div className={styles['posts']}>
-          {allPosts.map((post: Post) => (
-            <PostCard key={post.slug} post={post} />
+          {allPosts.map((post, index) => (
+            <PostCard key={post.slug} post={post} index={index} />
           ))}
         </div>
       </main>
@@ -32,7 +32,7 @@ const getPosts = () => {
 
   const allPosts = getAllPosts(['slug', 'title', 'date', 'tags', 'language']);
   return {
-    allPosts: JSON.parse(JSON.stringify(allPosts)),
+    allPosts: JSON.parse(JSON.stringify(allPosts)) as Post[],
   };
 };
 

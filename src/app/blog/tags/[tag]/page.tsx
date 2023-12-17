@@ -18,8 +18,8 @@ const TagPage = ({ params }: Props) => {
       <PageHeader>{realTag.tag}</PageHeader>
       <main className={styles['content-wrapper']}>
         <div className={styles['posts']}>
-          {posts.map((post) => {
-            return <PostCard key={post.slug} post={post} />;
+          {posts.map((post, index) => {
+            return <PostCard key={post.slug} post={post} index={index} />;
           })}
         </div>
       </main>
