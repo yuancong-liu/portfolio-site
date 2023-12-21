@@ -2,6 +2,7 @@ import FourOhFourPage from '~/components/pages/404';
 import { PageHeader } from '~/components/pages/blog/pageHeader';
 import { PostCard } from '~/components/pages/blog/postCard';
 import { getAllTags, getPostsByTag } from '~/utils/posts';
+
 import styles from './index.module.scss';
 
 type Props = {

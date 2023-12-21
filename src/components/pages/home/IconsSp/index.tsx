@@ -1,5 +1,6 @@
 import CMark from '~/assets/icons/c-mark-sp.svg';
 import LYMark from '~/assets/icons/ly-mark-sp.svg';
+
 import styles from './index.module.scss';
 
 export const IconsSp = () => {

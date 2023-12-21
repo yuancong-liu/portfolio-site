@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import Link from 'next/link';
+
 import { getAdjacentPosts } from '~/utils/posts';
+
 import styles from './index.module.scss';
 
 type Props = {

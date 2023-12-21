@@ -1,4 +1,5 @@
 import { NavBarCommon } from '~/components/common/navBarCommon';
+
 import styles from './layout.module.scss';
 
 type Props = {

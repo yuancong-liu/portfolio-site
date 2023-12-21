@@ -57,7 +57,7 @@ export const filterFilmInfo = (film: any) => {
  * @param genres
  * @returns genre string
  */
-export const getGenreString = (genres: { id: number; name: string }[]) => {
+export const getGenreString = (genres: Array<{ id: number; name: string }>) => {
   const genreString = genres
     .map((genre) => {
       return genre.name;
@@ -85,7 +85,7 @@ export const convertFilmReleaseDate = (releaseDate: string) => {
  * @returns production countries string
  */
 export const getProductionCountries = (
-  productionCountries: { iso_3166_1: string; name: string }[],
+  productionCountries: Array<{ iso_3166_1: string; name: string }>,
 ) => {
   const countries = productionCountries
     .map((country) => {

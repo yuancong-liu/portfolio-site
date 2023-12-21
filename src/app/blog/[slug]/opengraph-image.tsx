@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+
 import CMark from '~/assets/icons/c-mark-sp.svg';
 import { getPostBySlug } from '~/utils/posts';
 

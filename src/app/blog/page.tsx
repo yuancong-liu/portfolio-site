@@ -3,6 +3,7 @@ import { PostCard } from '~/components/pages/blog/postCard';
 import { Post } from '~/types/Posts';
 import { generateRssFeed } from '~/utils/feed';
 import { getAllPosts } from '~/utils/posts';
+
 import styles from './index.module.scss';
 
 // const BASE_URL = 'blog/';

@@ -1,6 +1,7 @@
 import { ExperienceCard } from '~/components/pages/about-me/experienceCard';
 import { UNSPLASH_IMAGE_PATH } from '~/constants/resume';
 import { Experience } from '~/types/Resume';
+
 import styles from './index.module.scss';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 

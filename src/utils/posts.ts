@@ -3,6 +3,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+
 import rehypeSectionize from '@hbsnow/rehype-sectionize';
 import matter from 'gray-matter';
 import rehypeAttrs from 'rehype-attr';
@@ -16,6 +17,7 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import sanitizeHtml from 'sanitize-html';
 import { unified } from 'unified';
+
 import { Post, Tag } from '~/types/Posts';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
@@ -158,7 +160,7 @@ export const sanitizeConfig = {
     '*': ['class', 'src', 'id', 'data-language'],
     iframe: ['title', 'allow'],
     a: ['href', 'target'],
-    img: ['src', 'alt']
+    img: ['src', 'alt'],
   },
   allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
 };

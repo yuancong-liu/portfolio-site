@@ -1,7 +1,9 @@
 import { FC, MouseEvent } from 'react';
 import Typed from 'react-typed';
+
 import classNames from 'classnames';
 import { useTranslation } from 'next-i18next';
+
 import styles from './index.module.scss';
 
 export const TopWelcome: FC = () => {

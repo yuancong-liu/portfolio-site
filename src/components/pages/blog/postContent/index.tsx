@@ -1,7 +1,10 @@
 'use client';
 import { useMemo, useRef } from 'react';
+
 import classNames from 'classnames';
+
 import { useOnHashChange } from '~/hooks/libs/useOnHashChange';
+
 import 'highlight.js/styles/github-dark-dimmed.min.css';
 import styles from './index.module.scss';
 import './index.css';
@@ -23,11 +26,10 @@ export const PostContent = ({ content }: Props) => {
     }
   };
 
-  useOnHashChange({callback: toggleToc});
+  useOnHashChange({ callback: toggleToc });
 
   // TODO: think about how to use this
   // usePostProcessing({ content: contentRef });
-
 
   const contentMemo = useMemo(
     () => (

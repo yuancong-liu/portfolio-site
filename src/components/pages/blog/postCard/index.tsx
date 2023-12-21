@@ -2,8 +2,10 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+
 import { Post } from '~/types/Posts';
 import { getDateString } from '~/utils/dates';
+
 import styles from './index.module.scss';
 
 type Language = '中文' | 'English' | '日本語';

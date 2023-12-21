@@ -1,4 +1,5 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
+
 import styles from './index.module.scss';
 
 export const ProgressBar: React.FC = () => {

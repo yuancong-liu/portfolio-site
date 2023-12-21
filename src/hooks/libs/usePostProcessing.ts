@@ -13,6 +13,5 @@ export const usePostProcessing = ({ content }: Props) => {
     //   const language = codeBlock.className.split('-')[1];
     //   codeBlock.setAttribute('data-language', language);
     // });
-
   }, [content]);
 };

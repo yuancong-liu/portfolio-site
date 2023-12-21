@@ -1,6 +1,8 @@
 import Link from 'next/link';
+
 import CMarkNav from '~/assets/icons/c-mark-nav.svg';
 import LogoNav from '~/assets/icons/logo-nav.svg';
+
 import styles from './index.module.scss';
 
 export const NavBarCommon = () => {

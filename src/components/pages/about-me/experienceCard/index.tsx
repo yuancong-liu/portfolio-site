@@ -1,7 +1,9 @@
 import classNames from 'classnames';
 import Link from 'next/link';
+
 import { ImageWithLoading } from '~/components/common/image/imageWithLoading';
 import { Experience } from '~/types/Resume';
+
 // import { useTranslation } from 'next-i18next';
 import styles from './index.module.scss';
 

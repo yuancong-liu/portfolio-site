@@ -1,6 +1,8 @@
 import router from 'next/router';
+
 import Globe from '~/assets/icons/globe.svg';
 import { LANGUAGES } from '~/interfaces/languages';
+
 import styles from './index.module.scss';
 
 export const Internationality = () => {

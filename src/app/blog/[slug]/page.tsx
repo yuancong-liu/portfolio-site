@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import sanitize from 'sanitize-html';
+
 import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import { PostContent } from '~/components/pages/blog/postContent';
@@ -12,6 +13,7 @@ import {
   markdownToHtml,
   sanitizeConfig,
 } from '~/utils/posts';
+
 import styles from './index.module.scss';
 
 export const metadata: Metadata = {

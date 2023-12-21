@@ -3,8 +3,10 @@
  */
 
 import fs from 'fs';
+
 import { Feed } from 'feed';
 import sanitizeHtml, { IOptions } from 'sanitize-html';
+
 import { getAllPosts, markdownToHtml } from './posts';
 
 export const generateRssFeed = async () => {

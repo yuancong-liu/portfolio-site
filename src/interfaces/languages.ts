@@ -1,7 +1,7 @@
-export type LANGUAGE_KEYS = 'en' | 'ja' | 'zh-Hans' | 'zh-Hant' | 'ko';
+export type LanguageKey = 'en' | 'ja' | 'zh-Hans' | 'zh-Hant' | 'ko';
 
 type Language = {
-  key: LANGUAGE_KEYS;
+  key: LanguageKey;
   value: string;
 };
 

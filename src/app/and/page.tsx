@@ -1,6 +1,7 @@
 import { FilmCard } from '~/components/pages/and/filmCard';
 import { Film } from '~/types/Films';
 import { getFilms } from '~/utils/films';
+
 import styles from './index.module.scss';
 
 /**

@@ -1,6 +1,8 @@
 import Link from 'next/link';
+
 import { PageHeader } from '~/components/pages/blog/pageHeader';
 import { getAllTags } from '~/utils/posts';
+
 import styles from './index.module.scss';
 
 const TagsPage = () => {
