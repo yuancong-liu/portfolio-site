@@ -1,12 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useVelocity,
-} from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Link from 'next/link';
 
 import styles from './index.module.scss';
@@ -18,14 +12,13 @@ type Props = { pageDiv?: PageDiv };
 export const NavBarCommon = ({ pageDiv = 'other' }: Props) => {
   const { scrollYProgress } = useScroll();
 
-  const scrollVelocity = useVelocity(scrollYProgress);
   const pathLength = useSpring(useTransform(scrollYProgress, [0, 1], [1, 0]));
   const rotate = useSpring(useTransform(scrollYProgress, [0, 1], [0, 360]));
   const fill = useTransform(
-    scrollVelocity,
-    [-1, 0, 1],
+    scrollYProgress,
+    [0, 0.3, 1],
     [
-      'rgba(255, 255, 255, 1)',
+      'rgba(255, 255, 255, 0)',
       'rgba(255, 255, 255, 0)',
       'rgba(255, 255, 255, 1)',
     ],
