@@ -18,6 +18,9 @@
     "prepare": "husky install",
     "start": "next start"
   },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "dependencies": {
     "classnames": "^2.3.2",
     "eslint-plugin-unused-imports": "^3.0.0",
@@ -72,10 +75,9 @@
     "stylelint": "^15.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^4.3.0",
-    "stylelint-config-recommended": "^13.0.0",
-    "stylelint-config-recommended-scss": "^13.1.0",
     "stylelint-config-sass-guidelines": "^10.0.0",
     "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^12.0.0",
     "typescript": "5.2.2",
     "unified": "^11.0.4"
   },

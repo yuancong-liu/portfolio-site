@@ -1,15 +1,11 @@
 {
   "extends": [
-    "stylelint-config-recommended",
-    "stylelint-config-recommended-scss",
     "stylelint-config-sass-guidelines",
-    "stylelint-config-standard",
     "stylelint-config-recess-order",
-    "stylelint-config-prettier"
+    "stylelint-config-prettier",
+    "stylelint-config-standard-scss"
   ],
-  "plugins": [
-    "stylelint-order"
-  ],
+  "plugins": ["stylelint-order"],
   "rules": {
     "string-quotes": "single",
     "no-empty-source": true,
