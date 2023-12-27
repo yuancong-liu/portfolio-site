@@ -107,7 +107,7 @@ export const convertTagToParam = (tag: string) =>
  * @returns Tag[]
  */
 export const getAllTags = (): Tag[] => {
-  const posts = getAllPosts(['tags']);
+  const posts = getAllPosts(['slug', 'tags']);
   const tags = posts.map((post) => post.tags).flat();
 
   const uniqueTags = [...new Set(tags)];
