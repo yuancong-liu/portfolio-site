@@ -14,21 +14,7 @@
   gap: 65px;
 }
 
-.c-mark {
-  animation: c-mark 3s ease-in-out infinite;
-  animation-play-state: paused;
-}
-
-.c-mark:hover {
-  animation-play-state: running;
-}
-
-@keyframes c-mark {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.c-mark > path {
+  stroke: #fff;
+  stroke-width: 2px;
 }

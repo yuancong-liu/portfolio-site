@@ -12,23 +12,13 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 26px;
-}
 
-.c-mark {
-  animation: rotate 3s ease-in-out infinite;
-  animation-play-state: paused;
-}
-
-.c-mark:hover {
-  animation-play-state: running;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
+  > *:focus {
+    outline: none;
   }
+}
 
-  100% {
-    transform: rotate(360deg);
-  }
+.c-mark > path {
+  stroke: #fff;
+  stroke-width: 2px;
 }
