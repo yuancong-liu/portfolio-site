@@ -9,7 +9,7 @@ type Props = {
 export default function BlogLayout({ children }: Props) {
   return (
     <div className={styles['page-wrapper']}>
-      <NavBarCommon />
+      <NavBarCommon pageDiv="post" />
       {children}
     </div>
   );

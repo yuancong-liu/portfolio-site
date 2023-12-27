@@ -62,6 +62,11 @@
 .c-mark-nav {
   height: 32px;
 
+  .stroke {
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
   @include pc {
     display: none;
   }
