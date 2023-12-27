@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 
-import Image from 'next/image';
-
+import { ImageWithLoading } from '~/components/common/image/imageWithLoading';
 import { Film } from '~/types/Films';
 
 import styles from './index.module.scss';
@@ -23,12 +22,7 @@ export const FilmCard = ({ film, rank }: Props) => {
         <div className={styles['contents']}>
           <h1 className={styles['film-rank']}>#{rank}</h1>
           <div className={styles['poster-wrapper']}>
-            <Image
-              src={film.posterPath}
-              alt={film.title}
-              width={200}
-              height={300}
-            />
+            <ImageWithLoading src={film.posterPath} alt={film.title} />
           </div>
           <div className={styles['basic-info']}>
             <h3 className={styles['title']}>{film.title}</h3>

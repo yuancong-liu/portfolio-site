@@ -24,9 +24,9 @@ export const ImageWithLoading = ({ src, alt = '' }: Props) => {
         src={src}
         alt={alt}
         fill
-        style={{ objectFit: 'cover' }}
-        loading="lazy"
-        onLoadingComplete={() => setLoading(false)}
+        sizes="100%"
+        priority
+        onLoad={() => setLoading(false)}
       />
     </div>
   );

@@ -14,7 +14,7 @@
     font-size: 8rem;
     line-height: 1.2;
 
-    @include sp() {
+    @include sp {
       font-size: 4.5rem;
     }
 

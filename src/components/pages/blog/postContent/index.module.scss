@@ -14,7 +14,7 @@
     transform: translateY(50px);
   }
 
-  @include sp() {
+  @include sp {
     flex-direction: column;
     gap: 0;
     margin-top: 0;
@@ -70,7 +70,7 @@
   p {
     margin: 15px 25px;
 
-    @include sp() {
+    @include sp {
       margin: 15px 0;
     }
 
@@ -238,7 +238,7 @@
   background: utils.$color-navy-bd;
   backdrop-filter: blur(10px);
 
-  @include pc() {
+  @include pc {
     display: none;
   }
 }

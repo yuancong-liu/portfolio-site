@@ -10,8 +10,8 @@
   scroll-snap-align: start;
   padding-top: 80px;
   font-size: 2rem;
-  
-  @include sp() {
+
+  @include sp {
     padding-top: 40px;
   }
 
@@ -28,7 +28,7 @@
     font-weight: 600;
     color: utils.$color-pink;
   }
-  
+
   > .name {
     position: relative;
     z-index: 10;
@@ -42,7 +42,7 @@
       text-decoration: underline;
     }
   }
-  
+
   > .details {
     position: relative;
     z-index: 10;
@@ -59,7 +59,7 @@
     border-top: 2px solid utils.$color-pink;
     border-right: 2px solid utils.$color-pink;
 
-    @include sp() {
+    @include sp {
       top: 10rem;
     }
   }
@@ -69,7 +69,7 @@
     top: calc(60% + 16rem);
     right: 0;
 
-    @include sp() {
+    @include sp {
       top: calc(60% + 10rem);
     }
   }

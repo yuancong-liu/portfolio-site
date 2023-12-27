@@ -24,13 +24,13 @@
     opacity: 1;
   }
 
-  @include sp() {
+  @include sp {
     flex-basis: 100%;
     width: 100%;
     border-top: 1px solid #fff;
   }
 
-  @include pc() {
+  @include pc {
     border: 1px solid utils.$color-bg;
     box-shadow: 0 0 0 0 rgb(0 0 0 / 0%);
     transition: all 0.3s ease-in-out;

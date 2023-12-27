@@ -10,12 +10,12 @@
   font-size: 20px;
   font-weight: 600;
 
-  @include pc() {
+  @include pc {
     background: utils.$color-navy-bd;
     backdrop-filter: blur(10px);
   }
 
-  @include sp() {
+  @include sp {
     top: unset;
     bottom: 0;
     font-size: 12px;
@@ -46,7 +46,7 @@
   margin: 0 auto;
   list-style: none;
 
-  @include sp() {
+  @include sp {
     max-width: 350px;
   }
 }
@@ -54,7 +54,7 @@
 .icons {
   height: 30px;
 
-  @include sp() {
+  @include sp {
     display: none;
   }
 }
@@ -62,7 +62,7 @@
 .c-mark-nav {
   height: 32px;
 
-  @include pc() {
+  @include pc {
     display: none;
   }
 }

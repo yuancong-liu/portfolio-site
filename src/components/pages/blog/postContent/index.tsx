@@ -2,11 +2,13 @@
 import { useMemo, useRef } from 'react';
 
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 
 import { useOnHashChange } from '~/hooks/libs/useOnHashChange';
 
 import 'highlight.js/styles/github-dark-dimmed.min.css';
 import styles from './index.module.scss';
+
 import './index.css';
 
 type Props = {
@@ -14,6 +16,24 @@ type Props = {
 };
 
 export const PostContent = ({ content }: Props) => {
+  const toc = useMemo(
+    () => ({
+      hidden: {
+        opacity: 0,
+        y: 100,
+      },
+      visible: {
+        opacity: [0, 1],
+        y: [1, 1],
+        transition: {
+          duration: 0.5,
+          ease: 'easeInOut',
+        },
+      },
+    }),
+    [],
+  );
+
   const contentRef = useRef<HTMLDivElement>(null);
 
   // FIXME: looks strange to me
@@ -33,13 +53,16 @@ export const PostContent = ({ content }: Props) => {
 
   const contentMemo = useMemo(
     () => (
-      <div
+      <motion.div
         ref={contentRef}
+        variants={toc}
+        initial="hidden"
+        animate="visible"
         dangerouslySetInnerHTML={{ __html: content }}
         className={classNames(styles['content-wrapper'], {})}
       />
     ),
-    [content],
+    [content, toc],
   );
 
   return (

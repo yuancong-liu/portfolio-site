@@ -11,12 +11,12 @@
   font-weight: 600;
   writing-mode: vertical-rl;
 
-  @include pc() {
+  @include pc {
     background: utils.$color-navy-bd;
     backdrop-filter: blur(10px);
   }
 
-  @include sp() {
+  @include sp {
     display: grid;
     place-items: center;
     font-size: 16px;
@@ -47,7 +47,7 @@
   margin: 64px 16px 128px;
   list-style-type: none;
 
-  @include sp() {
+  @include sp {
     flex-direction: column;
     gap: 10px;
     align-items: flex-end;

@@ -8,7 +8,7 @@
   width: 100%;
   text-align: center;
 
-  @include pc() {
+  @include pc {
     top: 50%;
     bottom: unset;
     width: 30vw;
@@ -22,7 +22,7 @@
   overflow: auto;
   scroll-snap-type: y mandatory;
 
-  @include sp() {
+  @include sp {
     width: 100%;
     margin-left: 0;
   }
