@@ -24,7 +24,7 @@ export const PostContent = ({ content }: Props) => {
       },
       visible: {
         opacity: [0, 1],
-        lineHeight: [0, 1.5],
+        lineHeight: [2, 1.5],
         transition: {
           duration: 0.5,
           ease: 'easeInOut',
