@@ -4,7 +4,7 @@ import { NavBarCommon } from '~/components/common/navBarCommon';
 
 import styles from './index.module.scss';
 
-export const NianNianPage: NextPage = () => {
+const NianNianPage: NextPage = () => {
   return (
     <>
       <NavBarCommon />
