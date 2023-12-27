@@ -14,7 +14,6 @@
     "lintjs:eslint": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore --ignore-path .eslintignore .",
     "lintjs:fix": "run-s \"lintjs:eslint --fix\" \"lintjs:prettier --write\"",
     "lintjs:prettier": "prettier --ignore-path .gitignore --ignore-path .eslintignore --loglevel warn \"**/*.{js,jsx,ts,tsx}\"",
-    "markuplint": "markuplint \"./src/**/*.{jsx,tsx}\"",
     "prepare": "husky install",
     "start": "next start"
   },
@@ -38,8 +37,6 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
     "@hbsnow/rehype-sectionize": "^1.0.7",
-    "@markuplint/jsx-parser": "^3.9.0",
-    "@markuplint/react-spec": "^3.10.0",
     "@svgr/webpack": "^8.0.1",
     "@tsconfig/next": "^2.0.1",
     "@types/node": "20.9.0",
