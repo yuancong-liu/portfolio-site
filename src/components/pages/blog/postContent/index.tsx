@@ -20,11 +20,11 @@ export const PostContent = ({ content }: Props) => {
     () => ({
       hidden: {
         opacity: 0,
-        y: 100,
+        lineHeight: 2,
       },
       visible: {
         opacity: [0, 1],
-        y: [1, 1],
+        lineHeight: [0, 1.5],
         transition: {
           duration: 0.5,
           ease: 'easeInOut',
