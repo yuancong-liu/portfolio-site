@@ -7,7 +7,7 @@ import styles from './index.module.scss';
 /**
  * Not found page
  */
-const FourOhFourPage = () => {
+export const FourOhFourPage = () => {
   const pathname = usePathname();
 
   return (
@@ -21,5 +21,3 @@ const FourOhFourPage = () => {
     </main>
   );
 };
-
-export default FourOhFourPage;
