@@ -1,4 +1,3 @@
-import FourOhFourPage from '~/components/pages/404';
 import { PageHeader } from '~/components/pages/blog/pageHeader';
 import { PostCard } from '~/components/pages/blog/postCard';
 import { getAllTags, getPostsByTag } from '~/utils/posts';
@@ -11,12 +10,11 @@ type Props = {
 
 const TagPage = ({ params }: Props) => {
   const realTag = getAllTags().find((tag) => tag.param === params.tag);
-  if (!realTag) return <FourOhFourPage />;
-  const posts = getPostsByTag(realTag.tag);
+  const posts = getPostsByTag(realTag!.tag);
 
   return (
     <>
-      <PageHeader>{realTag.tag}</PageHeader>
+      <PageHeader>{realTag!.tag}</PageHeader>
       <main className={styles['content-wrapper']}>
         <div className={styles['posts']}>
           {posts.map((post, index) => {

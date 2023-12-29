@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import sanitize from 'sanitize-html';
 
-import FourOhFourPage from '~/components/pages/404';
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import { PostContent } from '~/components/pages/blog/postContent';
 import {
@@ -26,8 +25,6 @@ type Props = {
 };
 
 const PostPage = async ({ params }: Props) => {
-  if (!params.slug) return <FourOhFourPage />;
-
   const { post } = await getPost({ slug: params.slug });
 
   if (!post.title) return <></>;
