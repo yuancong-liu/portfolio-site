@@ -1,15 +1,23 @@
+'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import styles from './index.module.scss';
 
 /**
- * 404 page
- * 404画面
- *
+ * Not found page
  */
 const FourOhFourPage = () => {
+  const pathname = usePathname();
+
   return (
-    <main>
-      <p>Room not found!</p>
-      <Link href="/">Go back to lobby</Link>
+    <main className={styles['page-wrapper']}>
+      <div className={styles['content']}>
+        <h1 className={styles['title']}>404</h1>
+        <code className={styles['pathname']}>{pathname}</code>
+        <p>This page could not be found.</p>
+        <Link href="/">Back to HOME page</Link>
+      </div>
     </main>
   );
 };
