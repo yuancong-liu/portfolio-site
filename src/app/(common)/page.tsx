@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { Home } from './home';
+import { HomeDynamic } from '../../components/pages/home/homeDynamic';
 
 export const metadata: Metadata = {
   title: 'YC SPACE',
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <Home />;
+  return <HomeDynamic />;
 }

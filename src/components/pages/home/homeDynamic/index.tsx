@@ -19,7 +19,7 @@ const IconsSp = dynamic(
   },
 );
 
-export const Home = () => {
+export const HomeDynamic = () => {
   const { isPc } = useDeviceDetect();
 
   return (

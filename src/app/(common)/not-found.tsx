@@ -1,7 +1,5 @@
 import { FourOhFourPage } from '~/components/pages/404';
 
-const NotFound = () => {
-  return <FourOhFourPage />;
-};
+const NotFound = () => <FourOhFourPage />;
 
 export default NotFound;
