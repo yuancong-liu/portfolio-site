@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 
 import styles from './index.module.scss';
 
@@ -17,7 +17,7 @@ export const LoadingIndicator = () => {
         repeatType: 'reverse',
       },
     },
-  };
+  } as Variants;
 
   return (
     <div className={styles['indicator-overlay']}>
