@@ -1,3 +1,5 @@
+@use '~/styles/mixins' as *;
+
 .content-wrapper {
   width: 100%;
 }
@@ -12,5 +14,12 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @include sp {
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    height: 100dvh;
   }
 }

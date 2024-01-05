@@ -5,11 +5,7 @@ import { getFilms } from '~/utils/films';
 import styles from './index.module.scss';
 
 /**
- * The Gold Room page
- * ホビー画面
- *
- * /component/pages/the-gold-room　配下にページコンポーネントを作成
- *
+ * And... page
  */
 const AndPage = async () => {
   const films = await getFilms();
