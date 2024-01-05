@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/react';
-import '~/styles/globals.scss';
+
+import styles from './layout.module.scss';
 
 type Props = {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={styles['body-wrapper']}>{children}</body>
       <Analytics />
     </html>
   );

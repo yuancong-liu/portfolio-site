@@ -1,3 +1,4 @@
+import { Footer } from '~/components/common/footer';
 import { NavBarCommon } from '~/components/common/navBarCommon';
 
 import styles from './layout.module.scss';
@@ -11,6 +12,7 @@ export default function BlogLayout({ children }: Props) {
     <div className={styles['page-wrapper']}>
       <NavBarCommon pageDiv="post" />
       {children}
+      <Footer />
     </div>
   );
 }

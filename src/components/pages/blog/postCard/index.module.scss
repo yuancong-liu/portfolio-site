@@ -55,6 +55,10 @@
   padding: 1rem;
   background-color: utils.$color-navy;
 
+  @include sp {
+    padding: 1rem 20px;
+  }
+
   .title-area {
     display: flex;
     gap: 10px;

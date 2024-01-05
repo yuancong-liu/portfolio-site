@@ -7,10 +7,19 @@
 
   > .content {
     display: grid;
+    width: 400px;
     padding: 0 4rem;
   }
 
+  > .content > .oops {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
   > .content > .title {
+    margin-bottom: 3rem;
     font-size: 12rem;
     font-weight: 600;
     line-height: 1;
