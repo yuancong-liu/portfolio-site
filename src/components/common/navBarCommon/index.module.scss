@@ -9,6 +9,7 @@
   padding: 10px 0;
   font-size: 20px;
   font-weight: 600;
+  color: #fff;
 
   @include pc {
     background: utils.$color-navy-bd;
@@ -69,5 +70,108 @@
 
   @include pc {
     display: none;
+  }
+}
+
+.text-link {
+  position: relative;
+  transition: all 0.3s ease;
+
+  &::before {
+    position: absolute;
+    top: calc(50% - 5px);
+    left: -20px;
+    display: none;
+    width: 10px;
+    height: 10px;
+    content: '';
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  &.-active::before {
+    display: block;
+    background-color: utils.$color-pink;
+  }
+
+  &:not(.-active):hover::before {
+    display: block;
+    background-color: transparent;
+    animation: indicator 0.7s linear infinite;
+  }
+
+  @include sp {
+    &::before,
+    &.-active::before,
+    &:not(.-active):hover::before {
+      display: none;
+    }
+  }
+}
+
+@keyframes indicator {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      transparent 20%,
+      utils.$color-pink 20%,
+      utils.$color-pink 30%,
+      transparent 30%
+    );
+    transform: scale(1);
+  }
+
+  25% {
+    background: radial-gradient(
+      circle at center,
+      transparent 40%,
+      utils.$color-pink 40%,
+      utils.$color-pink 50%,
+      transparent 50%
+    );
+    transform: scale(1.25);
+  }
+
+  50% {
+    background: radial-gradient(
+      circle at center,
+      transparent 20%,
+      utils.$color-pink 20%,
+      utils.$color-pink 30%,
+      transparent 30%,
+      transparent 60%,
+      utils.$color-pink 70%,
+      utils.$color-pink 70%
+    );
+    transform: scale(1.5);
+  }
+
+  75% {
+    background: radial-gradient(
+      circle at center,
+      transparent 40%,
+      utils.$color-pink 40%,
+      utils.$color-pink 50%,
+      transparent 50%,
+      transparent 80%,
+      utils.$color-pink 90%,
+      utils.$color-pink 90%
+    );
+    transform: scale(1.25);
+  }
+
+  100% {
+    background: radial-gradient(
+      circle at center,
+      transparent 0,
+      utils.$color-pink 10%,
+      utils.$color-pink 20%,
+      transparent 20%,
+      transparent 60%,
+      utils.$color-pink 60%,
+      utils.$color-pink 70%,
+      transparent 70%
+    );
+    transform: scale(1);
   }
 }
