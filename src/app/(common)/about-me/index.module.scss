@@ -1,24 +1,9 @@
 @use '~/styles/utils.scss';
 @use '~/styles/mixins' as *;
 
-.back-button {
-  position: fixed;
-  bottom: 5%;
-  z-index: 500;
-  width: 100%;
-  text-align: center;
-
-  @include pc {
-    top: 50%;
-    bottom: unset;
-    width: 30vw;
-  }
-}
-
 .content-wrapper {
-  width: calc(100% - 30vw);
+  width: 100%;
   height: 100vh;
-  margin-left: 30vw;
   overflow: auto;
   scroll-snap-type: y mandatory;
 
@@ -26,4 +11,12 @@
     width: 100%;
     margin-left: 0;
   }
+}
+
+.block {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
 }

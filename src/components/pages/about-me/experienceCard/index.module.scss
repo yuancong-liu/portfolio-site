@@ -1,92 +1,109 @@
 @use '~/styles/utils.scss';
 @use '~/styles/mixins' as *;
 
-.card-section {
-  height: 100vh;
-  scroll-snap-align: start;
-  padding-top: 80px;
-
-  @include sp {
-    padding-top: 20px;
-  }
-}
-
 .card-wrapper {
+  --n-of-cards: 4;
+
   position: relative;
   display: flex;
+  flex: 0 1 calc(100% / var(--n-of-cards));
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  overflow: hidden;
   font-size: 2rem;
+  border-radius: 16px;
+  transition: all 0.5s ease-in-out;
 
-  @include sp {
-    padding-top: 40px;
+  > :not(.image) {
+    display: none;
   }
 
   > .image {
     position: relative;
-    width: 100%;
+    height: 100%;
     aspect-ratio: 16 / 9;
-    overflow: hidden;
-  }
+    transition: all 0.5s ease-in-out;
 
-  > .year {
-    margin: 0 20px;
-    font-size: 8rem;
-    font-weight: 600;
-    color: utils.$color-pink;
-  }
-
-  > .name {
-    position: relative;
-    z-index: 10;
-    margin: 0 20px;
-    font-size: 4rem;
-    font-weight: 600;
-    transition: all 0.1s ease;
-
-    &:hover {
-      color: utils.$color-pink;
-      text-decoration: underline;
+    // to set the image as background
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
     }
   }
 
-  > .details {
-    position: relative;
-    z-index: 10;
-    margin: 0 20px;
-  }
+  // > .year {
+  //   margin: 0 20px;
+  //   font-size: 8rem;
+  //   font-weight: 600;
+  //   color: utils.$color-pink;
+  // }
 
-  > .border {
-    position: absolute;
-    top: 6rem;
-    left: 23rem;
-    width: calc(95% - 26rem);
-    height: 0;
-    border-top: 2px solid utils.$color-pink;
-    border-right: 2px solid utils.$color-pink;
-    transition: all 2s ease;
+  // > .name {
+  //   position: relative;
+  //   z-index: 10;
+  //   margin: 0 20px;
+  //   font-size: 4rem;
+  //   font-weight: 600;
+  //   transition: all 0.1s ease;
 
-    @include sp {
-      top: 10rem;
+  //   &:hover {
+  //     color: utils.$color-pink;
+  //     text-decoration: underline;
+  //   }
+  // }
+
+  // > .details {
+  //   position: relative;
+  //   z-index: 10;
+  //   margin: 0 20px;
+  // }
+
+  // > .border {
+  //   position: absolute;
+  //   top: 6rem;
+  //   left: 23rem;
+  //   width: calc(95% - 26rem);
+  //   height: 0;
+  //   border-top: 2px solid utils.$color-pink;
+  //   border-right: 2px solid utils.$color-pink;
+  //   transition: all 2s ease;
+
+  //   @include sp {
+  //     top: 10rem;
+  //   }
+
+  //   &.-in-view {
+  //     height: calc(60% + 26rem);
+  //     max-height: 70%;
+  //   }
+  // }
+
+  // > .end-year {
+  //   position: absolute;
+  //   top: calc(60% + 16rem);
+  //   right: 0;
+  //   height: 0;
+  //   overflow: hidden;
+  //   transition: all 1s ease;
+  //   transition-delay: 0.5s;
+
+  //   &.-in-view {
+  //     height: 200px;
+  //   }
+  // }
+
+  &:hover {
+    flex-basis: 50%;
+
+    > * {
+      display: block;
     }
 
-    &.-in-view {
-      height: calc(60% + 26rem);
-      max-height: 70%;
-    }
-  }
-
-  > .end-year {
-    position: absolute;
-    top: calc(60% + 16rem);
-    right: 0;
-    height: 0;
-    overflow: hidden;
-    transition: all 1s ease;
-    transition-delay: 0.5s;
-
-    &.-in-view {
-      height: 200px;
+    > .image {
+      width: 100%;
     }
   }
 }
