@@ -18,16 +18,9 @@
   }
 
   @include sp {
-    flex: 1 0 90vh;
+    flex: 1 0 100dvh;
     height: unset;
-
-    &:last-of-type {
-      flex: 1 0 100dvh;
-
-      > .contents {
-        padding-bottom: 100px;
-      }
-    }
+    padding-bottom: 100px;
   }
 
   > .contents {
