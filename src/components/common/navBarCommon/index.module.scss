@@ -80,24 +80,23 @@
   &::before {
     position: absolute;
     top: calc(50% - 5px);
-    left: -20px;
+    left: -10px;
+    z-index: -1;
     display: none;
-    width: 10px;
+    width: calc(100% + 20px);
     height: 10px;
     content: '';
-    background-color: #fff;
-    border-radius: 50%;
+    background-color: utils.$color-pink;
   }
 
   &.-active::before {
     display: block;
-    background-color: utils.$color-pink;
   }
 
   &:not(.-active):hover::before {
     display: block;
-    background-color: transparent;
-    animation: indicator 0.7s linear infinite;
+    width: 0;
+    animation: indicator 1.5s ease-in-out infinite;
   }
 
   @include sp {
@@ -110,68 +109,76 @@
 }
 
 @keyframes indicator {
-  0% {
-    background: radial-gradient(
-      circle at center,
-      transparent 20%,
-      utils.$color-pink 20%,
-      utils.$color-pink 30%,
-      transparent 30%
-    );
-    transform: scale(1);
-  }
-
-  25% {
-    background: radial-gradient(
-      circle at center,
-      transparent 40%,
-      utils.$color-pink 40%,
-      utils.$color-pink 50%,
-      transparent 50%
-    );
-    transform: scale(1.25);
-  }
-
   50% {
-    background: radial-gradient(
-      circle at center,
-      transparent 20%,
-      utils.$color-pink 20%,
-      utils.$color-pink 30%,
-      transparent 30%,
-      transparent 60%,
-      utils.$color-pink 70%,
-      utils.$color-pink 70%
-    );
-    transform: scale(1.5);
-  }
-
-  75% {
-    background: radial-gradient(
-      circle at center,
-      transparent 40%,
-      utils.$color-pink 40%,
-      utils.$color-pink 50%,
-      transparent 50%,
-      transparent 80%,
-      utils.$color-pink 90%,
-      utils.$color-pink 90%
-    );
-    transform: scale(1.25);
+    width: calc(100% + 20px);
   }
 
   100% {
-    background: radial-gradient(
-      circle at center,
-      transparent 0,
-      utils.$color-pink 10%,
-      utils.$color-pink 20%,
-      transparent 20%,
-      transparent 60%,
-      utils.$color-pink 60%,
-      utils.$color-pink 70%,
-      transparent 70%
-    );
-    transform: scale(1);
+    width: 0;
   }
+
+  // 0% {
+  //   background: radial-gradient(
+  //     circle at center,
+  //     transparent 20%,
+  //     utils.$color-pink 20%,
+  //     utils.$color-pink 30%,
+  //     transparent 30%
+  //   );
+  //   transform: scale(1);
+  // }
+
+  // 25% {
+  //   background: radial-gradient(
+  //     circle at center,
+  //     transparent 40%,
+  //     utils.$color-pink 40%,
+  //     utils.$color-pink 50%,
+  //     transparent 50%
+  //   );
+  //   transform: scale(1.25);
+  // }
+
+  // 50% {
+  //   background: radial-gradient(
+  //     circle at center,
+  //     transparent 20%,
+  //     utils.$color-pink 20%,
+  //     utils.$color-pink 30%,
+  //     transparent 30%,
+  //     transparent 60%,
+  //     utils.$color-pink 70%,
+  //     utils.$color-pink 70%
+  //   );
+  //   transform: scale(1.5);
+  // }
+
+  // 75% {
+  //   background: radial-gradient(
+  //     circle at center,
+  //     transparent 40%,
+  //     utils.$color-pink 40%,
+  //     utils.$color-pink 50%,
+  //     transparent 50%,
+  //     transparent 80%,
+  //     utils.$color-pink 90%,
+  //     utils.$color-pink 90%
+  //   );
+  //   transform: scale(1.25);
+  // }
+
+  // 100% {
+  //   background: radial-gradient(
+  //     circle at center,
+  //     transparent 0,
+  //     utils.$color-pink 10%,
+  //     utils.$color-pink 20%,
+  //     transparent 20%,
+  //     transparent 60%,
+  //     utils.$color-pink 60%,
+  //     utils.$color-pink 70%,
+  //     transparent 70%
+  //   );
+  //   transform: scale(1);
+  // }
 }
