@@ -1,6 +1,59 @@
 @use '~/styles/utils.scss';
 @use '~/styles/mixins' as *;
 
+.details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(
+    to right,
+    transparent 40%,
+    utils.$color-navy-overlay 100%
+  );
+  background-position: 100%;
+  background-size: 300%;
+  transition: all 0.3s ease-in-out;
+
+  > * {
+    text-shadow: 0 0 10px utils.$color-navy-overlay;
+    user-select: none;
+  }
+
+  > .index {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    font-size: 60px;
+    font-weight: 600;
+    transition: all 0.5s ease-in-out;
+  }
+
+  > :not(.index) {
+    text-align: end;
+  }
+
+  > .name {
+    font-size: 1.6rem;
+    white-space: nowrap;
+  }
+
+  > .year {
+    font-weight: 300;
+  }
+
+  > .year > .start {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  @include sp {
+    padding: 10px;
+  }
+}
+
 .card-wrapper {
   --n-of-cards: 4;
 
@@ -15,8 +68,9 @@
   border-radius: 16px;
   transition: all 0.5s ease-in-out;
 
-  > :not(.image) {
-    display: none;
+  > .details > :not(.index) {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
   }
 
   > .image {
@@ -98,8 +152,20 @@
   &:hover {
     flex-basis: 50%;
 
-    > * {
-      display: block;
+    > .details {
+      background-size: 100%;
+    }
+
+    > .details > * {
+      opacity: 1;
+    }
+
+    > .details > .index {
+      translate: -100% 0;
+
+      @include sp {
+        translate: 0 -200%;
+      }
     }
 
     > .image {

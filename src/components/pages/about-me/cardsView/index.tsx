@@ -35,7 +35,7 @@ const experiences = [
   {
     startYear: 2015,
     endYear: 2019,
-    name: 'University of Electronic Science and Technology of China',
+    name: 'UESTC',
     department: 'Software Engineering',
     degree: 'Bachelor of Engineering',
     imagePath: `${UNSPLASH_IMAGE_PATH}photo-1593007187880-0d2dee3c90e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
@@ -47,7 +47,7 @@ export const CardsView = () => {
   return (
     <div className={styles['cards-view']}>
       {experiences.map((experience, index) => (
-        <ExperienceCard experience={experience} key={index} />
+        <ExperienceCard experience={experience} index={index} key={index} />
       ))}
     </div>
   );
