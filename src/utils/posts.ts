@@ -12,7 +12,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import rehypeToc from 'rehype-toc';
-import remarkGfm from 'remark-gfm';
+// import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import sanitizeHtml from 'sanitize-html';
@@ -27,7 +27,7 @@ const postsDirectory = path.join(process.cwd(), 'src/posts');
  */
 export const getPostSlugs = () => {
   const allPosts = fs.readdirSync(postsDirectory);
-  return allPosts.map((post: string) => post.replace(/\.md$/, ''));
+  return allPosts.map((post: string) => post.replace(/\.mdx$/, ''));
 };
 
 /**
@@ -38,8 +38,8 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
 
   // NOTE: to exclude directories
   try {
-    const realSlug = slug.replace(/\.md$/, '');
-    const fullPath = path.join(postsDirectory, `${realSlug}.md`);
+    const realSlug = slug.replace(/\.mdx$/, '');
+    const fullPath = path.join(postsDirectory, `${realSlug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
@@ -146,7 +146,7 @@ export const markdownToHtml = async (markdown: string) => {
       cssClasses: { toc: 'toc-wrapper' },
     })
     .use(rehypeStringify)
-    .use(remarkGfm)
+    // .use(remarkGfm)
     .process(markdown);
 
   return result.toString();

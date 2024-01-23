@@ -3,15 +3,16 @@ title: Note | I finally used algorithms at work - an episode of solving a front-
 date: 2023-12-13 18:24:50
 language: English
 tags:
-- Programming
-- Next.js
-- Algorithms
-- Front-end
+  - Programming
+  - Next.js
+  - Algorithms
+  - Front-end
 ---
 
 I am not writing this essay because it is a big deal. Instead, I just needed to do something to save this moment of thrill, so I wrote this journal.
 
 ## The odd table specifications
+
 In this CMS-like project, we have a common table component to display various structured data. With cells merging horizontally and vertically in unpredictable forms, the table is designed to be responsive - yes, on cell phone screens, every row of the table is supposed to display as a card; thus, the whole table on a laptop is transforming into a list of cards and inside which are classic key-value pairs.
 
 Throughout the development, the worst part was not manipulating properties like ￼`colSpan`￼ and ￼`rowSpan`￼ or even trying to make them common functionalities but making a multi-hierarchy-header table to make its appearance as a card list. Each of them should contain the complete information of the original header hierarchy perfectly using indents (which are strictly limited to at most two levels - said our client, of course). What the heck should I do to deconstruct and reconstruct these row data?
@@ -23,6 +24,7 @@ Firstly, I want to talk about the table implementation. We looked through many R
 Following its definition of table header format, we defined our header structure like the below:
 
 <!--rehype:data-language=typescript-->
+
 ```ts
 const tableColumns: ColumnsType<SecondTableRecordType> = [
   {
@@ -51,13 +53,14 @@ const tableColumns: ColumnsType<SecondTableRecordType> = [
     ],
   },
 ];
-
 ```
-*A sample from the documentation*
+
+_A sample from the documentation_
 
 When we pass the data, we need to reform it as an array of objects like the code below:
 
 <!--rehype:data-language=typescript-->
+
 ```ts
 const tableData: SecondTableRecordType[] = [
   {
@@ -77,9 +80,9 @@ const tableData: SecondTableRecordType[] = [
     key: '2',
   },
 ];
-
 ```
-*Also a sample from the documentation*
+
+_Also a sample from the documentation_
 
 Ta-da! A perfect table greatly matching our needs made its debut in our project.
 
@@ -104,13 +107,14 @@ I do not want to explain in my own words, so the below is from Wikipedia.
 Compared to its sibling, BFS (breadth-first search), to put it simply, DFS means once the code meets a node with children, it goes deeper for the children. Meanwhile, BFS means when the code encounters a node with children, it saves the node for later processing and goes for the node next to the previous one.
 
 ![DFS and BFS](/images/dfs-and-bfs.webp)
-*DFS and BFS graph I borrowed from [Vaidehi Joshi's blog](https://medium.com/basecs/breaking-down-breadth-first-search-cebe696709d9)*
+_DFS and BFS graph I borrowed from [Vaidehi Joshi's blog](https://medium.com/basecs/breaking-down-breadth-first-search-cebe696709d9)_
 
 ### What is the code like in typescript?
 
 The rc-table library defined the header column type as below.
 
 <!--rehype:data-language=typescript-->
+
 ```ts
 type HeaderColumn = {
   title: string;
@@ -123,6 +127,7 @@ type HeaderColumn = {
 The first thing I did was to define the node type. Simply adding a `data`property for the data assignment would do.
 
 <!--rehype:data-language=typescript-->
+
 ```ts
 type Data = {
   title: string;
@@ -137,6 +142,7 @@ Following the basic ideas of DFS and the nature of the type definition, the logi
 The prototype of the code should be like the one below.
 
 <!--rehype:data-language=typescript-->
+
 ```ts
 const processedData = data.map((row) => {
   const processNode = (node: Data) => {
@@ -150,6 +156,7 @@ const processedData = data.map((row) => {
   return (columns as HeaderColumn[]).map((field) => processNode(field as Data));
 });
 ```
+
 When I wrote down this code and checked the display, I found that data was perfectly assigned to each field. I once thought I had succeeded and was like, “What a wonderful life!”. However, when I looked carefully at the exact value of each data assigned, I found out that all cards in the list displayed the same data from the last row of the table.
 
 The next day, words like “reference” and “copy” occurred to me. I realised that the cards kept showing the same data because every time a new row was passed to the `processNode` method, the old row got overwritten as we kept passing the exact reference of the `columns`!
@@ -157,6 +164,7 @@ The next day, words like “reference” and “copy” occurred to me. I realis
 So, cloning the columns and the nodes first got my problem solved.
 
 <!--rehype:data-language=typescript-->
+
 ```ts
 const processedData = useMemo(
   () =>
@@ -166,7 +174,7 @@ const processedData = useMemo(
         const clonedNode = { ...node };
         if (clonedNode.children)
           clonedNode.children = clonedNode.children.map((child) =>
-            processNode(child)
+            processNode(child),
           );
 
         if (clonedNode.dataIndex) {
@@ -177,10 +185,10 @@ const processedData = useMemo(
       };
       return clonedColumns.map((field) => processNode(field as Data));
     }),
-  [columns, data]
+  [columns, data],
 );
-
 ```
+
 Of course, we did not want our data to get reprocessed repeatedly simply because some unimportant state changed, so we wrapped the method with `useMemo()`(Sorry, I should have mentioned that this was a Next.js project).
 
 ## At last

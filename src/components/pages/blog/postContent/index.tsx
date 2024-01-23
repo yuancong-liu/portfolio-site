@@ -1,8 +1,8 @@
 'use client';
-import { useMemo, useRef } from 'react';
+import { Suspense, useMemo, useRef } from 'react';
 
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import { useOnHashChange } from '~/hooks/libs/useOnHashChange';
 
@@ -10,9 +10,11 @@ import 'highlight.js/styles/github-dark-dimmed.min.css';
 import styles from './index.module.scss';
 
 import './index.css';
+import { ImageWithLoading } from '~/components/common/image/imageWithLoading';
+import { LoadingIndicator } from '~/components/common/loadingIndicator';
 
 type Props = {
-  content: string;
+  content: MDXRemoteSerializeResult;
 };
 
 export const PostContent = ({ content }: Props) => {
@@ -48,23 +50,6 @@ export const PostContent = ({ content }: Props) => {
 
   useOnHashChange({ callback: toggleToc });
 
-  // TODO: think about how to use this
-  // usePostProcessing({ content: contentRef });
-
-  const contentMemo = useMemo(
-    () => (
-      <motion.div
-        ref={contentRef}
-        variants={toc}
-        initial="hidden"
-        animate="visible"
-        dangerouslySetInnerHTML={{ __html: content }}
-        className={classNames(styles['content-wrapper'], {})}
-      />
-    ),
-    [content, toc],
-  );
-
   return (
     <>
       <div className={styles['toc-back-wrapper']}>
@@ -72,7 +57,18 @@ export const PostContent = ({ content }: Props) => {
           On this page
         </button>
       </div>
-      {contentMemo}
+      <Suspense fallback={<LoadingIndicator />}>
+        <MDXRemote {...content} components={components} />
+      </Suspense>
     </>
   );
+};
+
+const components = {
+  img: (props: any) => {
+    return <ImageWithLoading {...props} />;
+  },
+  p: (props: any) => {
+    return <p {...props} />;
+  },
 };

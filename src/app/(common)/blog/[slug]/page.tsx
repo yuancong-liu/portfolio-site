@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypeToc from 'rehype-toc';
+import remarkGfm from 'remark-gfm';
 import sanitize from 'sanitize-html';
 
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
@@ -9,11 +12,11 @@ import {
   convertTagToParam,
   getAllPosts,
   getPostBySlug,
-  markdownToHtml,
   sanitizeConfig,
 } from '~/utils/posts';
 
 import styles from './index.module.scss';
+import rehypeHighlight from 'rehype-highlight';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
@@ -58,6 +61,21 @@ const PostPage = async ({ params }: Props) => {
   };
 
   const sanitizedHtml = sanitize(post.content, sanitizeConfig);
+  const content = await serialize(sanitizedHtml, {
+    mdxOptions: {
+      rehypePlugins: [
+        [
+          rehypeToc,
+          {
+            headings: ['h2', 'h3'],
+            cssClasses: { toc: 'toc-wrapper' },
+          },
+        ],
+        rehypeHighlight,
+      ] as any,
+      remarkPlugins: [remarkGfm],
+    },
+  });
 
   return (
     <>
@@ -73,7 +91,7 @@ const PostPage = async ({ params }: Props) => {
         <p className={styles['date']}>{getDateString(post.date)}</p>
       </header>
       <main className={styles['main-wrapper']}>
-        <PostContent content={sanitizedHtml} />
+        <PostContent content={content} />
         <div className={styles['adjacent-posts']}>
           <AdjacentPosts slug={post.slug} />
         </div>
@@ -101,13 +119,13 @@ const getPost = async ({ slug }: { slug: string }) => {
     'tags',
   ]);
 
-  const content = await markdownToHtml(post.content || '');
+  // const content = await markdownToHtml(post.content || '');
 
   return {
     post: JSON.parse(
       JSON.stringify({
         ...post,
-        content,
+        // content,
       }),
     ),
   };

@@ -3,9 +3,9 @@ title: Note | Hub.listen不要亂用事件
 date: 2023-02-13 01:59:38
 language: 中文
 tags:
-- Front-end
-- Programming
-- Vue
+  - Front-end
+  - Programming
+  - Vue
 ---
 
 ## 背景
@@ -14,19 +14,26 @@ tags:
 最開始的實現如下，預期效果：websocket 變為 pending 時顯示對話框，重新連結成功時關閉對話框並重新取得數據。
 
 <!--rehype:data-language=javascript-->
+
 ```javascript
 import { Hub } from 'aws-amplify';
 import { CONNECTION_STATE_CHANGE, ConnectionState } from '@aws-amplify/pubsub';
 
 Hub.listen('api', async (data) => {
-	if (data.payload.event === CONNECTION_STATE_CHANGE) {
-		if (data.payload.data.connectionState === ConnectionState.ConnectedPendingNetwork) {
-			openToast('net-error');
-		} else if (hasPended.value && data.payload.data.connectionState === ConnectionState.Connected) {
-			reloadTable();
-			closeToast();
-		}
-	}
+  if (data.payload.event === CONNECTION_STATE_CHANGE) {
+    if (
+      data.payload.data.connectionState ===
+      ConnectionState.ConnectedPendingNetwork
+    ) {
+      openToast('net-error');
+    } else if (
+      hasPended.value &&
+      data.payload.data.connectionState === ConnectionState.Connected
+    ) {
+      reloadTable();
+      closeToast();
+    }
+  }
 });
 ```
 
@@ -40,15 +47,14 @@ Hub.listen('api', async (data) => {
 解決這個問題，還是只有回歸到最原始的 eventListener 身上來。。
 
 <!--rehype:data-language=javascript-->
+
 ```javascript
 window.addEventListener('offline', () => {
-	openToast('net-error');
+  openToast('net-error');
 });
 
 window.addEventListener('online', () => {
-	reloadTable();
-	closeToast();
+  reloadTable();
+  closeToast();
 });
 ```
-
-
