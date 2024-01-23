@@ -3,47 +3,49 @@ title: Translation | Another 2001 中文 <#03>
 date: 2021-08-31 18:35:50
 language: 中文
 tags:
-- Translation
+  - Translation
 ---
 
-![Another 2001](/images/another-2001-cover.jpg)
-*Another 2001 - 綾辻行人*
+![Another 2001](https://lh3.googleusercontent.com/pw/ABLVV86h-pLePpCZpqMPdhJNEcZjwL-s5h8lsHZDyj_LaImWTi3DPFh6ZNsmH6NV5wEEqai2OKGEdXi2nhxfluaj9o913kyfYKn5pazvGsf2kHxAOJnCd9Q=w2400)
+_Another 2001 - 綾辻行人_
 
 ### 目录（更新中）
-* [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
-* [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
-* Part I ………Y.H.
-	* [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
-	* **Chapter 1: April I**
-	* [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
-	* Chapter 3: April III
-	* Chapter 4: April IV
-	* Chapter 5: April V
-	* Interlude
-	* Chapter 6: May I
-* Part II ………I.A.
-	* Chapter 7: May II
-	* Interlude II
-	* Chapter 8: June I
-	* Chapter 9: June II
-	* Interlude III
-	* Chapter 10: June III
-	* Chapter 11: July I
-* Part III ………M.M.
-	* Interlude IV
-	* Chapter 12: July II
-	* Chapter 13: August
-	* Chapter 14: September I
-	* Chapter 15: September II
-	* Interlude V
-	* Chapter 16: September III
-	* Outroduction
 
+- [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
+- [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
+- Part I ………Y.H.
+  - [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
+  - **Chapter 1: April I**
+  - [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
+  - Chapter 3: April III
+  - Chapter 4: April IV
+  - Chapter 5: April V
+  - Interlude
+  - Chapter 6: May I
+- Part II ………I.A.
+  - Chapter 7: May II
+  - Interlude II
+  - Chapter 8: June I
+  - Chapter 9: June II
+  - Interlude III
+  - Chapter 10: June III
+  - Chapter 11: July I
+- Part III ………M.M.
+  - Interlude IV
+  - Chapter 12: July II
+  - Chapter 13: August
+  - Chapter 14: September I
+  - Chapter 15: September II
+  - Interlude V
+  - Chapter 16: September III
+  - Outroduction
 
 註：由於Markdown語法限制，著重符號改為*斜體*
 
 ## Chapter 1: April I
+
 ### 1
+
 春天到來，我也終於在升上三年級的前一天完成了搬家。
 
 雖說是搬家，但也不是那麼勞神費力的事情。距離上來說，水平方向不到100公尺，垂直方向也只有十幾公尺，也就是簡單地移動了一下一些生活必需品而已。
@@ -90,15 +92,16 @@ tags:
 
 我從眼前展開的夜見山夜景中移開目光，長舒一口氣，重重地閉上了眼睛。
 
-*但是，從明天開始。*
+_但是，從明天開始。_
 
-*一切都看明天的情況*，我⋯⋯
+_一切都看明天的情況_，我⋯⋯
 
 我閉著眼睛，準備長舒第二口氣的時候——
 
 微弱的電子音從房間裡傳來。是手機的鈴聲。
 
 ### 2
+
 難道是*她*打來的？
 
 我這樣想著，有一些緊張地拿起了銀色的手機。結果期待完全落空了，顯示屏上顯示的是沒有備註名字的電話號碼——
@@ -184,6 +187,7 @@ tags:
 在那之後我想我會改姓「赤澤」，但還沒有決定好。
 
 ### 3
+
 人際關係有些許複雜，我在這裡梳理一下吧。
 
 我在夜見山打擾的赤澤家，聽說以前是飛井町附近的大地主。先代（話是這樣說，現在也還健在）赤澤浩宗有三個兒子，老大是春彥，老二是夏彥，然後老三是冬彥。被我叫做「赤澤家的伯父」的是老大的春彥，「赤澤家的阿姨」就是他的夫人小百合（譯註：原文為平假名さゆり）。
@@ -199,6 +203,7 @@ tags:
 赤澤浩宗有三個兒子，其中老三冬彥，其實就是我的生父。他在我出生不久就去世了，但是——這是我升上國中之後才聽到的故事——他是精神方面出了問題自殺的。
 
 ### 4
+
 搬家的紙箱子一個一個打開，把生活必需品都拿出來之後，已經幾乎是午夜了。
 
 明天雖有開學典禮，但是要帶走的東西幾乎沒有。從箱子裡面把制服拿出來掛在衣架上，也算暫且把明天的準備做好了。
@@ -218,7 +223,7 @@ tags:
 
 郵件的最後有一句不太起眼的話，讓我心悸了一下。
 
-> 祈禱明天開始不要有事情發生。  
+> 祈禱明天開始不要有事情發生。
 
 *三年級三班的特殊情況*基本上來說是“內部秘密”，但是居然傳到他的耳朵裡了。雖然這樣的事情沒有傳開反而更奇怪⋯⋯
 看完兩封郵件，我把放在筆電一旁的手機拿了起來。自從赤澤——小百合阿姨打來之後便沒有人再打來了。
@@ -262,7 +267,7 @@ tags:
 
 > 想  
 > 學校，是明天開學吧。  
-> ——要小心。  
+> ——要小心。
 
 比起開心，這個時候更多的是安心的感覺。
 
@@ -277,6 +282,7 @@ tags:
 「沒事的。我會努力的」
 
 ### 5
+
 從來到夜見山開始，我逐漸養成了只要不是特別累或是身體不好，都是早上六點半左右起床的習慣。不過還是會害怕會睡過頭，所以為了以防萬一還是有設定鬧鐘。
 
 但是醒來我也不會立刻起床。
@@ -289,9 +295,9 @@ tags:
 
 小聲說著，點點頭，起了身。
 
-*我還活著。*
+_我還活著。_
 
-公元二零零一年四月九日，星期一，*我還活著*。——嗯，OK。
+公元二零零一年四月九日，星期一，_我還活著_。——嗯，OK。
 
 換了衣服走出房門，給房間上了鎖。
 
@@ -334,6 +340,7 @@ tags:
 早上六點五十分——離上課時間還早得很。
 
 ### 6
+
 去赤澤本家那邊吃了早飯，都還離上課還有很長時間。
 
 「那我出門了」
@@ -438,7 +445,7 @@ HAZUMI YUIKA——葉住，結香。
 
 「比良塚⋯⋯」
 
-「我在，*練習*」
+「我在，_練習_」
 
 我說道。我並沒有看她，聲音也沒什麼起伏。
 
@@ -470,7 +477,7 @@ HAZUMI YUIKA——葉住，結香。
 
 我說道。
 
-「之後會怎麼樣，應該很快就會知道了。*到了那個時候*，果然還是要『請多指教』吧」
+「之後會怎麼樣，應該很快就會知道了。_到了那個時候_，果然還是要『請多指教』吧」
 
 這個時候和葉住的對話，到此就結束了。總覺得一起走去學校還是有些不自然——
 
@@ -483,6 +490,7 @@ HAZUMI YUIKA——葉住，結香。
 「那個葉住同學，以後可以直接將我『想』嗎？我不太喜歡別人叫我比良塚」
 
 ### 7
+
 到學校是八點四十五分了。
 
 開學典禮是9點開始。
@@ -549,9 +557,9 @@ HAZUMI YUIKA——葉住，結香。
 
 然後，一小會的功夫——
 
-在除了我，全體同學都就座的時間點，*事態便清晰了起來*。
+在除了我，全體同學都就座的時間點，_事態便清晰了起來_。
 
-教室裡準備的桌椅，已經全部坐滿了學生了，數量正好。唯一站在門口的我沒有位置可坐。——*教室裡缺了一組桌椅*。
+教室裡準備的桌椅，已經全部坐滿了學生了，數量正好。唯一站在門口的我沒有位置可坐。——_教室裡缺了一組桌椅_。
 
 「啊⋯⋯」
 
@@ -561,13 +569,14 @@ HAZUMI YUIKA——葉住，結香。
 
 我感到她的視線，輕輕點了點頭。
 
-然後，我看向講台上的神林老師。注意到我的她，點點頭移開視線。我一言不發離開了教室，開始履行我的職責——*作為今年班裡「不存在的人」*。
+然後，我看向講台上的神林老師。注意到我的她，點點頭移開視線。我一言不發離開了教室，開始履行我的職責——_作為今年班裡「不存在的人」_。
 
 矢木澤的樂觀猜測果然過於樂觀了。雖然連續兩年都是「沒有的一年」，但是果然沒有*結束*。雖然進入了二十一世紀，但是果然沒有*結束*——果然沒可能結束。
 
-以二十九年前MISAKI的死亡為契機開始的三班的特異「現象」，二十九年後的現在也還在繼續⋯⋯而且和我之前預感的一樣，*今年*——*二零零一學年果然，是「有的一年」*。
+以二十九年前MISAKI的死亡為契機開始的三班的特異「現象」，二十九年後的現在也還在繼續⋯⋯而且和我之前預感的一樣，_今年_——_二零零一學年果然，是「有的一年」_。
 
 ### 8
+
 「大家懷著紀念的心情，開始了錯誤的接受方法。對於MISAKI的“死”」
 
 我想起了二月見到見崎鳴的時候她說的話。還有那時我自己說的話。
@@ -576,11 +585,11 @@ HAZUMI YUIKA——葉住，結香。
 
 據說，那就是一切的開端。
 
-畢業典禮之後拍攝的集體照裡，*明明不存在在這個世界上的MISAKI卻出現了*。於是從第二年開始，夜見北的三年級三班裡，開始了不可思議的「現象」。
+畢業典禮之後拍攝的集體照裡，_明明不存在在這個世界上的MISAKI卻出現了_。於是從第二年開始，夜見北的三年級三班裡，開始了不可思議的「現象」。
 
 首先，四月新學期開始的時候，教室裡少了一組桌椅。其原因便是——
 
-「*班級裡多了一個人，但是誰都沒有注意到。*」
+「_班級裡多了一個人，但是誰都沒有注意到。_」
 
 關於這個「現象」，國中入學前或多或少有聽到一些事情——從三年前去世的晃也舅舅那裡。
 
@@ -691,13 +700,14 @@ HAZUMI YUIKA——葉住，結香。
 
 這之後，作為更深入討論的結果——
 
-*今年的「對策」，追加了一項巨大的變動。*
+_今年的「對策」，追加了一項巨大的變動。_
 
 <br>
 <br>
 <br>
 
 ---
+
 Another 2001
 
 by Yukito Ayatsuji
@@ -706,6 +716,4 @@ Copyright © 2020 by Yukito Ayatsuji
 
 First published 2020 in Japan by KADOKAWA CORPORATION
 
-
 封面：遠田志帆
-

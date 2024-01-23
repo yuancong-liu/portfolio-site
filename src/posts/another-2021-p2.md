@@ -3,47 +3,49 @@ title: Translation | Another 2001 中文 <#02>
 date: 2021-08-24 15:40:50
 language: 中文
 tags:
-- Translation
+  - Translation
 ---
 
-![Another 2001](/images/another-2001-cover.jpg)
-*Another 2001 - 綾辻行人*
+![Another 2001](https://lh3.googleusercontent.com/pw/ABLVV86h-pLePpCZpqMPdhJNEcZjwL-s5h8lsHZDyj_LaImWTi3DPFh6ZNsmH6NV5wEEqai2OKGEdXi2nhxfluaj9o913kyfYKn5pazvGsf2kHxAOJnCd9Q=w2400)
+_Another 2001 - 綾辻行人_
 
 ### 目录（更新中）
-* [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
-* [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
-* Part I ………Y.H.
-	* **Introduction**
-	* [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p3/)
-	* [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
-	* Chapter 3: April III
-	* Chapter 4: April IV
-	* Chapter 5: April V
-	* Interlude
-	* Chapter 6: May I
-* Part II ………I.A.
-	* Chapter 7: May II
-	* Interlude II
-	* Chapter 8: June I
-	* Chapter 9: June II
-	* Interlude III
-	* Chapter 10: June III
-	* Chapter 11: July I
-* Part III ………M.M.
-	* Interlude IV
-	* Chapter 12: July II
-	* Chapter 13: August
-	* Chapter 14: September I
-	* Chapter 15: September II
-	* Interlude V
-	* Chapter 16: September III
-	* Outroduction
 
+- [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
+- [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
+- Part I ………Y.H.
+  - **Introduction**
+  - [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p3/)
+  - [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
+  - Chapter 3: April III
+  - Chapter 4: April IV
+  - Chapter 5: April V
+  - Interlude
+  - Chapter 6: May I
+- Part II ………I.A.
+  - Chapter 7: May II
+  - Interlude II
+  - Chapter 8: June I
+  - Chapter 9: June II
+  - Interlude III
+  - Chapter 10: June III
+  - Chapter 11: July I
+- Part III ………M.M.
+  - Interlude IV
+  - Chapter 12: July II
+  - Chapter 13: August
+  - Chapter 14: September I
+  - Chapter 15: September II
+  - Interlude V
+  - Chapter 16: September III
+  - Outroduction
 
-註：由於Markdown語法限制，著重符號改為*斜體_
+註：由於Markdown語法限制，著重符號改為\*斜體\_
 
 # Part I ………Y.H.
+
 ## Introduction
+
 說起來，上次的事情，你怎麼想？
 
 上次的⋯⋯你是說畢業生們說的那件事？
@@ -188,7 +190,8 @@ tags:
 <br>
 <br>
 
-- - - -
+---
+
 Another 2001
 
 by Yukito Ayatsuji
@@ -197,7 +200,4 @@ Copyright © 2020 by Yukito Ayatsuji
 
 First published 2020 in Japan by KADOKAWA CORPORATION
 
-
 封面：遠田志帆
-
-

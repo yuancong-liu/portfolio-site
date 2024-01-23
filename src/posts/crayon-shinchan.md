@@ -3,12 +3,11 @@ title: Translation | 首先記住這些吧！《蠟筆小新》系列入門專�
 date: 2020-05-24 03:38:02
 language: 中文
 tags:
-- Translation
+  - Translation
 ---
 
-![Shinchan Kettle Vol.52](/images/shinchan-kettle.jpg)
-*ケトル Vol. 53 April 2020*
-
+![Shinchan Kettle Vol.52](https://lh3.googleusercontent.com/pw/ABLVV85dv_WCIqRWAeg6rRP0kASjcY0GY_Q00PZgrmYeTPWACmpda1swGRTW0HLvO_fVTn2iNzXkiBf0cSXj0G7v04GzlG-NaxY80mep7oCD-Xr5OvXBsEg=w2400)
+_ケトル Vol. 53 April 2020_
 
 文/小山田裕哉
 
@@ -106,6 +105,3 @@ tags:
 原作中作为新之助的玩具登场的“康达姆机器人”也是在动画系列中被扩张其设定，后来也衍生出剧中剧《超电导康达姆机器人》。放送开始时的专属的主题歌和片头也获得了相当的人气。后来更是在2014年的电影《大对决！机器人爸爸的反击》中实现到电影中电影的进化。
 
 同样的，动感超人也时不时出现在系列中，甚至在原作41卷中出现了其后继者“动感超人女儿”。2013年开始「月刊アクション」还开始连载动感超人的外传作品。动感超人和康达姆机器人就是这样的在漫画中只是不经意被画到，其设定又在在动画中被扩充，后来又以更丰满的样子回到原作的，在如同是漫画和动画的幸福的投接球的过程中的不断进化的角色，现在已经是系列中不可或缺的角色。
-
-
-

@@ -3,47 +3,49 @@ title: Translation | Another 2001 中文 <#04>
 date: 2021-09-06 18:17:50
 language: 中文
 tags:
-- Translation
+  - Translation
 ---
 
-![Another 2001](/images/another-2001-cover.jpg)
-*Another 2001 - 綾辻行人*
+![Another 2001](https://lh3.googleusercontent.com/pw/ABLVV86h-pLePpCZpqMPdhJNEcZjwL-s5h8lsHZDyj_LaImWTi3DPFh6ZNsmH6NV5wEEqai2OKGEdXi2nhxfluaj9o913kyfYKn5pazvGsf2kHxAOJnCd9Q=w2400)
+_Another 2001 - 綾辻行人_
 
 ### 目录（更新中）
-* [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
-* [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
-* Part I ………Y.H.
-	* [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
-	* [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p3/)
-	* **Chapter 2: April II**
-	* Chapter 3: April III
-	* Chapter 4: April IV
-	* Chapter 5: April V
-	* Interlude
-	* Chapter 6: May I
-* Part II ………I.A.
-	* Chapter 7: May II
-	* Interlude II
-	* Chapter 8: June I
-	* Chapter 9: June II
-	* Interlude III
-	* Chapter 10: June III
-	* Chapter 11: July I
-* Part III ………M.M.
-	* Interlude IV
-	* Chapter 12: July II
-	* Chapter 13: August
-	* Chapter 14: September I
-	* Chapter 15: September II
-	* Interlude V
-	* Chapter 16: September III
-	* Outroduction
 
+- [Tuning I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
+- [Tuning II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p1/)
+- Part I ………Y.H.
+  - [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
+  - [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p3/)
+  - **Chapter 2: April II**
+  - Chapter 3: April III
+  - Chapter 4: April IV
+  - Chapter 5: April V
+  - Interlude
+  - Chapter 6: May I
+- Part II ………I.A.
+  - Chapter 7: May II
+  - Interlude II
+  - Chapter 8: June I
+  - Chapter 9: June II
+  - Interlude III
+  - Chapter 10: June III
+  - Chapter 11: July I
+- Part III ………M.M.
+  - Interlude IV
+  - Chapter 12: July II
+  - Chapter 13: August
+  - Chapter 14: September I
+  - Chapter 15: September II
+  - Interlude V
+  - Chapter 16: September III
+  - Outroduction
 
 註：由於Markdown語法限制，著重符號改為*斜體*
 
 ## Chapter 2: April II
+
 ### 1
+
 開學典禮之後是新班級的第一次班會——作為「不存在的人」，我想還是按照字面意思*不存在*比較好，所以我早早就離開了。
 
 雖然有比較在意的問題，但我想她應該會好好處理的吧。一來是我也沒必要事無巨細地關注，二來是如果做了些多餘的事情把事情搞砸了就不好了。
@@ -133,6 +135,7 @@ tags:
 無意義地思考著自己要先邁哪一隻腳的同時，我回到了教學樓。
 
 ### 2
+
 走出教學樓，我走向操場南邊的後門。走到後門口，也沒有遇見三班的同學。直到我走出校門之後。
 
 「比良塚同學」
@@ -245,9 +248,10 @@ tags:
 
 二零零一年度三年級三班的「有的一年」的名單。首先我看見「比良塚想」的一欄被劃掉了，作為從現在開始到明年三月的畢業典禮為止，都要擔任「不存在的人」的我，這確實是必要的處理。然後——
 
-*這個名單裡，還有一個像這樣被劃掉的學生名字——葉住結香*。
+_這個名單裡，還有一個像這樣被劃掉的學生名字——葉住結香_。
 
 ### 3
+
 「這樣就可以了嗎？」
 
 三月末的「對策會議」上，有一個學生問了這樣的問題。
@@ -284,6 +288,7 @@ tags:
 那時，抽中籤，成為「第二個」的就是她——葉住結香。
 
 ### 4
+
 「嗯⋯老實講，我現在也不太相信」
 
 兩人在後門的坡上並排走的時候，葉住說道。
@@ -350,6 +355,7 @@ tags:
 「好——我沒關係的。所以想同學，請多指教喔」
 
 ### 5
+
 之後兩個人也是邊走邊聊天，主要是以我回答葉住的問題的形式。
 
 「你說班裡的『多餘的人』是『死者』，是真的嗎？」
@@ -575,8 +581,9 @@ tags:
 葉住佇立在原地，作為回應，在胸前揮了揮手。突如其來的狂風吹亂了她的長髮，擋住了她的臉，所以我並不知道那時她是什麼表情。
 
 ### 5
+
 > 夜見黃昏下，  
-> 虛無蒼之瞳。  
+> 虛無蒼之瞳。
 
 黑底白字的看板，從三年前第一次來拜訪的時候到現在，完全沒有變化。
 
@@ -681,6 +688,7 @@ tags:
 我走出人偶館，又一次看向「夜見黃昏下，虛無蒼之瞳。」的看板。「虛無蒼之瞳」這幾個字讓我想起鳴左眼的那個「人偶的眼睛」。
 
 ### 7
+
 現在還是偶爾會夢到。
 
 來到夜見山以前的——住在緋波町老家的時候的事情。夢到那些由一個個那時候的斷片所組成的，恐怖的夢。
@@ -765,6 +773,7 @@ tags:
 我也並沒有打算做到完全不接電話，或者是被搭話也不回應這麼絕的程度，但至少我決定不積極地採取溝通——嗯，至少現在的情況下，這樣會比較好。
 
 ### 8
+
 我走去洗面台，看著鏡子裡的自己。
 
 來到夜見山已經兩年七個月，看起來和剛來的時候變了不少。但白皙小巧的，有些中性的五官倒是沒什麼變化。已經經過了變聲期，聲音已經很低沉了，但是鬍子卻基本還沒長出來⋯⋯
@@ -852,7 +861,8 @@ tags:
 通話一結束，我將手機放回上衣口袋裡的時候，電梯廳附近的「E-1」的門（——之前的那個沒有名牌的房間），用力地打開了。
 
 ### 9
-雖然因為這突然的動作後退了一步，但也不是說被嚇到了。不過這個房間裡住著的人，*她*，突然出來了而已。
+
+雖然因為這突然的動作後退了一步，但也不是說被嚇到了。不過這個房間裡住著的人，_她_，突然出來了而已。
 
 從「E-1」裡出來的，和我的預期一樣，當然是我認識的人——
 
@@ -868,7 +878,7 @@ tags:
 
 「欸⋯⋯啊，嗯」
 
-寬大的運動服，牛仔褲，相當隨意的樣子，和原本的形象大相逕庭，但那張臉，那個聲音⋯⋯沒錯，不可能錯，*當然就是她*。
+寬大的運動服，牛仔褲，相當隨意的樣子，和原本的形象大相逕庭，但那張臉，那個聲音⋯⋯沒錯，不可能錯，_當然就是她_。
 
 今天在學校，三年級三班的教室裡也見到了。在開學典禮結束前往教室之後，對動搖的三班同學下達「總之大家先就座」的指示的她。今年的另一個對策委員的她——
 
@@ -1001,6 +1011,7 @@ tags:
 <br>
 
 ---
+
 Another 2001
 
 by Yukito Ayatsuji
@@ -1009,12 +1020,4 @@ Copyright © 2020 by Yukito Ayatsuji
 
 First published 2020 in Japan by KADOKAWA CORPORATION
 
-
 封面：遠田志帆
-
-
-
-
-
-
-

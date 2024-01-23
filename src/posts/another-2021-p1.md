@@ -3,42 +3,42 @@ title: Translation | Another 2001 中文 <#01>
 date: 2021-08-24 01:04:50
 language: 中文
 tags:
-- Translation
+  - Translation
 ---
 
-![Another 2001](/images/another-2001-cover.jpg)
-*Another 2001 - 綾辻行人*
+![Another 2001](https://lh3.googleusercontent.com/pw/ABLVV86h-pLePpCZpqMPdhJNEcZjwL-s5h8lsHZDyj_LaImWTi3DPFh6ZNsmH6NV5wEEqai2OKGEdXi2nhxfluaj9o913kyfYKn5pazvGsf2kHxAOJnCd9Q=w2400)
+_Another 2001 - 綾辻行人_
 
 ### 目录（更新中）
-* **Tuning I**
-* **Tuning II**
-* Part I ………Y.H.
-	* [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
-	* [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p3/)
-	* [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
-	* Chapter 3: April III
-	* Chapter 4: April IV
-	* Chapter 5: April V
-	* Interlude
-	* Chapter 6: May I
-* Part II ………I.A.
-	* Chapter 7: May II
-	* Interlude II
-	* Chapter 8: June I
-	* Chapter 9: June II
-	* Interlude III
-	* Chapter 10: June III
-	* Chapter 11: July I
-* Part III ………M.M.
-	* Interlude IV
-	* Chapter 12: July II
-	* Chapter 13: August
-	* Chapter 14: September I
-	* Chapter 15: September II
-	* Interlude V
-	* Chapter 16: September III
-	* Outroduction
 
+- **Tuning I**
+- **Tuning II**
+- Part I ………Y.H.
+  - [Introduction](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p2/)
+  - [Chapter 1: April I](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p3/)
+  - [Chapter 2: April II](https://www.yuan-cong.com/the-colorado-lounge/another-2021-p4/)
+  - Chapter 3: April III
+  - Chapter 4: April IV
+  - Chapter 5: April V
+  - Interlude
+  - Chapter 6: May I
+- Part II ………I.A.
+  - Chapter 7: May II
+  - Interlude II
+  - Chapter 8: June I
+  - Chapter 9: June II
+  - Interlude III
+  - Chapter 10: June III
+  - Chapter 11: July I
+- Part III ………M.M.
+  - Interlude IV
+  - Chapter 12: July II
+  - Chapter 13: August
+  - Chapter 14: September I
+  - Chapter 15: September II
+  - Interlude V
+  - Chapter 16: September III
+  - Outroduction
 
 註：由於Markdown語法限制，著重符號改為*斜體*
 
@@ -121,9 +121,8 @@ MISAKI就在*那兒*。實實在在地在那兒。MISAKI還活著。才沒死呢
 
 好。但，如果發生了那樣的事，我⋯⋯
 
-
-
 ## Tuning II
+
 **（被認為是）一九九八年的災厄的受害者一覽**
 
 **四月**
@@ -171,6 +170,7 @@ MISAKI就在*那兒*。實實在在地在那兒。MISAKI還活著。才沒死呢
 <br>
 
 ---
+
 Another 2001
 
 by Yukito Ayatsuji
@@ -178,6 +178,5 @@ by Yukito Ayatsuji
 Copyright © 2020 by Yukito Ayatsuji
 
 First published 2020 in Japan by KADOKAWA CORPORATION
-
 
 封面：遠田志帆
