@@ -14,8 +14,6 @@ tags:
 
 用下面command安裝[feed](https://www.npmjs.com/package/feed)庫（type-safe）。
 
-<!--rehype:data-language=shell-->
-
 ```shell
 yarn add feed
 ```
@@ -23,8 +21,6 @@ yarn add feed
 ## 編寫RSS生成方法
 
 在`utils/feed.ts`裡編寫一個`generateRssFeed`方法，其核心在於利用生成一個feed對象，為獲取的每一篇貼文生成feed信息。
-
-<!--rehype:data-language=typescript-->
 
 ```typescript
 import { Feed } from 'feed';
@@ -60,8 +56,6 @@ export const generateRssFeed = () => {
 
 `feed`庫已經幫我們簡化了操作流程，只需要在生成對象的時候註冊基本信息，利用對象方法生成feed時會自動用這些信息來生成。
 
-<!--rehype:data-language=typescript-->
-
 ```typescript
 // right after the feed object generation
 posts.forEach((post) => {
@@ -84,8 +78,6 @@ posts.forEach((post) => {
 
 用`fs`庫來幫我們把生成的feed文件寫入public目錄，以便讀取。
 
-<!--rehype:data-language=typescript-->
-
 ```typescript
 import fs from 'fs';
 
@@ -98,8 +90,6 @@ fs.writeFileSync('./public/rss/feed.json', feed.json1());
 
 最後，我們需要保證在build的時候這個`generateRssFeed`方法會被運行，具體做法是將這個方法放在任意一個`getStaticProps`裡，例如`index.tsx`或是博客首頁。
 
-<!--rehype:data-language=typescript-->
-
 ```typescript
 export const getStaticProps = async () => {
   generateRssFeed();
@@ -109,8 +99,6 @@ export const getStaticProps = async () => {
 ```
 
 检查最后生成的feed文件（以`feed.xml`为例）
-
-<!--rehype:data-language=xml-->
 
 ```xml
 <!-- ... -->

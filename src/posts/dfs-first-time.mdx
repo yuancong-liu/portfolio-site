@@ -23,8 +23,6 @@ Firstly, I want to talk about the table implementation. We looked through many R
 
 Following its definition of table header format, we defined our header structure like the below:
 
-<!--rehype:data-language=typescript-->
-
 ```ts
 const tableColumns: ColumnsType<SecondTableRecordType> = [
   {
@@ -58,8 +56,6 @@ const tableColumns: ColumnsType<SecondTableRecordType> = [
 _A sample from the documentation_
 
 When we pass the data, we need to reform it as an array of objects like the code below:
-
-<!--rehype:data-language=typescript-->
 
 ```ts
 const tableData: SecondTableRecordType[] = [
@@ -113,8 +109,6 @@ _DFS and BFS graph I borrowed from [Vaidehi Joshi's blog](https://medium.com/bas
 
 The rc-table library defined the header column type as below.
 
-<!--rehype:data-language=typescript-->
-
 ```ts
 type HeaderColumn = {
   title: string;
@@ -125,8 +119,6 @@ type HeaderColumn = {
 ```
 
 The first thing I did was to define the node type. Simply adding a `data`property for the data assignment would do.
-
-<!--rehype:data-language=typescript-->
 
 ```ts
 type Data = {
@@ -140,8 +132,6 @@ type Data = {
 Following the basic ideas of DFS and the nature of the type definition, the logic should go like this - when a node has a `dataIndex`, we search for the value to assign to `data`, or otherwise, it must have `children`, then we go deeper.
 
 The prototype of the code should be like the one below.
-
-<!--rehype:data-language=typescript-->
 
 ```ts
 const processedData = data.map((row) => {
@@ -162,8 +152,6 @@ When I wrote down this code and checked the display, I found that data was perfe
 The next day, words like “reference” and “copy” occurred to me. I realised that the cards kept showing the same data because every time a new row was passed to the `processNode` method, the old row got overwritten as we kept passing the exact reference of the `columns`!
 
 So, cloning the columns and the nodes first got my problem solved.
-
-<!--rehype:data-language=typescript-->
 
 ```ts
 const processedData = useMemo(

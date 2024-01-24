@@ -18,8 +18,6 @@ tags:
 
 ## cron表達式格式
 
-<!--rehype:data-language=java-->
-
 ```java
 @Scheduled(cron = "* * * * * *")
 public void method() {}
@@ -62,8 +60,6 @@ public void method() {}
 
 ## 例子
 
-<!--rehype:data-language=java-->
-
 ```java
 “30 * * * * ?” //每30秒觸發任務
 “30 10 * * * ?” //每小時的10分30秒觸發任務
@@ -85,10 +81,6 @@ public void method() {}
 “0 15 10 ? * 5#3” //每個月第三周的星期四的10點15分0秒觸發任務
 ```
 
-<br>
-
 參考：
 
 - [Spring boot @Scheduled(cron = "\* \* \* \* \* \*") cron表达式详解](https://www.cnblogs.com/qianjinyan/p/10415140.html)
-
-<br>

@@ -1,0 +1,10 @@
+@use '~/styles/utils.scss';
+
+.preformatted {
+  display: grid;
+  margin: 10px 0;
+  overflow: hidden;
+  font-size: 85%;
+  background-color: utils.$color-navy-light;
+  border-radius: 8px;
+}

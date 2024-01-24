@@ -1,0 +1,43 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.code {
+  background-color: utils.$color-navy-light !important;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  // Chrome and Safari
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.-block {
+    padding: 20px;
+  }
+
+  &.-inline {
+    padding-inline: 5px;
+    font-size: 85%;
+  }
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 0;
+
+  > .copy-button {
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+    @include sp {
+      opacity: 1;
+    }
+  }
+
+  &:hover > .copy-button {
+    opacity: 1;
+  }
+}

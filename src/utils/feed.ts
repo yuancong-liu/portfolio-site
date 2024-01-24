@@ -1,13 +1,12 @@
 /**
  * @file Feed 関連のUtils
  */
-
 import fs from 'fs';
 
 import { Feed } from 'feed';
-import sanitizeHtml, { IOptions } from 'sanitize-html';
+import { serialize } from 'next-mdx-remote/serialize';
 
-import { getAllPosts, markdownToHtml } from './posts';
+import { getAllPosts } from './posts';
 
 export const generateRssFeed = async () => {
   const posts = getAllPosts(['slug', 'title', 'date', 'tags', 'content']);
@@ -40,10 +39,7 @@ export const generateRssFeed = async () => {
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
-      description: sanitizeHtml(
-        await markdownToHtml(post.content),
-        sanitizeConfig,
-      ),
+      description: (await serialize(post.content)).compiledSource,
       date: new Date(post.date),
     });
   });
@@ -55,14 +51,3 @@ export const generateRssFeed = async () => {
     fs.writeFileSync('./public/rss/feed.json', feed.json1());
   });
 };
-
-const sanitizeConfig = {
-  allowedAttributes: {
-    '*': ['src', 'id'],
-    iframe: ['title', 'allow'],
-    a: ['href', 'target'],
-    img: ['src', 'alt'],
-  },
-  allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
-  disallowedTagsMode: 'discard',
-} as IOptions;

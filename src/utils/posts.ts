@@ -6,17 +6,11 @@ import path from 'path';
 
 import rehypeSectionize from '@hbsnow/rehype-sectionize';
 import matter from 'gray-matter';
-import rehypeAttrs from 'rehype-attr';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
-import rehypeStringify from 'rehype-stringify';
 import rehypeToc from 'rehype-toc';
 // import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import sanitizeHtml from 'sanitize-html';
-import { unified } from 'unified';
+import remarkGfm from 'remark-gfm';
 
 import { Post, Tag } from '~/types/Posts';
 
@@ -132,35 +126,56 @@ export const getPostsByTag = (tag: string) => {
  * @param markdown Markdown ファイル名
  * @returns HTML
  */
-export const markdownToHtml = async (markdown: string) => {
-  const result = await unified()
-    .use(remarkParse)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeSlug)
-    .use(rehypeRaw)
-    .use(rehypeAttrs, { properties: 'attr' })
-    .use(rehypeSectionize, { enableRootSection: true })
-    .use(rehypeHighlight)
-    .use(rehypeToc, {
-      headings: ['h2', 'h3'],
-      cssClasses: { toc: 'toc-wrapper' },
-    })
-    .use(rehypeStringify)
-    // .use(remarkGfm)
-    .process(markdown);
+// export const markdownToHtml = async (markdown: string) => {
+//   const result = await unified()
+//     .use(remarkParse)
+//     .use(remarkRehype, { allowDangerousHtml: true })
+//     .use(rehypeSlug)
+//     .use(rehypeRaw)
+//     .use(rehypeAttrs, { properties: 'attr' })
+//     .use(rehypeSectionize, { enableRootSection: true })
+//     .use(rehypeHighlight)
+//     .use(rehypeToc, {
+//       headings: ['h2', 'h3'],
+//       cssClasses: { toc: 'toc-wrapper' },
+//     })
+//     .use(rehypeStringify)
+//     // .use(remarkGfm)
+//     .process(markdown);
 
-  return result.toString();
-};
+//   return result.toString();
+// };
 
 /**
  * Configuration for sanitize-html
  */
-export const sanitizeConfig = {
-  allowedAttributes: {
-    '*': ['class', 'src', 'id', 'data-language'],
-    iframe: ['title', 'allow'],
-    a: ['href', 'target'],
-    img: ['src', 'alt'],
+// export const sanitizeConfig = {
+//   allowedAttributes: {
+//     '*': ['class', 'src', 'id', 'data-language'],
+//     iframe: ['title', 'allow'],
+//     a: ['href', 'target'],
+//     img: ['src', 'alt'],
+//   },
+//   allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
+// };
+
+/**
+ * Configuration for mdx-remote serialization
+ */
+export const mdxSerializeConfig = {
+  mdxOptions: {
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeSectionize, { enableRootSection: true }],
+      [
+        rehypeToc,
+        {
+          headings: ['h2', 'h3'],
+          cssClasses: { toc: 'toc-wrapper' },
+        },
+      ],
+      rehypeHighlight,
+    ] as any,
+    remarkPlugins: [remarkGfm] as any,
   },
-  allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
 };

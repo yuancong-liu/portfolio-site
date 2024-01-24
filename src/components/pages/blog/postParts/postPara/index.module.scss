@@ -1,0 +1,9 @@
+@use '~/styles/mixins' as *;
+
+.paragraph {
+  margin: 15px 25px;
+
+  @include sp {
+    margin: 15px 0;
+  }
+}

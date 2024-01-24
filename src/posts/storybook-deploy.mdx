@@ -20,8 +20,6 @@ To deploy Storybook on GitHub Pages, a community-built [Deploy Storybook to GitH
 
 Here is my `deploy-storybook.yml` slightly modified from [the sample](https://storybook.js.org/docs/sharing/publish-storybook#github-pages) published on the official documentation of Storybook.
 
-<!--rehype:data-language=yaml-->
-
 ```yml
 name: Build and Publish Storybook to GitHub Pages
 
@@ -64,9 +62,9 @@ For a GitHub Pages publishment, you must verify your domain outside the project 
 
 Things did not go that well, as the dazzling red toasts had been warning me that the DNS check had been failing over and over. I have had to look over the limited information GitHub gave me within these merely four pages. Finally, I tracked down this sample record that should be configured on the domain provider side.
 
-| Scenario  | DNS record type | DNS record name          | DNS record value(s)                                |
-| --------- | --------------- | ------------------------ | -------------------------------------------------- |
-| Subdomain | `CNAME`         | `SUBDOMAIN.example.com.` | `USENAME.github.io` or<br>`ORGANIZATION.github.io` |
+| Scenario  | DNS record type | DNS record name          | DNS record value(s)                            |
+| --------- | --------------- | ------------------------ | ---------------------------------------------- |
+| Subdomain | `CNAME`         | `SUBDOMAIN.example.com.` | `USENAME.github.io` or`ORGANIZATION.github.io` |
 
 I added a record like the above to my DNS record, and the DNS check succeeded immediately. However, I am still unsure if the checking failure and the additional record are related (I suppose so, though, as we are required to add a `CNAME` record every time while configuring subdomains).
 

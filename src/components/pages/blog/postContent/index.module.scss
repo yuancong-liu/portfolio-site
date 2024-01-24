@@ -248,3 +248,12 @@
   font-weight: 600;
   color: utils.$color-pink;
 }
+
+.post-content {
+  display: flex;
+  flex-direction: row-reverse;
+
+  @include sp {
+    flex-direction: column;
+  }
+}
