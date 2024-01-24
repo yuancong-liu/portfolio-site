@@ -1,3 +1,4 @@
+'use client';
 import { ComponentProps } from 'react';
 
 import Link from '~/assets/icons/link.svg';

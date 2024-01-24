@@ -54,29 +54,29 @@
       font-size: 4.5rem;
     }
 
-    &::before,
-    &::after {
-      position: absolute;
-      z-index: -1;
-      display: block;
-      font-family: monospace;
-      font-size: 8rem;
-      font-weight: 600;
-      line-height: 1;
-      color: utils.$color-pink;
-    }
+    // &::before,
+    // &::after {
+    //   position: absolute;
+    //   z-index: -1;
+    //   display: block;
+    //   font-family: monospace;
+    //   font-size: 8rem;
+    //   font-weight: 600;
+    //   line-height: 1;
+    //   color: utils.$color-pink;
+    // }
 
-    &::before {
-      top: -30px;
-      left: -30px;
-      content: '<h1>';
-    }
+    // &::before {
+    //   top: -30px;
+    //   left: -30px;
+    //   content: '<h1>';
+    // }
 
-    &::after {
-      right: -20px;
-      bottom: -10px;
-      content: '</h1>';
-    }
+    // &::after {
+    //   right: -20px;
+    //   bottom: -10px;
+    //   content: '</h1>';
+    // }
   }
 
   > .date {

@@ -1,3 +1,4 @@
+'use client';
 import { ComponentProps, useRef } from 'react';
 
 import classNames from 'classnames';

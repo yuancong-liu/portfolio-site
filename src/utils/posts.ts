@@ -167,13 +167,13 @@ export const mdxSerializeConfig = {
     rehypePlugins: [
       rehypeSlug,
       [rehypeSectionize, { enableRootSection: true }],
-      [
-        rehypeToc,
-        {
-          headings: ['h2', 'h3'],
-          cssClasses: { toc: 'toc-wrapper' },
-        },
-      ],
+      // [
+      //   rehypeToc,
+      //   {
+      //     headings: ['h2', 'h3'],
+      //     cssClasses: { toc: 'toc-wrapper' },
+      //   },
+      // ],
       rehypeHighlight,
     ] as any,
     remarkPlugins: [remarkGfm] as any,

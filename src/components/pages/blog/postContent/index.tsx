@@ -1,10 +1,10 @@
 'use client';
-import { ComponentProps, Suspense } from 'react';
+import { ComponentProps, useRef } from 'react';
 
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-import { LoadingIndicator } from '~/components/common/loadingIndicator';
 import { PostContext } from '~/contexts/postContext';
+import { usePostHeadingsExtraction } from '~/hooks';
 
 import { PostCode } from '../postParts/postCode';
 import { PostH2 } from '../postParts/postH2';
@@ -26,6 +26,10 @@ type Props = {
 };
 
 export const PostContent = ({ content, postUrl }: Props) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const { headings, loading } = usePostHeadingsExtraction(contentRef);
+
   // const toc = useMemo(
   //   () => ({
   //     hidden: {
@@ -60,13 +64,11 @@ export const PostContent = ({ content, postUrl }: Props) => {
 
   return (
     <PostContext.Provider value={{ postUrl }}>
-      <div className={styles['toc-back-wrapper']}>
-        <button className={styles['toc-button']}>On this page</button>
-      </div>
       <div className={styles['post-content']}>
-        <Suspense fallback={<LoadingIndicator />}>
+        <div ref={contentRef}>
+          <PostToc headings={headings} />
           <MDXRemote {...content} components={components} />
-        </Suspense>
+        </div>
       </div>
     </PostContext.Provider>
   );
@@ -85,5 +87,5 @@ const components = {
   h4: (props: ComponentProps<'h4'>) => <h4 {...props} />,
   pre: (props: ComponentProps<'pre'>) => <PostPre {...props} />,
   code: (props: ComponentProps<'code'>) => <PostCode {...props} />,
-  nav: (props: ComponentProps<'nav'>) => <PostToc {...props} />,
+  // nav: (props: ComponentProps<'nav'>) => <PostToc {...props} />,
 };

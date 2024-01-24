@@ -1,0 +1,149 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.toc-back-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 10px 30px;
+  margin: 0 -30px; // this is disgusting 😢
+  background: utils.$color-navy-bd;
+  backdrop-filter: blur(10px);
+
+  @include pc {
+    display: none;
+  }
+}
+
+.toc-button {
+  padding: 0;
+  font-weight: 600;
+  color: utils.$color-pink;
+}
+
+.toc-level {
+  padding: 0;
+}
+
+.toc-nav {
+  position: sticky;
+  top: 60px;
+  z-index: 200;
+  display: flex;
+  flex-shrink: 0;
+  width: 200px;
+  height: fit-content;
+  overflow: visible;
+  font-size: 1.4rem;
+  color: #fdf0f0;
+
+  > .toc-level {
+    padding: 10px 10px 60px;
+  }
+
+  @media (width <= 768px) {
+    top: 50px;
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: translateY(-10px);
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    > .toc-level {
+      padding: 16px 40px 16px 24px;
+      background-color: #1f4172;
+    }
+  }
+
+  &:not(:has(.toc-item)) {
+    display: none;
+  }
+}
+
+.toc-item {
+  position: relative;
+  margin-top: 5px;
+  list-style-type: none;
+}
+
+.toc-item-h2::after,
+.toc-item-h3::after {
+  position: absolute;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  content: '';
+  border-radius: 50%;
+}
+
+.toc-item-h2:hover::after,
+.toc-item-h3:hover::after {
+  top: 0;
+  width: unset;
+  height: unset;
+  color: #f1b4bb;
+  background-color: transparent;
+  border: 0;
+}
+
+.toc-item-h2:hover::after {
+  content: 'h2';
+}
+
+.toc-item-h3:hover::after {
+  content: 'h3';
+}
+
+.toc-item-h2 {
+  font-weight: 600;
+}
+
+.toc-item-h3 {
+  font-weight: 300;
+}
+
+.toc-item-h2::after {
+  right: -20px;
+  background-color: #f1b4bb;
+  border-radius: 50%;
+}
+
+.toc-item-h3::after {
+  right: -20px;
+  border: 1px solid #f1b4bb;
+  border-radius: 50%;
+}
+
+.toc-level-1 {
+  width: 100%;
+  height: fit-content;
+
+  @media screen and (width >= 768px) {
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -60px;
+      z-index: -1;
+      font-size: 4rem;
+      font-weight: 600;
+      line-height: 1;
+      color: #f1b4bb;
+      content: 'TOC -';
+    }
+  }
+}
+
+.heading {
+  flex-shrink: 1;
+  width: 100%;
+  scroll-behavior: smooth;
+}
