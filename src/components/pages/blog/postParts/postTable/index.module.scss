@@ -1,0 +1,17 @@
+@use '~/styles/utils.scss';
+
+.table {
+  display: block;
+  max-width: 520px;
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  th {
+    padding: 0 10px;
+    border-bottom: utils.$color-pink 2px solid;
+  }
+
+  td {
+    padding: 0 10px;
+  }
+}

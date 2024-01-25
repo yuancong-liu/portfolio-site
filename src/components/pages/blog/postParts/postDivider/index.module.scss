@@ -1,0 +1,31 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.divider {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  margin: 50px auto;
+  overflow: visible;
+  background-color: utils.$color-pink;
+  border: 0;
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: calc(50% - 1px);
+    width: 30px;
+    height: 2px;
+    content: '';
+    background-color: utils.$color-pink;
+  }
+
+  &::before {
+    left: -40px;
+  }
+
+  &::after {
+    right: -40px;
+  }
+}

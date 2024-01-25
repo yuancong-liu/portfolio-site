@@ -9,11 +9,6 @@
   margin: 20px 0 60px;
   transition: all 0.2s ease-in;
 
-  &.processing {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
   @include sp {
     flex-direction: column;
     gap: 0;
@@ -67,186 +62,12 @@
     }
   }
 
-  p {
-    margin: 15px 25px;
-
-    @include sp {
-      margin: 15px 0;
-    }
-
-    &:has(img) {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      place-items: center;
-      margin-bottom: 60px;
-
-      &::before {
-        position: absolute;
-        bottom: -50px;
-        left: calc(50% - 150px);
-        z-index: -1;
-        width: 300px;
-        height: 300px;
-        content: '';
-        background-color: utils.$color-navy-light;
-        border-radius: 50%;
-        opacity: 0.5;
-      }
-
-      > img {
-        margin-bottom: 10px;
-      }
-    }
-  }
-
-  code {
-    padding: 0;
-    margin-inline: 5px;
-    background-color: utils.$color-navy-light;
-  }
-
-  pre {
-    display: grid;
-    margin: 10px 0;
-    font-size: 85%;
-    background-color: utils.$color-navy-light;
-    border-radius: 3px;
-
-    > code {
-      position: relative;
-
-      &::before {
-        position: sticky;
-        top: -10px;
-        left: 0;
-        z-index: 100;
-        display: block;
-        height: 30px;
-        text-align: end;
-        content: attr(data-language);
-        background-color: linear-gradient(
-          utils.$color-navy-light,
-          utils.$color-navy
-        );
-      }
-    }
-  }
-
-  blockquote {
-    padding: 0 20px;
-    margin: 20px;
-    font-style: italic;
-    color: utils.$color-pink-light;
-    border-left: 5px solid utils.$color-pink;
-  }
-
-  hr {
-    position: relative;
-    width: 6px;
-    height: 6px;
-    margin: 50px auto;
-    overflow: visible;
-    background-color: utils.$color-pink;
-    border: 0;
-    border-radius: 50%;
-
-    &::before,
-    &::after {
-      position: absolute;
-      top: calc(50% - 1px);
-      width: 30px;
-      height: 2px;
-      content: '';
-      background-color: utils.$color-pink;
-    }
-
-    &::before {
-      left: -40px;
-    }
-
-    &::after {
-      right: -40px;
-    }
-  }
-
-  :not(pre) > code {
-    padding: 0 5px;
-    font-size: 80%;
-    border: 1px solid #e1e4e8;
-  }
-
-  a {
-    position: relative;
-
-    &:hover {
-      color: utils.$color-pink;
-      text-decoration: underline;
-    }
-  }
-
-  table {
-    display: block;
-    max-width: 520px;
-    overflow-x: scroll;
-    white-space: nowrap;
-  }
-
-  th {
-    padding: 0 10px;
-    border-bottom: utils.$color-pink 2px solid;
-  }
-
-  td {
-    padding: 0 10px;
-  }
-
-  ul {
-    padding-left: 30px;
-
-    > li {
-      list-style-type: disclosure-closed;
-
-      &::marker {
-        color: utils.$color-pink;
-      }
-    }
-  }
-
-  img {
-    max-width: 100%;
-    max-height: 500px;
-    margin: 0 auto;
-  }
-
   /* stylelint-disable-next-line selector-no-qualifying-type */
   iframe[src*='youtube.com'] {
     width: 100%;
     aspect-ratio: 16 / 9;
     border: 0;
   }
-}
-
-.toc-back-wrapper {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 10px 30px;
-  margin: 0 -30px; // this is disgusting 😢
-  background: utils.$color-navy-bd;
-  backdrop-filter: blur(10px);
-
-  @include pc {
-    display: none;
-  }
-}
-
-.toc-button {
-  padding: 0;
-  font-weight: 600;
-  color: utils.$color-pink;
 }
 
 .post-content {

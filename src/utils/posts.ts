@@ -9,7 +9,6 @@ import matter from 'gray-matter';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeToc from 'rehype-toc';
-// import remarkGfm from 'remark-gfm';
 import remarkGfm from 'remark-gfm';
 
 import { Post, Tag } from '~/types/Posts';
@@ -122,44 +121,6 @@ export const getPostsByTag = (tag: string) => {
 };
 
 /**
- * Markdown を解析して HTML にして返す
- * @param markdown Markdown ファイル名
- * @returns HTML
- */
-// export const markdownToHtml = async (markdown: string) => {
-//   const result = await unified()
-//     .use(remarkParse)
-//     .use(remarkRehype, { allowDangerousHtml: true })
-//     .use(rehypeSlug)
-//     .use(rehypeRaw)
-//     .use(rehypeAttrs, { properties: 'attr' })
-//     .use(rehypeSectionize, { enableRootSection: true })
-//     .use(rehypeHighlight)
-//     .use(rehypeToc, {
-//       headings: ['h2', 'h3'],
-//       cssClasses: { toc: 'toc-wrapper' },
-//     })
-//     .use(rehypeStringify)
-//     // .use(remarkGfm)
-//     .process(markdown);
-
-//   return result.toString();
-// };
-
-/**
- * Configuration for sanitize-html
- */
-// export const sanitizeConfig = {
-//   allowedAttributes: {
-//     '*': ['class', 'src', 'id', 'data-language'],
-//     iframe: ['title', 'allow'],
-//     a: ['href', 'target'],
-//     img: ['src', 'alt'],
-//   },
-//   allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
-// };
-
-/**
  * Configuration for mdx-remote serialization
  */
 export const mdxSerializeConfig = {
@@ -167,13 +128,13 @@ export const mdxSerializeConfig = {
     rehypePlugins: [
       rehypeSlug,
       [rehypeSectionize, { enableRootSection: true }],
-      // [
-      //   rehypeToc,
-      //   {
-      //     headings: ['h2', 'h3'],
-      //     cssClasses: { toc: 'toc-wrapper' },
-      //   },
-      // ],
+      [
+        rehypeToc,
+        {
+          headings: ['h2', 'h3'],
+          cssClasses: { toc: 'toc-wrapper' },
+        },
+      ],
       rehypeHighlight,
     ] as any,
     remarkPlugins: [remarkGfm] as any,

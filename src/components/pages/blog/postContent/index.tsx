@@ -4,8 +4,8 @@ import { ComponentProps, useRef } from 'react';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import { PostContext } from '~/contexts/postContext';
-import { usePostHeadingsExtraction } from '~/hooks';
 
+import { PostBlockquote } from '../postParts/postBlockquote';
 import { PostCode } from '../postParts/postCode';
 import { PostH2 } from '../postParts/postH2';
 import { PostH3 } from '../postParts/postH3';
@@ -19,6 +19,8 @@ import 'highlight.js/styles/github-dark-dimmed.min.css';
 import styles from './index.module.scss';
 
 import './index.css';
+import { PostDivider } from '../postParts/postDivider';
+import { PostTable } from '../postParts/postTable';
 
 type Props = {
   content: MDXRemoteSerializeResult;
@@ -26,49 +28,10 @@ type Props = {
 };
 
 export const PostContent = ({ content, postUrl }: Props) => {
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  const { headings, loading } = usePostHeadingsExtraction(contentRef);
-
-  // const toc = useMemo(
-  //   () => ({
-  //     hidden: {
-  //       opacity: 0,
-  //       lineHeight: 2,
-  //     },
-  //     visible: {
-  //       opacity: [0, 1],
-  //       lineHeight: [2, 1.5],
-  //       transition: {
-  //         duration: 0.5,
-  //         ease: 'easeInOut',
-  //       },
-  //     },
-  //   }),
-  //   [],
-  // );
-
-  // const contentRef = useRef<HTMLDivElement>(null);
-
-  // FIXME: looks strange to me
-  // const toggleToc = () => {
-  //   const toc = contentRef.current?.querySelectorAll('.toc-wrapper');
-  //   if (toc) {
-  //     toc.forEach((item) => {
-  //       item.classList.toggle('show');
-  //     });
-  //   }
-  // };
-
-  // useOnHashChange({ callback: toggleToc });
-
   return (
     <PostContext.Provider value={{ postUrl }}>
       <div className={styles['post-content']}>
-        <div ref={contentRef}>
-          <PostToc headings={headings} />
-          <MDXRemote {...content} components={components} />
-        </div>
+        <MDXRemote {...content} components={components} />
       </div>
     </PostContext.Provider>
   );
@@ -87,5 +50,10 @@ const components = {
   h4: (props: ComponentProps<'h4'>) => <h4 {...props} />,
   pre: (props: ComponentProps<'pre'>) => <PostPre {...props} />,
   code: (props: ComponentProps<'code'>) => <PostCode {...props} />,
-  // nav: (props: ComponentProps<'nav'>) => <PostToc {...props} />,
+  nav: (props: ComponentProps<'nav'>) => <PostToc {...props} />,
+  blockquote: (props: ComponentProps<'blockquote'>) => (
+    <PostBlockquote {...props} />
+  ),
+  hr: (props: ComponentProps<'hr'>) => <PostDivider {...props} />,
+  table: (props: ComponentProps<'table'>) => <PostTable {...props} />,
 };
