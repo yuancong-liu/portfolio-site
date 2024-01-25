@@ -1,0 +1,56 @@
+---
+title: Note | Hub.listen不要亂用事件
+date: 2023-02-13 01:59:38
+language: 中文
+tags:
+  - Front-end
+  - Programming
+  - Vue
+---
+
+## 背景
+
+`aws-amplify` 自己有提供一個 API 監聽方法，直接監視 websocket 的連結狀況。
+最開始的實現如下，預期效果：websocket 變為 pending 時顯示對話框，重新連結成功時關閉對話框並重新取得數據。
+
+```javascript
+import { Hub } from 'aws-amplify';
+import { CONNECTION_STATE_CHANGE, ConnectionState } from '@aws-amplify/pubsub';
+
+Hub.listen('api', async (data) => {
+  if (data.payload.event === CONNECTION_STATE_CHANGE) {
+    if (
+      data.payload.data.connectionState ===
+      ConnectionState.ConnectedPendingNetwork
+    ) {
+      openToast('net-error');
+    } else if (
+      hasPended.value &&
+      data.payload.data.connectionState === ConnectionState.Connected
+    ) {
+      reloadTable();
+      closeToast();
+    }
+  }
+});
+```
+
+## 問題
+
+但後來發現在某些瀏覽器（目前發現的有 Safari macOS 和 Amazon Silk）上，重新接上網絡之後（指Wi-Fi或網線重新接上）並沒有執行應該執行的操作。
+調查發現，由於軟件原因，尤其是在移動設備流量不可靠的情況下，網絡被切斷之後 websocket 的連結會被直接切斷，也就是不存在 pending 的餘地。
+
+## 解決
+
+解決這個問題，還是只有回歸到最原始的 eventListener 身上來。。
+
+```javascript
+window.addEventListener('offline', () => {
+  openToast('net-error');
+});
+
+window.addEventListener('online', () => {
+  reloadTable();
+  closeToast();
+});
+```

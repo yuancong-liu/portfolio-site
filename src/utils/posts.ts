@@ -6,17 +6,10 @@ import path from 'path';
 
 import rehypeSectionize from '@hbsnow/rehype-sectionize';
 import matter from 'gray-matter';
-import rehypeAttrs from 'rehype-attr';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
-import rehypeStringify from 'rehype-stringify';
 import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import sanitizeHtml from 'sanitize-html';
-import { unified } from 'unified';
 
 import { Post, Tag } from '~/types/Posts';
 
@@ -27,7 +20,7 @@ const postsDirectory = path.join(process.cwd(), 'src/posts');
  */
 export const getPostSlugs = () => {
   const allPosts = fs.readdirSync(postsDirectory);
-  return allPosts.map((post: string) => post.replace(/\.md$/, ''));
+  return allPosts.map((post: string) => post.replace(/\.mdx$/, ''));
 };
 
 /**
@@ -38,8 +31,8 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
 
   // NOTE: to exclude directories
   try {
-    const realSlug = slug.replace(/\.md$/, '');
-    const fullPath = path.join(postsDirectory, `${realSlug}.md`);
+    const realSlug = slug.replace(/\.mdx$/, '');
+    const fullPath = path.join(postsDirectory, `${realSlug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
@@ -128,39 +121,22 @@ export const getPostsByTag = (tag: string) => {
 };
 
 /**
- * Markdown を解析して HTML にして返す
- * @param markdown Markdown ファイル名
- * @returns HTML
+ * Configuration for mdx-remote serialization
  */
-export const markdownToHtml = async (markdown: string) => {
-  const result = await unified()
-    .use(remarkParse)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeSlug)
-    .use(rehypeRaw)
-    .use(rehypeAttrs, { properties: 'attr' })
-    .use(rehypeSectionize, { enableRootSection: true })
-    .use(rehypeHighlight)
-    .use(rehypeToc, {
-      headings: ['h2', 'h3'],
-      cssClasses: { toc: 'toc-wrapper' },
-    })
-    .use(rehypeStringify)
-    .use(remarkGfm)
-    .process(markdown);
-
-  return result.toString();
-};
-
-/**
- * Configuration for sanitize-html
- */
-export const sanitizeConfig = {
-  allowedAttributes: {
-    '*': ['class', 'src', 'id', 'data-language'],
-    iframe: ['title', 'allow'],
-    a: ['href', 'target'],
-    img: ['src', 'alt'],
+export const mdxSerializeConfig = {
+  mdxOptions: {
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeSectionize, { enableRootSection: true }],
+      [
+        rehypeToc,
+        {
+          headings: ['h2', 'h3'],
+          cssClasses: { toc: 'toc-wrapper' },
+        },
+      ],
+      rehypeHighlight,
+    ] as any,
+    remarkPlugins: [remarkGfm] as any,
   },
-  allowedTags: sanitizeHtml.defaults.allowedTags.concat(['iframe', 'img']),
 };

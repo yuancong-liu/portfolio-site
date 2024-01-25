@@ -1,0 +1,14 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.blockquote {
+  padding: 0 20px;
+  margin: 20px;
+  font-style: italic;
+  color: utils.$color-pink-light;
+  border-left: 5px solid utils.$color-pink;
+
+  @include sp {
+    margin-left: 0;
+  }
+}

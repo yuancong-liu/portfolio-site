@@ -1,0 +1,95 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.code-wrapper {
+  display: grid;
+
+  &:hover .copy-button {
+    opacity: 1;
+  }
+}
+
+.code {
+  background-color: utils.$color-navy-light !important;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  // Chrome and Safari
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.-block {
+    padding: 20px;
+  }
+
+  &.-inline {
+    padding-inline: 5px;
+    font-size: 85%;
+  }
+}
+
+.code-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 0;
+}
+
+.copy-button {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+
+  > .icon {
+    width: 16px;
+    height: 16px;
+
+    path {
+      fill: #fff;
+    }
+  }
+
+  @include sp {
+    opacity: 1;
+  }
+}
+
+.copy-message {
+  position: absolute;
+  right: 60px;
+  padding: 4px 8px;
+  background: utils.$color-navy-overlay;
+  border-radius: 4px;
+  opacity: 0;
+  translate: 0;
+
+  &.-show {
+    animation: copied 1.5s ease-in-out;
+  }
+}
+
+@keyframes copied {
+  0% {
+    opacity: 0;
+    translate: 0 5px;
+  }
+
+  20% {
+    opacity: 1;
+    translate: 0;
+  }
+
+  50% {
+    opacity: 1;
+    translate: 0;
+  }
+
+  100% {
+    opacity: 0;
+    translate: 0 10px;
+  }
+}

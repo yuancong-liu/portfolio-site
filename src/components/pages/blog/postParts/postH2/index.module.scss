@@ -1,0 +1,42 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.copy-button {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 40px;
+  padding: 0 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+
+  > .icon {
+    width: 24px;
+    margin: auto;
+
+    path {
+      fill: utils.$color-pink;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @include sp {
+    display: none;
+  }
+}
+
+.heading-2 {
+  position: relative;
+  margin: 40px 0 30px;
+  vertical-align: middle;
+
+  &:hover {
+    .copy-button {
+      opacity: 1;
+    }
+  }
+}

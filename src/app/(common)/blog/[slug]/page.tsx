@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import sanitize from 'sanitize-html';
+import { serialize } from 'next-mdx-remote/serialize';
 
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import { PostContent } from '~/components/pages/blog/postContent';
@@ -9,8 +9,7 @@ import {
   convertTagToParam,
   getAllPosts,
   getPostBySlug,
-  markdownToHtml,
-  sanitizeConfig,
+  mdxSerializeConfig,
 } from '~/utils/posts';
 
 import styles from './index.module.scss';
@@ -26,14 +25,16 @@ type Props = {
 
 const PostPage = async ({ params }: Props) => {
   const { post } = await getPost({ slug: params.slug });
+  const { title, slug, tags, content, date } = post;
 
-  if (!post.title) return <></>;
-  metadata.title = post.title;
+  if (!title) return <></>;
+
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}/`;
 
   metadata.openGraph = {
-    title: post.title,
+    title,
+    url,
     type: 'website',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug}`,
   };
 
   const getDateString = (date: string) => {
@@ -57,25 +58,25 @@ const PostPage = async ({ params }: Props) => {
     ));
   };
 
-  const sanitizedHtml = sanitize(post.content, sanitizeConfig);
+  const serializedContent = await serialize(content, mdxSerializeConfig);
 
   return (
     <>
       <Head>
         <link
           rel="canonical"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug}`}
+          href={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`}
         />
       </Head>
       <header className={styles['header']}>
-        <div className={styles['tag-group']}>{getTagList(post.tags)}</div>
-        <h1 className={styles['title']}>{post.title}</h1>
-        <p className={styles['date']}>{getDateString(post.date)}</p>
+        <div className={styles['tag-group']}>{getTagList(tags)}</div>
+        <h1 className={styles['title']}>{title}</h1>
+        <p className={styles['date']}>{getDateString(date)}</p>
       </header>
       <main className={styles['main-wrapper']}>
-        <PostContent content={sanitizedHtml} />
+        <PostContent content={serializedContent} postUrl={url} />
         <div className={styles['adjacent-posts']}>
-          <AdjacentPosts slug={post.slug} />
+          <AdjacentPosts slug={slug} />
         </div>
       </main>
     </>
@@ -85,11 +86,9 @@ const PostPage = async ({ params }: Props) => {
 export const generateStaticParams = () => {
   const posts = getAllPosts(['slug']);
 
-  const params = posts.map((post) => {
+  return posts.map((post) => {
     return { slug: post.slug };
   });
-
-  return params;
 };
 
 const getPost = async ({ slug }: { slug: string }) => {
@@ -101,15 +100,8 @@ const getPost = async ({ slug }: { slug: string }) => {
     'tags',
   ]);
 
-  const content = await markdownToHtml(post.content || '');
-
   return {
-    post: JSON.parse(
-      JSON.stringify({
-        ...post,
-        content,
-      }),
-    ),
+    post: JSON.parse(JSON.stringify(post)),
   };
 };
 
