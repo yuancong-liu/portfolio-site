@@ -1,5 +1,5 @@
 'use client';
-import { ComponentProps, useRef } from 'react';
+import { ComponentProps } from 'react';
 
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
@@ -7,20 +7,19 @@ import { PostContext } from '~/contexts/postContext';
 
 import { PostBlockquote } from '../postParts/postBlockquote';
 import { PostCode } from '../postParts/postCode';
+import { PostDivider } from '../postParts/postDivider';
+import { PostFrame } from '../postParts/postFrame';
 import { PostH2 } from '../postParts/postH2';
 import { PostH3 } from '../postParts/postH3';
 import { PostImage } from '../postParts/postImage';
 import { PostLink } from '../postParts/postLink';
 import { PostPara } from '../postParts/postPara';
 import { PostPre } from '../postParts/postPre';
+import { PostTable } from '../postParts/postTable';
 import { PostToc } from '../postParts/postToc';
 
 import 'highlight.js/styles/github-dark-dimmed.min.css';
 import styles from './index.module.scss';
-
-import './index.css';
-import { PostDivider } from '../postParts/postDivider';
-import { PostTable } from '../postParts/postTable';
 
 type Props = {
   content: MDXRemoteSerializeResult;
@@ -56,4 +55,5 @@ const components = {
   ),
   hr: (props: ComponentProps<'hr'>) => <PostDivider {...props} />,
   table: (props: ComponentProps<'table'>) => <PostTable {...props} />,
+  PostFrame,
 };

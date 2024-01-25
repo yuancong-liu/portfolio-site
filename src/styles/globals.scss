@@ -23,6 +23,11 @@ body {
   line-height: inherit;
 }
 
+::selection {
+  color: #132043;
+  background-color: #f1b4bb;
+}
+
 button {
   font: inherit;
   background: none;

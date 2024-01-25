@@ -61,19 +61,13 @@
       content: '<h4>';
     }
   }
-
-  /* stylelint-disable-next-line selector-no-qualifying-type */
-  iframe[src*='youtube.com'] {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: 0;
-  }
 }
 
 .post-content {
   display: flex;
   flex-direction: row-reverse;
   gap: 20px;
+  margin: 20px 0 80px;
 
   @include sp {
     flex-direction: column;

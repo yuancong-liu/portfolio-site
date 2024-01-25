@@ -3,10 +3,12 @@
 .image-wrapper {
   position: relative;
   display: grid;
+  gap: 10px;
   place-items: center;
   width: 100%;
   height: fit-content;
   max-height: 500px;
+  margin: 40px 0;
   transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   &::before {
@@ -33,5 +35,9 @@
 
   &.loading {
     opacity: 0;
+  }
+
+  > .caption {
+    font-style: italic;
   }
 }
