@@ -4,9 +4,9 @@
 import fs from 'fs';
 
 import { Feed } from 'feed';
-// import rehypeRaw from 'rehype-raw';
+import rehypeRaw from 'rehype-raw';
 // import rehypeSlug from 'rehype-slug';
-import rehypeStringify from 'rehype-stringify';
+// import rehypeStringify from 'rehype-stringify';
 // import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -63,8 +63,8 @@ export const markdownToHtml = async (markdown: string) => {
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
     // .use(rehypeSlug)
-    // .use(rehypeRaw)
-    .use(rehypeStringify)
+    .use(rehypeRaw)
+    // .use(rehypeStringify)
     .process(markdown);
 
   return result.toString();
