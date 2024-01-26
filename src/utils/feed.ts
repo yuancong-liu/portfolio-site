@@ -4,7 +4,13 @@
 import fs from 'fs';
 
 import { Feed } from 'feed';
-import { serialize } from 'next-mdx-remote/serialize';
+// import rehypeRaw from 'rehype-raw';
+// import rehypeSlug from 'rehype-slug';
+import rehypeStringify from 'rehype-stringify';
+// import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
 
 import { getAllPosts } from './posts';
 
@@ -39,7 +45,7 @@ export const generateRssFeed = async () => {
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
-      description: (await serialize(post.content)).compiledSource,
+      description: await markdownToHtml(post.content),
       date: new Date(post.date),
     });
   });
@@ -50,4 +56,16 @@ export const generateRssFeed = async () => {
     fs.writeFileSync('./public/rss/atom.xml', feed.atom1());
     fs.writeFileSync('./public/rss/feed.json', feed.json1());
   });
+};
+
+export const markdownToHtml = async (markdown: string) => {
+  const result = await unified()
+    .use(remarkParse)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    // .use(rehypeSlug)
+    // .use(rehypeRaw)
+    .use(rehypeStringify)
+    .process(markdown);
+
+  return result.toString();
 };
