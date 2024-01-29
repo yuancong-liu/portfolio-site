@@ -9,7 +9,7 @@
  */
 export const getDateString = (date: string) => {
   const dateObj = new Date(date);
-  return `${dateObj.getFullYear()}/${
-    dateObj.getMonth() + 1
-  }/${dateObj.getDate()}`;
+  return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${
+    dateObj.getDate() - 1
+  }`;
 };

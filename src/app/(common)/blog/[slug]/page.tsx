@@ -5,6 +5,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import { PostContent } from '~/components/pages/blog/postContent';
+import { getDateString } from '~/utils/dates';
 import {
   convertTagToParam,
   getAllPosts,
@@ -35,13 +36,6 @@ const PostPage = async ({ params }: Props) => {
     title,
     url,
     type: 'website',
-  };
-
-  const getDateString = (date: string) => {
-    const dateObj = new Date(date);
-    return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${
-      dateObj.getDate() - 1
-    }`;
   };
 
   const getTagList = (tags: string[] | string) => {
