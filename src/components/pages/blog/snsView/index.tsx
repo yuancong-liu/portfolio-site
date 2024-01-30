@@ -8,6 +8,7 @@ import Link from 'next/link';
 import GitHub from '~/assets/icons/github.svg';
 import LinkedIn from '~/assets/icons/linkedin.svg';
 import Mail from '~/assets/icons/mail.svg';
+import Twitter from '~/assets/icons/twitter.svg';
 import { LoadingIndicator } from '~/components/common/loadingIndicator';
 
 import styles from './index.module.scss';
@@ -21,13 +22,18 @@ type SocialMedium = {
 const socialMedia: SocialMedium[] = [
   {
     name: 'github',
-    link: '',
+    link: 'https://github.com/yuancong-liu',
     icon: <GitHub />,
   },
   {
     name: 'linkedin',
-    link: '',
+    link: 'https://www.linkedin.com/in/yuancong-liu/',
     icon: <LinkedIn />,
+  },
+  {
+    name: 'twitter',
+    link: 'https://twitter.com/YUANTSUNG129',
+    icon: <Twitter />,
   },
   {
     name: 'mail',
