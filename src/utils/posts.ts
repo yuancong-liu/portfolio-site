@@ -69,6 +69,13 @@ export const getAllPosts = (fields: string[] = []) => {
   );
 };
 
+export const getPosts = () => {
+  const allPosts = getAllPosts(['slug', 'title', 'date', 'tags', 'language']);
+  return {
+    allPosts: JSON.parse(JSON.stringify(allPosts)) as Post[],
+  };
+};
+
 /**
  * get previous and next post of current post
  * @param slug

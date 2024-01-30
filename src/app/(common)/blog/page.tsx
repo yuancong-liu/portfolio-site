@@ -1,40 +1,15 @@
-import { PageHeader } from '~/components/pages/blog/pageHeader';
-import { PostCard } from '~/components/pages/blog/postCard';
-import { Post } from '~/types/Posts';
+import { BlogPageContent } from '~/components/pages/blog/blogPageContent';
 import { generateRssFeed } from '~/utils/feed';
-import { getAllPosts } from '~/utils/posts';
-
-import styles from './index.module.scss';
-
-// const BASE_URL = 'blog/';
+import { getPosts } from '~/utils/posts';
 
 /**
  * Blog page
  */
 const BlogPage = () => {
+  generateRssFeed();
   const { allPosts } = getPosts();
 
-  return (
-    <>
-      <PageHeader>Blog</PageHeader>
-      <main className={styles['content-wrapper']}>
-        <div className={styles['posts']}>
-          {allPosts.map((post, index) => (
-            <PostCard key={post.slug} post={post} index={index} />
-          ))}
-        </div>
-      </main>
-    </>
-  );
-};
-
-const getPosts = () => {
-  generateRssFeed();
-
-  const allPosts = getAllPosts(['slug', 'title', 'date', 'tags', 'language']);
-  return {
-    allPosts: JSON.parse(JSON.stringify(allPosts)) as Post[],
-  };
+  return <BlogPageContent allPosts={allPosts} />;
 };
 
 export default BlogPage;
