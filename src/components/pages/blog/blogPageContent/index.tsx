@@ -1,6 +1,8 @@
 'use client';
 import { ChangeEvent, useState } from 'react';
 
+import classNames from 'classnames';
+
 import { Post, Tag } from '~/types/Posts';
 
 import { PostView } from '../postView';
@@ -8,7 +10,6 @@ import { SnsView } from '../snsView';
 import { TagView } from '../tagView';
 
 import styles from './index.module.scss';
-import classNames from 'classnames';
 
 type Tab = 'posts' | 'tags' | 'sns';
 
