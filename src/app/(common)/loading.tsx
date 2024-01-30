@@ -1,4 +1,4 @@
-import { LoadingWithOverlay } from '~/components/common/LoadingWithOverlay';
+import { LoadingWithOverlay } from '~/components/common/loadingWithOverlay';
 
 const Loading = () => <LoadingWithOverlay />;
 
