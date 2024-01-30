@@ -1,0 +1,56 @@
+@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;
+
+.view-wrapper {
+  display: flex;
+  gap: 40px;
+  padding: 0 30px;
+
+  @include sp {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.twitter {
+  flex: 1;
+}
+
+.social-icons {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+
+  @include sp {
+    position: static;
+  }
+}
+
+.icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+
+  @include sp {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+// .icon-item {
+// }
+
+.link {
+  display: block;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: utils.$color-pink;
+  }
+}

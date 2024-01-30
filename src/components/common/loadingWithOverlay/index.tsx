@@ -3,7 +3,7 @@ import { Variants, motion } from 'framer-motion';
 
 import styles from './index.module.scss';
 
-export const LoadingIndicator = () => {
+export const LoadingWithOverlay = () => {
   const cMarkPath = {
     hidden: {
       pathLength: 0,
@@ -11,7 +11,7 @@ export const LoadingIndicator = () => {
     visible: {
       pathLength: 1,
       transition: {
-        duration: 1,
+        duration: 0.3,
         ease: 'easeInOut',
         repeat: Infinity,
         repeatType: 'reverse',

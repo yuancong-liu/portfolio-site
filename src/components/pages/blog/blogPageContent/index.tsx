@@ -1,12 +1,14 @@
 'use client';
 import { ChangeEvent, useState } from 'react';
 
-import { Post } from '~/types/Posts';
+import { Post, Tag } from '~/types/Posts';
 
-import { PageHeader } from '../pageHeader';
-import { PostCard } from '../postCard';
+import { PostView } from '../postView';
+import { SnsView } from '../snsView';
+import { TagView } from '../tagView';
 
 import styles from './index.module.scss';
+import classNames from 'classnames';
 
 type Tab = 'posts' | 'tags' | 'sns';
 
@@ -22,20 +24,37 @@ const tabMap: TabMap = {
 
 type Props = {
   allPosts: Post[];
+  allTags: Tag[];
 };
 
-export const BlogPageContent = ({ allPosts }: Props) => {
+export const BlogPageContent = ({ allPosts, allTags }: Props) => {
   const [tab, setTab] = useState<Tab>('posts');
 
   const handleTabChange = (e: ChangeEvent<HTMLInputElement>) =>
     setTab(e.target.value as Tab);
 
+  const content = () => {
+    switch (tab) {
+      case 'posts':
+        return <PostView allPosts={allPosts} />;
+      case 'tags':
+        return <TagView allTags={allTags} />;
+      case 'sns':
+        return <SnsView />;
+    }
+  };
+
   return (
     <>
-      {/* <PageHeader>{tabMap[tab]}</PageHeader> */}
       <div className={styles['tabs']}>
         {Object.entries(tabMap).map(([key, value]) => (
-          <label key={key} className={styles['tab']}>
+          <label
+            key={key}
+            className={classNames(
+              styles['tab'],
+              tab === key && styles['-checked'],
+            )}
+          >
             <input
               type="radio"
               name="blog-div"
@@ -46,13 +65,7 @@ export const BlogPageContent = ({ allPosts }: Props) => {
           </label>
         ))}
       </div>
-      <main className={styles['content-wrapper']}>
-        <div className={styles['posts']}>
-          {allPosts.map((post, index) => (
-            <PostCard key={post.slug} post={post} index={index} />
-          ))}
-        </div>
-      </main>
+      <main className={styles['content-wrapper']}>{content()}</main>
     </>
   );
 };

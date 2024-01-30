@@ -4,13 +4,13 @@
 import fs from 'fs';
 
 import { Feed } from 'feed';
-import rehypeRaw from 'rehype-raw';
+// import rehypeRaw from 'rehype-raw';
 // import rehypeSlug from 'rehype-slug';
 // import rehypeStringify from 'rehype-stringify';
 // import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import { unified } from 'unified';
+// import remarkParse from 'remark-parse';
+// import remarkRehype from 'remark-rehype';
+// import { unified } from 'unified';
 
 import { getAllPosts } from './posts';
 
@@ -45,7 +45,7 @@ export const generateRssFeed = async () => {
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
-      description: await markdownToHtml(post.content),
+      description: post.content,
       date: new Date(post.date),
     });
   });
@@ -58,14 +58,14 @@ export const generateRssFeed = async () => {
   });
 };
 
-export const markdownToHtml = async (markdown: string) => {
-  const result = await unified()
-    .use(remarkParse)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    // .use(rehypeSlug)
-    .use(rehypeRaw)
-    // .use(rehypeStringify)
-    .process(markdown);
+// export const markdownToHtml = async (markdown: string) => {
+//   const result = await unified()
+//     .use(remarkParse)
+//     .use(remarkRehype, { allowDangerousHtml: true })
+//     // .use(rehypeSlug)
+//     .use(rehypeRaw)
+//     // .use(rehypeStringify)
+//     .process(markdown);
 
-  return result.toString();
-};
+//   return result.toString();
+// };

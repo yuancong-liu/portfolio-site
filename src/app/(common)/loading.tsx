@@ -1,5 +1,5 @@
-import { LoadingIndicator } from '~/components/common/loadingIndicator';
+import { LoadingWithOverlay } from '~/components/common/LoadingWithOverlay';
 
-const Loading = () => <LoadingIndicator />;
+const Loading = () => <LoadingWithOverlay />;
 
 export default Loading;
