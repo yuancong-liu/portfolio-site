@@ -27,18 +27,17 @@
   @include sp {
     flex-basis: 100%;
     width: 100%;
-    border-top: 1px solid #fff;
   }
 
   @include pc {
-    border: 1px solid utils.$color-bg;
     box-shadow: 0 0 0 0 rgb(0 0 0 / 0%);
     transition: all 0.3s ease-in-out;
     transform: translate(0, 0);
 
     &:hover {
       z-index: 100;
-      border: 1px solid #fff;
+      background-color: utils.$color-navy-light;
+      border-radius: 8px;
       box-shadow: -10px 10px 0 0 utils.$color-pink;
       transform: translate(10px, -10px);
     }
@@ -52,8 +51,8 @@
   gap: 10px;
   align-items: flex-start;
   justify-content: space-between;
+  height: 100%;
   padding: 1rem;
-  background-color: utils.$color-navy;
 
   @include sp {
     padding: 1rem 20px;
@@ -77,6 +76,7 @@
 
     .title {
       width: 100%;
+      font-family: 'Zilla Slab', serif;
       font-size: 1.6rem;
     }
   }

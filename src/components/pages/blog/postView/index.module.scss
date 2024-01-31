@@ -4,9 +4,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 0;
-  width: 100%;
 
   @include sp {
-    gap: 0;
+    gap: 10px;
+    margin: 0 30px;
   }
 }
