@@ -3,7 +3,6 @@
   display: flex;
   flex-shrink: 0;
   height: fit-content;
-  overflow: visible;
   font-size: 1.4rem;
   color: #fdf0f0;
 
@@ -81,18 +80,4 @@
 .toc-level-1 {
   width: 100%;
   height: fit-content;
-
-  @media screen and (width >= 768px) {
-    &::after {
-      position: absolute;
-      right: 0;
-      bottom: -60px;
-      z-index: -1;
-      font-size: 4rem;
-      font-weight: 600;
-      line-height: 1;
-      color: #f1b4bb;
-      content: 'TOC -';
-    }
-  }
 }

@@ -11,3 +11,12 @@ $breakpoint: 768px;
     @content;
   }
 }
+
+@mixin removeScrollbar() {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

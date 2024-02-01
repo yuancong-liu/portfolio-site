@@ -22,6 +22,10 @@ const nextConfig = {
       },
     ],
   },
+  sassOptions: {
+    prependData: `@use '~/styles/utils.scss';
+@use '~/styles/mixins' as *;`,
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
