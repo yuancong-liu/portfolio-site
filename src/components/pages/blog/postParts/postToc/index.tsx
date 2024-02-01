@@ -18,6 +18,10 @@ export const PostToc = ({ className, children }: Props) => {
 
   const toc = useMemo(
     () => ({
+      pc: {
+        opacity: 1,
+        display: 'block',
+      },
       hidden: {
         opacity: [1, 0],
         scaleY: [1, 1.2],
@@ -112,7 +116,7 @@ export const PostToc = ({ className, children }: Props) => {
 
   const toggleToc = () => setTocOpen(!tocOpen);
 
-  const tocInitialStatus = isPc ? 'visible' : 'hidden';
+  const tocInitialStatus = isPc ? 'pc' : 'hidden';
   const tocAnimateStatus = isPc ? undefined : tocOpen ? 'visible' : 'hidden';
 
   return (
