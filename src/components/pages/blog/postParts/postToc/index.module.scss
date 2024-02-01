@@ -51,5 +51,6 @@
     z-index: 100;
     width: calc(100% - 60px);
     background: utils.$color-navy-light;
+    transform-origin: top;
   }
 }

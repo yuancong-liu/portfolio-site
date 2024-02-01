@@ -20,7 +20,7 @@ export const PostToc = ({ className, children }: Props) => {
     () => ({
       hidden: {
         opacity: [1, 0],
-        lineHeight: [1.5, 2],
+        scaleY: [1, 1.2],
         transition: {
           duration: 0.5,
           ease: 'easeInOut',
@@ -31,7 +31,7 @@ export const PostToc = ({ className, children }: Props) => {
       },
       visible: {
         opacity: [0, 1],
-        lineHeight: [2, 1.5],
+        scaleY: [1.2, 1],
         display: 'block',
         transition: {
           duration: 0.5,

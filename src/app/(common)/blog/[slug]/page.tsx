@@ -63,12 +63,13 @@ const PostPage = async ({ params }: Props) => {
         />
       </Head>
       <header className={styles['header']}>
-        <div className={styles['tag-group']}>{getTagList(tags)}</div>
         <h1 className={styles['title']}>{title}</h1>
+        <div className={styles['tag-group']}>{getTagList(tags)}</div>
         <p className={styles['date']}>{getDateString(date)}</p>
       </header>
       <main className={styles['main-wrapper']}>
         <PostContent content={serializedContent} postUrl={url} />
+        <div className={styles['social-links']}></div>
         <div className={styles['adjacent-posts']}>
           <AdjacentPosts slug={slug} />
         </div>

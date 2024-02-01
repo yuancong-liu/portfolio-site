@@ -5,10 +5,11 @@
   max-width: 800px;
   padding: 0 30px;
   margin: 0 auto;
+  font-family: 'Zilla Slab', serif;
 
   > .tag {
     position: relative;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   > .tag::before {
@@ -43,7 +44,7 @@
     z-index: 100;
     max-width: 800px;
     padding: 10px 30px;
-    margin: 30px auto;
+    margin: 30px auto 20px;
     font-family: 'Zilla Slab', serif;
     font-size: 6rem;
     line-height: 1.2;
