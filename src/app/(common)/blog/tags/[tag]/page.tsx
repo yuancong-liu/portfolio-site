@@ -9,7 +9,7 @@ type Props = {
 };
 
 const TagPage = ({ params }: Props) => {
-  const realTag = getAllTags().find((tag) => tag.param === params.tag);
+  const realTag = getAllTags().allTags.find((tag) => tag.param === params.tag);
   const posts = getPostsByTag(realTag!.tag);
 
   return (
@@ -27,9 +27,9 @@ const TagPage = ({ params }: Props) => {
 };
 
 export const generateStaticParams = () => {
-  const tags = getAllTags();
+  const { allTags } = getAllTags();
 
-  return tags.map((tag) => {
+  return allTags.map((tag) => {
     return { tag: tag.param };
   });
 };
