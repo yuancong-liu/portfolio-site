@@ -1,8 +1,6 @@
 .card-wrapper {
   position: relative;
   z-index: 0;
-  flex-basis: 50%;
-  width: calc(50% - 1rem);
   contain: paint;
 
   &.-new::after {

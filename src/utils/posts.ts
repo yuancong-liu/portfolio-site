@@ -57,7 +57,7 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
  * get all posts data with specified fields
  * @param fields fields to get
  */
-export const getAllPosts = (fields: string[] = []) => {
+export const getPostsByFields = (fields: string[] = []) => {
   const slugs = getPostSlugs();
   return (
     slugs
@@ -69,8 +69,14 @@ export const getAllPosts = (fields: string[] = []) => {
   );
 };
 
-export const getPosts = () => {
-  const allPosts = getAllPosts(['slug', 'title', 'date', 'tags', 'language']);
+export const getAllPosts = () => {
+  const allPosts = getPostsByFields([
+    'slug',
+    'title',
+    'date',
+    'tags',
+    'language',
+  ]);
   return {
     allPosts: JSON.parse(JSON.stringify(allPosts)) as Post[],
   };
@@ -82,7 +88,7 @@ export const getPosts = () => {
  * @returns
  */
 export const getAdjacentPosts = (slug: string) => {
-  const posts = getAllPosts(['slug', 'title', 'date']);
+  const posts = getPostsByFields(['slug', 'title', 'date']);
   const currentPostIndex = posts.findIndex((post) => post.slug === slug);
 
   const prevPost = posts[currentPostIndex + 1];
@@ -106,15 +112,20 @@ export const convertTagToParam = (tag: string) =>
  * Get all tags
  * @returns Tag[]
  */
-export const getAllTags = (): Tag[] => {
-  const posts = getAllPosts(['slug', 'tags']);
+export const getAllTags = () => {
+  const posts = getPostsByFields(['slug', 'tags']);
   const tags = posts.map((post) => post.tags).flat();
 
   const uniqueTags = [...new Set(tags)];
-  return uniqueTags.map((tag) => ({
-    tag,
-    param: convertTagToParam(tag),
-  }));
+  return {
+    allTags: uniqueTags.map(
+      (tag) =>
+        ({
+          tag,
+          param: convertTagToParam(tag),
+        }) as Tag,
+    ),
+  };
 };
 
 /**
@@ -123,7 +134,7 @@ export const getAllTags = (): Tag[] => {
  * @returns Post[]
  */
 export const getPostsByTag = (tag: string) => {
-  const posts = getAllPosts(['slug', 'title', 'tags', 'date', 'language']);
+  const posts = getPostsByFields(['slug', 'title', 'tags', 'date', 'language']);
   return posts.filter((post) => post.tags.includes(tag));
 };
 

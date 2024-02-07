@@ -12,10 +12,10 @@ import { Feed } from 'feed';
 // import remarkRehype from 'remark-rehype';
 // import { unified } from 'unified';
 
-import { getAllPosts } from './posts';
+import { getPostsByFields } from './posts';
 
 export const generateRssFeed = async () => {
-  const posts = getAllPosts(['slug', 'title', 'date', 'tags', 'content']);
+  const posts = getPostsByFields(['slug', 'title', 'date', 'tags', 'content']);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const date = new Date();
   const author = {
