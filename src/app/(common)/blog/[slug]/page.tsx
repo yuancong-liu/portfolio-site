@@ -8,7 +8,7 @@ import { PostContent } from '~/components/pages/blog/postContent';
 import { getDateString } from '~/utils/dates';
 import {
   convertTagToParam,
-  getAllPosts,
+  getPostsByFields,
   getPostBySlug,
   mdxSerializeConfig,
 } from '~/utils/posts';
@@ -79,7 +79,7 @@ const PostPage = async ({ params }: Props) => {
 };
 
 export const generateStaticParams = () => {
-  const posts = getAllPosts(['slug']);
+  const posts = getPostsByFields(['slug']);
 
   return posts.map((post) => {
     return { slug: post.slug };
