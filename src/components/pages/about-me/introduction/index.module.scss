@@ -1,3 +1,6 @@
+@import 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@600&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap';
+
 .introduction-wrapper {
   width: calc(100% - 60px);
   max-width: 800px;
@@ -13,6 +16,137 @@
   }
 }
 
+// ====================
+// Name Sparkle
+// ====================
+.name-sparkle {
+  &::after {
+    display: none;
+  }
+
+  &.-show::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 30%, utils.$color-pink 30%);
+    pointer-events: none;
+    animation: sparkle 1.5s;
+    opacity: 0.8;
+  }
+
+  > .entity {
+    position: absolute;
+    z-index: -1;
+    line-height: 1;
+    color: utils.$color-pink;
+    text-wrap: nowrap;
+    white-space: pre;
+    opacity: 0.5;
+  }
+
+  > .entity.en {
+    top: -7%;
+    left: -8%;
+    font-size: min(50vw, 30rem);
+    line-height: 0.8;
+    animation: name-1 3s infinite ease-in-out;
+  }
+
+  > .entity.jp,
+  > .entity.cn {
+    font-family: 'IBM Plex Sans JP', sans-serif;
+    color: transparent;
+    -webkit-text-stroke: 1px utils.$color-pink;
+  }
+
+  > .entity.jp {
+    right: 0;
+    bottom: -6%;
+    font-size: min(30vw, 25rem);
+    text-align: right;
+    animation: name-2 3s infinite ease-in-out;
+  }
+
+  > .entity.cn {
+    top: 30%;
+    left: 50%;
+    font-size: min(25vw, 15rem);
+    animation: name-2 3s infinite 1s ease-in-out;
+  }
+
+  > .entity.kr {
+    right: 60%;
+    bottom: 30%;
+    font-size: min(20vw, 15rem);
+    font-family: 'Dongle', sans-serif;
+    font-weight: 700;
+    animation: name-1 3s infinite 1s ease-in-out;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 10000;
+  }
+}
+
+@keyframes name-1 {
+  0% {
+    translate: 0 0;
+  }
+
+  25% {
+    translate: 5% 10%;
+  }
+
+  50% {
+    translate: 0 5%;
+  }
+
+  75% {
+    translate: -5% 10%;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes name-2 {
+  0% {
+    translate: 0 0;
+  }
+
+  25% {
+    translate: -5% -10%;
+  }
+
+  50% {
+    translate: 0 -5%;
+  }
+
+  75% {
+    translate: 5% -10%;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
+
+// ====================
+// Hobbies Slider
+// ====================
 .hobbies-slider {
   display: inline-flex;
   flex-direction: column;
