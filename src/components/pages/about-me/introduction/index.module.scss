@@ -36,8 +36,12 @@
     border-radius: 50%;
     background: radial-gradient(circle, transparent 30%, utils.$color-pink 30%);
     pointer-events: none;
-    animation: sparkle 1.5s;
+    animation: sparkle 2s ease-out;
     opacity: 0.8;
+
+    @include sp {
+      animation: sparkle-sp 2s ease-out;
+    }
   }
 
   > .entity {
@@ -97,6 +101,16 @@
 
   100% {
     scale: 10000;
+  }
+}
+
+@keyframes sparkle-sp {
+  0% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 5000;
   }
 }
 
