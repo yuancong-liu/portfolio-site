@@ -40,7 +40,7 @@
     opacity: 0.8;
 
     @include sp {
-      animation: sparkle-sp 2s ease-out;
+      display: none;
     }
   }
 
