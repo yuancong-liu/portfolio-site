@@ -33,10 +33,10 @@ type Name = {
 };
 
 const NAME = [
-  { lang: 'en', name: 'PAUL\nLIU' },
-  { lang: 'cn', name: '劉元聰' },
-  { lang: 'jp', name: 'リュウ\nゲンソウ' },
-  { lang: 'kr', name: '유원총' },
+  { lang: 'en', name: 'PAUL LIU / PAUL LIU / PAUL LIU' },
+  { lang: 'cn', name: '劉元聰 / 劉元聰 / 劉元聰 / 劉元聰 / 劉元聰' },
+  { lang: 'jp', name: 'リュウ ゲンソウ / リュウ ゲンソウ / リュウ ゲンソウ' },
+  { lang: 'kr', name: '유원총 / 유원총 / 유원총 / 유원총 / 유원총' },
 ] as Name[];
 
 const NameSparkle = memo(() => {
@@ -45,8 +45,16 @@ const NameSparkle = memo(() => {
   const nameVariants = {
     hidden: {
       opacity: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+      },
+      transitionEnd: {
+        display: 'none',
+      },
     },
     visible: {
+      display: 'block',
       opacity: [0, 0.5, 0.5],
       transition: {
         duration: 1,
