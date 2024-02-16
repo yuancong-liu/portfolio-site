@@ -7,31 +7,33 @@
   margin: 0 auto;
   font-family: 'Zilla Slab', serif;
 
-  > .tag {
+  .tag {
     position: relative;
-    font-size: 1.6rem;
-  }
-
-  > .tag::before {
-    margin-right: 3px;
+    font-size: 1.8rem;
     font-weight: 600;
-    color: utils.$color-pink;
-    content: '#';
-  }
+    list-style-type: none;
 
-  > .tag::after {
-    position: absolute;
-    bottom: 10%;
-    left: 0;
-    z-index: -100;
-    display: block;
-    width: 100%;
-    height: 40%;
-    content: '';
-  }
+    &::before {
+      margin-right: 3px;
+      color: utils.$color-pink;
+      content: '#';
+    }
 
-  > .tag:hover::after {
-    background-color: utils.$color-pink;
+    &::after {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      z-index: -100;
+      display: block;
+      width: 100%;
+      height: 40%;
+      content: '';
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &:hover::after {
+      background-color: utils.$color-pink;
+    }
   }
 }
 
