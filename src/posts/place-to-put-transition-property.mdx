@@ -1,0 +1,51 @@
+---
+title: Note | Where to put transition property?
+date: 2024-02-15 17:22:11
+language: English
+tags:
+  - Programming
+  - Front-end
+  - CSS
+---
+
+It's quite an embarrassing tale, but the other day, while trying to add some fantastic transition effects to this site, I ran into some difficult situations.
+
+In the experience section, where cards are listed horizontally, I wanted to make them scale up and down when the mouse cursor is in and out. It would be easy (which actually is), as I was using flex-box to arrange them, and conducting a transition over `flex-basis` would do the job. However, I witnessed this weird phenomenon where a smooth transition was rendered at mouse-in but nothing at mouse-out.
+
+I spent minutes searching the Internet, but no even seemingly related search results appeared.
+
+## Put the `transition` property in the right place
+
+I have been writing CSS code for a long time but have never been aware of where the right place to write the transition property is. Inside main classes or pseudo-classes, as long as it's working, it's totally fine to me. As the Pen I made below, when you write the `transition` property under the `:hover` selector, no transition at all would be rendered or even recognised by browsers. To put it simply, in the case where the `transition` property is defined within the base class, when an element is transitioning from a base class into a hovered state, whose styles are defined by a `:hover` selector, the transition effects are rendered because it still belongs to the base class, no matter if it's hit the hovered state or not.
+
+To some extent, it's similar to the reason why you cannot add any transition to any element going `display: none;` as browsers would not allow any element to be removed from the screen GRADUALLY. To implement such effects, libraries like `framer-motion` may be necessary, but anyway, the basic methodology here is to differ the timing elements go `none` and reduce the opacity to zero before that.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  title="Where to code transition property"
+  src="https://codepen.io/yuancong-liu/embed/GReEaZB?default-tab=result&theme-id=dark"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+/>
+
+## Bonus hack - `:hover` and `:not(:hover)`
+
+Tale as old as time...
+
+One day last year, I tried to use pure CSS to implement a tracing effect, by which, elements turn to some other colour immediately when mouse-in and gradually turn back when mouse-out. There, I discovered this hack.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  title=":hover &amp; :not(:hover)"
+  src="https://codepen.io/yuancong-liu/embed/VwEgEMx?default-tab=result&theme-id=dark"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+/>
+
+Have a good day! 🌈

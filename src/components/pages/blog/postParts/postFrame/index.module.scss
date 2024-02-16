@@ -1,8 +1,11 @@
 .iframe-wrapper {
   width: 100%;
 
-  .iframe[src*='youtube.com'] {
+  .iframe {
     width: 100%;
+  }
+
+  .iframe[src*='youtube.com'] {
     aspect-ratio: 16 / 9;
     border: 0;
   }
