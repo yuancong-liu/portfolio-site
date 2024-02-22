@@ -36,6 +36,7 @@ const PostPage = async ({ params }: Props) => {
     title,
     url,
     type: 'website',
+    description: title,
   };
 
   const getTagList = (tags: string[] | string) => {
