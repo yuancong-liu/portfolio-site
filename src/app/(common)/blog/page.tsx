@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
+import { compileMDX } from 'next-mdx-remote/rsc';
 
 import { BlogPageContent } from '~/components/pages/blog/blogPageContent';
+import { PostFrame } from '~/components/pages/blog/postParts/postFrame';
 import { generateRssFeed } from '~/utils/feed';
 import { getAllTags, getAllPosts } from '~/utils/posts';
 
@@ -14,7 +16,12 @@ export const metadata: Metadata = {
  * Blog page
  */
 const BlogPage = () => {
-  generateRssFeed();
+  generateRssFeed(async (content) =>
+    (await import('react-dom/server')).renderToStaticMarkup(
+      (await compileMDX({ source: content, components: { PostFrame } }))
+        .content as any,
+    ),
+  );
 
   const { allPosts } = getAllPosts();
   const { allTags } = getAllTags();

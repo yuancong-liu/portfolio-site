@@ -25,10 +25,10 @@ To some extent, it's similar to the reason why you cannot add any transition to 
   scrolling="no"
   title="Where to code transition property"
   src="https://codepen.io/yuancong-liu/embed/GReEaZB?default-tab=result&theme-id=dark"
-  frameborder="no"
+  frameBorder="no"
   loading="lazy"
-  allowtransparency="true"
-  allowfullscreen="true"
+  allowTransparency
+  allowFullScreen
 />
 
 ## Bonus hack - `:hover` and `:not(:hover)`
@@ -42,10 +42,10 @@ One day last year, I tried to use pure CSS to implement a tracing effect, by whi
   scrolling="no"
   title=":hover &amp; :not(:hover)"
   src="https://codepen.io/yuancong-liu/embed/VwEgEMx?default-tab=result&theme-id=dark"
-  frameborder="no"
+  frameBorder="no"
   loading="lazy"
-  allowtransparency="true"
-  allowfullscreen="true"
+  allowTransparency
+  allowFullScreen
 />
 
 The leading theory behind this is entirely connected to the topic, which is to take advantage of the rendering engine being unable to recognise transitions characterised under the `:hover` selector when an element's state is changing from the hovered state back to a normal one, but the rendering CAN recognise and renders well the transitions from state `:hover` to `:not(:hover)`.

@@ -4,12 +4,12 @@
 import fs from 'fs';
 
 import { Feed } from 'feed';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { renderToStaticMarkup } from 'react-dom/server';
 
 import { getPostsByFields } from './posts';
 
-export const generateRssFeed = async () => {
+export const generateRssFeed = async (
+  contentProcessor: (content: string) => Promise<string>,
+) => {
   const posts = getPostsByFields(['slug', 'title', 'date', 'tags', 'content']);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const date = new Date();
@@ -35,19 +35,16 @@ export const generateRssFeed = async () => {
     author,
   });
 
-  const stringifyContent = (content: string) => {
-    const compiled = renderToStaticMarkup(<MDXRemote source={content} />);
-    return compiled;
-  };
+  // const stringifyContent = async (content: string) => {
+  //   return (await import('react-dom/server')).renderToStaticMarkup(<MDXRemote source={content} />);
+  // };
 
   const postPromise = posts.map(async (post) => {
-    console.log(await stringifyContent(post.content));
-
     feed.addItem({
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
-      description: await stringifyContent(post.content),
+      description: await contentProcessor(post.content),
       date: new Date(post.date),
     });
   });
