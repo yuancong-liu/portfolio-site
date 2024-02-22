@@ -35,10 +35,6 @@ export const generateRssFeed = async (
     author,
   });
 
-  // const stringifyContent = async (content: string) => {
-  //   return (await import('react-dom/server')).renderToStaticMarkup(<MDXRemote source={content} />);
-  // };
-
   const postPromise = posts.map(async (post) => {
     feed.addItem({
       title: post.title,
