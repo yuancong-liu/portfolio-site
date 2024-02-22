@@ -1,9 +1,8 @@
-'use client';
 import { ComponentProps } from 'react';
 
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote/rsc';
 
-import { PostContext } from '~/contexts/postContext';
+import { mdxSerializeConfig } from '~/utils/posts';
 
 import { PostBlockquote } from '../postParts/postBlockquote';
 import { PostCode } from '../postParts/postCode';
@@ -23,16 +22,17 @@ import styles from './index.module.scss';
 
 type Props = {
   content: MDXRemoteSerializeResult;
-  postUrl: string;
 };
 
-export const PostContent = ({ content, postUrl }: Props) => {
+export const PostContent = ({ content }: Props) => {
   return (
-    <PostContext.Provider value={{ postUrl }}>
-      <div className={styles['post-content']}>
-        <MDXRemote {...content} components={components} />
-      </div>
-    </PostContext.Provider>
+    <div className={styles['post-content']}>
+      <MDXRemote
+        source={content}
+        options={mdxSerializeConfig}
+        components={components}
+      />
+    </div>
   );
 };
 

@@ -4,13 +4,8 @@
 import fs from 'fs';
 
 import { Feed } from 'feed';
-// import rehypeRaw from 'rehype-raw';
-// import rehypeSlug from 'rehype-slug';
-// import rehypeStringify from 'rehype-stringify';
-// import remarkGfm from 'remark-gfm';
-// import remarkParse from 'remark-parse';
-// import remarkRehype from 'remark-rehype';
-// import { unified } from 'unified';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 import { getPostsByFields } from './posts';
 
@@ -40,12 +35,19 @@ export const generateRssFeed = async () => {
     author,
   });
 
+  const stringifyContent = (content: string) => {
+    const compiled = renderToStaticMarkup(<MDXRemote source={content} />);
+    return compiled;
+  };
+
   const postPromise = posts.map(async (post) => {
+    console.log(await stringifyContent(post.content));
+
     feed.addItem({
       title: post.title,
       id: `${siteUrl}/blog/${post.slug}`,
       link: `${siteUrl}/blog/${post.slug}`,
-      description: post.content,
+      description: await stringifyContent(post.content),
       date: new Date(post.date),
     });
   });
@@ -57,15 +59,3 @@ export const generateRssFeed = async () => {
     fs.writeFileSync('./public/rss/feed.json', feed.json1());
   });
 };
-
-// export const markdownToHtml = async (markdown: string) => {
-//   const result = await unified()
-//     .use(remarkParse)
-//     .use(remarkRehype, { allowDangerousHtml: true })
-//     // .use(rehypeSlug)
-//     .use(rehypeRaw)
-//     // .use(rehypeStringify)
-//     .process(markdown);
-
-//   return result.toString();
-// };

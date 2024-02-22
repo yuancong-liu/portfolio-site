@@ -1,15 +1,19 @@
 'use client';
 import { ComponentProps } from 'react';
 
+import { usePathname } from 'next/navigation';
+
 import Link from '~/assets/icons/link.svg';
-import { usePostContext } from '~/contexts/postContext';
 
 import styles from './index.module.scss';
 
 type Props = ComponentProps<'h2'>;
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000';
+
 export const PostH2 = ({ children, id, ...restProps }: Props) => {
-  const { postUrl } = usePostContext();
+  const pathName = usePathname();
+  const postUrl = `${SITE_URL}${pathName}`;
 
   const handleCopyLink = () =>
     navigator.clipboard.writeText(`${postUrl}#${id}`);

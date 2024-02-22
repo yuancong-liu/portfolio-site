@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { serialize } from 'next-mdx-remote/serialize';
 
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import { PostContent } from '~/components/pages/blog/postContent';
@@ -10,7 +9,6 @@ import {
   convertTagToParam,
   getPostsByFields,
   getPostBySlug,
-  mdxSerializeConfig,
 } from '~/utils/posts';
 
 import styles from './index.module.scss';
@@ -53,8 +51,6 @@ const PostPage = async ({ params }: Props) => {
     ));
   };
 
-  const serializedContent = await serialize(content, mdxSerializeConfig);
-
   return (
     <>
       <Head>
@@ -69,7 +65,7 @@ const PostPage = async ({ params }: Props) => {
         <p className={styles['date']}>{getDateString(date)}</p>
       </header>
       <main className={styles['main-wrapper']}>
-        <PostContent content={serializedContent} postUrl={url} />
+        <PostContent content={content} />
         <div className={styles['social-links']}></div>
         <div className={styles['adjacent-posts']}>
           <AdjacentPosts slug={slug} />
