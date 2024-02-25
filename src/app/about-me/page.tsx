@@ -9,7 +9,6 @@ import styles from './index.module.scss';
 const AboutMePage = () => {
   return (
     <main className={styles['content-wrapper']}>
-      {/* <h1 className={styles['back-button']}>hello</h1> */}
       {/* introduction */}
       <section className={styles['block']}>
         <Introduction />

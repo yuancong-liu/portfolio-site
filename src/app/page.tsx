@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { HomeDynamic } from '../../components/pages/home/homeDynamic';
+import { HomeDynamic } from '../components/pages/home/homeDynamic';
 
 export const metadata: Metadata = {
   title: 'YC SPACE',
