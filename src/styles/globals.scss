@@ -51,11 +51,11 @@ a {
 
 .overall-background {
   position: fixed;
-  top: 0;
+  top: -10%;
   left: 0;
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 120%;
   background: radial-gradient(
     circle at top 30% left 0,
     rgba(73 71 92 / 100%) 0%,
