@@ -2025,6 +2025,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@studio-freight/hamo@npm:^0.6.28":
+  version: 0.6.28
+  resolution: "@studio-freight/hamo@npm:0.6.28"
+  dependencies:
+    "@studio-freight/tempus": "npm:^0.0.38"
+    just-debounce-it: "npm:^3.2.0"
+    nanoevents: "npm:^9.0.0"
+    zustand: "npm:^4.4.7"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: b758c4a885f23cd15b285af1504a528b67e2550658ceec9b34ceedd0a3d025611b264db82ad1f5c11551d8b8a17e19a4d9d2da00db8005abbda0516aa93913be
+  languageName: node
+  linkType: hard
+
+"@studio-freight/lenis@npm:^1.0.35-dev.0":
+  version: 1.0.37
+  resolution: "@studio-freight/lenis@npm:1.0.37"
+  checksum: 38e498dff3ef74cef079e49f150c739b9dbb0e18a50d793d11101425aaa443042f3fdc562146ebffb14076b14da1223dd1a57eef90f1ea746424ed93d5fbaa43
+  languageName: node
+  linkType: hard
+
+"@studio-freight/react-lenis@npm:^0.0.45":
+  version: 0.0.45
+  resolution: "@studio-freight/react-lenis@npm:0.0.45"
+  dependencies:
+    "@studio-freight/hamo": "npm:^0.6.28"
+    "@studio-freight/lenis": "npm:^1.0.35-dev.0"
+    clsx: "npm:^2.0.0"
+    zustand: "npm:^4.4.7"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: c371ee47e481c52ff6c59ca2a567549898c04372f612ce787408c24e4afdb6b91c581d34e6215c0c698f76a410bf033d4a9e41a8cd63b5b1b340564e3d3edeb5
+  languageName: node
+  linkType: hard
+
+"@studio-freight/tempus@npm:^0.0.38":
+  version: 0.0.38
+  resolution: "@studio-freight/tempus@npm:0.0.38"
+  checksum: 5f9b96d950c22e030af87527c5f8342797f6984e9204e78a6ffe3819c00d06cd165015ca72ea5750e52c9300380d8b660ee5d9390556509efe03b258131653a9
+  languageName: node
+  linkType: hard
+
 "@svgr/babel-plugin-add-jsx-attribute@npm:8.0.0":
   version: 8.0.0
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:8.0.0"
@@ -3298,6 +3342,13 @@ __metadata:
     strip-ansi: "npm:^6.0.1"
     wrap-ansi: "npm:^7.0.0"
   checksum: 4bda0f09c340cbb6dfdc1ed508b3ca080f12992c18d68c6be4d9cf51756033d5266e61ec57529e610dacbf4da1c634423b0c1b11037709cc6b09045cbd815df5
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "clsx@npm:2.1.0"
+  checksum: c09c00ad14f638366ca814097e6cab533dfa1972a358da5b557be487168acbb25b4c1395e89ffa842a8a61ba87a462d2b4885bc9d4f8410b598f3cb339599cdb
   languageName: node
   linkType: hard
 
@@ -6133,6 +6184,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"just-debounce-it@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "just-debounce-it@npm:3.2.0"
+  checksum: 69e5af960634d6e22f4d9bb9d7d06740bd437e11cfe6c18ee6e2eebbf6c29e5ce3a92bdb3dfbc8680d4e7f0203f5a3bc5e7dee288f249cbe394cff6e991ab692
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.5.3":
   version: 4.5.4
   resolution: "keyv@npm:4.5.4"
@@ -7737,6 +7795,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoevents@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "nanoevents@npm:9.0.0"
+  checksum: af74c96d0d54ef0ddf6fd163d961b23ec4219ac51d0b70135a2cae49fac1107ddccdcbf7a120601e0bfdd38b15de811f3ce43da5bab967fdee9684e52e4cb5b7
+  languageName: node
+  linkType: hard
+
 "nanoid@npm:^3.3.6, nanoid@npm:^3.3.7":
   version: 3.3.7
   resolution: "nanoid@npm:3.3.7"
@@ -8374,6 +8439,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:^18.4.1"
     "@hbsnow/rehype-sectionize": "npm:^1.0.7"
+    "@studio-freight/react-lenis": "npm:^0.0.45"
     "@svgr/webpack": "npm:^8.0.1"
     "@tsconfig/next": "npm:^2.0.1"
     "@types/node": "npm:20.9.0"
@@ -10622,6 +10688,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-sync-external-store@npm:1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
+  languageName: node
+  linkType: hard
+
 "util-deprecate@npm:^1.0.1, util-deprecate@npm:^1.0.2":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -10954,6 +11029,26 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: dceb44c28578b31641e13695d200d34ec4ab3966a5729814d5445b194933c096b7ced71494ce53a0e8820685d1d010df8b2422e5bf2cdea7e469d97ffbea306f
+  languageName: node
+  linkType: hard
+
+"zustand@npm:^4.4.7":
+  version: 4.5.1
+  resolution: "zustand@npm:4.5.1"
+  dependencies:
+    use-sync-external-store: "npm:1.2.0"
+  peerDependencies:
+    "@types/react": ">=16.8"
+    immer: ">=9.0.6"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    immer:
+      optional: true
+    react:
+      optional: true
+  checksum: 3c928236f716f026760ddfff9910c37f9e3696169650cd677139dc2fe2623fa215dc31c899caf5b9b6a0668ed003c505918c2a953dbbd295fe7f90092634a90c
   languageName: node
   linkType: hard
 

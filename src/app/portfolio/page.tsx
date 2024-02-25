@@ -1,5 +1,8 @@
 import type { NextPage } from 'next';
 
+import { FilmsContent } from '~/components/pages/portfolio/filmsContent';
+import { Section } from '~/components/pages/portfolio/section';
+
 import styles from './index.module.scss';
 
 /**
@@ -8,14 +11,18 @@ import styles from './index.module.scss';
 const PortfolioPage: NextPage = () => {
   return (
     <main className={styles['content-wrapper']}>
-      {/* introduction */}
+      {/* design works */}
       <section className={styles['block']}>
-        <h1>#1</h1>
+        <Section title="DESIGNS">
+          <h1>#1</h1>
+        </Section>
       </section>
 
-      {/* experiences */}
+      {/* films */}
       <section className={styles['block']}>
-        <h1>#2</h1>
+        <Section title="FILMS">
+          <FilmsContent />
+        </Section>
       </section>
     </main>
   );

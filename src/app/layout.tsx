@@ -8,7 +8,10 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="overall-background" />
+        {children}
+      </body>
       <Analytics />
     </html>
   );

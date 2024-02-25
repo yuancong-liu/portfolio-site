@@ -21,6 +21,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@studio-freight/react-lenis": "^0.0.45",
     "@vercel/analytics": "^1.1.1",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.16",

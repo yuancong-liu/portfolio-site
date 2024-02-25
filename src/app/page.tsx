@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { Metadata, NextPage } from 'next';
 
 import { HomeDynamic } from '../components/pages/home/homeDynamic';
 
@@ -7,6 +7,6 @@ export const metadata: Metadata = {
   description: 'ㅇㅇㅊ',
 };
 
-export default function HomePage() {
-  return <HomeDynamic />;
-}
+const HomePage: NextPage = () => <HomeDynamic />;
+
+export default HomePage;
