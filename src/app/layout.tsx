@@ -1,9 +1,13 @@
 import { Analytics } from '@vercel/analytics/react';
-import { Viewport } from 'next';
+import { Metadata, Viewport } from 'next';
 import '~/styles/globals.scss';
 
 type Props = {
   children: React.ReactNode;
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || ''),
 };
 
 export const viewport: Viewport = {

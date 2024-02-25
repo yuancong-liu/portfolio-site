@@ -1,7 +1,15 @@
+import { Metadata } from 'next';
+
 import { CardsView } from '~/components/pages/about-me/cardsView';
 import { Introduction } from '~/components/pages/about-me/introduction';
 
 import styles from './index.module.scss';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/about-me',
+  },
+};
 
 /**
  * AboutMePage

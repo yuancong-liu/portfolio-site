@@ -14,7 +14,6 @@ import {
 import styles from './index.module.scss';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
   robots: 'all',
 };
 
@@ -28,7 +27,11 @@ const PostPage = async ({ params }: Props) => {
 
   if (!title) return <></>;
 
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}/`;
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`;
+
+  metadata.alternates = {
+    canonical: `/blog/${slug}`,
+  };
 
   metadata.openGraph = {
     title,

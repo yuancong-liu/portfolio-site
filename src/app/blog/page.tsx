@@ -7,9 +7,11 @@ import { generateRssFeed } from '~/utils/feed';
 import { getAllTags, getAllPosts } from '~/utils/posts';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
   robots: 'all',
   title: "YC's Blog",
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 /**

@@ -5,6 +5,9 @@ import { HomeDynamic } from '../components/pages/home/homeDynamic';
 export const metadata: Metadata = {
   title: 'YC SPACE',
   description: 'ㅇㅇㅊ',
+  alternates: {
+    canonical: '',
+  },
 };
 
 const HomePage: NextPage = () => <HomeDynamic />;

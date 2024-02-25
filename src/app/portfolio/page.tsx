@@ -1,9 +1,15 @@
-import type { NextPage } from 'next';
+import type { Metadata, NextPage } from 'next';
 
 import { FilmsContent } from '~/components/pages/portfolio/filmsContent';
 import { Section } from '~/components/pages/portfolio/section';
 
 import styles from './index.module.scss';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/portfolio',
+  },
+};
 
 /**
  * Portfolio page
