@@ -9,7 +9,8 @@ const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body>
-        <div className="overall-background" />
+        <div className="overall-background-grid" />
+        <div className="overall-background-gradient" />
         {children}
       </body>
       <Analytics />

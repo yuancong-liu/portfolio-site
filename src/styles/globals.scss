@@ -50,13 +50,29 @@ a {
   text-decoration: none;
 }
 
-.overall-background {
+.overall-background-grid,
+.overall-background-gradient {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
   width: 100%;
   height: 100%;
+}
+
+.overall-background-grid {
+  z-index: -1;
+  background: linear-gradient(
+      0deg,
+      transparent 80px,
+      rgba(241 180 187 / 20%) 81px
+    ),
+    linear-gradient(90deg, transparent 80px, rgba(241 180 187 / 20%) 81px);
+  background-position: center;
+  background-size: 81px 81px;
+}
+
+.overall-background-gradient {
+  z-index: -2;
   background: radial-gradient(
     circle at top 30% left 0,
     rgba(73 71 92 / 100%) 0%,
