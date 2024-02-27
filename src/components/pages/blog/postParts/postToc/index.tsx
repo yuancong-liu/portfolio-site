@@ -1,5 +1,5 @@
 'use client';
-import { ComponentProps, useState } from 'react';
+import { ComponentProps, useRef, useState } from 'react';
 
 import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
@@ -15,9 +15,12 @@ type Props = ComponentProps<'nav'>;
 
 export const PostToc = ({ className, children }: Props) => {
   const [tocOpen, setTocOpen] = useState(false);
+  const tocRef = useRef<HTMLDivElement>(null);
   const { isPc } = useDeviceDetect();
 
-  const { contextSafe } = useGSAP(() => {
+  const { contextSafe } = useGSAP({ scope: tocRef });
+
+  useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -87,7 +90,10 @@ export const PostToc = ({ className, children }: Props) => {
   });
 
   return (
-    <div className={classNames(styles['toc-back-wrapper'], 'toc-wrapper')}>
+    <div
+      className={classNames(styles['toc-back-wrapper'], 'toc-wrapper')}
+      ref={tocRef}
+    >
       <button
         className={classNames(
           styles['toc-button'],
