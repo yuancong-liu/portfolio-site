@@ -20,6 +20,11 @@ export const PostToc = ({ className, children }: Props) => {
 
   const toggleToc = contextSafe(() => {
     if (tocOpen) {
+      gsap.to('.top', { rotate: 0, translateY: 0, scale: 1 });
+      gsap.to('.middle', { opacity: 1 });
+      gsap.to('.bottom', { rotate: 0, translateY: 0, scale: 1 });
+      gsap.to('.toc', { autoAlpha: 0 });
+    } else {
       gsap.to('.top', {
         rotate: 45,
         translateY: 160,
@@ -34,11 +39,6 @@ export const PostToc = ({ className, children }: Props) => {
         transformOrigin: '50% 50%',
       });
       gsap.fromTo('.toc', { autoAlpha: 0 }, { autoAlpha: 1 });
-    } else {
-      gsap.to('.top', { rotate: 0, translateY: 0, scale: 1 });
-      gsap.to('.middle', { opacity: 1 });
-      gsap.to('.bottom', { rotate: 0, translateY: 0, scale: 1 });
-      gsap.to('.toc', { autoAlpha: 0 });
     }
 
     setTocOpen(!tocOpen);
