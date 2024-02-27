@@ -21,8 +21,7 @@ export const PostToc = ({ className, children }: Props) => {
     gsap.registerPlugin(ScrollTrigger);
     const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: '.toc-wrapper',
-        pin: true,
+        trigger: isPc ? undefined : '.toc-wrapper',
         start: 'top top',
         endTrigger: '.footer',
         toggleActions: 'play none none reverse',
