@@ -23,7 +23,7 @@ export const PostToc = ({ className, children }: Props) => {
       scrollTrigger: {
         trigger: isPc ? undefined : '.toc-wrapper',
         start: 'top top',
-        endTrigger: '.footer',
+        endTrigger: '.heading',
         toggleActions: 'play none none reverse',
         snap: {
           snapTo: 'labels',
