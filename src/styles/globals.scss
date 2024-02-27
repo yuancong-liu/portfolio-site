@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap';
 @import 'https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,600;1,300;1,600&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;700&display=swap';
 @import 'https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css';
 
 :root {
@@ -13,7 +14,7 @@ html {
 html,
 body {
   margin: 0;
-  font-family: Jost, sans-serif;
+  font-family: Jost, 'IBM Plex Sans JP', sans-serif;
   font-size: 10px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;

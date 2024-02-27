@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 
 import styles from './index.module.scss';
 
 export const IconsPc = () => {
-  const cMarkPath = {
+  const cMarkPath: Variants = {
     hidden: {
       pathLength: 0,
       fill: 'rgba(255, 255, 255, 0)',
@@ -46,7 +46,7 @@ export const IconsPc = () => {
         ease: 'easeInOut',
       },
     },
-  }
+  };
 
   return (
     <div className={styles['overall-wrapper']}>
