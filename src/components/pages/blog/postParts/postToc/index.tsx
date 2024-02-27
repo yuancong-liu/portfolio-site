@@ -1,9 +1,8 @@
 'use client';
-import { ComponentProps, useMemo, useState } from 'react';
+import { ComponentProps, useState } from 'react';
 
 import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
 import { useDeviceDetect } from '~/hooks';
@@ -52,40 +51,26 @@ export const PostToc = ({ className, children }: Props) => {
         onClick={toggleToc}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <motion.path
-            // initial="close"
-            // variants={barTop}
-            // animate={tocOpen ? 'open' : 'close'}
+          <path
             className="top"
             d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96z"
             fill="#fff"
           />
-          <motion.path
-            // initial="close"
-            // variants={barMiddle}
-            // animate={tocOpen ? 'open' : 'close'}
+          <path
             className="middle"
             d="M0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32z"
             fill="#fff"
           />
-          <motion.path
-            // initial="close"
-            // variants={barBottom}
-            // animate={tocOpen ? 'open' : 'close'}
+          <path
             className="bottom"
             d="M448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
             fill="#fff"
           />
         </svg>
       </button>
-      <motion.nav
-        // variants={toc}
-        // initial={tocInitialStatus}
-        // animate={tocAnimateStatus}
-        className={classNames(className, !isPc && 'toc', styles['toc-bar'])}
-      >
+      <nav className={classNames(className, !isPc && 'toc', styles['toc-bar'])}>
         {children}
-      </motion.nav>
+      </nav>
     </div>
   );
 };
