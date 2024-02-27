@@ -1,10 +1,11 @@
 'use client';
 import { ComponentProps, useMemo, useState } from 'react';
 
+import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
 
-import { PostTocContext } from '~/contexts/postTocContext';
 import { useDeviceDetect } from '~/hooks';
 
 import styles from './index.module.scss';
@@ -16,152 +17,75 @@ export const PostToc = ({ className, children }: Props) => {
   const [tocOpen, setTocOpen] = useState(false);
   const { isPc } = useDeviceDetect();
 
-  const toc = useMemo(
-    () => ({
-      pc: {
-        opacity: 1,
-        display: 'block',
-      },
-      hidden: {
-        opacity: [1, 0],
-        scaleY: [1, 1.2],
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-        transitionEnd: {
-          display: 'none',
-        },
-      },
-      visible: {
-        opacity: [0, 1],
-        scaleY: [1.2, 1],
-        display: 'block',
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-      },
-    }),
-    [],
-  );
+  const { contextSafe } = useGSAP();
 
-  const barTop = useMemo(
-    () => ({
-      close: {
-        rotate: 0,
-        translateY: 0,
-        scale: 1,
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-      },
-      open: {
+  const toggleToc = contextSafe(() => {
+    if (tocOpen) {
+      gsap.to('.top', {
         rotate: 45,
         translateY: 160,
         scale: 1.2,
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-      },
-    }),
-    [],
-  );
-
-  const barMiddle = useMemo(
-    () => ({
-      close: {
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-      },
-      open: {
-        opacity: 0,
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-      },
-    }),
-    [],
-  );
-
-  const barBottom = useMemo(
-    () => ({
-      close: {
-        rotate: 0,
-        translateY: 0,
-        scale: 1,
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-      },
-      open: {
+        transformOrigin: '50% 50%',
+      });
+      gsap.to('.middle', { opacity: 0 });
+      gsap.to('.bottom', {
         rotate: -45,
         translateY: -160,
         scale: 1.2,
-        transition: {
-          duration: 0.5,
-          ease: 'easeInOut',
-        },
-      },
-    }),
-    [],
-  );
+        transformOrigin: '50% 50%',
+      });
+      gsap.fromTo('.toc', { autoAlpha: 0 }, { autoAlpha: 1 });
+    } else {
+      gsap.to('.top', { rotate: 0, translateY: 0, scale: 1 });
+      gsap.to('.middle', { opacity: 1 });
+      gsap.to('.bottom', { rotate: 0, translateY: 0, scale: 1 });
+      gsap.to('.toc', { autoAlpha: 0 });
+    }
 
-  const toggleToc = () => setTocOpen(!tocOpen);
-
-  const tocInitialStatus = isPc ? 'pc' : 'hidden';
-  const tocAnimateStatus = isPc ? undefined : tocOpen ? 'visible' : 'hidden';
+    setTocOpen(!tocOpen);
+  });
 
   return (
-    <PostTocContext.Provider value={{ toc: true }}>
-      <div className={styles['toc-back-wrapper']}>
-        <button
-          className={classNames(
-            styles['toc-button'],
-            tocOpen && styles['-open'],
-          )}
-          onClick={toggleToc}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <motion.path
-              initial="close"
-              variants={barTop}
-              animate={tocOpen ? 'open' : 'close'}
-              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96z"
-              fill="#fff"
-            />
-            <motion.path
-              initial="close"
-              variants={barMiddle}
-              animate={tocOpen ? 'open' : 'close'}
-              d="M0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32z"
-              fill="#fff"
-            />
-            <motion.path
-              initial="close"
-              variants={barBottom}
-              animate={tocOpen ? 'open' : 'close'}
-              d="M448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
-              fill="#fff"
-            />
-          </svg>
-        </button>
-        <motion.nav
-          variants={toc}
-          initial={tocInitialStatus}
-          animate={tocAnimateStatus}
-          className={classNames(className, styles['toc-bar'])}
-        >
-          {children}
-        </motion.nav>
-      </div>
-    </PostTocContext.Provider>
+    <div className={styles['toc-back-wrapper']}>
+      <button
+        className={classNames(styles['toc-button'], tocOpen && styles['-open'])}
+        onClick={toggleToc}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <motion.path
+            // initial="close"
+            // variants={barTop}
+            // animate={tocOpen ? 'open' : 'close'}
+            className="top"
+            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96z"
+            fill="#fff"
+          />
+          <motion.path
+            // initial="close"
+            // variants={barMiddle}
+            // animate={tocOpen ? 'open' : 'close'}
+            className="middle"
+            d="M0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32z"
+            fill="#fff"
+          />
+          <motion.path
+            // initial="close"
+            // variants={barBottom}
+            // animate={tocOpen ? 'open' : 'close'}
+            className="bottom"
+            d="M448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            fill="#fff"
+          />
+        </svg>
+      </button>
+      <motion.nav
+        // variants={toc}
+        // initial={tocInitialStatus}
+        // animate={tocAnimateStatus}
+        className={classNames(className, !isPc && 'toc', styles['toc-bar'])}
+      >
+        {children}
+      </motion.nav>
+    </div>
   );
 };
