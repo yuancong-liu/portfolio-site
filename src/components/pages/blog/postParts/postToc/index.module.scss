@@ -19,16 +19,17 @@
     flex-basis: unset;
     width: calc(100% + 60px);
     height: 44px;
-    padding: 10px 30px;
+    padding: 0;
     margin: 0 -30px;
     overflow: visible;
-    background: utils.$color-navy-bd;
-    backdrop-filter: blur(10px);
   }
 }
 
 .toc-button {
-  padding: 0;
+  display: grid;
+  align-items: center;
+  justify-content: end;
+  padding: 10px 30px;
   font-weight: 600;
   color: utils.$color-pink;
   text-align: end;

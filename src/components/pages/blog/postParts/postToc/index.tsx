@@ -4,6 +4,7 @@ import { ComponentProps, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { useDeviceDetect } from '~/hooks';
 
@@ -16,14 +17,41 @@ export const PostToc = ({ className, children }: Props) => {
   const [tocOpen, setTocOpen] = useState(false);
   const { isPc } = useDeviceDetect();
 
-  const { contextSafe } = useGSAP();
+  const { contextSafe } = useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.toc-wrapper',
+        pin: true,
+        start: 'top top',
+        endTrigger: '.footer',
+        toggleActions: 'play none none reverse',
+        snap: {
+          snapTo: 'labels',
+          duration: { min: 0.2, max: 0.5 },
+        },
+      },
+    });
+
+    timeline.addLabel('start').fromTo(
+      '.toc-button',
+      {
+        backgroundColor: 'rgba(19 32 67 / 0.01)',
+        backdropFilter: 'blur(0)',
+      },
+      {
+        backgroundColor: 'rgba(19 32 67 / 0.1)',
+        backdropFilter: 'blur(10px)',
+      },
+    );
+  });
 
   const toggleToc = contextSafe(() => {
     if (tocOpen) {
       gsap.to('.top', { rotate: 0, translateY: 0, scale: 1 });
       gsap.to('.middle', { opacity: 1 });
       gsap.to('.bottom', { rotate: 0, translateY: 0, scale: 1 });
-      gsap.to('.toc', { autoAlpha: 0 });
+      gsap.to('.toc', { autoAlpha: 0, scaleY: 1.2, ease: 'ease-in-out' });
     } else {
       gsap.to('.top', {
         rotate: 45,
@@ -38,16 +66,35 @@ export const PostToc = ({ className, children }: Props) => {
         scale: 1.2,
         transformOrigin: '50% 50%',
       });
-      gsap.fromTo('.toc', { autoAlpha: 0 }, { autoAlpha: 1 });
+      gsap.fromTo(
+        '.toc',
+        {
+          autoAlpha: 0,
+          scaleY: 1.2,
+          backgroundColor: 'rgba(19 32 67 / 0.01)',
+          backdropFilter: 'blur(0)',
+        },
+        {
+          autoAlpha: 1,
+          scaleY: 1,
+          backgroundColor: 'rgba(19 32 67 / 0.1)',
+          backdropFilter: 'blur(10px)',
+          ease: 'ease-in-out',
+        },
+      );
     }
 
     setTocOpen(!tocOpen);
   });
 
   return (
-    <div className={styles['toc-back-wrapper']}>
+    <div className={classNames(styles['toc-back-wrapper'], 'toc-wrapper')}>
       <button
-        className={classNames(styles['toc-button'], tocOpen && styles['-open'])}
+        className={classNames(
+          styles['toc-button'],
+          tocOpen && styles['-open'],
+          'toc-button',
+        )}
         onClick={toggleToc}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
