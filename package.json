@@ -21,10 +21,12 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.0",
     "@studio-freight/react-lenis": "^0.0.45",
     "@vercel/analytics": "^1.1.1",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.16",
+    "gsap": "^3.12.5",
     "highlight.js": "^11.9.0",
     "i18next": "^23.7.3",
     "next": "^14.1.0",
