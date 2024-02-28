@@ -35,7 +35,6 @@ export const Section = ({ title, children }: Props) => {
           start: 'top top+=100',
           scroller: '.content-wrapper',
           toggleActions: 'restart reset restart reset',
-          onEnter: () => console.log('enter', title),
         },
       },
     );
