@@ -41,6 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
     "@hbsnow/rehype-sectionize": "^1.0.7",
+    "@svgr/webpack": "^8.0.1",
     "@tsconfig/next": "^2.0.1",
     "@types/node": "20.9.0",
     "@types/react": "18.2.37",
