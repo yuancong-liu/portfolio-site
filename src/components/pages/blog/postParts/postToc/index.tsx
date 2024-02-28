@@ -22,20 +22,7 @@ export const PostToc = ({ className, children }: Props) => {
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: isPc ? undefined : '.toc-wrapper',
-        start: 'top top',
-        endTrigger: '.heading',
-        toggleActions: 'play none none reverse',
-        snap: {
-          snapTo: 'labels',
-          duration: { min: 0.2, max: 0.5 },
-        },
-      },
-    });
-
-    timeline.addLabel('start').fromTo(
+    gsap.fromTo(
       '.toc-button',
       {
         backgroundColor: 'rgba(19 32 67 / 0.01)',
@@ -44,6 +31,12 @@ export const PostToc = ({ className, children }: Props) => {
       {
         backgroundColor: 'rgba(19 32 67 / 0.1)',
         backdropFilter: 'blur(10px)',
+        scrollTrigger: {
+          trigger: isPc ? undefined : '.toc-wrapper',
+          start: 'top top',
+          endTrigger: '.heading',
+          toggleActions: 'play none none reverse',
+        },
       },
     );
   });
