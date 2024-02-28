@@ -1,10 +1,10 @@
+import classNames from 'classnames';
 import type { Metadata, NextPage } from 'next';
 
 import { FilmsContent } from '~/components/pages/portfolio/filmsContent';
 import { Section } from '~/components/pages/portfolio/section';
 
 import styles from './index.module.scss';
-import classNames from 'classnames';
 
 export const metadata: Metadata = {
   alternates: {
@@ -17,7 +17,9 @@ export const metadata: Metadata = {
  */
 const PortfolioPage: NextPage = () => {
   return (
-    <main className={classNames(styles['content-wrapper'], 'content-wrapper')}>
+    <main
+      className={classNames(styles['content-wrapper'], 'portfolio-wrapper')}
+    >
       {/* design works */}
       <section className={styles['block']}>
         <Section title="DESIGNS">

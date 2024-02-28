@@ -33,7 +33,7 @@ export const Section = ({ title, children }: Props) => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top+=100',
-          scroller: '.content-wrapper',
+          scroller: '.portfolio-wrapper',
           toggleActions: 'restart reset restart reset',
         },
       },
