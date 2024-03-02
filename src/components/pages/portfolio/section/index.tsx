@@ -1,8 +1,8 @@
 'use client';
-import { ReactNode, useId, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 
 import { useGSAP } from '@gsap/react';
-import classNames from 'classnames';
+import classNames from 'classngit ames';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
