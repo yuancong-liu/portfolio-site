@@ -1,5 +1,5 @@
 'use client';
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useId, useRef } from 'react';
 
 import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
@@ -34,7 +34,7 @@ export const Section = ({ title, children }: Props) => {
           trigger: containerRef.current,
           start: 'top top+=100',
           scroller: '.portfolio-wrapper',
-          toggleActions: 'restart reset restart reset',
+          toggleActions: 'restart reset restart reverse',
         },
       },
     );
@@ -42,17 +42,17 @@ export const Section = ({ title, children }: Props) => {
 
   return (
     <div className={styles['content-wrapper']} ref={containerRef}>
+      <div className={styles['content']}>{children}</div>
       <h1 className={styles['title']}>
-        {title.split('').map((char) => (
+        {title.split('').map((char, index) => (
           <span
-            key={char}
+            key={`${title}-${index}`}
             className={classNames(styles['char'], `char-${title}`)}
           >
             {char}
           </span>
         ))}
       </h1>
-      <div className={styles['content']}>{children}</div>
     </div>
   );
 };

@@ -8,14 +8,14 @@
   background: linear-gradient(
     to right,
     transparent 40%,
-    utils.$color-navy-overlay 100%
+    utils.$color-navy-overlay-50 100%
   );
   background-position: 100%;
   background-size: 300%;
   transition: all 0.3s ease-in-out;
 
   > * {
-    text-shadow: 0 0 10px utils.$color-navy-overlay;
+    text-shadow: 0 0 10px utils.$color-navy-overlay-50;
     user-select: none;
   }
 

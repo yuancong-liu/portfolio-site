@@ -1,7 +1,7 @@
 'use client';
 import { useLayoutEffect, useState } from 'react';
 
-const BREAKPOINT = 768;
+export const BREAKPOINT = 768;
 
 export const useDeviceDetect = () => {
   const [isPc, setIsPc] = useState<boolean | undefined>(undefined);
