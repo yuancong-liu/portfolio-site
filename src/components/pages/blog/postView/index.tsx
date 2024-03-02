@@ -10,10 +10,10 @@ type Props = {
 
 export const PostView = ({ allPosts }: Props) => {
   return (
-    <div className={styles['posts']}>
+    <ul className={styles['posts']}>
       {allPosts.map((post, index) => (
         <PostCard key={post.slug} post={post} index={index} />
       ))}
-    </div>
+    </ul>
   );
 };

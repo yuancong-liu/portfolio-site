@@ -36,7 +36,8 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.4.0",
     "react-twitter-widgets": "^1.11.0",
-    "react-typed": "^2.0.8"
+    "react-typed": "^2.0.8",
+    "schema-dts": "^1.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",

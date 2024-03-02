@@ -26,13 +26,13 @@ type Props = {
 
 export const PostContent = ({ content }: Props) => {
   return (
-    <div className={styles['post-content']}>
+    <article className={styles['post-content']}>
       <MDXRemote
         source={content}
         options={mdxSerializeConfig}
         components={components}
       />
-    </div>
+    </article>
   );
 };
 

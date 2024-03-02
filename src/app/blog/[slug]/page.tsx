@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Article, WithContext } from 'schema-dts';
 
 import { AdjacentPosts } from '~/components/pages/blog/adjacentPosts';
 import { PostContent } from '~/components/pages/blog/postContent';
@@ -54,12 +55,38 @@ const PostPage = async ({ params }: Props) => {
     ));
   };
 
+  const jsonLd: WithContext<Article> = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    name: title,
+    headline: title,
+    datePublished: date,
+    dateModified: date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Paul LIU',
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Paul LIU',
+    },
+  };
+
   return (
     <>
       <Head>
         <link
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`}
+        />
+        <script
+          key="json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
       <header className={styles['header']}>

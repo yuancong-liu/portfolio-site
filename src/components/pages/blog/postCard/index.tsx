@@ -1,6 +1,4 @@
-'use client';
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import { Post } from '~/types/Posts';
@@ -15,7 +13,7 @@ type Props = {
   index?: number;
 };
 
-export const PostCard = ({ post, index }: Props) => {
+export const PostCard = ({ post }: Props) => {
   const getLocale = (languageTag: string) => {
     switch (languageTag as Language) {
       case '中文':
@@ -36,13 +34,10 @@ export const PostCard = ({ post, index }: Props) => {
   };
 
   return (
-    <motion.div
+    <li
       className={classNames(styles['card-wrapper'], {
         [styles['-new']]: shouldShowNewTag(post.date),
       })}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.02 * (index ?? 0) }}
     >
       <Link
         className={styles['post-card']}
@@ -57,6 +52,6 @@ export const PostCard = ({ post, index }: Props) => {
         </div>
         <p className={styles['date']}>{getDateString(post.date)}</p>
       </Link>
-    </motion.div>
+    </li>
   );
 };
