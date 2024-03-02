@@ -2,14 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0 10px;
-  max-width: 800px;
-  padding: 0 30px;
-  margin: 0 auto;
-  font-family: 'Zilla Slab', 'IBM Plex Sans JP', serif;
 
   .tag {
     position: relative;
-    font-size: 1.8rem;
     list-style-type: none;
 
     &::before {
@@ -36,56 +31,48 @@
   }
 }
 
-.header {
+.title {
   position: relative;
-  overflow-x: hidden;
+  z-index: 100;
+  max-width: 800px;
+  padding: 10px 30px;
+  margin: 30px auto 20px;
+  font-family: 'Zilla Slab', 'IBM Plex Sans JP', serif;
+  font-size: 6rem;
+  line-height: 1.2;
 
-  > .title {
-    position: relative;
-    z-index: 100;
-    max-width: 800px;
-    padding: 10px 30px;
-    margin: 30px auto 20px;
-    font-family: 'Zilla Slab', 'IBM Plex Sans JP', serif;
-    font-size: 6rem;
-    line-height: 1.2;
+  @include sp {
+    font-size: 4.5rem;
+  }
+}
 
-    @include sp {
-      font-size: 4.5rem;
-    }
+.header {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  max-width: 800px;
+  padding: 0 30px;
+  margin: auto;
+  font-family: 'Zilla Slab', 'IBM Plex Sans JP', serif;
+  font-size: 1.8rem;
 
-    // &::before,
-    // &::after {
-    //   position: absolute;
-    //   z-index: -1;
-    //   display: block;
-    //   font-family: monospace;
-    //   font-size: 8rem;
-    //   font-weight: 600;
-    //   line-height: 1;
-    //   color: utils.$color-pink;
-    // }
-
-    // &::before {
-    //   top: -30px;
-    //   left: -30px;
-    //   content: '<h1>';
-    // }
-
-    // &::after {
-    //   right: -20px;
-    //   bottom: -10px;
-    //   content: '</h1>';
-    // }
+  @include sp {
+    flex-direction: column;
   }
 
   > .date {
-    max-width: 800px;
-    padding: 0 30px;
-    margin: 5px auto;
-    font-family: 'Zilla Slab', 'IBM Plex Sans JP', serif;
-    font-size: 2rem;
-    font-weight: 600;
+    flex-shrink: 0;
+    width: fit-content;
+    padding-left: 30px;
+    border-left: 1px solid utils.$color-pink-light;
+
+    @include sp {
+      padding-top: 4px;
+      padding-right: 10px;
+      padding-left: 0;
+      border: 0;
+      border-top: 1px solid utils.$color-pink-light;
+    }
   }
 }
 

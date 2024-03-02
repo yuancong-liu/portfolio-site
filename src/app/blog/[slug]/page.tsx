@@ -89,10 +89,10 @@ const PostPage = async ({ params }: Props) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
+      <h1 className={styles['title']}>{title}</h1>
       <header className={styles['header']}>
-        <h1 className={styles['title']}>{title}</h1>
         <div className={styles['tag-group']}>{getTagList(tags)}</div>
-        <p className={styles['date']}>{getDateString(date)}</p>
+        <span className={styles['date']}>{getDateString(date)}</span>
       </header>
       <main className={styles['main-wrapper']}>
         <PostContent content={content} />

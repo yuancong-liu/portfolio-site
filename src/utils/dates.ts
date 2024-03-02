@@ -1,15 +1,33 @@
 /**
- * @file 日時関連のUtils
+ * @file Dates Utils
  */
 
 /**
- * 日付けを文字列に変換する
+ * Get Date String
  * @param date
  * @returns
  */
 export const getDateString = (date: string) => {
   const dateObj = new Date(date);
-  return `${dateObj.getFullYear()}/${dateObj.getMonth() + 1}/${
+  return `${dateObj.getFullYear()} ${MONTH_MAP[dateObj.getMonth()]} ${
     dateObj.getDate() - 1
   }`;
 };
+
+/**
+ * Month Map
+ */
+export const MONTH_MAP = [
+  'JAN',
+  'FEB',
+  'MAR',
+  'APR',
+  'MAY',
+  'JUN',
+  'JUL',
+  'AUG',
+  'SEP',
+  'OCT',
+  'NOV',
+  'DEC',
+];
