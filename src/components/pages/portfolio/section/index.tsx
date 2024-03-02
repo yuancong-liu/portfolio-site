@@ -2,7 +2,7 @@
 import { ReactNode, useRef } from 'react';
 
 import { useGSAP } from '@gsap/react';
-import classNames from 'classngit ames';
+import classNames from 'classnames';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
