@@ -1,5 +1,5 @@
 'use client';
-import { ComponentProps, useRef, useState } from 'react';
+import { ComponentProps, useEffect, useRef, useState } from 'react';
 
 import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
@@ -39,6 +39,14 @@ export const PostToc = ({ className, children }: Props) => {
       },
     );
   });
+
+  useEffect(() => {
+    if (isPc) {
+      gsap.set('.toc', { autoAlpha: 1, scaleY: 1 });
+    } else {
+      gsap.set('.toc', { autoAlpha: 0, scaleY: 1.2 });
+    }
+  }, [isPc]);
 
   const toggleToc = contextSafe(() => {
     if (tocOpen) {
@@ -87,11 +95,7 @@ export const PostToc = ({ className, children }: Props) => {
       ref={tocRef}
     >
       <button
-        className={classNames(
-          styles['toc-button'],
-          tocOpen && styles['-open'],
-          'toc-button',
-        )}
+        className={classNames(styles['toc-button'], 'toc-button')}
         onClick={toggleToc}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -112,7 +116,7 @@ export const PostToc = ({ className, children }: Props) => {
           />
         </svg>
       </button>
-      <nav className={classNames(className, !isPc && 'toc', styles['toc-bar'])}>
+      <nav className={classNames(className, 'toc', styles['toc-bar'])}>
         {children}
       </nav>
     </div>

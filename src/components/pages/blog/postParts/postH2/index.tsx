@@ -3,7 +3,7 @@ import { ComponentProps } from 'react';
 
 import { usePathname } from 'next/navigation';
 
-import Link from '~/assets/icons/link.svg';
+import LinkIcon from '~/assets/icons/link.svg';
 
 import styles from './index.module.scss';
 
@@ -22,7 +22,7 @@ export const PostH2 = ({ children, id, ...restProps }: Props) => {
     <h2 className={styles['heading-2']} id={id} {...restProps}>
       {children}
       <button className={styles['copy-button']} onClick={handleCopyLink}>
-        <Link className={styles['icon']} />
+        <LinkIcon className={styles['icon']} />
       </button>
     </h2>
   );
