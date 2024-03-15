@@ -9,7 +9,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useDeviceDetect } from '~/hooks';
 
 import styles from './index.module.scss';
-import './index.css';
 
 type Props = ComponentProps<'nav'>;
 

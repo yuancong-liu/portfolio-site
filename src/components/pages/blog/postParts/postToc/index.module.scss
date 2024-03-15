@@ -23,6 +23,27 @@
     margin: 0 -30px;
     overflow: visible;
   }
+
+  :global(.toc-wrapper) {
+    z-index: 200;
+    display: flex;
+    flex-shrink: 0;
+    height: fit-content;
+    font-size: 1.4rem;
+    color: utils.$color-pink-light;
+
+    > :global(.toc-level) {
+      padding: 10px 10px 60px;
+
+      @include sp {
+        padding: 16px 40px 16px 30px;
+      }
+    }
+
+    &:not(:has(:global(.toc-item))) {
+      display: none;
+    }
+  }
 }
 
 .toc-button {
@@ -55,5 +76,68 @@
     background: utils.$color-navy-light;
     opacity: 0;
     transform-origin: top;
+  }
+
+  :global(.toc-level) {
+    padding: 0;
+  }
+
+  :global(.toc-item) {
+    position: relative;
+    margin-top: 5px;
+    list-style-type: none;
+  }
+
+  :global(.toc-item-h2::after),
+  :global(.toc-item-h3::after) {
+    position: absolute;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    content: '';
+    border-radius: 50%;
+  }
+
+  :global(.toc-item-h2:hover::after),
+  :global(.toc-item-h3:hover::after) {
+    top: 0;
+    width: unset;
+    height: unset;
+    color: utils.$color-pink;
+    background-color: transparent;
+    border: 0;
+  }
+
+  :global(.toc-item-h2:hover::after) {
+    content: 'h2';
+  }
+
+  :global(.toc-item-h3:hover::after) {
+    content: 'h3';
+  }
+
+  :global(.toc-item-h2) {
+    font-weight: 600;
+  }
+
+  :global(.toc-item-h3) {
+    font-weight: 300;
+  }
+
+  :global(.toc-item-h2::after) {
+    right: -20px;
+    background-color: utils.$color-pink;
+    border-radius: 50%;
+  }
+
+  :global(.toc-item-h3::after) {
+    right: -20px;
+    border: 1px solid utils.$color-pink;
+    border-radius: 50%;
+  }
+
+  :global(.toc-level-1) {
+    width: 100%;
+    height: fit-content;
   }
 }
