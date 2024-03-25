@@ -25,19 +25,19 @@
   }
 
   &.-show::after {
-    display: block;
-    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 1;
+    display: block;
     width: 1px;
     height: 1px;
-    border-radius: 50%;
-    background: radial-gradient(circle, transparent 30%, utils.$color-pink 30%);
     pointer-events: none;
-    animation: sparkle 2s ease-out forwards;
+    content: '';
+    background: radial-gradient(circle, transparent 30%, utils.$color-pink 30%);
+    border-radius: 50%;
     opacity: 0.8;
+    animation: sparkle 2s ease-out forwards;
 
     @include sp {
       display: none;
@@ -70,8 +70,8 @@
   }
 
   > .entity.jp {
-    left: 0;
     bottom: 0;
+    left: 0;
     font-size: min(70vw, 40rem);
     text-align: right;
     animation: name-2 4s infinite ease-in-out;
@@ -87,8 +87,8 @@
   > .entity.kr {
     right: 0;
     bottom: 30%;
+    font-family: Dongle, sans-serif;
     font-size: min(45vw, 30rem);
-    font-family: 'Dongle', sans-serif;
     font-weight: 700;
     animation: name-1 4s infinite ease-in-out;
   }
