@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const BlogLayout = ({ children }: Props) => (
+const BlogLayout = ({ children }: Props) => (
   <div className={styles['page-wrapper']}>
     <NavBarCommon pageDiv="post" />
     {children}
