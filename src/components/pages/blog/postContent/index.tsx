@@ -24,17 +24,15 @@ type Props = {
   content: MDXRemoteSerializeResult;
 };
 
-export const PostContent = ({ content }: Props) => {
-  return (
-    <article className={styles['post-content']}>
-      <MDXRemote
-        source={content}
-        options={mdxSerializeConfig}
-        components={components}
-      />
-    </article>
-  );
-};
+export const PostContent = ({ content }: Props) => (
+  <article className={styles['post-content']}>
+    <MDXRemote
+      source={content}
+      options={mdxSerializeConfig}
+      components={components}
+    />
+  </article>
+);
 
 const components = {
   img: (props: Pick<ComponentProps<'img'>, 'src' | 'alt'>) => (
@@ -46,7 +44,6 @@ const components = {
   ),
   h2: (props: ComponentProps<'h2'>) => <PostH2 {...props} />,
   h3: (props: ComponentProps<'h3'>) => <PostH3 {...props} />,
-  h4: (props: ComponentProps<'h4'>) => <h4 {...props} />,
   pre: (props: ComponentProps<'pre'>) => <PostPre {...props} />,
   code: (props: ComponentProps<'code'>) => <PostCode {...props} />,
   nav: (props: ComponentProps<'nav'>) => <PostToc {...props} />,

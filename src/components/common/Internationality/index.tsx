@@ -13,14 +13,22 @@ export const Internationality = () => {
 
   return (
     <div className={styles['overall-wrapper']}>
-      <button className={styles['internationality-button']}>
+      <button
+        type="button"
+        aria-label="Languages"
+        className={styles['internationality-button']}
+      >
         <Globe className={styles['globe-icon']} />
       </button>
       <div className={styles['language-dropdown']}>
-        <ul className={styles['list']}>
+        <ul className={styles.list}>
           {LANGUAGES.map((language) => (
-            <li className={styles['item']} key={language.key}>
-              <button onClick={() => handleLanguageChange(language.key)}>
+            <li className={styles.item} key={language.key}>
+              <button
+                aria-label={language.value}
+                onClick={() => handleLanguageChange(language.key)}
+                type="button"
+              >
                 {language.value}
               </button>
             </li>

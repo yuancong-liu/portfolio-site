@@ -43,12 +43,14 @@ const experiences = [
   } as Experience,
 ];
 
-export const CardsView = () => {
-  return (
-    <div className={styles['cards-view']}>
-      {experiences.map((experience, index) => (
-        <ExperienceCard experience={experience} index={index} key={index} />
-      ))}
-    </div>
-  );
-};
+export const CardsView = () => (
+  <div className={styles['cards-view']}>
+    {experiences.map((experience, index) => (
+      <ExperienceCard
+        experience={experience}
+        index={index}
+        key={experience.name}
+      />
+    ))}
+  </div>
+);

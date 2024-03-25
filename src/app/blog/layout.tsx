@@ -7,12 +7,12 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function BlogLayout({ children }: Props) {
-  return (
-    <div className={styles['page-wrapper']}>
-      <NavBarCommon pageDiv="post" />
-      {children}
-      <Footer />
-    </div>
-  );
-}
+export const BlogLayout = ({ children }: Props) => (
+  <div className={styles['page-wrapper']}>
+    <NavBarCommon pageDiv="post" />
+    {children}
+    <Footer />
+  </div>
+);
+
+export default BlogLayout;

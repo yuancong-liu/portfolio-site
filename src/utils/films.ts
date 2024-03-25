@@ -21,12 +21,11 @@ export const getFilms = async () => {
     }),
   );
 
-  films.sort((a, b) => {
-    return (
+  films.sort(
+    (a, b) =>
       FilmConstants.topTenFilmIds.indexOf(a.id) -
-      FilmConstants.topTenFilmIds.indexOf(b.id)
-    );
-  });
+      FilmConstants.topTenFilmIds.indexOf(b.id),
+  );
 
   return films;
 };
@@ -37,19 +36,18 @@ export const getFilms = async () => {
  * @param film
  * @returns filtered film info
  */
-export const filterFilmInfo = (film: any) => {
-  return {
-    id: film['id'],
-    title: film['title'],
-    originalTitle: film['original_title'],
-    genres: getGenreString(film['genres']),
-    releaseDate: convertFilmReleaseDate(film['release_date']),
-    overview: film['overview'],
-    productionCountries: getProductionCountries(film['production_countries']),
-    posterPath: getPosterUrl(film['poster_path']),
-    imdbUrl: getImdbUrl(film['imdb_id']),
-  } as Film;
-};
+export const filterFilmInfo = (film: any) =>
+  ({
+    id: film.id,
+    title: film.title,
+    originalTitle: film.original_title,
+    genres: getGenreString(film.genres),
+    releaseDate: convertFilmReleaseDate(film.release_date),
+    overview: film.overview,
+    productionCountries: getProductionCountries(film.production_countries),
+    posterPath: getPosterUrl(film.poster_path),
+    imdbUrl: getImdbUrl(film.imdb_id),
+  }) as Film;
 
 /**
  * 映画のジャンルを文字列に変換する
@@ -57,14 +55,8 @@ export const filterFilmInfo = (film: any) => {
  * @param genres
  * @returns genre string
  */
-export const getGenreString = (genres: Array<{ id: number; name: string }>) => {
-  const genreString = genres
-    .map((genre) => {
-      return genre.name;
-    })
-    .join(', ');
-  return genreString;
-};
+export const getGenreString = (genres: Array<{ id: number; name: string }>) =>
+  genres.map((genre) => genre.name).join(', ');
 
 /**
  * 映画の公開日を文字列に変換する
@@ -72,11 +64,8 @@ export const getGenreString = (genres: Array<{ id: number; name: string }>) => {
  * @param releaseDate
  * @returns release date string
  */
-export const convertFilmReleaseDate = (releaseDate: string) => {
-  const date = releaseDate.split('-');
-  const year = date[0];
-  return `${year}`;
-};
+export const convertFilmReleaseDate = (releaseDate: string) =>
+  releaseDate.split('-')[0];
 
 /**
  * 映画の制作国を文字列に変換する
@@ -86,14 +75,7 @@ export const convertFilmReleaseDate = (releaseDate: string) => {
  */
 export const getProductionCountries = (
   productionCountries: Array<{ iso_3166_1: string; name: string }>,
-) => {
-  const countries = productionCountries
-    .map((country) => {
-      return country.name;
-    })
-    .join(', ');
-  return countries;
-};
+) => productionCountries.map((country) => country.name).join(', ');
 
 /**
  * 映画ポスターのURLを文字列に変換する
@@ -101,9 +83,8 @@ export const getProductionCountries = (
  * @param posterPath
  * @returns poster path string
  */
-export const getPosterUrl = (posterPath: string) => {
-  return `${FilmConstants.POSTER_PATH}${posterPath}`;
-};
+export const getPosterUrl = (posterPath: string) =>
+  `${FilmConstants.POSTER_PATH}${posterPath}`;
 
 /**
  * 映画のIMDBのURLを文字列に変換する
@@ -111,6 +92,5 @@ export const getPosterUrl = (posterPath: string) => {
  * @param imdbId
  * @returns imdb url string
  */
-export const getImdbUrl = (imdbId: string) => {
-  return `${FilmConstants.IMDB_BASE_URL}${imdbId}`;
-};
+export const getImdbUrl = (imdbId: string) =>
+  `${FilmConstants.IMDB_BASE_URL}${imdbId}`;

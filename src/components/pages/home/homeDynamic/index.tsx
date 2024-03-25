@@ -1,4 +1,5 @@
 'use client';
+
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { NavBarHome } from '~/components/pages/home/navBarHome';
 import { useDeviceDetect } from '~/hooks';

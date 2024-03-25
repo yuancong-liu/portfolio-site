@@ -10,7 +10,6 @@ type Language = '中文' | 'English' | '日本語';
 
 type Props = {
   post: Post;
-  index?: number;
 };
 
 export const PostCard = ({ post }: Props) => {
@@ -22,6 +21,8 @@ export const PostCard = ({ post }: Props) => {
         return 'en';
       case '日本語':
         return 'ja';
+      default:
+        return 'en';
     }
   };
 
@@ -45,12 +46,12 @@ export const PostCard = ({ post }: Props) => {
         locale={getLocale(post.language)}
       >
         <div className={styles['title-area']}>
-          <h2 className={styles['title']}>{post.title}</h2>
+          <h2 className={styles.title}>{post.title}</h2>
           {post.language !== 'English' && (
             <span className={styles['language-tag']}>{post.language}</span>
           )}
         </div>
-        <p className={styles['date']}>{getDateString(post.date)}</p>
+        <p className={styles.date}>{getDateString(post.date)}</p>
       </Link>
     </li>
   );

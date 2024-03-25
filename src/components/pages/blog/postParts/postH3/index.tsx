@@ -1,4 +1,5 @@
 'use client';
+
 import { ComponentProps } from 'react';
 
 import styles from './index.module.scss';

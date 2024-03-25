@@ -25,9 +25,7 @@ const TagPage = ({ params }: Props) => {
 export const generateStaticParams = () => {
   const { allTags } = getAllTags();
 
-  return allTags.map((tag) => {
-    return { tag: tag.param };
-  });
+  return allTags.map((tag) => ({ tag: tag.param }));
 };
 
 export default TagPage;

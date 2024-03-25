@@ -1,4 +1,5 @@
 'use client';
+
 import { ComponentProps } from 'react';
 
 import { usePathname } from 'next/navigation';
@@ -21,8 +22,13 @@ export const PostH2 = ({ children, id, ...restProps }: Props) => {
   return (
     <h2 className={styles['heading-2']} id={id} {...restProps}>
       {children}
-      <button className={styles['copy-button']} onClick={handleCopyLink}>
-        <LinkIcon className={styles['icon']} />
+      <button
+        className={styles['copy-button']}
+        onClick={handleCopyLink}
+        type="button"
+        aria-label="Copy link"
+      >
+        <LinkIcon className={styles.icon} />
       </button>
     </h2>
   );

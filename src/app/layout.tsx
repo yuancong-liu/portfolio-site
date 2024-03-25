@@ -14,16 +14,14 @@ export const viewport: Viewport = {
   themeColor: '#132043',
 };
 
-const RootLayout = ({ children }: Props) => {
-  return (
-    <html lang="en">
-      <body>
-        <div className="overall-background" />
-        {children}
-      </body>
-      <Analytics />
-    </html>
-  );
-};
+const RootLayout = ({ children }: Props) => (
+  <html lang="en">
+    <body>
+      <div className="overall-background" />
+      {children}
+    </body>
+    <Analytics />
+  </html>
+);
 
 export default RootLayout;

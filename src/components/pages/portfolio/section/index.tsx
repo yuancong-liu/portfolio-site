@@ -1,4 +1,5 @@
 'use client';
+
 import { ReactNode, useRef } from 'react';
 
 import { useGSAP } from '@gsap/react';
@@ -42,12 +43,12 @@ export const Section = ({ title, children }: Props) => {
 
   return (
     <div className={styles['content-wrapper']} ref={containerRef}>
-      <div className={styles['content']}>{children}</div>
-      <h1 className={styles['title']}>
+      <div className={styles.content}>{children}</div>
+      <h1 className={styles.title}>
         {title.split('').map((char, index) => (
           <span
             key={`${title}-${index}`}
-            className={classNames(styles['char'], `char-${title}`)}
+            className={classNames(styles.char, `char-${title}`)}
           >
             {char}
           </span>

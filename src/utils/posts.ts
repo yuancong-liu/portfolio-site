@@ -48,9 +48,11 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
         post[field] = data[field];
       }
     });
-  } finally {
-    return post;
+  } catch (e) {
+    return {};
   }
+
+  return post;
 };
 
 /**

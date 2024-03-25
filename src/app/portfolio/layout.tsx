@@ -4,13 +4,11 @@ type Props = {
   children: React.ReactNode;
 };
 
-const AboutMeLayout = ({ children }: Props) => {
-  return (
-    <div>
-      <NavBarCommon />
-      {children}
-    </div>
-  );
-};
+const AboutMeLayout = ({ children }: Props) => (
+  <div>
+    <NavBarCommon />
+    {children}
+  </div>
+);
 
 export default AboutMeLayout;

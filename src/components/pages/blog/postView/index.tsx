@@ -8,12 +8,10 @@ type Props = {
   allPosts: Post[];
 };
 
-export const PostView = ({ allPosts }: Props) => {
-  return (
-    <ul className={styles['posts']}>
-      {allPosts.map((post, index) => (
-        <PostCard key={post.slug} post={post} index={index} />
-      ))}
-    </ul>
-  );
-};
+export const PostView = ({ allPosts }: Props) => (
+  <ul className={styles.posts}>
+    {allPosts.map((post) => (
+      <PostCard key={post.slug} post={post} />
+    ))}
+  </ul>
+);

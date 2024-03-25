@@ -6,13 +6,11 @@ type Props = {
   children: React.ReactNode;
 };
 
-const AboutMeLayout = ({ children }: Props) => {
-  return (
-    <div className={styles['page-wrapper']}>
-      <NavBarCommon />
-      {children}
-    </div>
-  );
-};
+const AboutMeLayout = ({ children }: Props) => (
+  <div className={styles['page-wrapper']}>
+    <NavBarCommon />
+    {children}
+  </div>
+);
 
 export default AboutMeLayout;

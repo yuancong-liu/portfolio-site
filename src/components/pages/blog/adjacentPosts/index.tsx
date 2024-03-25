@@ -50,7 +50,7 @@ const AdjacentPost = ({ title, slug, direction }: AdjacentPostsProps) => {
       href={`/blog/${slug}`}
       className={classNames(styles['link-wrapper'], styles[direction])}
     >
-      <div className={styles['contents']}>
+      <div className={styles.contents}>
         <p>{direction === 'next' ? 'Next' : 'Previous'}</p>
         <h3>{title}</h3>
       </div>

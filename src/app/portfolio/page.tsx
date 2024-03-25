@@ -15,26 +15,22 @@ export const metadata: Metadata = {
 /**
  * Portfolio page
  */
-const PortfolioPage: NextPage = () => {
-  return (
-    <main
-      className={classNames(styles['content-wrapper'], 'portfolio-wrapper')}
-    >
-      {/* design works */}
-      <section className={styles['block']}>
-        <Section title="DESIGNS">
-          <h1>#1</h1>
-        </Section>
-      </section>
+const PortfolioPage: NextPage = () => (
+  <main className={classNames(styles['content-wrapper'], 'portfolio-wrapper')}>
+    {/* design works */}
+    <section className={styles.block}>
+      <Section title="DESIGNS">
+        <h1>#1</h1>
+      </Section>
+    </section>
 
-      {/* films */}
-      <section className={styles['block']}>
-        <Section title="FILMS">
-          <FilmsContent />
-        </Section>
-      </section>
-    </main>
-  );
-};
+    {/* films */}
+    <section className={styles.block}>
+      <Section title="FILMS">
+        <FilmsContent />
+      </Section>
+    </section>
+  </main>
+);
 
 export default PortfolioPage;

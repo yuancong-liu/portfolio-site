@@ -1,4 +1,5 @@
 'use client';
+
 import classNames from 'classnames';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Link from 'next/link';
@@ -32,7 +33,7 @@ export const NavBarCommon = ({ pageDiv = 'other' }: Props) => {
     <nav className={styles['nav-bar']}>
       <ul className={styles['nav-items']}>
         {/* only displayed on PC */}
-        <li className={styles['icons']}>
+        <li className={styles.icons}>
           <Link href="/">
             <svg
               width="103"
@@ -100,7 +101,7 @@ export const NavBarCommon = ({ pageDiv = 'other' }: Props) => {
               <motion.path
                 className={classNames(
                   styles['text-link'],
-                  pageDiv === 'post' && styles['stroke'],
+                  pageDiv === 'post' && styles.stroke,
                 )}
                 fillRule="evenodd"
                 clipRule="evenodd"

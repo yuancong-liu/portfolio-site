@@ -1,4 +1,5 @@
 'use client';
+
 import { ComponentProps } from 'react';
 
 import classNames from 'classnames';
@@ -16,7 +17,7 @@ export const PostLink = ({ href = '', children }: Props) => {
   return (
     <Link
       href={href}
-      className={classNames(styles['link'], toc && styles['-toc'])}
+      className={classNames(styles.link, toc && styles['-toc'])}
     >
       {children}
     </Link>

@@ -1,4 +1,5 @@
 'use client';
+
 import { ComponentProps, useState } from 'react';
 
 import classNames from 'classnames';
@@ -14,11 +15,11 @@ export const PostImage = ({ alt = '', src = '' }: Props) => {
   return (
     <span
       className={classNames(styles['image-wrapper'], {
-        [styles['loading']]: loading,
+        [styles.loading]: loading,
       })}
     >
       <Image
-        className={styles['image']}
+        className={styles.image}
         src={src}
         alt={alt}
         fill
@@ -26,7 +27,7 @@ export const PostImage = ({ alt = '', src = '' }: Props) => {
         priority
         onLoad={() => setLoading(false)}
       />
-      <span className={styles['caption']}>{alt}</span>
+      <span className={styles.caption}>{alt}</span>
     </span>
   );
 };

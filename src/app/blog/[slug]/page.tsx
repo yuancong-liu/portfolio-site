@@ -22,11 +22,31 @@ type Props = {
   params: { slug: string };
 };
 
+export const generateStaticParams = () => {
+  const posts = getPostsByFields(['slug']);
+
+  return posts.map((post) => ({ slug: post.slug }));
+};
+
+const getPost = async ({ slug }: { slug: string }) => {
+  const post = getPostBySlug(slug, [
+    'title',
+    'date',
+    'slug',
+    'content',
+    'tags',
+  ]);
+
+  return {
+    post: JSON.parse(JSON.stringify(post)),
+  };
+};
+
 const PostPage = async ({ params }: Props) => {
   const { post } = await getPost({ slug: params.slug });
   const { title, slug, tags, content, date } = post;
 
-  if (!title) return <></>;
+  if (!title) return null;
 
   const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`;
 
@@ -41,14 +61,14 @@ const PostPage = async ({ params }: Props) => {
     description: title,
   };
 
-  const getTagList = (tags: string[] | string) => {
-    if (!tags) return null;
-    if (typeof tags === 'string') return;
-    return tags.map((tag: string) => (
+  const getTagList = (tagParams: string[] | string) => {
+    if (!tagParams) return null;
+    if (typeof tagParams === 'string') return [tagParams];
+    return tagParams.map((tag: string) => (
       <Link
         key={tag}
         href={`/blog/tags/${convertTagToParam(tag)}`}
-        className={styles['tag']}
+        className={styles.tag}
       >
         {tag}
       </Link>
@@ -86,45 +106,24 @@ const PostPage = async ({ params }: Props) => {
         <script
           key="json-ld"
           type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
-      <h1 className={styles['title']}>{title}</h1>
-      <header className={styles['header']}>
+      <h1 className={styles.title}>{title}</h1>
+      <header className={styles.header}>
         <div className={styles['tag-group']}>{getTagList(tags)}</div>
-        <span className={styles['date']}>{getDateString(date)}</span>
+        <span className={styles.date}>{getDateString(date)}</span>
       </header>
       <main className={styles['main-wrapper']}>
         <PostContent content={content} />
-        <div className={styles['social-links']}></div>
+        <div className={styles['social-links']} />
         <div className={styles['adjacent-posts']}>
           <AdjacentPosts slug={slug} />
         </div>
       </main>
     </>
   );
-};
-
-export const generateStaticParams = () => {
-  const posts = getPostsByFields(['slug']);
-
-  return posts.map((post) => {
-    return { slug: post.slug };
-  });
-};
-
-const getPost = async ({ slug }: { slug: string }) => {
-  const post = getPostBySlug(slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'tags',
-  ]);
-
-  return {
-    post: JSON.parse(JSON.stringify(post)),
-  };
 };
 
 export default PostPage;

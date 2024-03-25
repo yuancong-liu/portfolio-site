@@ -1,4 +1,5 @@
 'use client';
+
 import { ComponentProps, useRef, useState } from 'react';
 
 import classNames from 'classnames';
@@ -25,16 +26,21 @@ export const PostCode = ({ className = '', ...restProps }: Props) => {
     return (
       <code
         {...restProps}
-        className={classNames(styles['code'], styles['-inline'])}
+        className={classNames(styles.code, styles['-inline'])}
       />
     );
 
   return (
     <div className={styles['code-wrapper']}>
       <div className={styles['code-header']}>
-        <span className={styles['language']}>{language}</span>
-        <button className={styles['copy-button']} onClick={handleCopy}>
-          <Copy className={styles['icon']} />
+        <span className={styles.language}>{language}</span>
+        <button
+          className={styles['copy-button']}
+          onClick={handleCopy}
+          type="button"
+          aria-label="Copy"
+        >
+          <Copy className={styles.icon} />
         </button>
         <span
           className={classNames(
@@ -48,7 +54,7 @@ export const PostCode = ({ className = '', ...restProps }: Props) => {
       <code
         {...restProps}
         ref={codeRef}
-        className={classNames(className, styles['code'], styles['-block'])}
+        className={classNames(className, styles.code, styles['-block'])}
       />
     </div>
   );

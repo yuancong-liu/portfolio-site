@@ -26,17 +26,17 @@ export const ExperienceCard = forwardRef<HTMLDivElement, Props>(
     return (
       <div className={styles['card-wrapper']} ref={ref}>
         {imagePath && (
-          <div className={styles['image']}>
+          <div className={styles.image}>
             <ImageWithLoading src={imagePath} alt={name} />
           </div>
         )}
-        <div className={styles['details']}>
-          <h2 className={styles['index']}>#{index + 1}</h2>
-          <h2 className={styles['year']}>
-            <span className={styles['start']}>{startYear} - </span>
+        <div className={styles.details}>
+          <h2 className={styles.index}>#{index + 1}</h2>
+          <h2 className={styles.year}>
+            <span className={styles.start}>{startYear} - </span>
             {endYear}
           </h2>
-          <h3 className={styles['name']}>{name}</h3>
+          <h3 className={styles.name}>{name}</h3>
         </div>
         {/* {experience.url ? (
       ) : (

@@ -1,4 +1,5 @@
 'use client';
+
 import { ChangeEvent, useState } from 'react';
 
 import classNames from 'classnames';
@@ -42,19 +43,22 @@ export const BlogPageContent = ({ allPosts, allTags }: Props) => {
         return <TagView allTags={allTags} />;
       case 'sns':
         return <SnsView />;
+      default:
+        return null;
     }
   };
 
   return (
     <>
-      <div className={styles['tabs']}>
+      <div className={styles.tabs}>
         {Object.entries(tabMap).map(([key, value]) => (
           <label
             key={key}
             className={classNames(
-              styles['tab'],
+              styles.tab,
               tab === key && styles['-checked'],
             )}
+            htmlFor={value}
           >
             <input
               type="radio"

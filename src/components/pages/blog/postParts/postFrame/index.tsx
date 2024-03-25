@@ -6,6 +6,6 @@ type Props = ComponentProps<'iframe'>;
 
 export const PostFrame = ({ ...props }: Props) => (
   <div className={styles['iframe-wrapper']}>
-    <iframe {...props} className={styles['iframe']} />
+    <iframe {...props} className={styles.iframe} title={props.title} />
   </div>
 );

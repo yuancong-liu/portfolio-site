@@ -29,7 +29,7 @@ const BlogPage = () => {
   const { allTags } = getAllTags();
 
   const latestPostTitle = allPosts[0].title;
-  metadata.description = `Welcome to YC\'s blog! Read the latest blog post: ${latestPostTitle}`;
+  metadata.description = `Welcome to YC's blog! Read the latest blog post: ${latestPostTitle}`;
 
   return <BlogPageContent allPosts={allPosts} allTags={allTags} />;
 };

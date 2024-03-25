@@ -1,4 +1,5 @@
 'use client';
+
 import { memo, useEffect, useState } from 'react';
 
 import classNames from 'classnames';
@@ -6,23 +7,21 @@ import { motion } from 'framer-motion';
 
 import styles from './index.module.scss';
 
-export const Introduction = () => {
-  return (
-    <div className={styles['introduction-wrapper']}>
-      <h2 className={classNames(styles['hi'], styles['serif'])}>Hi!</h2>
-      <p className={classNames(styles['greeting'], styles['para'])}>
-        I am <NameSparkle />
-      </p>
-      <p className={classNames(styles['work'], styles['para'])}>
-        Currently a front-end engineer at{' '}
-        <span className={styles['serif']}>teamLab Inc.</span>
-      </p>
-      <p className={classNames(styles['hobbies'], styles['para'])}>
-        I like <HobbySlider />
-      </p>
-    </div>
-  );
-};
+export const Introduction = () => (
+  <div className={styles['introduction-wrapper']}>
+    <h2 className={classNames(styles.hi, styles.serif)}>Hi!</h2>
+    <p className={classNames(styles.greeting, styles.para)}>
+      I am <NameSparkle />
+    </p>
+    <p className={classNames(styles.work, styles.para)}>
+      Currently a front-end engineer at{' '}
+      <span className={styles.serif}>teamLab Inc.</span>
+    </p>
+    <p className={classNames(styles.hobbies, styles.para)}>
+      I like <HobbySlider />
+    </p>
+  </div>
+);
 
 /**
  * NAME
@@ -75,7 +74,7 @@ const NameSparkle = memo(() => {
   return (
     <motion.span
       className={classNames(
-        styles['serif'],
+        styles.serif,
         styles['name-sparkle'],
         showNames && styles['-show'],
       )}
@@ -91,7 +90,7 @@ const NameSparkle = memo(() => {
           animate={showNames ? 'visible' : 'hidden'}
           onAnimationComplete={() => setShowNames((prev) => !prev)}
           key={name.lang}
-          className={classNames(styles['entity'], styles[name.lang])}
+          className={classNames(styles.entity, styles[name.lang])}
         >
           {name.name}
         </motion.span>
@@ -118,11 +117,11 @@ const HobbySlider = memo(() => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <span className={classNames(styles['serif'], styles['hobbies-slider'])}>
-      <motion.span className={classNames(styles['entity'], styles['-prev'])}>
+    <span className={classNames(styles.serif, styles['hobbies-slider'])}>
+      <motion.span className={classNames(styles.entity, styles['-prev'])}>
         {hobbies[0]}
       </motion.span>
-      <motion.span className={styles['entity']}>{hobbies[1]}</motion.span>
+      <motion.span className={styles.entity}>{hobbies[1]}</motion.span>
     </span>
   );
 });

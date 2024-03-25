@@ -1,4 +1,5 @@
 'use client';
+
 import { useRef } from 'react';
 
 import { useGSAP } from '@gsap/react';
@@ -82,12 +83,12 @@ export const FilmsContent = () => {
 
   return (
     <div className={styles['film-content']} ref={cardRef}>
-      <div className={classNames(styles['image'], 'film-section-image')}>
+      <div className={classNames(styles.image, 'film-section-image')}>
         <ImageWithLoading src={NIAN_NIAN_SRC} />
       </div>
       <CMark className={classNames(styles['c-mark'], 'c-mark')} />
-      <div className={styles['content']}>
-        <h2 className={styles['title']}>NIAN NIAN</h2>
+      <div className={styles.content}>
+        <h2 className={styles.title}>NIAN NIAN</h2>
       </div>
     </div>
   );

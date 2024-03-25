@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { Timeline } from 'react-twitter-widgets';
 
@@ -48,7 +49,7 @@ export const SnsView = () => {
   return (
     <div className={styles['view-wrapper']}>
       <div
-        className={classNames(styles['twitter'], loading && styles['-loading'])}
+        className={classNames(styles.twitter, loading && styles['-loading'])}
       >
         <Timeline
           dataSource={{
@@ -67,7 +68,7 @@ export const SnsView = () => {
         <ul className={styles['icon-list']}>
           {socialMedia.map(({ name, link, icon }) => (
             <li key={name} className={styles['icon-item']}>
-              <Link href={link} className={styles['link']}>
+              <Link href={link} className={styles.link}>
                 {icon}
               </Link>
             </li>

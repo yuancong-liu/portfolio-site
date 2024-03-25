@@ -6,9 +6,9 @@ export const Footer = () => {
   return (
     <div className={styles['footer-wrapper']}>
       <div className={styles['footer-content']}>
-        <div className={styles['left']}>
+        <div className={styles.left}>
           <svg
-            className={styles['logo']}
+            className={styles.logo}
             width="103"
             height="30"
             viewBox="0 0 103 30"
@@ -35,7 +35,7 @@ export const Footer = () => {
             />
           </svg>
         </div>
-        <div className={styles['right']}>
+        <div className={styles.right}>
           {year} © Paul LIU All Rights Reserved.
         </div>
       </div>

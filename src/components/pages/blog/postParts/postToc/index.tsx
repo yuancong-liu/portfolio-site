@@ -1,4 +1,5 @@
 'use client';
+
 import { ComponentProps, useEffect, useRef, useState } from 'react';
 
 import { useGSAP } from '@gsap/react';
@@ -97,6 +98,8 @@ export const PostToc = ({ className, children }: Props) => {
       <button
         className={classNames(styles['toc-button'], 'toc-button')}
         onClick={toggleToc}
+        aria-label="Toggle Table of Contents"
+        type="button"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path
