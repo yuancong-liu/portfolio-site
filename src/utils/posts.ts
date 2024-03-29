@@ -66,6 +66,8 @@ export const getPostsByFields = (fields: string[] = []) => {
       .map((slug: string) => getPostBySlug(slug, fields))
       // NOTE: to exclude directories
       .filter((post) => !!post?.slug)
+      // NOTE: to exclude unpublished posts
+      .filter((post) => post.published !== 'before-publish')
       // NOTE: sort posts by date in descending order
       .sort((post1: Post, post2: Post) => (post1.date > post2.date ? -1 : 1))
   );
@@ -76,6 +78,7 @@ export const getAllPosts = () => {
     'slug',
     'title',
     'date',
+    'published',
     'tags',
     'language',
   ]);
@@ -136,7 +139,14 @@ export const getAllTags = () => {
  * @returns Post[]
  */
 export const getPostsByTag = (tag: string) => {
-  const posts = getPostsByFields(['slug', 'title', 'tags', 'date', 'language']);
+  const posts = getPostsByFields([
+    'slug',
+    'title',
+    'tags',
+    'published',
+    'date',
+    'language',
+  ]);
   return posts.filter((post) => post.tags.includes(tag));
 };
 
