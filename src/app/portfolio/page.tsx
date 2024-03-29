@@ -17,17 +17,17 @@ export const metadata: Metadata = {
  */
 const PortfolioPage: NextPage = () => (
   <main className={classNames(styles['content-wrapper'], 'portfolio-wrapper')}>
-    {/* design works */}
-    <section className={styles.block}>
-      <Section title="DESIGNS">
-        <h1>#1</h1>
-      </Section>
-    </section>
-
     {/* films */}
     <section className={styles.block}>
       <Section title="FILMS">
         <FilmsContent />
+      </Section>
+    </section>
+
+    {/* design works */}
+    <section className={styles.block}>
+      <Section title="DESIGNS">
+        <h1>#1</h1>
       </Section>
     </section>
   </main>

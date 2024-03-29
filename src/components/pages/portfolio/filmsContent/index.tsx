@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 import CMark from '~/assets/icons/c-mark-sp.svg';
 import { ImageWithLoading } from '~/components/common/image/imageWithLoading';
@@ -83,9 +84,14 @@ export const FilmsContent = () => {
 
   return (
     <div className={styles['film-content']} ref={cardRef}>
-      <div className={classNames(styles.image, 'film-section-image')}>
+      <Link
+        href="https://youtu.be/QocgLpdHsrw?feature=shared"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classNames(styles.image, 'film-section-image')}
+      >
         <ImageWithLoading src={NIAN_NIAN_SRC} />
-      </div>
+      </Link>
       <CMark className={classNames(styles['c-mark'], 'c-mark')} />
       <div className={styles.content}>
         <h2 className={styles.title}>NIAN NIAN</h2>
