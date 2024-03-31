@@ -6,6 +6,7 @@
     "stylelint-config-standard-scss"
   ],
   "plugins": ["stylelint-order"],
+  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
   "rules": {
     "string-quotes": "single",
     "no-empty-source": true,

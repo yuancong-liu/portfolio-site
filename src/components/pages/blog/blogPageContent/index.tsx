@@ -51,24 +51,27 @@ export const BlogPageContent = ({ allPosts, allTags }: Props) => {
   return (
     <>
       <div className={styles.tabs}>
-        {Object.entries(tabMap).map(([key, value]) => (
-          <label
-            key={key}
-            className={classNames(
-              styles.tab,
-              tab === key && styles['-checked'],
-            )}
-            htmlFor={value}
-          >
-            <input
-              type="radio"
-              name="blog-div"
-              value={key}
-              onChange={handleTabChange}
-            />
-            <span className={styles['tab-name']}>{value}</span>
-          </label>
-        ))}
+        {Object.entries(tabMap).map(([key, value]) => {
+          const checked = tab === key;
+
+          return (
+            <label
+              key={key}
+              className={classNames(styles.tab, checked && styles['-checked'])}
+              htmlFor={key}
+            >
+              <input
+                type="radio"
+                name="blog-div"
+                id={key}
+                value={key}
+                checked={checked}
+                onChange={handleTabChange}
+              />
+              <span>{value}</span>
+            </label>
+          );
+        })}
       </div>
       <main className={styles['content-wrapper']}>{content()}</main>
     </>

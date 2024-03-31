@@ -90,11 +90,14 @@ export const FilmsContent = () => {
         rel="noopener noreferrer"
         className={classNames(styles.image, 'film-section-image')}
       >
-        <ImageWithLoading src={NIAN_NIAN_SRC} />
+        <ImageWithLoading
+          src={NIAN_NIAN_SRC}
+          alt="Thumbnail for documentary NIAN' NIAN."
+        />
       </Link>
       <CMark className={classNames(styles['c-mark'], 'c-mark')} />
       <div className={styles.content}>
-        <h2 className={styles.title}>NIAN NIAN</h2>
+        <h2 className={styles.title}>NIAN&apos; NIAN.</h2>
       </div>
     </div>
   );
