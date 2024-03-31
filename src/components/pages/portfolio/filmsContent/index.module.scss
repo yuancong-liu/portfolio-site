@@ -35,7 +35,6 @@
 
     @include sp {
       font-size: 1.2rem;
-      color: utils.$color-navy;
     }
   }
 
@@ -47,10 +46,6 @@
     content: '';
     background: utils.$color-navy-overlay-30;
     transition: all 0.5s ease-in-out;
-
-    @include sp {
-      content: none;
-    }
   }
 
   @include hover {
@@ -92,24 +87,32 @@
   width: 50%;
   height: 100%;
   padding: 30px;
-  pointer-events: none;
 
   @include sp {
+    align-items: flex-end;
     justify-content: flex-end;
     width: 100%;
     text-align: end;
   }
 
   > .title {
+    width: fit-content;
     margin-bottom: 40px;
     font-family: 'Zilla Slab', 'IBM Plex Sans JP', serif;
     font-size: 4rem;
+    font-weight: 600;
     letter-spacing: 0.2rem;
     box-shadow: inset 0 -1px 0 0 #fff;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    @include hover {
+      box-shadow: inset 0 -2.5rem 0 0 utils.$color-pink;
+    }
   }
 
   > .description {
     font-size: 2rem;
+    text-wrap: balance;
     letter-spacing: 0.1rem;
   }
 }

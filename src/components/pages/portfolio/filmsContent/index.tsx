@@ -93,15 +93,17 @@ export const FilmsContent = () => {
         <span className={styles.redirect}>WATCH ON YOUTUBE</span>
         <ImageWithLoading
           src={NIAN_NIAN_SRC}
-          alt="Thumbnail for documentary NIAN' NIAN."
+          alt="Thumbnail for documentary Nian' Nian."
         />
       </Link>
       <CMark className={classNames(styles['c-mark'], 'c-mark')} />
       <div className={styles.content}>
-        <h2 className={styles.title}>NIAN&apos; NIAN.</h2>
+        <Link className={styles.title} href="/portfolio/nian-nian">
+          Nian&apos; Nian.
+        </Link>
         <p className={styles.description}>
           &quot;It&apos;s a difficult time in her life, and if she can get
-          through it, i&apos;m sure she&apos;ll be happy.&quot;
+          through it, I&apos;m sure she&apos;ll be happy.&quot;
         </p>
       </div>
     </div>
