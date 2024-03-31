@@ -90,6 +90,7 @@ export const FilmsContent = () => {
         rel="noopener noreferrer"
         className={classNames(styles.image, 'film-section-image')}
       >
+        <span className={styles.redirect}>WATCH ON YOUTUBE</span>
         <ImageWithLoading
           src={NIAN_NIAN_SRC}
           alt="Thumbnail for documentary NIAN' NIAN."
@@ -98,6 +99,10 @@ export const FilmsContent = () => {
       <CMark className={classNames(styles['c-mark'], 'c-mark')} />
       <div className={styles.content}>
         <h2 className={styles.title}>NIAN&apos; NIAN.</h2>
+        <p className={styles.description}>
+          &quot;It&apos;s a difficult time in her life, and if she can get
+          through it, i&apos;m sure she&apos;ll be happy.&quot;
+        </p>
       </div>
     </div>
   );

@@ -47,7 +47,7 @@
   border-radius: 50%;
   transition: background-color 0.3s ease-in-out;
 
-  &:hover {
+  @include hover {
     background-color: utils.$color-pink;
   }
 }

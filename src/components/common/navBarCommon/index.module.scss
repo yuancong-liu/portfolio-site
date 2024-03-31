@@ -90,10 +90,14 @@
     display: block;
   }
 
-  &:not(.-active):hover::before {
-    display: block;
-    width: 0;
-    animation: indicator 1.5s ease-in-out infinite;
+  &:not(.-active) {
+    @include hover {
+      &::before {
+        display: block;
+        width: 0;
+        animation: indicator 1.5s ease-in-out infinite;
+      }
+    }
   }
 
   @include sp {

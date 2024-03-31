@@ -25,8 +25,12 @@
     }
   }
 
-  &.-new:hover::after {
-    opacity: 1;
+  &.-new {
+    @include hover {
+      &::after {
+        opacity: 1;
+      }
+    }
   }
 
   @include sp {
@@ -40,7 +44,7 @@
     transition: all 0.3s ease-in-out;
     transform: translate(0, 0);
 
-    &:hover {
+    @include hover {
       z-index: 100;
       background-color: utils.$color-navy-light;
       border-radius: 8px;

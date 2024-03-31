@@ -4,12 +4,9 @@
 
 .link:not(.-toc) {
   box-shadow: inset 0 -1px 0 0 utils.$color-pink;
+  transition: all 0.2s ease-in-out;
 
-  &:hover {
+  @include hover {
     box-shadow: inset 0 -8px 0 0 utils.$color-pink;
   }
-}
-
-.link.-toc:hover {
-  color: utils.$color-pink;
 }

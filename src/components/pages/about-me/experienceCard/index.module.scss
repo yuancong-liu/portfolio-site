@@ -85,68 +85,7 @@
     }
   }
 
-  // > .year {
-  //   margin: 0 20px;
-  //   font-size: 8rem;
-  //   font-weight: 600;
-  //   color: utils.$color-pink;
-  // }
-
-  // > .name {
-  //   position: relative;
-  //   z-index: 10;
-  //   margin: 0 20px;
-  //   font-size: 4rem;
-  //   font-weight: 600;
-  //   transition: all 0.1s ease;
-
-  //   &:hover {
-  //     color: utils.$color-pink;
-  //     text-decoration: underline;
-  //   }
-  // }
-
-  // > .details {
-  //   position: relative;
-  //   z-index: 10;
-  //   margin: 0 20px;
-  // }
-
-  // > .border {
-  //   position: absolute;
-  //   top: 6rem;
-  //   left: 23rem;
-  //   width: calc(95% - 26rem);
-  //   height: 0;
-  //   border-top: 2px solid utils.$color-pink;
-  //   border-right: 2px solid utils.$color-pink;
-  //   transition: all 2s ease;
-
-  //   @include sp {
-  //     top: 10rem;
-  //   }
-
-  //   &.-in-view {
-  //     height: calc(60% + 26rem);
-  //     max-height: 70%;
-  //   }
-  // }
-
-  // > .end-year {
-  //   position: absolute;
-  //   top: calc(60% + 16rem);
-  //   right: 0;
-  //   height: 0;
-  //   overflow: hidden;
-  //   transition: all 1s ease;
-  //   transition-delay: 0.5s;
-
-  //   &.-in-view {
-  //     height: 200px;
-  //   }
-  // }
-
-  &:hover {
+  @include hover {
     flex-basis: 50%;
 
     > .details {

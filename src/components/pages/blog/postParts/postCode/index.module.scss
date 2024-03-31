@@ -1,8 +1,10 @@
 .code-wrapper {
   display: grid;
 
-  &:hover .copy-button {
-    opacity: 1;
+  @include hover {
+    .copy-button {
+      opacity: 1;
+    }
   }
 }
 

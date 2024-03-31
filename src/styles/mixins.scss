@@ -20,3 +20,11 @@ $breakpoint: 768px;
     display: none;
   }
 }
+
+@mixin hover() {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
