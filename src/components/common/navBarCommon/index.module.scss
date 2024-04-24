@@ -1,36 +1,27 @@
 .nav-bar {
   position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: 1000;
-  width: 100%;
-  padding: 10px 0;
-  font-size: 20px;
+  width: min(100%, 700px);
+  padding: 12px;
+  margin: 10px auto;
+  font-size: 16px;
   font-weight: 600;
   color: #fff;
-
-  @include pc {
-    background: utils.$color-navy-bd;
-    backdrop-filter: blur(10px);
-  }
+  background: utils.$color-pink-bd;
+  backdrop-filter: blur(10px);
+  border: 1px solid #fff2;
+  border-radius: 100px;
+  box-shadow: 0 0 20px 0 utils.$color-pink-bd;
 
   @include sp {
     top: unset;
     bottom: 0;
+    width: fit-content;
+    padding: 8px;
     font-size: 12px;
-    background: unset;
-
-    &::after {
-      position: absolute;
-      top: -50%;
-      left: calc(50% - 250px);
-      z-index: -50;
-      width: 500px;
-      height: 500px;
-      content: '';
-      background: utils.$color-navy-bd;
-      backdrop-filter: blur(10px);
-      border-radius: 50%;
-    }
   }
 }
 
@@ -39,22 +30,13 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   place-items: center;
-  max-width: 700px;
   padding: 0;
   margin: 0 auto;
   list-style: none;
-
-  @include sp {
-    max-width: 350px;
-  }
 }
 
 .icons {
   height: 30px;
-
-  @include sp {
-    display: none;
-  }
 }
 
 .c-mark-nav {
@@ -64,57 +46,8 @@
     stroke: #fff;
     stroke-width: 1px;
   }
-
-  @include pc {
-    display: none;
-  }
 }
 
 .text-link {
   position: relative;
-  transition: all 0.3s ease;
-
-  &::before {
-    position: absolute;
-    top: calc(50% - 5px);
-    left: -10px;
-    z-index: -1;
-    display: none;
-    width: calc(100% + 20px);
-    height: 10px;
-    content: '';
-    background-color: utils.$color-pink;
-  }
-
-  &.-active::before {
-    display: block;
-  }
-
-  &:not(.-active) {
-    @include hover {
-      &::before {
-        display: block;
-        width: 0;
-        animation: indicator 1.5s ease-in-out infinite;
-      }
-    }
-  }
-
-  @include sp {
-    &::before,
-    &.-active::before,
-    &:not(.-active):hover::before {
-      display: none;
-    }
-  }
-}
-
-@keyframes indicator {
-  50% {
-    width: calc(100% + 20px);
-  }
-
-  100% {
-    width: 0;
-  }
 }
