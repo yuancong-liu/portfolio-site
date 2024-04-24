@@ -52,7 +52,7 @@ const AdjacentPost = ({ title, slug, direction }: AdjacentPostsProps) => {
     >
       <div className={styles.contents}>
         <p>{direction === 'next' ? 'Next' : 'Previous'}</p>
-        <h3>{title}</h3>
+        <h3 className={styles.title}>{title}</h3>
       </div>
     </Link>
   );

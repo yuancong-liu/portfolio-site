@@ -3,6 +3,7 @@
   z-index: 0;
   contain: paint;
   list-style-type: none;
+  border: 1px solid transparent;
 
   &::marker {
     display: none;
@@ -46,9 +47,13 @@
 
     @include hover {
       z-index: 100;
-      background-color: utils.$color-navy-light;
+      background: utils.$color-pink-bd;
+      backdrop-filter: blur(2px);
+      border: 1px solid #fff2;
       border-radius: 8px;
-      box-shadow: -10px 10px 0 0 utils.$color-pink;
+      box-shadow:
+        -10px 10px 0 0 utils.$color-pink,
+        0 0 20px 0 #fff2;
       transform: translate(10px, -10px);
     }
   }
