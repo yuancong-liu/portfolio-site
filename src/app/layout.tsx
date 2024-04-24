@@ -1,13 +1,18 @@
+import { ReactNode } from 'react';
+
 import { Analytics } from '@vercel/analytics/react';
 import { Metadata, Viewport } from 'next';
+
+import { CommonBg } from '~/components/common/commonBg';
+
 import '~/styles/globals.scss';
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || ''),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'),
 };
 
 export const viewport: Viewport = {
@@ -17,7 +22,7 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: Props) => (
   <html lang="en">
     <body>
-      <div className="overall-background" />
+      <CommonBg />
       {children}
     </body>
     <Analytics />

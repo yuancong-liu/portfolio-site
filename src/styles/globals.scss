@@ -1,21 +1,22 @@
-@import 'https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Geologica:slnt,wght,CRSV,SHRP@-12..0,100..900,0..1,0..100&display=swap';
 @import 'https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,600;1,300;1,600&display=swap';
 @import 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;700&display=swap';
-@import 'https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css';
+@import 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap';
 
 :root {
   box-sizing: border-box;
 }
 
 html {
-  background-color: #132043;
+  background-color: utils.$color-navy;
 }
 
 html,
 body {
   margin: 0;
-  font-family: Jost, 'IBM Plex Sans JP', sans-serif;
+  font-family: Geologica, 'IBM Plex Sans JP', sans-serif;
   font-size: 10px;
+  font-weight: 300;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,8 +33,8 @@ body {
 }
 
 ::selection {
-  color: #132043;
-  background-color: #f1b4bb;
+  color: utils.$color-navy;
+  background-color: utils.$color-pink;
 }
 
 button {
@@ -43,46 +44,10 @@ button {
 }
 
 code {
-  font-family: 'Fira Code', monospace;
-
-  @supports (font-variation-settings: normal) {
-    font-family: 'Fira Code VF', monospace;
-  }
+  font-family: 'JetBrains Mono', monospace;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.overall-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at top 30% left 0,
-    rgba(73 71 92 / 100%) 0%,
-    rgba(26 54 94 / 100%) 19%,
-    rgba(19 32 67 / 100%) 56%
-  );
-}
-
-.overall-background::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background: linear-gradient(
-      0deg,
-      transparent 80px,
-      rgba(241 180 187 / 20%) 81px
-    ),
-    linear-gradient(90deg, transparent 80px, rgba(241 180 187 / 20%) 81px);
-  background-position: center;
-  background-size: 81px 81px;
 }

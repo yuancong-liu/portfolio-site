@@ -1,9 +1,11 @@
+import { ReactNode } from 'react';
+
 import { NavBarCommon } from '~/components/common/navBarCommon';
 
 import styles from './layout.module.scss';
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const AboutMeLayout = ({ children }: Props) => (
