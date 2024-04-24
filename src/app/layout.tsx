@@ -22,8 +22,8 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: Props) => (
   <html lang="en">
     <body>
-      <CommonBg />
       {children}
+      <CommonBg />
     </body>
     <Analytics />
   </html>
