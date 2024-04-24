@@ -1,7 +1,7 @@
 'use client';
 
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NavBarHome } from '~/components/pages/home/navBarHome';
+import { NavBarCommon } from '~/components/common/navBarCommon';
 import { useDeviceDetect } from '~/hooks';
 
 import { IconsPc } from '../IconsPc';
@@ -18,7 +18,7 @@ export const HomeDynamic = () => {
 
   return (
     <>
-      <NavBarHome />
+      <NavBarCommon />
       <main>{content()}</main>
     </>
   );

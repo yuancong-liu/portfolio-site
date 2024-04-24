@@ -11,7 +11,7 @@ type Props = {
 
 const BlogLayout = ({ children }: Props) => (
   <div className={styles['page-wrapper']}>
-    <NavBarCommon pageDiv="post" />
+    <NavBarCommon />
     {children}
     <Footer />
   </div>
