@@ -15,7 +15,6 @@ export const NavBarCommon = ({ pageDiv = 'other' }: Props) => {
   const { scrollYProgress } = useScroll();
 
   const pathLength = useSpring(useTransform(scrollYProgress, [0, 1], [1, 0]));
-  const rotate = useSpring(useTransform(scrollYProgress, [0, 1], [0, 360]));
   const fill = useTransform(
     scrollYProgress,
     [0, 0.3, 1],
