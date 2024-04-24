@@ -50,6 +50,10 @@ const PostPage = async ({ params }: Props) => {
 
   const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`;
 
+  // Metadata
+  metadata.title = title;
+  metadata.description = title;
+
   metadata.alternates = {
     canonical: `/blog/${slug}`,
   };
