@@ -6,9 +6,9 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || ''),
-};
+// export const metadata: Metadata = {
+//   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || ''),
+// };
 
 export const viewport: Viewport = {
   themeColor: '#132043',
