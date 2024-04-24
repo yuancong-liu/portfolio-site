@@ -23,8 +23,11 @@ const nextConfig = {
     ],
   },
   sassOptions: {
-    prependData: `@use '~/styles/utils.scss';
-@use '~/styles/mixins' as *;`,
+    prependData: `
+      @use '~/styles/utils.scss';
+      @use '~/styles/mixins' as *;
+      @use '~/styles/placeholders' as *;
+    `,
   },
   webpack(config) {
     config.module.rules.push({

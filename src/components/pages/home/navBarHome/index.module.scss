@@ -26,10 +26,10 @@
 }
 
 .nav-items {
-  display: grid;
+  @extend %center-items-grid;
+
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  place-items: center;
   padding: 0;
   list-style: none;
 }

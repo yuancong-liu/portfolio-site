@@ -14,7 +14,7 @@ html {
 html,
 body {
   margin: 0;
-  font-family: Geologica, 'IBM Plex Sans JP', sans-serif;
+  font-family: utils.$font-sans-serif;
   font-size: 10px;
   font-weight: 300;
   line-height: 1.5;
@@ -44,7 +44,7 @@ button {
 }
 
 code {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: utils.$font-monospace;
 }
 
 a {

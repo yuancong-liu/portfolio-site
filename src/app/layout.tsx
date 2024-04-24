@@ -4,8 +4,8 @@ import { Analytics } from '@vercel/analytics/react';
 import { Metadata, Viewport } from 'next';
 
 import { CommonBg } from '~/components/common/commonBg';
-
 import '~/styles/globals.scss';
+
 
 type Props = {
   children: ReactNode;

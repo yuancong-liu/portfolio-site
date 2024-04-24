@@ -1,3 +1,6 @@
+/**
+  * Colors
+  */
 $color-bg: #132043;
 $color-navy-bd: rgba(19 32 67 / 10%);
 $color-navy-overlay-30: rgba(19 32 67 / 30%);
@@ -7,3 +10,10 @@ $color-navy-light: #1f4172;
 $color-pink: #f1b4bb;
 $color-pink-light: #fdf0f0;
 $color-pink-bd: #fdf0f022;
+
+/**
+  * Fonts
+  */
+$font-sans-serif: 'Geologica', 'IBM Plex Sans JP', sans-serif;
+$font-serif: 'Zilla Slab', 'IBM Plex Sans JP', serif;
+$font-monospace: 'JetBrains Mono', monospace;

@@ -1,6 +1,6 @@
 .page-wrapper {
-  display: grid;
-  place-items: center;
+  @extend %center-items-grid;
+
   height: 100vh;
   height: 100dvh;
   font-size: 1.6rem;

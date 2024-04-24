@@ -1,8 +1,8 @@
 .image-wrapper {
+  @extend %center-items-grid;
+
   position: relative;
-  display: grid;
   gap: 10px;
-  place-items: center;
   width: 100%;
   height: fit-content;
   max-height: 500px;

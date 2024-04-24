@@ -13,9 +13,9 @@
 }
 
 .block {
+  @extend %center-items-grid;
+
   position: relative;
-  display: grid;
-  place-items: center;
   width: 100%;
   height: 100vh;
   height: 100dvh;

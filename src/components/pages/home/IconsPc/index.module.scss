@@ -1,6 +1,6 @@
 .overall-wrapper {
-  display: grid;
-  place-items: center;
+  @extend %center-items-grid;
+
   justify-content: center;
   width: 100vw;
   height: 100vh;

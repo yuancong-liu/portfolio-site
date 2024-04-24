@@ -32,8 +32,8 @@
 }
 
 .copy-button {
-  display: grid;
-  place-items: center;
+  @extend %center-items-grid;
+
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;

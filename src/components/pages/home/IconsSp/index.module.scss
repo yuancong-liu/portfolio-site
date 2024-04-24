@@ -1,7 +1,7 @@
 .overall-wrapper {
+  @extend %center-items-grid;
+
   position: fixed;
-  display: grid;
-  place-items: center;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
