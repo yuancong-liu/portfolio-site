@@ -27,7 +27,7 @@ export const NavBarCommon = () => {
   return (
     <nav className={styles['nav-bar']}>
       <ul className={styles['nav-items']}>
-        <li>
+        <li className={styles['nav-item']}>
           <Link
             href="/blog"
             className={classNames(
@@ -38,7 +38,7 @@ export const NavBarCommon = () => {
             BLOG
           </Link>
         </li>
-        <li>
+        <li className={styles['nav-item']}>
           <Link
             href="/portfolio"
             className={classNames(
@@ -65,6 +65,11 @@ export const NavBarCommon = () => {
                 clipRule="evenodd"
                 d="M9.58568 17.5166L-0.000732422 14.4482L2.27473 7.43875L11.8914 10.5168V0.422546H19.3081V10.4873L28.9582 7.33985L31.2727 14.3367L21.6002 17.4915L27.6016 25.6592L21.6101 30L15.6021 21.8235L9.64406 29.9451L3.64918 25.6089L9.58568 17.5166Z"
                 fill={fill}
+                whileHover={{
+                  rotate: 360,
+                  scale: 0.8,
+                  transition: { duration: 1 },
+                }}
                 style={{
                   pathLength,
                 }}
@@ -73,7 +78,7 @@ export const NavBarCommon = () => {
           </Link>
         </li>
 
-        <li>
+        <li className={styles['nav-item']}>
           <Link
             href="/about-me"
             className={classNames(
@@ -84,7 +89,7 @@ export const NavBarCommon = () => {
             ABOUT ME
           </Link>
         </li>
-        <li>
+        <li className={styles['nav-item']}>
           <Link
             href="/and"
             className={classNames(

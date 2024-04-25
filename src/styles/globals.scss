@@ -27,6 +27,8 @@ body {
 *,
 ::before,
 ::after {
+  @include remove-scrollbar;
+
   box-sizing: inherit;
   margin: 0;
   line-height: inherit;

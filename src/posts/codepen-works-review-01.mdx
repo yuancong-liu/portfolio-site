@@ -1,0 +1,131 @@
+---
+title: Note | CodePen Works Review 01
+date: 2024-04-25 11:39:00
+language: English
+tags:
+  - Programming
+  - Front-end
+  - CSS
+---
+
+I've done quite a bit of Pen this month (mostly because I just started a new job at a different company and have too much time on my hands), including some of the new CSS features mentioned in last year's [CSS Wrapped](https://developer.chrome.com/blog/css-wrapped-2023), some of the features I'm interested in, and simple copies of fancy Pens I saw someone else do online.
+
+## `grid-template-xxx: subgrid`
+
+Subgrid has been a highly discussed topic recently. The alignment needs to be the same within a group, but since the content is dynamically variable, developers have to put in assumptions and worse, dynamically obtain the size of the content. But subgrid solves this problem by making it easy for container components that have no way of knowing each other's content to maintain the same alignment and keep the same content aligned at all times.
+
+Let's look at the following example first.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  scrolling="no"
+  title="Subgrid"
+  src="https://codepen.io/yuancong-liu/embed/oNOyNRd?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+When defining column templates or row templates, as opposed to the usual practice of defining a grid for an entire container, when using the subgrid feature, we need to define the grid for each piece of content.
+
+```scss
+// parent container containing the card components
+.container {
+  // ...
+  grid-template-rows: auto auto 200px auto auto;
+  // ...
+}
+
+// card component should take 5 grids vertically
+.card {
+  // ...
+  grid-row: span 5;
+  // ...
+}
+```
+
+## `@starting-style` and transitions for discrete attributes
+
+Using only CSS, markup engineers can't or have a hard time defining the animations and transitions of elements entering or leaving the screen, and often need to resort to JS or animation libraries like framer-motion and GSAP (`autoAlpha` and such). But CSS's new provision of `@starting-style` and support for transition effects on discrete attributes goes some way to solving this problem as in the example below.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  scrolling="no"
+  title="`@starting-style` and transitions for discrete attributes"
+  src="https://codepen.io/yuancong-liu/embed/eYoKmoK?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+For the element's entry effect (the transition from `display: none;`), we can now specify it with `@starting-style`.
+
+```scss
+@starting-style {
+  .card {
+    opacity: 0;
+    height: 0;
+  }
+}
+```
+
+For elements leaving the page, there is also native CSS support for transitions to `display: none;`. No need for extra @rules, it's easy to write directly into the properties.
+
+```scss
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+```
+
+## Cards with glowing edges
+
+The development of the new company's project uses nuxt.js. I was browsing through the home pages of the various nuxt.js modules and noticed that these cards with glowing edges are everywhere (is it a design guideline from the nuxt organisation...?). . So I made a simple copy.
+
+The main idea behind this kind of card development is to use the `::after` pseudo-class of the card itself and the card container element while tracking the cursor position and assigning values to CSS variables in real time.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  title="Cards with glowing edges"
+  src="https://codepen.io/yuancong-liu/embed/XWQPjdK?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+This kind of real-time assignment of values to CSS variables shows up in all sorts of fancy web effects, so why haven't I ever tried it...?
+
+## Variable fonts
+
+Variable fonts also seem to be a pretty popular topic these days (although it's rare to see anyone actually putting them into production).
+
+Variable fonts give front-end engineers finer control over font-weight, slant, font width, and other font properties. For example, the control of font-weight is no longer in steps of 100 but can be in steps of 1. With this feature, the font property, which normally wouldn't do much for it, can now be used to achieve very smooth transitions.
+
+As can be seen by the example below, the axes provided by the font itself can be controlled very granularly.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  title="Variable fonts"
+  src="https://codepen.io/yuancong-liu/embed/yLrGEJL?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+Similarly, the cursor position acquisition and CSS variable assignment methods described above can be used to achieve a very stylish font distortion effect.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  title="Variable fonts with cursor tracking"
+  src="https://codepen.io/yuancong-liu/embed/eYobKaW?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
