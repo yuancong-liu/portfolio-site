@@ -102,7 +102,7 @@ export const NavBar = () => {
         </li>
 
         <li className={styles['c-mark-nav']}>
-          <Link href="/">
+          <Link href="/" className={styles['icon-link']}>
             <svg
               width="32"
               height="30"

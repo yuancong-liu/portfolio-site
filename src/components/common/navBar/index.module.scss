@@ -25,8 +25,9 @@
     top: unset;
     bottom: 0;
     width: fit-content;
+    max-width: calc(100% - 16px);
     padding: 8px;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   &::after {
@@ -108,7 +109,7 @@
 }
 
 .c-mark-nav {
-  height: 32px;
+  @extend %center-items-grid;
 
   .stroke {
     stroke: #fff;
@@ -128,5 +129,28 @@
 
   .nav-item:hover & {
     text-shadow: 0 0 10px utils.$color-navy;
+  }
+}
+
+.icon-link {
+  @extend %center-items-grid;
+
+  width: 28px;
+  height: 28px;
+
+  @include sp {
+    width: 20px;
+    height: 20px;
+  }
+
+  > svg {
+    max-width: 28px;
+    max-height: 28px;
+    object-fit: cover;
+
+    @include sp {
+      max-width: 20px;
+      max-height: 20px;
+    }
   }
 }
