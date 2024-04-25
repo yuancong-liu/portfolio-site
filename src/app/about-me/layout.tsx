@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { NavBarCommon } from '~/components/common/navBarCommon';
+import { NavBar } from '~/components/common/navBar';
 
 import styles from './layout.module.scss';
 
@@ -10,7 +10,7 @@ type Props = {
 
 const AboutMeLayout = ({ children }: Props) => (
   <div className={styles['page-wrapper']}>
-    <NavBarCommon />
+    <NavBar />
     {children}
   </div>
 );

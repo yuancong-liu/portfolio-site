@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { Footer } from '~/components/common/footer';
-import { NavBarCommon } from '~/components/common/navBarCommon';
+import { NavBar } from '~/components/common/navBar';
 
 import styles from './layout.module.scss';
 
@@ -11,7 +11,7 @@ type Props = {
 
 const BlogLayout = ({ children }: Props) => (
   <div className={styles['page-wrapper']}>
-    <NavBarCommon />
+    <NavBar />
     {children}
     <Footer />
   </div>

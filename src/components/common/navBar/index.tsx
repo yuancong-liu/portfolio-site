@@ -1,13 +1,20 @@
 'use client';
 
+import { MouseEventHandler, useRef, useState } from 'react';
+
 import classNames from 'classnames';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { sqrtAnyNum } from '~/utils/math';
+
 import styles from './index.module.scss';
 
-export const NavBarCommon = () => {
+export const NavBar = () => {
+  /**
+   * Scroll animation for the navbar
+   */
   const { scrollYProgress } = useScroll();
 
   const pathLength = useSpring(useTransform(scrollYProgress, [0, 1], [1, 0]));
@@ -24,8 +31,52 @@ export const NavBarCommon = () => {
   const currentPath = usePathname();
   const isActive = (path: string) => currentPath.startsWith(path);
 
+  /**
+   * Hover effect for the navbar
+   */
+  const navBarRef = useRef<HTMLElement>(null);
+
+  type NavTranslate = {
+    x: number;
+    y: number;
+  };
+
+  const [navTranslate, setNavTranslate] = useState<NavTranslate>({
+    x: 0,
+    y: 0,
+  });
+
+  const handleMouseMove: MouseEventHandler = (event) => {
+    if (!navBarRef.current) return;
+    const rect = navBarRef.current?.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    setNavTranslate({
+      x: sqrtAnyNum(event.clientX - centerX) / 2,
+      y: sqrtAnyNum(event.clientY - centerY) / 2,
+    });
+
+    navBarRef.current.style.setProperty(
+      '--x',
+      `${event.clientX - rect.left - 20}px`,
+    );
+    navBarRef.current.style.setProperty(
+      '--y',
+      `${event.clientY - rect.top - 20}px`,
+    );
+  };
+
   return (
-    <nav className={styles['nav-bar']}>
+    <motion.nav
+      className={styles['nav-bar']}
+      ref={navBarRef}
+      onMouseMove={handleMouseMove}
+      whileHover={{
+        translateX: navTranslate.x,
+        translateY: navTranslate.y,
+      }}
+    >
       <ul className={styles['nav-items']}>
         <li className={styles['nav-item']}>
           <Link
@@ -101,6 +152,6 @@ export const NavBarCommon = () => {
           </Link>
         </li>
       </ul>
-    </nav>
+    </motion.nav>
   );
 };

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { NavBarCommon } from '~/components/common/navBarCommon';
+import { NavBar } from '~/components/common/navBar';
 
 type Props = {
   children: ReactNode;
@@ -8,7 +8,7 @@ type Props = {
 
 const AboutMeLayout = ({ children }: Props) => (
   <div>
-    <NavBarCommon />
+    <NavBar />
     {children}
   </div>
 );
