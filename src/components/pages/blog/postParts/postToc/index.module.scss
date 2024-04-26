@@ -71,7 +71,7 @@
 .toc-bar {
   @include sp {
     position: absolute;
-    top: calc(100% + 20px);
+    inset: calc(100% + 10px) 0 auto 0;
     z-index: 100;
     visibility: hidden;
     background: utils.$color-pink-bd;
