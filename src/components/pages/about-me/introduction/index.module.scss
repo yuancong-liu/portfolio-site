@@ -35,7 +35,6 @@
     animation:
       char-variation-wght 5s var(--delay, 0s) infinite,
       char-variation-slnt 8s var(--delay, 0s) infinite,
-      char-variation-shrp 3s var(--delay, 0s) infinite,
       char-variation-blur 10s var(--delay, 0s) infinite;
   }
 }
@@ -56,29 +55,33 @@
 
 @keyframes char-variation-slnt {
   0% {
-    font-style: oblique 0deg;
+    font-variation-settings:
+      'SHRP' 0,
+      'slnt' 0;
+  }
+
+  25% {
+    font-variation-settings:
+      'SHRP' 100,
+      'slnt' -12;
   }
 
   50% {
-    font-style: oblique 12deg;
+    font-variation-settings:
+      'SHRP' 0,
+      'slnt' 0;
+  }
+
+  75% {
+    font-variation-settings:
+      'SHRP' 100,
+      'slnt' -12;
   }
 
   100% {
-    font-style: oblique 0deg;
-  }
-}
-
-@keyframes char-variation-shrp {
-  0% {
-    font-variation-settings: 'SHRP' 0;
-  }
-
-  50% {
-    font-variation-settings: 'SHRP' 100;
-  }
-
-  100% {
-    font-variation-settings: 'SHRP' 0;
+    font-variation-settings:
+      'SHRP' 0,
+      'slnt' 0;
   }
 }
 
@@ -118,18 +121,17 @@
 }
 
 .company {
-  box-shadow: inset 0 -8px 0 0 utils.$color-pink;
+  box-shadow: inset 0 -1px 0 0 utils.$color-pink;
   transition: all 0.4s ease-in-out;
 
   @include hover {
-    // box-shadow: inset 0 8px 0 0 utils.$color-pink;
     animation: company-shadow 1s forwards;
   }
 }
 
 @keyframes company-shadow {
   0% {
-    box-shadow: inset 0 -8px 0 0 utils.$color-pink;
+    box-shadow: inset 0 -1px 0 0 utils.$color-pink;
   }
 
   50% {
@@ -141,6 +143,6 @@
   }
 
   100% {
-    box-shadow: inset 0 8px 0 0 utils.$color-pink;
+    box-shadow: inset 0 1px 0 0 utils.$color-pink;
   }
 }
