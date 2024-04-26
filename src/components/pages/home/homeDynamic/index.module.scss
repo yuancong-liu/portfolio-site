@@ -1,6 +1,10 @@
 .main {
-  @extend %center-items-grid;
+  // won't work for main tag
+  // @extend %center-items-grid;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
 
