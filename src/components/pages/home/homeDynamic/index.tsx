@@ -6,6 +6,7 @@ import { useDeviceDetect } from '~/hooks';
 
 import { IconsPc } from '../IconsPc';
 import { IconsSp } from '../IconsSp';
+
 import styles from './index.module.scss';
 
 export const HomeDynamic = () => {
