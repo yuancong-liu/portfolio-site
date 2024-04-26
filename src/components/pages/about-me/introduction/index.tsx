@@ -1,105 +1,77 @@
 'use client';
 
-import { memo, useEffect, useState } from 'react';
+import { CSSProperties, memo, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 import styles from './index.module.scss';
 
 export const Introduction = () => (
   <div className={styles['introduction-wrapper']}>
-    <h2 className={classNames(styles.hi, styles.serif)}>Hi!</h2>
-    <p className={classNames(styles.greeting, styles.para)}>
-      I am <NameSparkle />
-    </p>
-    <p className={classNames(styles.work, styles.para)}>
+    <p>Hi! I am</p>
+    <NameVariable />
+    <p>
       Currently a front-end engineer at{' '}
-      <span className={styles.serif}>teamLab Inc.</span>
+      <Link
+        href="https://www.kenedix.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classNames(styles.sans, styles.company)}
+      >
+        Kenedix Inc.
+      </Link>
     </p>
-    <p className={classNames(styles.hobbies, styles.para)}>
+    <p>
       I like <HobbySlider />
     </p>
   </div>
 );
 
-/**
- * NAME
- */
-type Name = {
-  lang: string;
-  name: string;
-};
+const NameVariable = () => {
+  const NAME = 'PAUL LIU,';
 
-const NAME = [
-  { lang: 'en', name: 'PAUL LIU / PAUL LIU / PAUL LIU' },
-  { lang: 'cn', name: '劉元聰 / 劉元聰 / 劉元聰 / 劉元聰 / 劉元聰' },
-  { lang: 'jp', name: 'リュウ ゲンソウ / リュウ ゲンソウ / リュウ ゲンソウ' },
-  { lang: 'kr', name: '유원총 / 유원총 / 유원총 / 유원총 / 유원총' },
-] as Name[];
+  const WGHT_SCALE = 800;
+  const WGHT_MIN = 100;
+  const SLNT_SCALE = -12;
+  const SLNT_MIN = 0;
 
-const NameSparkle = memo(() => {
-  const [showNames, setShowNames] = useState<boolean>(false);
+  const nameRef = useRef<HTMLParagraphElement>(null);
 
-  const nameVariants = {
-    hidden: {
-      opacity: 0,
-      transition: {
-        duration: 1,
-        ease: 'easeInOut',
-      },
-      transitionEnd: {
-        display: 'none',
-      },
-    },
-    visible: {
-      display: 'block',
-      opacity: [0, 0.5, 0.5],
-      transition: {
-        duration: 1,
-        ease: 'easeInOut',
-      },
-    },
+  const handleMouseMove = (event: MouseEvent) => {
+    const wght = (WGHT_SCALE / window.innerWidth) * event.clientX + WGHT_MIN;
+    const slnt = (SLNT_SCALE / window.innerHeight) * event.clientY + SLNT_MIN;
+
+    nameRef.current?.style.setProperty('--wght', `${wght}`);
+    nameRef.current?.style.setProperty('--slnt', `${slnt}`);
   };
 
-  const handleTap = () => {
-    if (!showNames) {
-      setShowNames(true);
-      setTimeout(() => {
-        setShowNames(false);
-      }, 2000);
-    }
-  };
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  });
 
   return (
-    <motion.span
-      className={classNames(
-        styles.serif,
-        styles['name-sparkle'],
-        showNames && styles['-show'],
-      )}
-      onTap={handleTap}
-      onMouseEnter={() => setShowNames(true)}
-      onMouseLeave={() => setShowNames(false)}
+    <p
+      className={classNames(styles.sans, styles['variable-name'])}
+      ref={nameRef}
     >
-      PAUL Yuancong LIU.
-      {NAME.map((name) => (
-        <motion.span
-          variants={nameVariants}
-          initial="hidden"
-          animate={showNames ? 'visible' : 'hidden'}
-          onAnimationComplete={() => setShowNames((prev) => !prev)}
-          key={name.lang}
-          className={classNames(styles.entity, styles[name.lang])}
-        >
-          {name.name}
-        </motion.span>
-      ))}
-    </motion.span>
+      {NAME.split('').map((char, index) => {
+        const key = `${char}${index}`;
+        return (
+          <span
+            className={styles.char}
+            key={key}
+            style={{ '--delay': `${index * 0.3}s` } as CSSProperties}
+          >
+            {char}
+          </span>
+        );
+      })}
+    </p>
   );
-});
-
-NameSparkle.displayName = 'NameSparkle';
+};
 
 /**
  * HOBBIES
@@ -117,11 +89,9 @@ const HobbySlider = memo(() => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <span className={classNames(styles.serif, styles['hobbies-slider'])}>
-      <motion.span className={classNames(styles.entity, styles['-prev'])}>
-        {hobbies[0]}
-      </motion.span>
-      <motion.span className={styles.entity}>{hobbies[1]}</motion.span>
+    <span className={classNames(styles.sans, styles['hobbies-slider'])}>
+      <span className={classNames(styles.entity)}>{hobbies[0]}</span>
+      <span className={styles.entity}>{hobbies[1]}</span>
     </span>
   );
 });
