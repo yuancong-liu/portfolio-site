@@ -41,7 +41,10 @@
     background: color.adjust(utils.$color-pink, $alpha: 0.5);
     filter: blur(16px);
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition:
+      opacity 1s ease-in-out,
+      scale 1s ease-in-out;
+    scale: 1.5;
   }
 
   @include hover {
@@ -49,22 +52,8 @@
 
     &::after {
       opacity: 0.8;
-      animation: hover-glow 2s infinite;
+      scale: 1;
     }
-  }
-}
-
-@keyframes hover-glow {
-  0% {
-    scale: 1;
-  }
-
-  50% {
-    scale: 1.1;
-  }
-
-  100% {
-    scale: 1;
   }
 }
 

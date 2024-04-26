@@ -1,3 +1,7 @@
+.main {
+  width: 100%;
+}
+
 .overall-wrapper {
   @extend %center-items-grid;
 
@@ -11,7 +15,8 @@
 .icons-wrapper {
   display: flex;
   flex-wrap: nowrap;
-  gap: 65px;
+  gap: 8%;
+  width: min(80%, 80vw);
 }
 
 .c-mark > path {

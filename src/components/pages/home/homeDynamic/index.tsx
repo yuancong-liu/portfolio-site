@@ -6,6 +6,7 @@ import { useDeviceDetect } from '~/hooks';
 
 import { IconsPc } from '../IconsPc';
 import { IconsSp } from '../IconsSp';
+import styles from './index.module.scss';
 
 export const HomeDynamic = () => {
   const { isPc } = useDeviceDetect();
@@ -19,7 +20,7 @@ export const HomeDynamic = () => {
   return (
     <>
       <NavBar />
-      <main>{content()}</main>
+      <main className={styles.main}>{content()}</main>
     </>
   );
 };
