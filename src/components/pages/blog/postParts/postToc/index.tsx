@@ -5,7 +5,6 @@ import { ComponentProps, useEffect, useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { useDeviceDetect } from '~/hooks';
 
