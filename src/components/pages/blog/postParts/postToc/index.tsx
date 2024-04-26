@@ -20,26 +20,26 @@ export const PostToc = ({ className, children }: Props) => {
 
   const { contextSafe } = useGSAP({ scope: tocRef });
 
-  useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      '.toc-button',
-      {
-        backgroundColor: 'rgba(19 32 67 / 0.01)',
-        backdropFilter: 'blur(0)',
-      },
-      {
-        backgroundColor: 'rgba(19 32 67 / 0.1)',
-        backdropFilter: 'blur(10px)',
-        scrollTrigger: {
-          trigger: isPc ? undefined : '.toc-wrapper',
-          start: 'top top',
-          endTrigger: '.heading',
-          toggleActions: 'play none none reverse',
-        },
-      },
-    );
-  });
+  // useGSAP(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   gsap.fromTo(
+  //     '.toc-button',
+  //     {
+  //       backgroundColor: 'rgba(19 32 67 / 0.01)',
+  //       backdropFilter: 'blur(0)',
+  //     },
+  //     {
+  //       backgroundColor: 'rgba(19 32 67 / 0.1)',
+  //       backdropFilter: 'blur(10px)',
+  //       scrollTrigger: {
+  //         trigger: isPc ? undefined : '.toc-wrapper',
+  //         start: 'top top',
+  //         endTrigger: '.heading',
+  //         toggleActions: 'play none none reverse',
+  //       },
+  //     },
+  //   );
+  // });
 
   useEffect(() => {
     if (isPc) {
@@ -74,13 +74,11 @@ export const PostToc = ({ className, children }: Props) => {
         {
           autoAlpha: 0,
           scaleY: 1.2,
-          backgroundColor: 'rgba(19 32 67 / 0.01)',
           backdropFilter: 'blur(0)',
         },
         {
           autoAlpha: 1,
           scaleY: 1,
-          backgroundColor: 'rgba(19 32 67 / 0.1)',
           backdropFilter: 'blur(10px)',
           ease: 'ease-in-out',
         },
@@ -92,11 +90,13 @@ export const PostToc = ({ className, children }: Props) => {
 
   return (
     <div
-      className={classNames(styles['toc-back-wrapper'], 'toc-wrapper')}
+      className={classNames(styles['toc-back-wrapper'])}
+      // className={classNames(styles['toc-back-wrapper'], 'toc-wrapper')}
       ref={tocRef}
     >
       <button
-        className={classNames(styles['toc-button'], 'toc-button')}
+        className={classNames(styles['toc-button'])}
+        // className={classNames(styles['toc-button'], 'toc-button')}
         onClick={toggleToc}
         aria-label="Toggle Table of Contents"
         type="button"
