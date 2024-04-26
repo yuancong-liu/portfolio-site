@@ -10,46 +10,45 @@
   }
 }
 
-// ====================
-// Variable Name
-// ====================
-.variable-name {
-  font-size: 5rem;
-  line-height: 1.2;
+@layer variable-name {
+  .variable-name {
+    font-size: 5rem;
+    line-height: 1.2;
 
-  @include pc {
-    font-variation-settings:
-      'wght' var(--wght, 400),
-      'slnt' var(--slnt, 0);
-  }
-}
-
-.char {
-  transition: filter 0.3s ease-in-out;
-
-  @include hover {
-    filter: blur(5px);
+    @include pc {
+      font-variation-settings:
+        'wght' var(--wght, 400),
+        'slnt' var(--slnt, 0);
+    }
   }
 
-  @include sp {
-    animation:
-      char-variation-wght 5s var(--delay, 0s) infinite,
-      char-variation-slnt 8s var(--delay, 0s) infinite,
-      char-variation-blur 10s var(--delay, 0s) infinite;
-  }
-}
+  .char {
+    transition: filter 0.3s ease-in-out;
 
-@keyframes char-variation-wght {
-  0% {
-    font-weight: 100;
-  }
+    @include hover {
+      filter: blur(5px);
+    }
 
-  50% {
-    font-weight: 900;
+    @include sp {
+      animation:
+        char-variation-wght 5s var(--delay, 0s) infinite,
+        char-variation-slnt 8s var(--delay, 0s) infinite,
+        char-variation-blur 10s var(--delay, 0s) infinite;
+    }
   }
 
-  100% {
-    font-weight: 100;
+  @keyframes char-variation-wght {
+    0% {
+      font-weight: 100;
+    }
+
+    50% {
+      font-weight: 900;
+    }
+
+    100% {
+      font-weight: 100;
+    }
   }
 }
 
@@ -120,29 +119,31 @@
   }
 }
 
-.company {
-  box-shadow: inset 0 -1px 0 0 utils.$color-pink;
-  transition: all 0.4s ease-in-out;
-
-  @include hover {
-    animation: company-shadow 1s forwards;
-  }
-}
-
-@keyframes company-shadow {
-  0% {
+@layer company {
+  .company {
     box-shadow: inset 0 -1px 0 0 utils.$color-pink;
+    transition: all 0.4s ease-in-out;
+
+    @include hover {
+      animation: company-shadow 1s forwards;
+    }
   }
 
-  50% {
-    box-shadow: inset 0 40px 0 0 utils.$color-pink;
-  }
+  @keyframes company-shadow {
+    0% {
+      box-shadow: inset 0 -1px 0 0 utils.$color-pink;
+    }
 
-  51% {
-    box-shadow: inset 0 -40px 0 0 utils.$color-pink;
-  }
+    50% {
+      box-shadow: inset 0 40px 0 0 utils.$color-pink;
+    }
 
-  100% {
-    box-shadow: inset 0 1px 0 0 utils.$color-pink;
+    51% {
+      box-shadow: inset 0 -40px 0 0 utils.$color-pink;
+    }
+
+    100% {
+      box-shadow: inset 0 1px 0 0 utils.$color-pink;
+    }
   }
 }
