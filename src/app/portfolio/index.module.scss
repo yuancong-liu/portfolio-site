@@ -1,4 +1,4 @@
-@mixin title-wrapper($padding) {
+@mixin rounded-wrapper($padding) {
   padding: $padding;
   overflow: hidden;
   border: 1px solid #fff2;
@@ -21,7 +21,6 @@
   min-height: 100dvh;
   padding: 80px 10px 10px;
   overflow: auto;
-  scroll-snap-type: y mandatory;
 
   @include sp {
     grid-template-columns: repeat(6, 1fr);
@@ -30,7 +29,7 @@
 }
 
 .title-image {
-  @include title-wrapper(20px);
+  @include rounded-wrapper(20px);
 
   grid-column: span 4;
   background: linear-gradient(
@@ -48,7 +47,7 @@
 }
 
 .title-wrapper {
-  @include title-wrapper(20px);
+  @include rounded-wrapper(20px);
   @extend %glass-effect;
 
   grid-column: span 8;
@@ -60,7 +59,7 @@
 }
 
 .section-title {
-  @include title-wrapper(12px);
+  @include rounded-wrapper(12px);
   @extend %glass-effect;
 
   grid-column: span 12;
@@ -81,6 +80,7 @@
   display: grid;
   grid-template-columns: subgrid;
   grid-column: span 12;
+  gap: 10px;
 
   @include sp {
     grid-column: span 6;
@@ -94,14 +94,12 @@
     position: relative;
     display: grid;
     grid-column: span 5;
-    aspect-ratio: 5 / 3;
     overflow: hidden;
     object-fit: cover;
     border-radius: 16px;
 
     @include sp {
       grid-column: span 6;
-      aspect-ratio: 3 / 1;
     }
 
     @include hover {
@@ -128,6 +126,39 @@
     text-shadow: 0 0 16px utils.$color-navy;
     letter-spacing: 0.2rem;
     transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  > .image > .thumbnail {
+    aspect-ratio: 5 / 3;
+
+    @include sp {
+      aspect-ratio: 3 / 1;
+    }
+  }
+}
+
+.film-des {
+  @include rounded-wrapper(16px);
+
+  grid-column: span 7;
+  color: utils.$color-navy;
+  text-align: right;
+  background-color: utils.$color-pink-light;
+
+  @include sp {
+    grid-column: span 6;
+  }
+
+  > .film-title {
+    font-family: utils.$font-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+
+  > .film-catch {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-wrap: balance;
   }
 }
 
