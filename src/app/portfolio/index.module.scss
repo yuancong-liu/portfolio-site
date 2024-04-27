@@ -98,12 +98,16 @@
     object-fit: cover;
     border-radius: 16px;
 
+    > * {
+      transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
     @include sp {
       grid-column: span 6;
     }
 
     @include hover {
-      > :not(.link) {
+      > .thumbnail {
         scale: 1.1;
       }
 
@@ -140,7 +144,10 @@
 .film-des {
   @include rounded-wrapper(16px);
 
+  display: flex;
+  flex-direction: column;
   grid-column: span 7;
+  justify-content: end;
   color: utils.$color-navy;
   text-align: right;
   background-color: utils.$color-pink-light;

@@ -40,13 +40,13 @@ const PortfolioPage: NextPage = () => (
           className={styles.thumbnail}
         />
       </Link>
-      <div className={styles['film-des']}>
+      <Link href="/portfolio/nian-nian" className={styles['film-des']}>
         <h4 className={styles['film-title']}>Nian&apos; Nian</h4>
         <p className={styles['film-catch']}>
           &quot;It&apos;s a difficult time in her life, and if she can get
           through it, I&apos;m sure she&apos;ll be happy.&quot;
         </p>
-      </div>
+      </Link>
     </div>
 
     <h3 className={classNames(styles['section-title'])}>designs</h3>
