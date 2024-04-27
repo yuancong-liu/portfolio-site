@@ -1,0 +1,25 @@
+.page-title {
+  display: flex;
+  width: fit-content;
+  font-family: utils.$font-serif;
+  font-size: 12rem;
+  font-variation-settings: 'wdth' 125;
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+  animation: title 10s linear infinite;
+
+  > span {
+    padding-inline: 2rem;
+  }
+}
+
+@keyframes title {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
