@@ -5,6 +5,13 @@
   border-radius: $padding;
 }
 
+%glass-effect {
+  background: utils.$color-pink-bd;
+  backdrop-filter: blur(10px);
+  border: 1px solid #fff2;
+  box-shadow: 0 0 20px 0 utils.$color-pink-bd;
+}
+
 .content-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -26,15 +33,23 @@
   @include title-wrapper(20px);
 
   grid-column: span 4;
-  background-color: utils.$color-pink;
+  background: linear-gradient(
+    30deg,
+    utils.$color-pink,
+    utils.$color-pink-light
+  );
+  box-shadow: 0 0 20px 0 utils.$color-pink-bd;
 
   @include sp {
     grid-column: span 6;
+    height: 60px;
+    border-radius: 20px 20px 0;
   }
 }
 
 .title-wrapper {
   @include title-wrapper(20px);
+  @extend %glass-effect;
 
   grid-column: span 8;
   overflow: hidden;
@@ -46,6 +61,7 @@
 
 .section-title {
   @include title-wrapper(12px);
+  @extend %glass-effect;
 
   grid-column: span 12;
   font-family: utils.$font-serif;
@@ -110,6 +126,7 @@
     font-weight: 800;
     color: #fff;
     text-shadow: 0 0 16px utils.$color-navy;
+    letter-spacing: 0.2rem;
     transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 }
