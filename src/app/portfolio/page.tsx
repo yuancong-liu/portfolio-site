@@ -50,7 +50,24 @@ const PortfolioPage: NextPage = () => (
     </div>
 
     <h3 className={classNames(styles['section-title'])}>designs</h3>
-    <div className={classNames(styles['designs-section'], styles.section)} />
+    <div className={classNames(styles['designs-section'], styles.section)}>
+      <Link href="/#" className={classNames(styles['design-link'], styles.aas)}>
+        <span>#1</span>
+        <h4 className={styles.title}>Redesign of Academic Affair System</h4>
+      </Link>
+      <Link href="/#" className={classNames(styles['design-link'], styles.shp)}>
+        <span>#2</span>
+        <h4 className={styles.title}>SP App for Small Health Problems</h4>
+      </Link>
+      <Link href="/#" className={classNames(styles['design-link'], styles.ksk)}>
+        <span>#3</span>
+        <h4 className={styles.title}>Kuseki</h4>
+      </Link>
+      <Link href="/#" className={classNames(styles['design-link'], styles.akb)}>
+        <span>#4</span>
+        <h4 className={styles.title}>Redesign of AKB48 Official Website</h4>
+      </Link>
+    </div>
     {/* films */}
     {/* <section className={styles.block}>
       <Section title="FILMS">

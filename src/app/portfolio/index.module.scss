@@ -24,7 +24,7 @@
 
   @include sp {
     grid-template-columns: repeat(6, 1fr);
-    padding: 10px;
+    padding: 10px 10px 60px;
   }
 }
 
@@ -170,5 +170,51 @@
 }
 
 .designs-section {
-  height: 1000px;
+}
+
+.design-link {
+  @include rounded-wrapper(16px);
+
+  color: utils.$color-navy;
+
+  > .title {
+    font-family: utils.$font-serif;
+    font-size: 2.5rem;
+  }
+
+  &.aas {
+    grid-column: span 8;
+    background-color: utils.$color-pink;
+
+    @include sp {
+      grid-column: span 4;
+    }
+  }
+
+  &.shp {
+    grid-column: span 4;
+    background-color: utils.$color-pink-light;
+
+    @include sp {
+      grid-column: span 2;
+    }
+  }
+
+  &.ksk {
+    grid-column: span 4;
+    background-color: utils.$color-pink-light;
+
+    @include sp {
+      grid-column: span 2;
+    }
+  }
+
+  &.akb {
+    grid-column: span 8;
+    background-color: utils.$color-pink;
+
+    @include sp {
+      grid-column: span 4;
+    }
+  }
 }
