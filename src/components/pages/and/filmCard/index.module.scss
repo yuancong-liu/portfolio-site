@@ -1,7 +1,6 @@
 .card-wrapper {
   position: relative;
-  flex: 1 0 90vw;
-  height: 100vh;
+  flex: 1 0 100%;
   font-size: 1.6rem;
   color: #fff;
   background-repeat: no-repeat;
@@ -9,16 +8,6 @@
   background-position: center center !important;
   background-size: cover !important;
   scroll-snap-align: start;
-
-  &:last-of-type {
-    flex: 1 0 100vw;
-  }
-
-  @include sp {
-    flex: 1 0 100dvh;
-    height: unset;
-    padding-bottom: 100px;
-  }
 
   > .contents {
     position: relative;
@@ -44,13 +33,15 @@
   position: absolute;
   top: 0;
   left: -40px;
-  font-size: 25rem;
+  font-family: utils.$font-serif;
+  font-size: 20rem;
   font-weight: 600;
   line-height: 1;
 
   @include sp {
-    top: 250px;
+    top: 200px;
     left: -20px;
+    z-index: 1;
     font-size: 10rem;
   }
 }
@@ -65,13 +56,40 @@
   box-shadow: 0 0 20px rgb(0 0 0 / 50%);
 
   @include sp {
+    width: 160px;
+    height: 240px;
     margin: 0 auto;
   }
 }
 
-.basic-info > .overview {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+.basic-info {
+  > .title {
+    font-family: utils.$font-serif;
+    font-size: 2.4rem;
+
+    @include sp {
+      font-size: 1.8rem;
+    }
+  }
+
+  > .original {
+    font-size: 1rem;
+  }
+
+  > .release,
+  > .countries {
+    font-family: utils.$font-serif;
+    font-size: 1.4rem;
+  }
+
+  > .overview {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    @include sp {
+      display: none;
+    }
+  }
 }

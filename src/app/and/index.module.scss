@@ -1,23 +1,52 @@
 .content-wrapper {
-  width: 100%;
-}
-
-.cards-view {
-  display: flex;
-  width: 100%;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  scroll-snap-type: y mandatory;
 
   @include sp {
-    flex-direction: column;
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-    height: 100dvh;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.films-view {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 12;
+  gap: 10px;
+  align-content: center;
+  align-items: center;
+  height: 100dvh;
+
+  @include sp {
+    grid-column: span 6;
+  }
+
+  > .rank-title {
+    grid-column: 3 / 11;
+    padding: 20px 0;
+    overflow: hidden;
+    border: 1px solid #fff2;
+    border-radius: 20px;
+
+    @include sp {
+      grid-column: 2 / 6;
+    }
+  }
+
+  > .cards {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    grid-column: 3 / 11;
+    max-width: 100%;
+    height: min(500px, 70dvh);
+    overflow-x: scroll;
+    border-radius: 20px;
+
+    @include sp {
+      flex-direction: column;
+      scroll-snap-type: y mandatory;
+      grid-column: 2 / 6;
+    }
   }
 }

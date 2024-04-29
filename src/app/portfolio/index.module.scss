@@ -17,8 +17,6 @@
   grid-template-columns: repeat(12, 1fr);
   gap: 10px;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
   padding: 80px 10px 10px;
   overflow: auto;
 
@@ -174,12 +172,19 @@
 
 .design-link {
   @include rounded-wrapper(16px);
+  @extend %glass-effect;
 
+  font-size: 2rem;
   color: utils.$color-navy;
+
+  > .numbering {
+    padding-inline-end: 16px;
+    font-family: utils.$font-serif;
+  }
 
   > .title {
     font-family: utils.$font-serif;
-    font-size: 2.5rem;
+    font-weight: 800;
   }
 
   &.aas {

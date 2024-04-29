@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 
+import { ScrollingText } from '~/components/common/scrollingText';
 import { FilmCard } from '~/components/pages/and/filmCard';
 import { Film } from '~/types/Films';
 import { getFilms } from '~/utils/films';
@@ -19,13 +20,18 @@ const AndPage = async () => {
   const films = await getFilms();
 
   return (
-    <div className={styles['content-wrapper']}>
-      <div className={styles['cards-view']}>
-        {films.map((film: Film, index: number) => (
-          <FilmCard key={film.id} film={film} rank={index + 1} />
-        ))}
+    <main className={styles['content-wrapper']}>
+      <div className={styles['films-view']}>
+        <div className={styles['rank-title']}>
+          <ScrollingText text="FILM RANKING" size={4} />
+        </div>
+        <div className={styles.cards}>
+          {films.map((film: Film, index: number) => (
+            <FilmCard key={film.id} film={film} rank={index + 1} />
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

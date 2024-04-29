@@ -26,11 +26,14 @@ export const FilmCard = ({ film, rank }: Props) =>
           </div>
           <div className={styles['basic-info']}>
             <h3 className={styles.title}>{film.title}</h3>
-            {film.originalTitle !== film.title ? (
+            {film.originalTitle === film.title ? null : (
               <p className={styles.original}> / {film.originalTitle}</p>
-            ) : null}
-            <p className={styles.release}>{film.releaseDate}</p>
-            <p className={styles.countries}>{film.productionCountries}</p>
+            )}
+            <span className={styles.release}>{film.releaseDate}</span>
+            <span className={styles.countries}>
+              {' '}
+              / {film.productionCountries}
+            </span>
             <p className={styles.overview}>{film.overview}</p>
           </div>
         </div>

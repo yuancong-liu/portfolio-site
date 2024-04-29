@@ -3,7 +3,7 @@ import type { Metadata, NextPage } from 'next';
 import Link from 'next/link';
 
 import { ImageWithLoading } from '~/components/common/image/imageWithLoading';
-import { PageTitle } from '~/components/pages/portfolio/pageTitle';
+import { ScrollingText } from '~/components/common/scrollingText';
 
 import styles from './index.module.scss';
 
@@ -23,7 +23,7 @@ const PortfolioPage: NextPage = () => (
   <main className={classNames(styles['content-wrapper'], 'portfolio-wrapper')}>
     <div className={styles['title-image']} />
     <div className={styles['title-wrapper']}>
-      <PageTitle />
+      <ScrollingText text="PORTFOLIO" />
     </div>
     <h3 className={classNames(styles['section-title'])}>films</h3>
     <div className={classNames(styles['films-section'], styles.section)}>
@@ -52,20 +52,20 @@ const PortfolioPage: NextPage = () => (
     <h3 className={classNames(styles['section-title'])}>designs</h3>
     <div className={classNames(styles['designs-section'], styles.section)}>
       <Link href="/#" className={classNames(styles['design-link'], styles.aas)}>
-        <span>#1</span>
-        <h4 className={styles.title}>Redesign of Academic Affair System</h4>
+        <span className={styles.numbering}>#1</span>
+        <span className={styles.title}>Redesign of Academic Affair System</span>
       </Link>
       <Link href="/#" className={classNames(styles['design-link'], styles.shp)}>
-        <span>#2</span>
-        <h4 className={styles.title}>SP App for Small Health Problems</h4>
+        <span className={styles.numbering}>#2</span>
+        <span className={styles.title}>App for Small Health Problems</span>
       </Link>
       <Link href="/#" className={classNames(styles['design-link'], styles.ksk)}>
-        <span>#3</span>
-        <h4 className={styles.title}>Kuseki</h4>
+        <span className={styles.numbering}>#3</span>
+        <span className={styles.title}>Kuseki</span>
       </Link>
       <Link href="/#" className={classNames(styles['design-link'], styles.akb)}>
-        <span>#4</span>
-        <h4 className={styles.title}>Redesign of AKB48 Official Website</h4>
+        <span className={styles.numbering}>#4</span>
+        <span className={styles.title}>Redesign of AKB48 Official Website</span>
       </Link>
     </div>
     {/* films */}
