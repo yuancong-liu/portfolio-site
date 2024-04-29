@@ -1,4 +1,13 @@
+@use './utils.scss';
+
 %center-items-grid {
   display: grid;
   place-items: center;
+}
+
+%glass-effect {
+  background: utils.$color-pink-bd;
+  backdrop-filter: blur(10px);
+  border: 1px solid #fff2;
+  box-shadow: 0 0 20px 0 utils.$color-pink-bd;
 }

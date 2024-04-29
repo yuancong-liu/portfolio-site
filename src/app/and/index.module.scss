@@ -23,10 +23,11 @@
   }
 
   > .rank-title {
+    @extend %glass-effect;
+
     grid-column: 3 / 11;
     padding: 20px 0;
     overflow: hidden;
-    border: 1px solid #fff2;
     border-radius: 20px;
 
     @include sp {

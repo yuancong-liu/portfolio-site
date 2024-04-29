@@ -5,13 +5,6 @@
   border-radius: $padding;
 }
 
-%glass-effect {
-  background: utils.$color-pink-bd;
-  backdrop-filter: blur(10px);
-  border: 1px solid #fff2;
-  box-shadow: 0 0 20px 0 utils.$color-pink-bd;
-}
-
 .content-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
