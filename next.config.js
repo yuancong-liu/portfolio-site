@@ -26,6 +26,7 @@ const nextConfig = {
     prependData: `
       @use '~/styles/utils.scss';
       @use '~/styles/mixins' as *;
+      @use '~/styles/func' as *;
       @use '~/styles/placeholders' as *;
     `,
   },

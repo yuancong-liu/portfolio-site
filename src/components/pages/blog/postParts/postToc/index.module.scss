@@ -29,7 +29,7 @@
     flex-shrink: 0;
     height: fit-content;
     font-size: 1.4rem;
-    color: utils.$color-pink-light;
+    color: utils.$color-siesta-sands;
 
     > :global(.toc-level) {
       padding: 10px 10px 60px;
@@ -52,11 +52,11 @@
   padding: 12px;
   font-weight: 600;
   text-align: end;
-  background: utils.$color-pink-bd;
+  background: utils.$color-strawberry-foam-10;
   backdrop-filter: blur(10px);
   border: 1px solid #fff2;
   border-radius: 100px;
-  box-shadow: 0 0 20px 0 utils.$color-pink-bd;
+  box-shadow: 0 0 20px 0 utils.$color-strawberry-foam-10;
 
   > svg {
     width: 24px;
@@ -74,10 +74,10 @@
     inset: calc(100% + 10px) 0 auto 0;
     z-index: 100;
     visibility: hidden;
-    background: utils.$color-pink-bd;
+    background: utils.$color-strawberry-foam-10;
     border: 1px solid #fff2;
     border-radius: 12px;
-    box-shadow: 0 0 20px 0 utils.$color-pink-bd;
+    box-shadow: 0 0 20px 0 utils.$color-strawberry-foam-10;
     opacity: 0;
     transform-origin: top;
   }
@@ -111,7 +111,7 @@
     top: 0;
     width: unset;
     height: unset;
-    color: utils.$color-pink;
+    color: utils.$color-strawberry-foam;
     background-color: transparent;
     border: 0;
   }
@@ -134,13 +134,13 @@
 
   :global(.toc-item-h2::after) {
     right: -20px;
-    background-color: utils.$color-pink;
+    background-color: utils.$color-strawberry-foam;
     border-radius: 50%;
   }
 
   :global(.toc-item-h3::after) {
     right: -20px;
-    border: 1px solid utils.$color-pink;
+    border: 1px solid utils.$color-strawberry-foam;
     border-radius: 50%;
   }
 

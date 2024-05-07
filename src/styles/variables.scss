@@ -1,15 +1,20 @@
+@use 'sass:color';
+
 /**
   * Colors
   */
-$color-bg: #132043;
-$color-navy-bd: rgba(19 32 67 / 10%);
-$color-navy-overlay-30: rgba(19 32 67 / 30%);
-$color-navy-overlay-50: rgba(19 32 67 / 50%);
-$color-navy: #132043;
-$color-navy-light: #1f4172;
-$color-pink: #f1b4bb;
-$color-pink-light: #fdf0f0;
-$color-pink-bd: #fdf0f022;
+$color-cool-december: #fdfbf8;
+$color-siesta-sands: #f1e6e0;
+$color-strawberry-foam: #ff8f97;
+$color-tomato-scepter: #e44458;
+$color-indie-go: #2e2364;
+$color-abyssal-night: #150640;
+
+// Backdrops
+$color-strawberry-foam-10: rgba($color-strawberry-foam, 0.1);
+$color-strawberry-foam-30: rgba($color-strawberry-foam, 0.3);
+$color-strawberry-foam-60: rgba($color-strawberry-foam, 0.6);
+$color-abyssal-night-50: rgba($color-abyssal-night, 0.5);
 
 /**
   * Fonts

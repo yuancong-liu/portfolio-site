@@ -14,11 +14,11 @@
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background: utils.$color-pink-bd;
+  background: utils.$color-strawberry-foam-10;
   backdrop-filter: blur(10px);
   border: 1px solid #fff2;
   border-radius: 100px;
-  box-shadow: 0 0 20px 0 utils.$color-pink-bd;
+  box-shadow: 0 0 20px 0 utils.$color-strawberry-foam-10;
   transition: box-shadow 0.3s ease-in-out;
 
   @include sp {
@@ -38,7 +38,7 @@
     width: 40px;
     height: 40px;
     content: '';
-    background: color.adjust(utils.$color-pink, $alpha: 0.5);
+    background: utils.$color-strawberry-foam-60;
     filter: blur(16px);
     opacity: 0;
     transition:
@@ -48,7 +48,7 @@
   }
 
   @include hover {
-    box-shadow: 0 0 30px 0 color.adjust(utils.$color-pink-bd, $alpha: 0.05);
+    box-shadow: 0 0 30px 0 utils.$color-strawberry-foam-30;
 
     &::after {
       opacity: 0.8;
@@ -121,7 +121,7 @@
   }
 
   .nav-item:hover & {
-    text-shadow: 0 0 10px utils.$color-navy;
+    text-shadow: 0 0 10px utils.$color-abyssal-night;
   }
 }
 

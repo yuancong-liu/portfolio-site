@@ -9,7 +9,7 @@
 
     &::before {
       margin-right: 3px;
-      color: utils.$color-pink;
+      color: utils.$color-strawberry-foam;
       content: '#';
     }
 
@@ -60,14 +60,14 @@
     flex-shrink: 0;
     width: fit-content;
     padding-left: 30px;
-    border-left: 1px solid utils.$color-pink-light;
+    border-left: 1px solid utils.$color-siesta-sands;
 
     @include sp {
       padding-top: 4px;
       padding-right: 10px;
       padding-left: 0;
       border: 0;
-      border-top: 1px solid utils.$color-pink-light;
+      border-top: 1px solid utils.$color-siesta-sands;
     }
   }
 }

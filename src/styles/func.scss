@@ -1,0 +1,40 @@
+@use 'sass:color';
+@use 'sass:map';
+
+/**
+  * Opacities
+  */
+$opacities: (
+  'opacity-0': 0%,
+  'opacity-10': 10%,
+  'opacity-20': 20%,
+  'opacity-30': 30%,
+  'opacity-40': 40%,
+  'opacity-50': 50%,
+  'opacity-60': 60%,
+  'opacity-70': 70%,
+  'opacity-80': 80%,
+  'opacity-90': 90%,
+  'opacity-100': 100%,
+);
+
+@function adjust-opacity($color, $opacity) {
+  // If the opacity is a key in the $opacities map, use the corresponding value
+  @if map-has-key($map: $opacities, $key: $opacity) {
+    $opacity: map.get(
+      $map: $opacities,
+      $key: $opacity,
+    );
+  } @else {
+    @error 'Unknown opacity value `#{$opacity}`.';
+  }
+
+  // If the color is a color, adjust the opacity
+  @if type-of($color) == 'color' {
+    $color: $color;
+  } @else {
+    @error 'Only colors can be passed to adjust-opacity.';
+  }
+
+  @return color.scale($color, $alpha: - $opacity);
+}
