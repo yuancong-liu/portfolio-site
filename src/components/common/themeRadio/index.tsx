@@ -9,8 +9,11 @@ import styles from './index.module.scss';
 type Theme = 'system' | 'light' | 'dark';
 
 export const ThemeRadio = () => {
-  const [value, setValue] = useState<Theme>('system');
-  const { preferredColorScheme, setColorScheme } = useColorSchemeContext();
+  const { preferredColorScheme, colorScheme, setColorScheme } =
+    useColorSchemeContext();
+  const [value, setValue] = useState<Theme>(
+    colorScheme ?? preferredColorScheme ?? 'light',
+  );
 
   const handleSetTheme = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value as Theme;
