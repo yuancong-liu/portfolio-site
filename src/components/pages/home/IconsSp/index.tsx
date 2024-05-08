@@ -3,50 +3,50 @@ import { motion } from 'framer-motion';
 import styles from './index.module.scss';
 
 export const IconsSp = () => {
-    const cMarkPath = {
-      hidden: {
-        pathLength: 0,
-        fill: 'rgba(255, 255, 255, 0)',
+  const cMarkPath = {
+    hidden: {
+      pathLength: 0,
+      fill: 'rgba(255, 255, 255, 0)',
+    },
+    visible: {
+      pathLength: [0, 1, 1],
+      fill: [
+        'rgba(255, 255, 255, 0)',
+        'rgba(255, 255, 255, 0)',
+        'rgba(255, 255, 255, 1)',
+      ],
+      transition: {
+        duration: 3,
+        ease: 'easeInOut',
       },
-      visible: {
-        pathLength: [0, 1, 1],
-        fill: [
-          'rgba(255, 255, 255, 0)',
-          'rgba(255, 255, 255, 0)',
-          'rgba(255, 255, 255, 1)',
-        ],
-        transition: {
-          duration: 3,
-          ease: 'easeInOut',
-        },
-      },
-    };
+    },
+  };
 
-    const cMark = {
-      hidden: {
-        rotate: 180,
+  const cMark = {
+    hidden: {
+      rotate: 180,
+    },
+    visible: {
+      rotate: [180, 0, 0],
+      transition: {
+        duration: 3,
+        ease: 'easeInOut',
       },
-      visible: {
-        rotate: [180, 0, 0],
-        transition: {
-          duration: 3,
-          ease: 'easeInOut',
-        },
-      },
-    };
+    },
+  };
 
-    const lYMark = {
-      hidden: {
-        opacity: 0,
+  const lYMark = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: [0, 0, 1],
+      transition: {
+        duration: 3,
+        ease: 'easeInOut',
       },
-      visible: {
-        opacity: [0, 0, 1],
-        transition: {
-          duration: 3,
-          ease: 'easeInOut',
-        },
-      },
-    };
+    },
+  };
 
   return (
     <div className={styles['overall-wrapper']}>
