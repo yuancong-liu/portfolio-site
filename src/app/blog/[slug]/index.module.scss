@@ -9,7 +9,7 @@
 
     &::before {
       margin-right: 3px;
-      color: utils.$color-strawberry-foam;
+      color: var(--color-tmp-name-4);
       content: '#';
     }
 
@@ -60,14 +60,14 @@
     flex-shrink: 0;
     width: fit-content;
     padding-left: 30px;
-    border-left: 1px solid utils.$color-siesta-sands;
+    border-left: 1px solid var(--color-tmp-name-5);
 
     @include sp {
       padding-top: 4px;
       padding-right: 10px;
       padding-left: 0;
       border: 0;
-      border-top: 1px solid utils.$color-siesta-sands;
+      border-top: 1px solid var(--color-tmp-name-5);
     }
   }
 }

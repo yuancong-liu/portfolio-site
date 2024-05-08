@@ -23,7 +23,7 @@
       left: -20px;
       z-index: -1;
       font-family: monospace;
-      color: utils.$color-strawberry-foam;
+      color: var(--color-tmp-name-4);
       content: '<h2>';
     }
   }
@@ -39,7 +39,7 @@
       left: -20px;
       z-index: -1;
       font-family: monospace;
-      color: utils.$color-strawberry-foam;
+      color: var(--color-tmp-name-4);
       content: '<h3>';
     }
   }
@@ -54,7 +54,7 @@
       left: -20px;
       z-index: -100;
       font-family: monospace;
-      color: utils.$color-strawberry-foam;
+      color: var(--color-tmp-name-4);
       content: '<h4>';
     }
   }

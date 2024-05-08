@@ -31,7 +31,7 @@
 
     @include sp {
       height: 40px;
-      border-bottom: 1px solid utils.$color-strawberry-foam;
+      border-bottom: 1px solid var(--color-tmp-name-4);
     }
 
     &.-checked {

@@ -1,32 +1,61 @@
-import { ReactNode } from 'react';
+'use client';
+
+import {
+  ReactNode,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { Analytics } from '@vercel/analytics/react';
-import { Metadata, Viewport } from 'next';
+import { Viewport } from 'next';
 
 import '~/styles/globals.scss';
+import { ColorSchemeContext } from '~/contexts/colorSchemeContext';
 
 type Props = {
   children: ReactNode;
-};
-
-export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://localhost:3000',
-  ),
 };
 
 export const viewport: Viewport = {
   themeColor: '#132043',
 };
 
-const RootLayout = ({ children }: Props) => (
-  <html lang="en">
-    <body>
-      {children}
-      <div className="common-background" />
-    </body>
-    <Analytics />
-  </html>
-);
+const RootLayout = ({ children }: Props) => {
+  const [scheme, setScheme] = useState<'light' | 'dark'>();
+  const [preferredScheme, setPreferredScheme] = useState<'light' | 'dark'>();
+
+  useLayoutEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setPreferredScheme('dark');
+      setScheme('dark');
+    } else {
+      setPreferredScheme('light');
+      setScheme('light');
+    }
+  }, []);
+
+  const setColorScheme = useCallback((nextScheme: 'light' | 'dark') => {
+    setScheme(nextScheme);
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({ colorScheme: scheme || 'light', setColorScheme, preferredScheme }),
+    [scheme, setColorScheme, preferredScheme],
+  );
+
+  return (
+    <html lang="en">
+      <body>
+        <ColorSchemeContext.Provider value={contextValue}>
+          {children}
+        </ColorSchemeContext.Provider>
+        <div className="common-background" />
+      </body>
+      <Analytics />
+    </html>
+  );
+};
 
 export default RootLayout;

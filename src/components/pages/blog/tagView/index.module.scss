@@ -14,7 +14,7 @@
 
   &::before {
     margin-right: 3px;
-    color: utils.$color-strawberry-foam;
+    color: var(--color-tmp-name-4);
     content: '#';
   }
 
@@ -32,7 +32,7 @@
 
   @include hover {
     &::after {
-      background-color: utils.$color-strawberry-foam;
+      background-color: var(--color-tmp-name-4);
     }
   }
 }

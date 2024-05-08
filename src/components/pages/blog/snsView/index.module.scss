@@ -48,6 +48,6 @@
   transition: background-color 0.3s ease-in-out;
 
   @include hover {
-    background-color: utils.$color-strawberry-foam;
+    background-color: var(--color-tmp-name-4);
   }
 }
