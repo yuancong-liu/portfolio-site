@@ -25,8 +25,8 @@
   grid-column: span 4;
   background: linear-gradient(
     30deg,
-    utils.$color-strawberry-foam,
-    utils.$color-siesta-sands
+    var(--color-tmp-name-4),
+    var(--color-tmp-name-5)
   );
   box-shadow: 0 0 20px 0 utils.$color-strawberry-foam-10;
 
@@ -117,8 +117,8 @@
     font-family: utils.$font-serif;
     font-size: 1.6rem;
     font-weight: 800;
-    color: #fff;
-    text-shadow: 0 0 16px utils.$color-abyssal-night;
+    color: var(--color-text);
+    text-shadow: 0 0 16px var(--color-tmp-name-1);
     letter-spacing: 0.2rem;
     transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
@@ -139,9 +139,9 @@
   flex-direction: column;
   grid-column: span 7;
   justify-content: end;
-  color: utils.$color-abyssal-night;
+  color: var(--color-tmp-name-1);
   text-align: right;
-  background-color: utils.$color-siesta-sands;
+  background-color: var(--color-tmp-name-5);
 
   @include sp {
     grid-column: span 6;
@@ -168,7 +168,7 @@
   @extend %glass-effect;
 
   font-size: 2rem;
-  color: utils.$color-abyssal-night;
+  color: var(--color-tmp-name-1);
 
   > .numbering {
     padding-inline-end: 16px;
@@ -182,7 +182,7 @@
 
   &.aas {
     grid-column: span 8;
-    background-color: utils.$color-strawberry-foam;
+    background-color: var(--color-tmp-name-4);
 
     @include sp {
       grid-column: span 4;
@@ -191,7 +191,7 @@
 
   &.shp {
     grid-column: span 4;
-    background-color: utils.$color-siesta-sands;
+    background-color: var(--color-tmp-name-5);
 
     @include sp {
       grid-column: span 2;
@@ -200,7 +200,7 @@
 
   &.ksk {
     grid-column: span 4;
-    background-color: utils.$color-siesta-sands;
+    background-color: var(--color-tmp-name-5);
 
     @include sp {
       grid-column: span 2;
@@ -209,7 +209,7 @@
 
   &.akb {
     grid-column: span 8;
-    background-color: utils.$color-strawberry-foam;
+    background-color: var(--color-tmp-name-4);
 
     @include sp {
       grid-column: span 4;

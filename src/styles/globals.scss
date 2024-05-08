@@ -6,10 +6,31 @@
 
 :root {
   box-sizing: border-box;
+  color-scheme: light dark;
+
+  @include color-scheme(light) {
+    --color-text: #150640;
+    --color-tmp-name-1: #fdfbf8;
+    --color-tmp-name-2: #f1e6e0;
+    --color-tmp-name-3: #ff8f97;
+    --color-tmp-name-4: #e44458;
+    --color-tmp-name-5: #2e2364;
+    --color-tmp-name-6: #150640;
+  }
+
+  @include color-scheme(dark) {
+    --color-text: #fdfbf8;
+    --color-tmp-name-1: #150640;
+    --color-tmp-name-2: #2e2364;
+    --color-tmp-name-3: #e44458;
+    --color-tmp-name-4: #ff8f97;
+    --color-tmp-name-5: #f1e6e0;
+    --color-tmp-name-6: #fdfbf8;
+  }
 }
 
 html {
-  background-color: utils.$color-abyssal-night;
+  background-color: var(--color-tmp-name-1);
 }
 
 html,
@@ -22,7 +43,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  color: #fff;
+  color: var(--color-text);
 }
 
 *,
@@ -36,8 +57,8 @@ body {
 }
 
 ::selection {
-  color: utils.$color-abyssal-night;
-  background-color: utils.$color-strawberry-foam;
+  color: var(--color-tmp-name-1);
+  background-color: var(--color-tmp-name-3);
 }
 
 button {
@@ -64,9 +85,9 @@ a {
   height: 100%;
   background: radial-gradient(
     circle at top 30% left 5%,
-    color.mix(utils.$color-strawberry-foam, utils.$color-indie-go, 30%) 0%,
-    utils.$color-indie-go 30%,
-    utils.$color-abyssal-night 70%
+    var(--color-tmp-name-3) 0%,
+    var(--color-tmp-name-2) 30%,
+    var(--color-tmp-name-1) 70%
   );
 }
 

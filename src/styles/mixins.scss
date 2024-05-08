@@ -28,3 +28,18 @@ $breakpoint: 768px;
     }
   }
 }
+
+@mixin color-scheme($scheme: dark) {
+  @media (prefers-color-scheme: $scheme) {
+    /* stylelint-disable-next-line selector-max-id */
+    :has(#theme-system:checked) {
+      --color-scheme: #{$scheme};
+      @content;
+    }
+  }
+
+  :has(#theme-#{$scheme}:checked) {
+    --color-scheme: #{$scheme};
+    @content;
+  }
+}

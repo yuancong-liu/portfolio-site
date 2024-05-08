@@ -1,5 +1,7 @@
 import { Metadata, NextPage } from 'next';
 
+import { ThemeRadio } from '~/components/common/themeRadio';
+
 import { HomeDynamic } from '../components/pages/home/homeDynamic';
 
 export const metadata: Metadata = {
@@ -11,6 +13,11 @@ export const metadata: Metadata = {
   },
 };
 
-const HomePage: NextPage = () => <HomeDynamic />;
+const HomePage: NextPage = () => (
+  <>
+    <HomeDynamic />
+    <ThemeRadio />
+  </>
+);
 
 export default HomePage;
