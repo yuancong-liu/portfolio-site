@@ -1,46 +1,57 @@
 'use client';
 
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+
+import { useColorSchemeContext } from '~/contexts/colorSchemeContext';
 
 import styles from './index.module.scss';
 
 type Theme = 'system' | 'light' | 'dark';
 
 export const ThemeRadio = () => {
-  const [theme, setTheme] = useState<Theme>('system');
+  const [value, setValue] = useState<Theme>('system');
+  const { preferredColorScheme, setColorScheme } = useColorSchemeContext();
+
+  const handleSetTheme = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value as Theme;
+    setValue(newValue);
+    const nextScheme =
+      newValue === 'system' ? preferredColorScheme ?? 'light' : newValue;
+    setColorScheme?.(nextScheme);
+  };
 
   return (
     <div className={styles['label-group']}>
-      <label htmlFor="theme-system">
+      <label className={styles.label} htmlFor="theme-system">
         <input
           type="radio"
           name="theme"
           value="system"
           id="theme-system"
-          checked={theme === 'system'}
-          onChange={() => setTheme('system')}
+          checked={value === 'system'}
+          onChange={handleSetTheme}
         />
         System
       </label>
-      <label htmlFor="theme-light">
+      <label className={styles.label} htmlFor="theme-light">
         <input
           type="radio"
           name="theme"
           value="light"
           id="theme-light"
-          checked={theme === 'light'}
-          onChange={() => setTheme('light')}
+          checked={value === 'light'}
+          onChange={handleSetTheme}
         />
         Light
       </label>
-      <label htmlFor="theme-dark">
+      <label className={styles.label} htmlFor="theme-dark">
         <input
           type="radio"
           name="theme"
           value="dark"
           id="theme-dark"
-          checked={theme === 'dark'}
-          onChange={() => setTheme('dark')}
+          checked={value === 'dark'}
+          onChange={handleSetTheme}
         />
         Dark
       </label>

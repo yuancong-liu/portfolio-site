@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import { NavBar } from '~/components/common/navBar';
+import { ThemeRadio } from '~/components/common/themeRadio';
 
 import styles from './layout.module.scss';
 
@@ -11,6 +12,7 @@ type Props = {
 const AboutMeLayout = ({ children }: Props) => (
   <div className={styles['page-wrapper']}>
     <NavBar />
+    <ThemeRadio />
     {children}
   </div>
 );
