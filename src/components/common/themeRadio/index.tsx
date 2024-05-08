@@ -9,15 +9,14 @@ import styles from './index.module.scss';
 type Theme = 'system' | 'light' | 'dark';
 
 export const ThemeRadio = () => {
-  const { preferredColorScheme, colorScheme, setColorScheme } =
+  const { preferredColorScheme, option, setColorScheme, setOption } =
     useColorSchemeContext();
-  const [value, setValue] = useState<Theme>(
-    colorScheme ?? preferredColorScheme ?? 'light',
-  );
+  const [value, setValue] = useState<Theme>(option);
 
   const handleSetTheme = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value as Theme;
     setValue(newValue);
+    setOption?.(newValue);
     const nextScheme =
       newValue === 'system' ? preferredColorScheme ?? 'light' : newValue;
     setColorScheme?.(nextScheme);

@@ -25,6 +25,7 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: Props) => {
   const [scheme, setScheme] = useState<'light' | 'dark'>();
   const [preferredScheme, setPreferredScheme] = useState<'light' | 'dark'>();
+  const [option, setOption] = useState<'system' | 'light' | 'dark'>('system');
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -41,8 +42,14 @@ const RootLayout = ({ children }: Props) => {
   }, []);
 
   const contextValue = useMemo(
-    () => ({ colorScheme: scheme || 'light', setColorScheme, preferredScheme }),
-    [scheme, setColorScheme, preferredScheme],
+    () => ({
+      colorScheme: scheme,
+      setColorScheme,
+      preferredScheme,
+      option,
+      setOption,
+    }),
+    [scheme, setColorScheme, preferredScheme, option],
   );
 
   return (
