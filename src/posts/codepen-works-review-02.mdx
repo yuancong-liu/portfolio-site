@@ -1,0 +1,94 @@
+---
+title: Note | CodePen Works Review 02
+date: 2024-05-09 11:54:00
+language: English
+tags:
+  - Programming
+  - Front-end
+  - CSS
+---
+
+Today continues with a roundup of recent CodePen works done that were not covered in the previous post.  
+I traveled to Okinawa during Golden Week, and I developed this site furiously by the beach and ended up doing few Pens…
+
+## `onchange` vs `oninput`
+
+At first I played a crude little horror game masquerading as a survey online, and realized that the later game caused horror effects by manipulating and tampering with user input. Then I made this Pen in order to explain to a friend how easy it was to make this game, and it led me to discover the difference between this set of events that I had been ignoring.
+Since few forms require such granular monitoring of real-time user input, most developers as well as form libraries focus on change events, and few focus on input events.  
+Specifically, change events occur when the input loses focus, and input events occur every time the user input content changes.
+In my example, I'm trying to tamper with the content of the user's input directly while the user is typing, and trigger a button click directly based on the length of the content. If I listen to change events, then I can only tamper when the user finishes typing and the focus leaves the input, but listening to input events allows me to tamper in real time, so that the user doesn't even see the input blinking, and when they press the keyboard, the content on the screen has already changed to what I've predefined.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  scrolling="no"
+  title="Subgrid"
+  src="https://codepen.io/yuancong-liu/embed/JjVwKOx?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+## `background-clip: text;` and `lh`
+
+I was initially shocked to see `lh`, a CSS unit, on the Internet and have been determined to learn CSS units ever since.  
+`lh` is actually line-height, and while I can't think of what this unit does in most production at the moment, it's better to know than not to know…
+In my example, I applied `background-clip: text;` to `<p>` to clip the background to the text. Also the size of the background I specify with` l`h so that it fits the line height of the text perfectly. This is very effective for making text appear line by line and so on.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  scrolling="no"
+  title="Subgrid"
+  src="https://codepen.io/yuancong-liu/embed/poBqgmM?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+## `-moz-element`
+
+`-moz-element` is honestly a property that I don't find very useful (and it's only supported on Firefox)… Simply put, it's the ability to assign one element to another as a background, etc., such as in the code below.
+
+```scss
+#background {
+  // <div id="background" />
+}
+
+.another-element {
+  background: center -moz-element(#background);
+}
+```
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  scrolling="no"
+  title="Subgrid"
+  src="https://codepen.io/yuancong-liu/embed/VwNEzEX?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+## `onscrollend`
+
+In the past, developers have had to use a variety of tools and interfaces to detect when a user stops scrolling. But now with the `onscrollend` interface, developers can directly define the callback function when the user stops scrolling, including when scrolling to the bottom.  
+In the example below, I've implemented generating a toast when the user stops scrolling.
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  scrolling="no"
+  title="Subgrid"
+  src="https://codepen.io/yuancong-liu/embed/YzMONaZ?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+## Postscript
+
+The features introduced in the CSS Wrapped covered are pretty fancy, but unfortunately many of them are just experimental and hopefully will be supported by all browsers soon (especially animations based on page scrolling).
+On a side note, Safari recently introduced toggle switch, but honestly how much usage will this highly browser-dependent feature end up getting 🤔?  
+The past two days I've been busy developing the dark and light colour patterns for this site that everyone is developing with no certain reasons these days. I'll be back to work on the Pens once I'm done with the colour scheme and bugs, see you next time~!
