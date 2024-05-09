@@ -63,6 +63,10 @@
     height: 24px;
   }
 
+  > svg > path {
+    fill: var(--color-tmp-name-5);
+  }
+
   @include pc {
     display: none;
   }

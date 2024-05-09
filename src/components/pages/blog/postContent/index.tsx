@@ -17,7 +17,6 @@ import { PostPre } from '../postParts/postPre';
 import { PostTable } from '../postParts/postTable';
 import { PostToc } from '../postParts/postToc';
 
-import 'highlight.js/styles/github-dark-dimmed.min.css';
 import styles from './index.module.scss';
 
 type Props = {

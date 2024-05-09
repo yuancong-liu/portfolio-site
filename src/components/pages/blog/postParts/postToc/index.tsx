@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import classNames from 'classnames';
 import gsap from 'gsap';
 
+import { useColorSchemeContext } from '~/contexts/colorSchemeContext';
 import { useDeviceDetect } from '~/hooks';
 
 import styles from './index.module.scss';
@@ -13,6 +14,17 @@ import styles from './index.module.scss';
 type Props = ComponentProps<'nav'>;
 
 export const PostToc = ({ className, children }: Props) => {
+  // I have nowhere to put this code, so I'll just leave it here.
+  const { colorScheme } = useColorSchemeContext();
+
+  useEffect(() => {
+    if (colorScheme === 'dark') {
+      import('highlight.js/styles/github-dark-dimmed.min.css'!);
+    } else {
+      import('highlight.js/styles/github.min.css'!);
+    }
+  }, [colorScheme]);
+
   const [tocOpen, setTocOpen] = useState(false);
   const tocRef = useRef<HTMLDivElement>(null);
   const { isPc } = useDeviceDetect();
@@ -49,7 +61,7 @@ export const PostToc = ({ className, children }: Props) => {
   }, [isPc]);
 
   const toggleToc = contextSafe(() => {
-    if (tocOpen) {
+    if (tocOpen && !isPc) {
       gsap.to('.top', { rotate: 0, translateY: 0, scale: 1 });
       gsap.to('.middle', { opacity: 1 });
       gsap.to('.bottom', { rotate: 0, translateY: 0, scale: 1 });
