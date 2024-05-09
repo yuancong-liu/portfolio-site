@@ -55,13 +55,28 @@ export const PostToc = ({ className, children }: Props) => {
   useEffect(() => {
     if (isPc) {
       gsap.set('.toc', { autoAlpha: 1, scaleY: 1 });
+    } else if (tocOpen) {
+      gsap.fromTo(
+        '.toc',
+        {
+          autoAlpha: 0,
+          scaleY: 1.2,
+          backdropFilter: 'blur(0)',
+        },
+        {
+          autoAlpha: 1,
+          scaleY: 1,
+          backdropFilter: 'blur(10px)',
+          ease: 'ease-in-out',
+        },
+      );
     } else {
       gsap.set('.toc', { autoAlpha: 0, scaleY: 1.2 });
     }
-  }, [isPc]);
+  }, [isPc, tocOpen]);
 
   const toggleToc = contextSafe(() => {
-    if (tocOpen && !isPc) {
+    if (tocOpen) {
       gsap.to('.top', { rotate: 0, translateY: 0, scale: 1 });
       gsap.to('.middle', { opacity: 1 });
       gsap.to('.bottom', { rotate: 0, translateY: 0, scale: 1 });
