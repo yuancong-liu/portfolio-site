@@ -8,7 +8,7 @@
   align-items: flex-end;
   max-width: 700px;
   height: 140px;
-  margin: 40px auto;
+  margin: 0 auto 40px;
 
   @include sp {
     flex-direction: column;
