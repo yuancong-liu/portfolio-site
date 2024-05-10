@@ -1,0 +1,97 @@
+@import 'https://fonts.googleapis.com/css2?family=Geologica:slnt,wght,CRSV,SHRP@-12..0,100..900,0..1,0..100&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=BioRhyme:wdth,wght@100..125,200..800&family=Rokkitt:ital@0;1&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap';
+
+--font-sans-serif: 'Geologica', 'IBM Plex Sans JP', sans-serif;
+--font-serif: 'BioRhyme', 'IBM Plex Sans JP', serif;
+--font-mono: 'JetBrains Mono', monospace;
+
+@layer template {
+  :root {
+    --border-radius: 10px;
+    --color-cool-december: #fdfbf8;
+    --color-siesta-sands: #f1e6e0;
+    --color-strawberry-foam: #ff8f97;
+    --color-tomato-scepter: #e44458;
+    --color-indie-go: #2e2364;
+    --color-abyssal-night: #150640;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: var(--font-sans-serif);
+    color: #fff;
+    background-color: var(--color-abyssal-night);
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    max-width: 500px;
+    min-height: calc(100vh - 40px);
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  pre {
+    padding: 0 20px;
+    margin: 0;
+    font-family: var(--font-mono);
+    background-color: var(--color-indie-go);
+    border-radius: var(--border-radius);
+  }
+
+  code {
+    background-color: var(--color-indie-go) !important;
+  }
+
+  .button {
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--color-strawberry-foam);
+    border: 0;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease-in-out;
+  }
+
+  #overall-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at top 30% left 0,
+      var(--color-tomato-scepter) 0%,
+      var(--color-indie-go) 19%,
+      var(--color-abyssal-night) 56%
+    );
+  }
+
+  #overall-background::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: linear-gradient(
+        0deg,
+        transparent 80px,
+        rgba(241 180 187 / 20%) 81px
+      ),
+      linear-gradient(90deg, transparent 80px, rgba(241 180 187 / 20%) 81px);
+    background-position: center;
+    background-size: 81px 81px;
+  }
+}
