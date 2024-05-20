@@ -48,7 +48,7 @@ const PostPage = async ({ params }: Props) => {
 
   if (!title) return null;
 
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`;
+  const url = `/blog/${slug}`;
 
   // Metadata
   metadata.title = title;
