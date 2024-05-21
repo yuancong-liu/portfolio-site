@@ -1,0 +1,145 @@
+---
+title: Note | I finally understood the at-rule @property!
+date: 2024-05-21 12:00:11
+language: English
+tags:
+  - Programming
+  - Front-end
+  - CSS
+---
+
+Back in 2020, Chrome added support for `@property`, which allows developers to define their own properties. Over the past few months, I've sporadically read a lot of tutorials, explanations, and MDN documentation on `@property` (many times). Every time I think I've gotten myself to understand what it's all about, the obscure writeups of some CodePen work knock me back down - I simply haven't gotten started yet! So this time I steeled myself, and with the help of ChatGPT (I asked questions furiously) I finally figured out the usage and features of `@property`. It's still an experimental feature four years later, but I very much hope it will make it into production someday.
+
+## What is `@property`?
+
+If I were to search the web, then odds are I'd just find some very general introductions and tutorials.
+
+According to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/@property), `@property` is part of the CSS Houdini API (never heard of it), which allows developers to explicitly define properties in stylesheets and has the ability to set default values, provide type checking and define whether they can be inherited.
+
+The sample code is also extremely confusing.
+
+```css
+@property --item-size {
+  syntax: '<percentage>';
+  initial-value: 40%;
+  inherits: true;
+}
+
+:root {
+  --item-size: 80%;
+}
+
+.item {
+  width: var(--item-size);
+}
+```
+
+Isn't this exactly the same as using CSS variables? Why would I go through the trouble of defining a property with this `@property` rule and then using that property as a variable?
+
+If it was just about providing type checking and defining whether or not to inherit, then the advent of `@property` would be nothing more than an overkill, and even if it did get supported by all browsers someday, then that would be a pain in the ass that no one would actually put into production, I suspected.
+
+I suspected.
+
+## How to understand `@property`?
+
+If it were used in the same way as a CSS variables, it could be called `@variable`, but it is called `@property` instead, specifically because what is defined through it is **not a variable, but a property** (although it is used as a variable in the example).
+
+So looking at it from the perspective of CSS properties reveals its most important feature:
+
+Changes to variables can only be defined through JS, while changes to custom properties can be specified directly by pure CSS.
+
+What's that supposed to mean? Think back to the code we normally use for transition and animation definitions using CSS variables.
+
+```css
+:root {
+  --opacity-start: 0;
+  --opacity-end: 1;
+}
+
+@keyframes reveal {
+  from {
+    opacity: var(--opacity-start);
+  }
+
+  to {
+    opacity: var(--opacity-end);
+  }
+}
+
+.item {
+  animation: reveal 0.5s infinite;
+}
+```
+
+We define the initial and ending opacity values separately, and then substitute these two values when defining the keyframes.
+
+But what happens with `@property`?
+
+```css
+@property --item-opacity {
+  syntax: '<alpha-value>';
+  inherits: true;
+  initial: 1;
+}
+
+@keyframes reveal {
+  to {
+    --item-opacity: 1;
+  }
+}
+
+:root {
+  --item-opacity: 0;
+
+  animation: reveal 0.5s infinite;
+}
+
+.item {
+  opacity: var(--item-opacity);
+}
+```
+
+Comparing it to the code above, there are a few differences:
+
+1. The `from` part is omitted from the definition of the keyframe;
+2. There is only one value for transparency, instead of defining two values at the beginning and two at the end, respectively;
+3. `animation` is defined in `:root`;
+4. In `.item`, only a property of opacity needs to be defined, not the animation.
+
+The combination of the characteristic and its difference from a variable allows for the following explanations for the code changes above.
+
+What we are defining here is no longer a variable, but a property. There's a barrier to understanding here, and it's the most confusing thing about this rule: if it defines a property, why do we need to use it like a variable? The reason is that native CSS doesn't have such a property, i.e., defining it alone won't have any effect on the stylesheet; we need to make the custom property actually work by binding it to a real property telling it, "Now you are this custom property".
+
+When we understand what it really is, we can understand what these codes mean. Since it is a property, we can certainly define animation and transition for `opacity`, which is not a discrete property.
+
+It also has the nature of variables, so we can define its animation and transition wherever we define it.
+
+So in the end what we assign to `.item` is actually an ever-changing variable. This greatly reduces the coupling of scripts and stylesheets during our development.
+
+## One more example
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  title="Where to code transition property"
+  src="https://codepen.io/yuancong-liu/embed/vYPZxYX?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+This example of applying to trigonometry was my first exposure to the `@property` rule. In this example, the keyframe definition for the rotation is only five lines long, although it is a bit complicated for offsets and such.
+
+```css
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+```
+
+## Finally
+
+This is the basic understanding and usage of `@property`. (I'll have to check out what the Houdini API actually is)
+
+Have a nice day! 🌈
