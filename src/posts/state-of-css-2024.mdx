@@ -1,0 +1,59 @@
+---
+title: Note | A Glimpse of State of CSS 2024
+date: 2024-08-27 11:10:00
+language: English
+tags:
+  - CSS
+  - Frontend
+  - Programming
+---
+
+State of CSS started the questionnaire again a couple of days ago (was it this early in previous years too?). Given the increasing tendency of CSS to replace various complex animation JS libraries in the last couple of years, plus the fact that questionnaires like State of CSS always have some little-known off-the-wall properties in them, I immediately finished the questionnaire.
+
+Next up is a compilation of brand new attributes that I've never heard of.
+
+## `offset-path`
+
+SVG path animation has always been an area I've been afraid to venture into (because it looks like a pain in the arse). `offset-path` is a standard that became baseline in 2023, and its used to define the path that an element travels.
+
+Overall it's a pretty well understood property, but the way it's specified is kinda interesting. In addition to defining SVG paths directly, as shown at the very beginning of the MDN documentation, `<url>`, `<basic-shape>`, `ray()`, and even `<coord-box>` are all supported.
+
+The uses of url() blew my mind as you can just call other svg elements directly with an id, e.g. `url(#some-svg-element)`. (Sorry I never knew that).
+
+Another thing that caught my eye was the `<coord-box>` approach, which can take values such as `content-box`, `padding-box`, and `border-box`, meaning along the line of intersection of the contents and paddings, the line of intersection of the paddings and border, and the line of intersection of the border and margins, respectively. So it should be pretty easy to make a loading spinner using this method (here's a crude sample)
+
+<PostFrame
+  height="500"
+  scrolling="no"
+  scrolling="no"
+  title="Subgrid"
+  src="https://codepen.io/yuancong-liu/embed/JjQZLxX?default-tab=result&theme-id=dark"
+  frameBorder="no"
+  loading="lazy"
+  allowFullScreen
+/>
+
+## A11y-related
+
+In recent years, browsers have delegated more customisation interfaces to users in order to allow them to browse the web in a variety of situations. For example, users can now choose to increase contrast, decrease animation, or the most used - light and dark - at the browser or operating system level.
+
+Depending on the user's settings, the actions of the user agent may have unintended consequences, such as the text colour changing making the content difficult to distinguish.
+
+Against this background, a new media query method that specifies styles individually for the above user settings has emerged. Among the earlier ones are `prefers-colour-scheme` and `prefers-reduced-motion`.
+
+The following two appeared in this questionnaire.
+
+1. `prefers-contrast`: Style specification for user preference settings for display contrast.
+2. `forced-color`: This is an even more extreme setting than the contrast preference above (which is totally the first I've heard of), where the user agent enforces the use of a user-specified colour palette to replace all colours. At this point, the user agent will provide the standard CSS system colour. For example, the `ButtonText` in `border: 2px ButtonText solid;` is one of the CSS system colour keywords.
+
+## `nth-child of S`
+
+nth-child is already a very old selector, I don't know how it is used overall, I really use it very little. But the CSS selector standard came to the Level 4 working draft, and this selector has been greatly upgraded.
+
+Shamefully, when I read this working draft, I realised that I'd been greatly misunderstanding what it really meant all along.
+
+I used to think that `.some-class:nth-child(2)` meant the second child having the class name `.some-class`. But in fact, the selector that can really have this effect is the usage of this upgrade - `:nth-child(2 of .some-class)`, whereas the selector just mentioned actually means **‘is the second child and has the class name `.some-class`’**!
+
+By the way, this selector, while still in the working draft stage, is actually already supported by all browsers, and referencing the usage in this [article](https://developer.chrome.com/docs/css-ui/css-nth-child-of-s) (which I've been fantasising about in my head) should be of no small use.
+
+Have a good day! 🌈
