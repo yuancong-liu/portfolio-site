@@ -10,7 +10,7 @@
 export const getDateString = (date: string) => {
   const dateObj = new Date(date);
   return `${dateObj.getFullYear()} ${MONTH_MAP[dateObj.getMonth()]} ${
-    dateObj.getDate() - 1
+    dateObj.getDate()
   }`;
 };
 
