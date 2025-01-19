@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 
-export const GET = async () =>
+import { storage } from '~/config/firebase';
+
+export const GET = async () => {
   NextResponse.json({
     message: 'GET method',
   });
+};
