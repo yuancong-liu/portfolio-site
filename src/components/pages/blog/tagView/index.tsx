@@ -8,7 +8,7 @@ type Props = {
   allTags: Tag[];
 };
 
-export const TagView = ({ allTags }: Props) => (
+export const TagView = async ({ allTags }: Props) => (
   <ul className={styles['tag-list']}>
     {allTags.map((tag) => (
       <li key={tag.tag} className={styles['tag-instance']}>
