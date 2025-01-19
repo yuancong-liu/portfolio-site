@@ -17,13 +17,16 @@ export const metadata: Metadata = {
 /**
  * Blog page
  */
-const BlogPage = () => {
+const BlogPage = async () => {
   generateRssFeed(async (content) =>
     (await import('react-dom/server')).renderToStaticMarkup(
       (await compileMDX({ source: content, components: { PostFrame } }))
         .content as any,
     ),
   );
+
+  // const res = await fetch('http://localhost:3000/api/tags');
+  // const { tags } = await res.json();
 
   const { allPosts } = getAllPosts();
   const { allTags } = getAllTags();
