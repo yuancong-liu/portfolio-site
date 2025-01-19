@@ -26,6 +26,7 @@ const BlogPage = async () => {
   );
 
   const res = await fetch('http://localhost:3000/api/tags');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { tags } = await res.json();
 
   const { allPosts } = getAllPosts();
