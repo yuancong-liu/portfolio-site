@@ -1,9 +1,12 @@
 import { getDownloadURL, ref } from 'firebase/storage';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { storage } from '~/config/firebase';
 
-export const GET = async ({ params }: { params: { slug: string } }) => {
+export const GET = async (
+  _: NextRequest,
+  { params }: { params: { slug: string } },
+) => {
   const { slug } = params;
   const storageRef = ref(storage, `posts/${slug}.mdx`);
 
