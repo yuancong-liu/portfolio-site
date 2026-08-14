@@ -18,14 +18,13 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: 24.x
-          cache: yarn
+          bun-version: 1.3.11
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: bun install --frozen-lockfile
       - name: Run ESLint
-        run: yarn lint
+        run: bun run lint
       - name: Push auto-fixed files
         run: |
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
@@ -38,4 +37,3 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

@@ -60,7 +60,7 @@
       {
         "groups": [
           "builtin", // 組み込みモジュール
-          "external", // yarn add したパッケージ
+          "external", // bun add したパッケージ
           "internal", // 自作モジュール
           "parent", // 親階層のファイル
           "sibling", // 同階層のファイル
